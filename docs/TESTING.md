@@ -12,6 +12,7 @@ Run from repository root. Evidence labels are distinct: reviewed, build verified
 | A: Android | `./gradlew :app:assembleDebug :app:assembleRelease :app:lint` | both variants compile, lint has no errors |
 | B/C: UI | `npm ci`; `npx playwright install chromium`; `node tests/browser.cjs` | mobile flow, resume, results, mock feedback, escaping, corruption recovery pass |
 | D: service | API test client and UI mock-service integration | no duplicate credits; token/participant isolation; useful offline errors |
+| D: Streamlit Cloud entry/secrets | `python -m pytest tests/test_dashboard.py -q` | real root entry renders; missing-key fallback, secret precedence/default model, mock generation, key non-display and provider-error recovery pass |
 | F: packaging | `python scripts/package_candidate.py` | package/API/version/signature inspected; APK <5 MB; checksums/source identity |
 
 No earlier baseline exists; regression fixtures establish the first baseline. Browser suite tests 393×851 and 320×640, no horizontal overflow or uncaught JS errors. Device timing and lifecycle behavior remain independent checks.

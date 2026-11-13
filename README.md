@@ -33,10 +33,36 @@ python -m venv .venv
 . .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -r backend/requirements.lock
 python -m pytest -q
-python -m streamlit run backend/dashboard.py --server.address 127.0.0.1
+python -m streamlit run streamlit_app.py --server.address 127.0.0.1
 ```
 
-The Streamlit dashboard provides a template coursework plan, optional Gemini AI drafts and per-question faculty approval/export. It runs locally; no deployed dashboard or paid hosting is assumed. Set server environment `GEMINI_API_KEY` and `GEMINI_MODEL` only if using AI. Live generation is not tested without a key. Do not expose the faculty dashboard publicly without an authentication gateway. Review work is preserved by exporting JSON, not by relying on the Streamlit session.
+The Streamlit dashboard provides a template coursework plan, optional Gemini AI drafts and per-question faculty approval/export. It can run locally or on Streamlit Community Cloud. No deployed dashboard or paid hosting is assumed. Review work is preserved by exporting JSON, not by relying on the Streamlit session.
+
+### Streamlit Community Cloud setup
+
+Create an app with these entries:
+
+| Field | Value |
+| --- | --- |
+| Repository | `Denberg28/AE-Prepware` |
+| Branch | `main` |
+| Main file path | `streamlit_app.py` |
+| Python version (Advanced settings) | `3.12` |
+
+Paste the following **top-level TOML entries** into **Advanced settings → Secrets** before deployment, or **App settings → Secrets** for an existing app:
+
+```toml
+GEMINI_API_KEY = "paste-your-gemini-api-key-here"
+GEMINI_MODEL = "gemini-3.5-flash-lite"
+# Optional, separately hosted cohort service:
+# AE_API_URL = "https://your-cohort-api.example.com"
+```
+
+Only the API key is required for AI; omit `GEMINI_MODEL` to use the shown default, or choose a model available to your account. Save Secrets and rerun the app. In **Coursework → Optional AI draft assistant**, click **Draft a coursework plan with AI**. Configuration status means settings were loaded, not that the provider accepted the key. Invalid keys, quota limits and network errors show a generic error; local coursework still works. Live generation remains untested without a real key.
+
+Settings are read from `st.secrets` first, then server environment variables. For local use, copy `.streamlit/secrets.toml.example` to `.streamlit/secrets.toml` and edit the ignored copy. Never put a real key in source, the example file, Android, or a student input field. Root `requirements.txt` installs just the dashboard runtime; `backend/requirements.lock` retains the full development/API environment. The older `backend/dashboard.py` entry also remains supported.
+
+Restrict app sharing to intended instructors in Streamlit Cloud; on other hosting, use an authentication gateway. Anyone with dashboard access can trigger API usage with the server key. Streamlit hosts this faculty UI, not the separate cohort API. Keep the Android app offline-first. Export review work before app reboots or upgrades. To roll back this setup, use the previous commit's `backend/dashboard.py` entry and environment settings; no Android data migration is involved.
 
 Optional cohort API:
 
