@@ -122,7 +122,7 @@ Report concisely: what changed/why; version/commit/artifact; checks/results; unt
 
 ## AE Prepware project rules
 
-- Preserve `ph.diversify.aeprepware` identity. Candidate builds use the Android debug signer and are never stable releases.
+- Preserve `ph.diversify.aeprepware` identity. From v0.2, the user authorizes a persistent private release signer for candidate updates. Never use a disposable debug signer for published v0.2+ APKs. Candidates are never stable releases; keep private signing material out of the repository.
 - No unreviewed AI draft may enter the bundled scored bank. Maintain explicit source locators and original explanations.
 - Never promise a board pass or label practice accuracy a passing probability.
 - Offline study must work without a service. Cohort ranking is opt-in, uses pseudonyms and server scoring, and is not an official exam result.

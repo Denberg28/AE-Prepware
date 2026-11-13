@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "version": "2026.11-foundations.1",
+  "version": "2026.11-foundations.2",
   "title": "AE Foundations",
-  "notice": "Original foundation practice; not official PRC questions. Source-checked by author; independent faculty review pending. Not complete syllabus coverage.",
+  "notice": "360 original foundation items, including parameterized calculation variants; not official PRC questions. Source-checked by author; independent faculty review pending. Not complete syllabus coverage.",
   "blueprintSource": "https://www.prc.gov.ph/sites/default/files/exam%20program%20nov%202026%20%28aero%29.pdf",
   "subjects": [
     {
@@ -322,6 +322,870 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "id": "MA013",
+      "subject": "math",
+      "topic": "Derivatives",
+      "prompt": "For y = 3x² + 5x, evaluate dy/dx at x = 2.",
+      "choices": [
+        "17",
+        "8.5",
+        "34",
+        "25.5"
+      ],
+      "answer": 0,
+      "explanation": "dy/dx = 2(3)x + 5. At x = 2, the result is 17.",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA014",
+      "subject": "math",
+      "topic": "Integration",
+      "prompt": "Evaluate the integral of 3x from 0 to 2.",
+      "choices": [
+        "6",
+        "3",
+        "12",
+        "9"
+      ],
+      "answer": 0,
+      "explanation": "Integrate to 3x²/2 and apply the limits: 3×2²/2 = 6.",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA015",
+      "subject": "math",
+      "topic": "Algebra",
+      "prompt": "Solve 3x + 2 = 17.",
+      "choices": [
+        "5",
+        "2.5",
+        "10",
+        "7.5"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 2, then divide by 3: x = 5.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA016",
+      "subject": "math",
+      "topic": "Analytic geometry",
+      "prompt": "Find the slope through (0, 2) and (3, 8).",
+      "choices": [
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
+      "answer": 0,
+      "explanation": "Slope = (8−2)/(3−0) = 2.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA017",
+      "subject": "math",
+      "topic": "Algebra",
+      "prompt": "Find the determinant of the 2×2 matrix with rows (2, 1) and (1, 3).",
+      "choices": [
+        "5",
+        "2.5",
+        "10",
+        "7.5"
+      ],
+      "answer": 0,
+      "explanation": "Determinant = ad−bc = 2×3−1 = 5.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA018",
+      "subject": "math",
+      "topic": "Differential equations",
+      "prompt": "With dy/dx = 3 and y(0) = 2, what is y(2)?",
+      "choices": [
+        "8",
+        "4",
+        "16",
+        "12"
+      ],
+      "answer": 0,
+      "explanation": "Integration gives y = 3x + 2; y(2) = 8.",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA019",
+      "subject": "math",
+      "topic": "Trigonometry",
+      "prompt": "A right triangle has legs 6 m and 8 m. What is its hypotenuse?",
+      "choices": [
+        "10 m",
+        "5 m",
+        "20 m",
+        "15 m"
+      ],
+      "answer": 0,
+      "explanation": "Pythagoras: √(6² + 8²) = 10 m.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA020",
+      "subject": "math",
+      "topic": "Engineering calculus",
+      "prompt": "Velocity is v(t) = 3t² m/s. What is acceleration at t = 2 s?",
+      "choices": [
+        "12 m/s²",
+        "6 m/s²",
+        "24 m/s²",
+        "18 m/s²"
+      ],
+      "answer": 0,
+      "explanation": "a(t) = dv/dt = 6t; a(2) = 12 m/s².",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA021",
+      "subject": "math",
+      "topic": "Derivatives",
+      "prompt": "For y = 4x² + 5x, evaluate dy/dx at x = 3.",
+      "choices": [
+        "29",
+        "14.5",
+        "58",
+        "43.5"
+      ],
+      "answer": 0,
+      "explanation": "dy/dx = 2(4)x + 5. At x = 3, the result is 29.",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA022",
+      "subject": "math",
+      "topic": "Integration",
+      "prompt": "Evaluate the integral of 4x from 0 to 3.",
+      "choices": [
+        "18",
+        "9",
+        "36",
+        "27"
+      ],
+      "answer": 0,
+      "explanation": "Integrate to 4x²/2 and apply the limits: 4×3²/2 = 18.",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA023",
+      "subject": "math",
+      "topic": "Algebra",
+      "prompt": "Solve 4x + 3 = 27.",
+      "choices": [
+        "6",
+        "3",
+        "12",
+        "9"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 3, then divide by 4: x = 6.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA024",
+      "subject": "math",
+      "topic": "Analytic geometry",
+      "prompt": "Find the slope through (0, 3) and (4, 11).",
+      "choices": [
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
+      "answer": 0,
+      "explanation": "Slope = (11−3)/(4−0) = 2.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA025",
+      "subject": "math",
+      "topic": "Algebra",
+      "prompt": "Find the determinant of the 2×2 matrix with rows (3, 1) and (1, 4).",
+      "choices": [
+        "11",
+        "5.5",
+        "22",
+        "16.5"
+      ],
+      "answer": 0,
+      "explanation": "Determinant = ad−bc = 3×4−1 = 11.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA026",
+      "subject": "math",
+      "topic": "Differential equations",
+      "prompt": "With dy/dx = 4 and y(0) = 3, what is y(3)?",
+      "choices": [
+        "15",
+        "7.5",
+        "30",
+        "22.5"
+      ],
+      "answer": 0,
+      "explanation": "Integration gives y = 4x + 3; y(3) = 15.",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA027",
+      "subject": "math",
+      "topic": "Trigonometry",
+      "prompt": "A right triangle has legs 9 m and 12 m. What is its hypotenuse?",
+      "choices": [
+        "15 m",
+        "7.5 m",
+        "30 m",
+        "22.5 m"
+      ],
+      "answer": 0,
+      "explanation": "Pythagoras: √(9² + 12²) = 15 m.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA028",
+      "subject": "math",
+      "topic": "Engineering calculus",
+      "prompt": "Velocity is v(t) = 4t² m/s. What is acceleration at t = 3 s?",
+      "choices": [
+        "24 m/s²",
+        "12 m/s²",
+        "48 m/s²",
+        "36 m/s²"
+      ],
+      "answer": 0,
+      "explanation": "a(t) = dv/dt = 8t; a(3) = 24 m/s².",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA029",
+      "subject": "math",
+      "topic": "Derivatives",
+      "prompt": "For y = 5x² + 5x, evaluate dy/dx at x = 4.",
+      "choices": [
+        "45",
+        "22.5",
+        "90",
+        "67.5"
+      ],
+      "answer": 0,
+      "explanation": "dy/dx = 2(5)x + 5. At x = 4, the result is 45.",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA030",
+      "subject": "math",
+      "topic": "Integration",
+      "prompt": "Evaluate the integral of 5x from 0 to 4.",
+      "choices": [
+        "40",
+        "20",
+        "80",
+        "60"
+      ],
+      "answer": 0,
+      "explanation": "Integrate to 5x²/2 and apply the limits: 5×4²/2 = 40.",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA031",
+      "subject": "math",
+      "topic": "Algebra",
+      "prompt": "Solve 5x + 4 = 39.",
+      "choices": [
+        "7",
+        "3.5",
+        "14",
+        "10.5"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 4, then divide by 5: x = 7.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA032",
+      "subject": "math",
+      "topic": "Analytic geometry",
+      "prompt": "Find the slope through (0, 4) and (5, 14).",
+      "choices": [
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
+      "answer": 0,
+      "explanation": "Slope = (14−4)/(5−0) = 2.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA033",
+      "subject": "math",
+      "topic": "Algebra",
+      "prompt": "Find the determinant of the 2×2 matrix with rows (4, 1) and (1, 5).",
+      "choices": [
+        "19",
+        "9.5",
+        "38",
+        "28.5"
+      ],
+      "answer": 0,
+      "explanation": "Determinant = ad−bc = 4×5−1 = 19.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA034",
+      "subject": "math",
+      "topic": "Differential equations",
+      "prompt": "With dy/dx = 5 and y(0) = 4, what is y(4)?",
+      "choices": [
+        "24",
+        "12",
+        "48",
+        "36"
+      ],
+      "answer": 0,
+      "explanation": "Integration gives y = 5x + 4; y(4) = 24.",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA035",
+      "subject": "math",
+      "topic": "Trigonometry",
+      "prompt": "A right triangle has legs 12 m and 16 m. What is its hypotenuse?",
+      "choices": [
+        "20 m",
+        "10 m",
+        "40 m",
+        "30 m"
+      ],
+      "answer": 0,
+      "explanation": "Pythagoras: √(12² + 16²) = 20 m.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA036",
+      "subject": "math",
+      "topic": "Engineering calculus",
+      "prompt": "Velocity is v(t) = 5t² m/s. What is acceleration at t = 4 s?",
+      "choices": [
+        "40 m/s²",
+        "20 m/s²",
+        "80 m/s²",
+        "60 m/s²"
+      ],
+      "answer": 0,
+      "explanation": "a(t) = dv/dt = 10t; a(4) = 40 m/s².",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA037",
+      "subject": "math",
+      "topic": "Derivatives",
+      "prompt": "For y = 6x² + 5x, evaluate dy/dx at x = 5.",
+      "choices": [
+        "65",
+        "32.5",
+        "130",
+        "97.5"
+      ],
+      "answer": 0,
+      "explanation": "dy/dx = 2(6)x + 5. At x = 5, the result is 65.",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA038",
+      "subject": "math",
+      "topic": "Integration",
+      "prompt": "Evaluate the integral of 6x from 0 to 5.",
+      "choices": [
+        "75",
+        "37.5",
+        "150",
+        "112.5"
+      ],
+      "answer": 0,
+      "explanation": "Integrate to 6x²/2 and apply the limits: 6×5²/2 = 75.",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA039",
+      "subject": "math",
+      "topic": "Algebra",
+      "prompt": "Solve 6x + 5 = 53.",
+      "choices": [
+        "8",
+        "4",
+        "16",
+        "12"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 5, then divide by 6: x = 8.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA040",
+      "subject": "math",
+      "topic": "Analytic geometry",
+      "prompt": "Find the slope through (0, 5) and (6, 17).",
+      "choices": [
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
+      "answer": 0,
+      "explanation": "Slope = (17−5)/(6−0) = 2.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA041",
+      "subject": "math",
+      "topic": "Algebra",
+      "prompt": "Find the determinant of the 2×2 matrix with rows (5, 1) and (1, 6).",
+      "choices": [
+        "29",
+        "14.5",
+        "58",
+        "43.5"
+      ],
+      "answer": 0,
+      "explanation": "Determinant = ad−bc = 5×6−1 = 29.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA042",
+      "subject": "math",
+      "topic": "Differential equations",
+      "prompt": "With dy/dx = 6 and y(0) = 5, what is y(5)?",
+      "choices": [
+        "35",
+        "17.5",
+        "70",
+        "52.5"
+      ],
+      "answer": 0,
+      "explanation": "Integration gives y = 6x + 5; y(5) = 35.",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA043",
+      "subject": "math",
+      "topic": "Trigonometry",
+      "prompt": "A right triangle has legs 15 m and 20 m. What is its hypotenuse?",
+      "choices": [
+        "25 m",
+        "12.5 m",
+        "50 m",
+        "37.5 m"
+      ],
+      "answer": 0,
+      "explanation": "Pythagoras: √(15² + 20²) = 25 m.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA044",
+      "subject": "math",
+      "topic": "Engineering calculus",
+      "prompt": "Velocity is v(t) = 6t² m/s. What is acceleration at t = 5 s?",
+      "choices": [
+        "60 m/s²",
+        "30 m/s²",
+        "120 m/s²",
+        "90 m/s²"
+      ],
+      "answer": 0,
+      "explanation": "a(t) = dv/dt = 12t; a(5) = 60 m/s².",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA045",
+      "subject": "math",
+      "topic": "Derivatives",
+      "prompt": "For y = 7x² + 5x, evaluate dy/dx at x = 6.",
+      "choices": [
+        "89",
+        "44.5",
+        "178",
+        "133.5"
+      ],
+      "answer": 0,
+      "explanation": "dy/dx = 2(7)x + 5. At x = 6, the result is 89.",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA046",
+      "subject": "math",
+      "topic": "Integration",
+      "prompt": "Evaluate the integral of 7x from 0 to 6.",
+      "choices": [
+        "126",
+        "63",
+        "252",
+        "189"
+      ],
+      "answer": 0,
+      "explanation": "Integrate to 7x²/2 and apply the limits: 7×6²/2 = 126.",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA047",
+      "subject": "math",
+      "topic": "Algebra",
+      "prompt": "Solve 7x + 6 = 69.",
+      "choices": [
+        "9",
+        "4.5",
+        "18",
+        "13.5"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 6, then divide by 7: x = 9.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA048",
+      "subject": "math",
+      "topic": "Analytic geometry",
+      "prompt": "Find the slope through (0, 6) and (7, 20).",
+      "choices": [
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
+      "answer": 0,
+      "explanation": "Slope = (20−6)/(7−0) = 2.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA049",
+      "subject": "math",
+      "topic": "Algebra",
+      "prompt": "Find the determinant of the 2×2 matrix with rows (6, 1) and (1, 7).",
+      "choices": [
+        "41",
+        "20.5",
+        "82",
+        "61.5"
+      ],
+      "answer": 0,
+      "explanation": "Determinant = ad−bc = 6×7−1 = 41.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA050",
+      "subject": "math",
+      "topic": "Differential equations",
+      "prompt": "With dy/dx = 7 and y(0) = 6, what is y(6)?",
+      "choices": [
+        "48",
+        "24",
+        "96",
+        "72"
+      ],
+      "answer": 0,
+      "explanation": "Integration gives y = 7x + 6; y(6) = 48.",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA051",
+      "subject": "math",
+      "topic": "Trigonometry",
+      "prompt": "A right triangle has legs 18 m and 24 m. What is its hypotenuse?",
+      "choices": [
+        "30 m",
+        "15 m",
+        "60 m",
+        "45 m"
+      ],
+      "answer": 0,
+      "explanation": "Pythagoras: √(18² + 24²) = 30 m.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA052",
+      "subject": "math",
+      "topic": "Engineering calculus",
+      "prompt": "Velocity is v(t) = 7t² m/s. What is acceleration at t = 6 s?",
+      "choices": [
+        "84 m/s²",
+        "42 m/s²",
+        "168 m/s²",
+        "126 m/s²"
+      ],
+      "answer": 0,
+      "explanation": "a(t) = dv/dt = 14t; a(6) = 84 m/s².",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA053",
+      "subject": "math",
+      "topic": "Derivatives",
+      "prompt": "For y = 8x² + 5x, evaluate dy/dx at x = 7.",
+      "choices": [
+        "117",
+        "58.5",
+        "234",
+        "175.5"
+      ],
+      "answer": 0,
+      "explanation": "dy/dx = 2(8)x + 5. At x = 7, the result is 117.",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA054",
+      "subject": "math",
+      "topic": "Integration",
+      "prompt": "Evaluate the integral of 8x from 0 to 7.",
+      "choices": [
+        "196",
+        "98",
+        "392",
+        "294"
+      ],
+      "answer": 0,
+      "explanation": "Integrate to 8x²/2 and apply the limits: 8×7²/2 = 196.",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA055",
+      "subject": "math",
+      "topic": "Algebra",
+      "prompt": "Solve 8x + 7 = 87.",
+      "choices": [
+        "10",
+        "5",
+        "20",
+        "15"
+      ],
+      "answer": 0,
+      "explanation": "Subtract 7, then divide by 8: x = 10.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA056",
+      "subject": "math",
+      "topic": "Analytic geometry",
+      "prompt": "Find the slope through (0, 7) and (8, 23).",
+      "choices": [
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
+      "answer": 0,
+      "explanation": "Slope = (23−7)/(8−0) = 2.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA057",
+      "subject": "math",
+      "topic": "Algebra",
+      "prompt": "Find the determinant of the 2×2 matrix with rows (7, 1) and (1, 8).",
+      "choices": [
+        "55",
+        "27.5",
+        "110",
+        "82.5"
+      ],
+      "answer": 0,
+      "explanation": "Determinant = ad−bc = 7×8−1 = 55.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA058",
+      "subject": "math",
+      "topic": "Differential equations",
+      "prompt": "With dy/dx = 8 and y(0) = 7, what is y(7)?",
+      "choices": [
+        "63",
+        "31.5",
+        "126",
+        "94.5"
+      ],
+      "answer": 0,
+      "explanation": "Integration gives y = 8x + 7; y(7) = 63.",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA059",
+      "subject": "math",
+      "topic": "Trigonometry",
+      "prompt": "A right triangle has legs 21 m and 28 m. What is its hypotenuse?",
+      "choices": [
+        "35 m",
+        "17.5 m",
+        "70 m",
+        "52.5 m"
+      ],
+      "answer": 0,
+      "explanation": "Pythagoras: √(21² + 28²) = 35 m.",
+      "source": "algebra",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "MA060",
+      "subject": "math",
+      "topic": "Engineering calculus",
+      "prompt": "Velocity is v(t) = 8t² m/s. What is acceleration at t = 7 s?",
+      "choices": [
+        "112 m/s²",
+        "56 m/s²",
+        "224 m/s²",
+        "168 m/s²"
+      ],
+      "answer": 0,
+      "explanation": "a(t) = dv/dt = 16t; a(7) = 112 m/s².",
+      "source": "calc",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
       "id": "AD001",
       "subject": "aero",
       "topic": "Dynamic pressure",
@@ -533,6 +1397,870 @@
       "answer": 0,
       "explanation": "CDi = CL²/(π e AR). A higher AR lowers induced drag coefficient when CL and e are fixed.",
       "source": "drag",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD013",
+      "subject": "aero",
+      "topic": "Dynamic pressure",
+      "prompt": "At density 1.2 kg/m³ and speed 40 m/s, calculate dynamic pressure.",
+      "choices": [
+        "960 Pa",
+        "480 Pa",
+        "1,920 Pa",
+        "1,440 Pa"
+      ],
+      "answer": 0,
+      "explanation": "q = ρV²/2 = 1.2×40²/2 = 960 Pa.",
+      "source": "lift",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD014",
+      "subject": "aero",
+      "topic": "Lift",
+      "prompt": "A wing has S = 10 m², CL = 0.6 and q = 200 Pa. What is lift?",
+      "choices": [
+        "1,200 N",
+        "600 N",
+        "2,400 N",
+        "1,800 N"
+      ],
+      "answer": 0,
+      "explanation": "L = qSCL = 200×10×0.6 = 1,200 N.",
+      "source": "lift",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD015",
+      "subject": "aero",
+      "topic": "Lift coefficient",
+      "prompt": "With q = 500 Pa, S = 10 m² and lift 2000 N, what CL is required?",
+      "choices": [
+        "0.4",
+        "0.2",
+        "0.8",
+        "0.6"
+      ],
+      "answer": 0,
+      "explanation": "CL = L/(qS) = 2000/5000 = 0.4.",
+      "source": "lift",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD016",
+      "subject": "aero",
+      "topic": "Drag",
+      "prompt": "At q = 200 Pa, S = 12 m² and CD = 0.04, what is drag?",
+      "choices": [
+        "96 N",
+        "48 N",
+        "192 N",
+        "144 N"
+      ],
+      "answer": 0,
+      "explanation": "D = qSCD = 200×12×0.04 = 96 N.",
+      "source": "drag",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD017",
+      "subject": "aero",
+      "topic": "Compressible flow",
+      "prompt": "True airspeed is 68 m/s and local sound speed is 340 m/s. Find Mach number.",
+      "choices": [
+        "0.2",
+        "0.1",
+        "0.4",
+        "0.3"
+      ],
+      "answer": 0,
+      "explanation": "M = V/a = 68/340 = 0.2.",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD018",
+      "subject": "aero",
+      "topic": "Wing geometry",
+      "prompt": "A rectangular wing has span 4 m and area 8 m². Find aspect ratio b²/S.",
+      "choices": [
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
+      "answer": 0,
+      "explanation": "AR = (4)²/8 = 2, a dimensionless geometric ratio.",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD019",
+      "subject": "aero",
+      "topic": "Wing loading",
+      "prompt": "An aircraft weighs 4000 N and has 20 m² wing area. What is wing loading W/S?",
+      "choices": [
+        "200 N/m²",
+        "100 N/m²",
+        "400 N/m²",
+        "300 N/m²"
+      ],
+      "answer": 0,
+      "explanation": "W/S = 4000/20 = 200 N/m².",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD020",
+      "subject": "aero",
+      "topic": "Continuity",
+      "prompt": "In steady incompressible flow, A1 = 4 m², V1 = 20 m/s and A2 = 2 m². Find V2.",
+      "choices": [
+        "40 m/s",
+        "20 m/s",
+        "80 m/s",
+        "60 m/s"
+      ],
+      "answer": 0,
+      "explanation": "A1V1 = A2V2, so V2 = 4×20/2 = 40 m/s.",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD021",
+      "subject": "aero",
+      "topic": "Dynamic pressure",
+      "prompt": "At density 1.2 kg/m³ and speed 50 m/s, calculate dynamic pressure.",
+      "choices": [
+        "1,500 Pa",
+        "750 Pa",
+        "3,000 Pa",
+        "2,250 Pa"
+      ],
+      "answer": 0,
+      "explanation": "q = ρV²/2 = 1.2×50²/2 = 1,500 Pa.",
+      "source": "lift",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD022",
+      "subject": "aero",
+      "topic": "Lift",
+      "prompt": "A wing has S = 11 m², CL = 0.6 and q = 300 Pa. What is lift?",
+      "choices": [
+        "1,980 N",
+        "990 N",
+        "3,960 N",
+        "2,970 N"
+      ],
+      "answer": 0,
+      "explanation": "L = qSCL = 300×11×0.6 = 1,980 N.",
+      "source": "lift",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD023",
+      "subject": "aero",
+      "topic": "Lift coefficient",
+      "prompt": "With q = 500 Pa, S = 10 m² and lift 3000 N, what CL is required?",
+      "choices": [
+        "0.6",
+        "0.3",
+        "1.2",
+        "0.9"
+      ],
+      "answer": 0,
+      "explanation": "CL = L/(qS) = 3000/5000 = 0.6.",
+      "source": "lift",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD024",
+      "subject": "aero",
+      "topic": "Drag",
+      "prompt": "At q = 300 Pa, S = 12 m² and CD = 0.04, what is drag?",
+      "choices": [
+        "144 N",
+        "72 N",
+        "288 N",
+        "216 N"
+      ],
+      "answer": 0,
+      "explanation": "D = qSCD = 300×12×0.04 = 144 N.",
+      "source": "drag",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD025",
+      "subject": "aero",
+      "topic": "Compressible flow",
+      "prompt": "True airspeed is 102 m/s and local sound speed is 340 m/s. Find Mach number.",
+      "choices": [
+        "0.3",
+        "0.15",
+        "0.6",
+        "0.45"
+      ],
+      "answer": 0,
+      "explanation": "M = V/a = 102/340 = 0.3.",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD026",
+      "subject": "aero",
+      "topic": "Wing geometry",
+      "prompt": "A rectangular wing has span 6 m and area 18 m². Find aspect ratio b²/S.",
+      "choices": [
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
+      "answer": 0,
+      "explanation": "AR = (6)²/18 = 2, a dimensionless geometric ratio.",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD027",
+      "subject": "aero",
+      "topic": "Wing loading",
+      "prompt": "An aircraft weighs 6000 N and has 20 m² wing area. What is wing loading W/S?",
+      "choices": [
+        "300 N/m²",
+        "150 N/m²",
+        "600 N/m²",
+        "450 N/m²"
+      ],
+      "answer": 0,
+      "explanation": "W/S = 6000/20 = 300 N/m².",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD028",
+      "subject": "aero",
+      "topic": "Continuity",
+      "prompt": "In steady incompressible flow, A1 = 4 m², V1 = 30 m/s and A2 = 2 m². Find V2.",
+      "choices": [
+        "60 m/s",
+        "30 m/s",
+        "120 m/s",
+        "90 m/s"
+      ],
+      "answer": 0,
+      "explanation": "A1V1 = A2V2, so V2 = 4×30/2 = 60 m/s.",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD029",
+      "subject": "aero",
+      "topic": "Dynamic pressure",
+      "prompt": "At density 1.2 kg/m³ and speed 60 m/s, calculate dynamic pressure.",
+      "choices": [
+        "2,160 Pa",
+        "1,080 Pa",
+        "4,320 Pa",
+        "3,240 Pa"
+      ],
+      "answer": 0,
+      "explanation": "q = ρV²/2 = 1.2×60²/2 = 2,160 Pa.",
+      "source": "lift",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD030",
+      "subject": "aero",
+      "topic": "Lift",
+      "prompt": "A wing has S = 12 m², CL = 0.6 and q = 400 Pa. What is lift?",
+      "choices": [
+        "2,880 N",
+        "1,440 N",
+        "5,760 N",
+        "4,320 N"
+      ],
+      "answer": 0,
+      "explanation": "L = qSCL = 400×12×0.6 = 2,880 N.",
+      "source": "lift",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD031",
+      "subject": "aero",
+      "topic": "Lift coefficient",
+      "prompt": "With q = 500 Pa, S = 10 m² and lift 4000 N, what CL is required?",
+      "choices": [
+        "0.8",
+        "0.4",
+        "1.6",
+        "1.2"
+      ],
+      "answer": 0,
+      "explanation": "CL = L/(qS) = 4000/5000 = 0.8.",
+      "source": "lift",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD032",
+      "subject": "aero",
+      "topic": "Drag",
+      "prompt": "At q = 400 Pa, S = 12 m² and CD = 0.04, what is drag?",
+      "choices": [
+        "192 N",
+        "96 N",
+        "384 N",
+        "288 N"
+      ],
+      "answer": 0,
+      "explanation": "D = qSCD = 400×12×0.04 = 192 N.",
+      "source": "drag",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD033",
+      "subject": "aero",
+      "topic": "Compressible flow",
+      "prompt": "True airspeed is 136 m/s and local sound speed is 340 m/s. Find Mach number.",
+      "choices": [
+        "0.4",
+        "0.2",
+        "0.8",
+        "0.6"
+      ],
+      "answer": 0,
+      "explanation": "M = V/a = 136/340 = 0.4.",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD034",
+      "subject": "aero",
+      "topic": "Wing geometry",
+      "prompt": "A rectangular wing has span 8 m and area 32 m². Find aspect ratio b²/S.",
+      "choices": [
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
+      "answer": 0,
+      "explanation": "AR = (8)²/32 = 2, a dimensionless geometric ratio.",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD035",
+      "subject": "aero",
+      "topic": "Wing loading",
+      "prompt": "An aircraft weighs 8000 N and has 20 m² wing area. What is wing loading W/S?",
+      "choices": [
+        "400 N/m²",
+        "200 N/m²",
+        "800 N/m²",
+        "600 N/m²"
+      ],
+      "answer": 0,
+      "explanation": "W/S = 8000/20 = 400 N/m².",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD036",
+      "subject": "aero",
+      "topic": "Continuity",
+      "prompt": "In steady incompressible flow, A1 = 4 m², V1 = 40 m/s and A2 = 2 m². Find V2.",
+      "choices": [
+        "80 m/s",
+        "40 m/s",
+        "160 m/s",
+        "120 m/s"
+      ],
+      "answer": 0,
+      "explanation": "A1V1 = A2V2, so V2 = 4×40/2 = 80 m/s.",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD037",
+      "subject": "aero",
+      "topic": "Dynamic pressure",
+      "prompt": "At density 1.2 kg/m³ and speed 70 m/s, calculate dynamic pressure.",
+      "choices": [
+        "2,940 Pa",
+        "1,470 Pa",
+        "5,880 Pa",
+        "4,410 Pa"
+      ],
+      "answer": 0,
+      "explanation": "q = ρV²/2 = 1.2×70²/2 = 2,940 Pa.",
+      "source": "lift",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD038",
+      "subject": "aero",
+      "topic": "Lift",
+      "prompt": "A wing has S = 13 m², CL = 0.6 and q = 500 Pa. What is lift?",
+      "choices": [
+        "3,900 N",
+        "1,950 N",
+        "7,800 N",
+        "5,850 N"
+      ],
+      "answer": 0,
+      "explanation": "L = qSCL = 500×13×0.6 = 3,900 N.",
+      "source": "lift",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD039",
+      "subject": "aero",
+      "topic": "Lift coefficient",
+      "prompt": "With q = 500 Pa, S = 10 m² and lift 5000 N, what CL is required?",
+      "choices": [
+        "1",
+        "0.5",
+        "2",
+        "1.5"
+      ],
+      "answer": 0,
+      "explanation": "CL = L/(qS) = 5000/5000 = 1.",
+      "source": "lift",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD040",
+      "subject": "aero",
+      "topic": "Drag",
+      "prompt": "At q = 500 Pa, S = 12 m² and CD = 0.04, what is drag?",
+      "choices": [
+        "240 N",
+        "120 N",
+        "480 N",
+        "360 N"
+      ],
+      "answer": 0,
+      "explanation": "D = qSCD = 500×12×0.04 = 240 N.",
+      "source": "drag",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD041",
+      "subject": "aero",
+      "topic": "Compressible flow",
+      "prompt": "True airspeed is 170 m/s and local sound speed is 340 m/s. Find Mach number.",
+      "choices": [
+        "0.5",
+        "0.25",
+        "1",
+        "0.75"
+      ],
+      "answer": 0,
+      "explanation": "M = V/a = 170/340 = 0.5.",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD042",
+      "subject": "aero",
+      "topic": "Wing geometry",
+      "prompt": "A rectangular wing has span 10 m and area 50 m². Find aspect ratio b²/S.",
+      "choices": [
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
+      "answer": 0,
+      "explanation": "AR = (10)²/50 = 2, a dimensionless geometric ratio.",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD043",
+      "subject": "aero",
+      "topic": "Wing loading",
+      "prompt": "An aircraft weighs 10000 N and has 20 m² wing area. What is wing loading W/S?",
+      "choices": [
+        "500 N/m²",
+        "250 N/m²",
+        "1,000 N/m²",
+        "750 N/m²"
+      ],
+      "answer": 0,
+      "explanation": "W/S = 10000/20 = 500 N/m².",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD044",
+      "subject": "aero",
+      "topic": "Continuity",
+      "prompt": "In steady incompressible flow, A1 = 4 m², V1 = 50 m/s and A2 = 2 m². Find V2.",
+      "choices": [
+        "100 m/s",
+        "50 m/s",
+        "200 m/s",
+        "150 m/s"
+      ],
+      "answer": 0,
+      "explanation": "A1V1 = A2V2, so V2 = 4×50/2 = 100 m/s.",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD045",
+      "subject": "aero",
+      "topic": "Dynamic pressure",
+      "prompt": "At density 1.2 kg/m³ and speed 80 m/s, calculate dynamic pressure.",
+      "choices": [
+        "3,840 Pa",
+        "1,920 Pa",
+        "7,680 Pa",
+        "5,760 Pa"
+      ],
+      "answer": 0,
+      "explanation": "q = ρV²/2 = 1.2×80²/2 = 3,840 Pa.",
+      "source": "lift",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD046",
+      "subject": "aero",
+      "topic": "Lift",
+      "prompt": "A wing has S = 14 m², CL = 0.6 and q = 600 Pa. What is lift?",
+      "choices": [
+        "5,040 N",
+        "2,520 N",
+        "10,080 N",
+        "7,560 N"
+      ],
+      "answer": 0,
+      "explanation": "L = qSCL = 600×14×0.6 = 5,040 N.",
+      "source": "lift",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD047",
+      "subject": "aero",
+      "topic": "Lift coefficient",
+      "prompt": "With q = 500 Pa, S = 10 m² and lift 6000 N, what CL is required?",
+      "choices": [
+        "1.2",
+        "0.6",
+        "2.4",
+        "1.8"
+      ],
+      "answer": 0,
+      "explanation": "CL = L/(qS) = 6000/5000 = 1.2.",
+      "source": "lift",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD048",
+      "subject": "aero",
+      "topic": "Drag",
+      "prompt": "At q = 600 Pa, S = 12 m² and CD = 0.04, what is drag?",
+      "choices": [
+        "288 N",
+        "144 N",
+        "576 N",
+        "432 N"
+      ],
+      "answer": 0,
+      "explanation": "D = qSCD = 600×12×0.04 = 288 N.",
+      "source": "drag",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD049",
+      "subject": "aero",
+      "topic": "Compressible flow",
+      "prompt": "True airspeed is 204 m/s and local sound speed is 340 m/s. Find Mach number.",
+      "choices": [
+        "0.6",
+        "0.3",
+        "1.2",
+        "0.9"
+      ],
+      "answer": 0,
+      "explanation": "M = V/a = 204/340 = 0.6.",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD050",
+      "subject": "aero",
+      "topic": "Wing geometry",
+      "prompt": "A rectangular wing has span 12 m and area 72 m². Find aspect ratio b²/S.",
+      "choices": [
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
+      "answer": 0,
+      "explanation": "AR = (12)²/72 = 2, a dimensionless geometric ratio.",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD051",
+      "subject": "aero",
+      "topic": "Wing loading",
+      "prompt": "An aircraft weighs 12000 N and has 20 m² wing area. What is wing loading W/S?",
+      "choices": [
+        "600 N/m²",
+        "300 N/m²",
+        "1,200 N/m²",
+        "900 N/m²"
+      ],
+      "answer": 0,
+      "explanation": "W/S = 12000/20 = 600 N/m².",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD052",
+      "subject": "aero",
+      "topic": "Continuity",
+      "prompt": "In steady incompressible flow, A1 = 4 m², V1 = 60 m/s and A2 = 2 m². Find V2.",
+      "choices": [
+        "120 m/s",
+        "60 m/s",
+        "240 m/s",
+        "180 m/s"
+      ],
+      "answer": 0,
+      "explanation": "A1V1 = A2V2, so V2 = 4×60/2 = 120 m/s.",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD053",
+      "subject": "aero",
+      "topic": "Dynamic pressure",
+      "prompt": "At density 1.2 kg/m³ and speed 90 m/s, calculate dynamic pressure.",
+      "choices": [
+        "4,860 Pa",
+        "2,430 Pa",
+        "9,720 Pa",
+        "7,290 Pa"
+      ],
+      "answer": 0,
+      "explanation": "q = ρV²/2 = 1.2×90²/2 = 4,860 Pa.",
+      "source": "lift",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD054",
+      "subject": "aero",
+      "topic": "Lift",
+      "prompt": "A wing has S = 15 m², CL = 0.6 and q = 700 Pa. What is lift?",
+      "choices": [
+        "6,300 N",
+        "3,150 N",
+        "12,600 N",
+        "9,450 N"
+      ],
+      "answer": 0,
+      "explanation": "L = qSCL = 700×15×0.6 = 6,300 N.",
+      "source": "lift",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD055",
+      "subject": "aero",
+      "topic": "Lift coefficient",
+      "prompt": "With q = 500 Pa, S = 10 m² and lift 7000 N, what CL is required?",
+      "choices": [
+        "1.4",
+        "0.7",
+        "2.8",
+        "2.1"
+      ],
+      "answer": 0,
+      "explanation": "CL = L/(qS) = 7000/5000 = 1.4.",
+      "source": "lift",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD056",
+      "subject": "aero",
+      "topic": "Drag",
+      "prompt": "At q = 700 Pa, S = 12 m² and CD = 0.04, what is drag?",
+      "choices": [
+        "336 N",
+        "168 N",
+        "672 N",
+        "504 N"
+      ],
+      "answer": 0,
+      "explanation": "D = qSCD = 700×12×0.04 = 336 N.",
+      "source": "drag",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD057",
+      "subject": "aero",
+      "topic": "Compressible flow",
+      "prompt": "True airspeed is 238 m/s and local sound speed is 340 m/s. Find Mach number.",
+      "choices": [
+        "0.7",
+        "0.35",
+        "1.4",
+        "1.05"
+      ],
+      "answer": 0,
+      "explanation": "M = V/a = 238/340 = 0.7.",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD058",
+      "subject": "aero",
+      "topic": "Wing geometry",
+      "prompt": "A rectangular wing has span 14 m and area 98 m². Find aspect ratio b²/S.",
+      "choices": [
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
+      "answer": 0,
+      "explanation": "AR = (14)²/98 = 2, a dimensionless geometric ratio.",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD059",
+      "subject": "aero",
+      "topic": "Wing loading",
+      "prompt": "An aircraft weighs 14000 N and has 20 m² wing area. What is wing loading W/S?",
+      "choices": [
+        "700 N/m²",
+        "350 N/m²",
+        "1,400 N/m²",
+        "1,050 N/m²"
+      ],
+      "answer": 0,
+      "explanation": "W/S = 14000/20 = 700 N/m².",
+      "source": "phak",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "AD060",
+      "subject": "aero",
+      "topic": "Continuity",
+      "prompt": "In steady incompressible flow, A1 = 4 m², V1 = 70 m/s and A2 = 2 m². Find V2.",
+      "choices": [
+        "140 m/s",
+        "70 m/s",
+        "280 m/s",
+        "210 m/s"
+      ],
+      "answer": 0,
+      "explanation": "A1V1 = A2V2, so V2 = 4×70/2 = 140 m/s.",
+      "source": "phak",
       "review": "source-checked",
       "reviewer": "AE Prepware initial author self-review; faculty review pending",
       "reviewedAt": "2026-11-13"
@@ -754,6 +2482,870 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "id": "ST013",
+      "subject": "structures",
+      "topic": "Axial stress",
+      "prompt": "An axial force of 4000 N acts on 100 mm². Find average normal stress.",
+      "choices": [
+        "40 MPa",
+        "20 MPa",
+        "80 MPa",
+        "60 MPa"
+      ],
+      "answer": 0,
+      "explanation": "σ = F/A = 4000/100 = 40 N/mm² = 40 MPa.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST014",
+      "subject": "structures",
+      "topic": "Strain",
+      "prompt": "A 1000 mm bar extends by 2 mm. Find engineering strain.",
+      "choices": [
+        "0.002",
+        "0.001",
+        "0.004",
+        "0.003"
+      ],
+      "answer": 0,
+      "explanation": "ε = ΔL/L = 2/1000 = 0.002, dimensionless.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST015",
+      "subject": "structures",
+      "topic": "Elasticity",
+      "prompt": "An elastic bar has F = 2000 N, L = 1000 mm, A = 100 mm² and E = 100000 N/mm². Find extension FL/(AE).",
+      "choices": [
+        "0.2 mm",
+        "0.1 mm",
+        "0.4 mm",
+        "0.3 mm"
+      ],
+      "answer": 0,
+      "explanation": "ΔL = 2000×1000/(100×100000) = 0.2 mm. Assumes uniform axial loading and linear elasticity.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST016",
+      "subject": "structures",
+      "topic": "Beam reactions",
+      "prompt": "A simply supported beam carries only a central 2000 N point load. What is each support reaction?",
+      "choices": [
+        "1,000 N",
+        "500 N",
+        "2,000 N",
+        "1,500 N"
+      ],
+      "answer": 0,
+      "explanation": "Symmetry and vertical equilibrium give each reaction P/2 = 1000 N.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST017",
+      "subject": "structures",
+      "topic": "Beam bending",
+      "prompt": "A simply supported 4 m beam carries a central 2000 N point load. Find maximum bending moment.",
+      "choices": [
+        "2,000 N·m",
+        "1,000 N·m",
+        "4,000 N·m",
+        "3,000 N·m"
+      ],
+      "answer": 0,
+      "explanation": "Mmax = PL/4 = 2000×4/4 = 2000 N·m.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST018",
+      "subject": "structures",
+      "topic": "Center of gravity",
+      "prompt": "Equal 100 kg masses lie at x = 2 m and x = 6 m. Find their combined CG.",
+      "choices": [
+        "4 m",
+        "2 m",
+        "8 m",
+        "6 m"
+      ],
+      "answer": 0,
+      "explanation": "xCG = (100×2 + 100×6)/200 = 4 m.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST019",
+      "subject": "structures",
+      "topic": "Torsion fundamentals",
+      "prompt": "A 40 N force acts perpendicular to a 0.5 m lever. Find torque magnitude.",
+      "choices": [
+        "20 N·m",
+        "10 N·m",
+        "40 N·m",
+        "30 N·m"
+      ],
+      "answer": 0,
+      "explanation": "T = Fr = 40×0.5 = 20 N·m.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST020",
+      "subject": "structures",
+      "topic": "Margin of safety",
+      "prompt": "Allowable stress is 300 MPa and applied stress is 100 MPa. Find MS = allowable/applied − 1.",
+      "choices": [
+        "2",
+        "1",
+        "4",
+        "3"
+      ],
+      "answer": 0,
+      "explanation": "MS = 300/100−1 = 2, dimensionless.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST021",
+      "subject": "structures",
+      "topic": "Axial stress",
+      "prompt": "An axial force of 6000 N acts on 100 mm². Find average normal stress.",
+      "choices": [
+        "60 MPa",
+        "30 MPa",
+        "120 MPa",
+        "90 MPa"
+      ],
+      "answer": 0,
+      "explanation": "σ = F/A = 6000/100 = 60 N/mm² = 60 MPa.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST022",
+      "subject": "structures",
+      "topic": "Strain",
+      "prompt": "A 1000 mm bar extends by 3 mm. Find engineering strain.",
+      "choices": [
+        "0.003",
+        "0.002",
+        "0.006",
+        "0.005"
+      ],
+      "answer": 0,
+      "explanation": "ε = ΔL/L = 3/1000 = 0.003, dimensionless.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST023",
+      "subject": "structures",
+      "topic": "Elasticity",
+      "prompt": "An elastic bar has F = 3000 N, L = 1000 mm, A = 100 mm² and E = 100000 N/mm². Find extension FL/(AE).",
+      "choices": [
+        "0.3 mm",
+        "0.15 mm",
+        "0.6 mm",
+        "0.45 mm"
+      ],
+      "answer": 0,
+      "explanation": "ΔL = 3000×1000/(100×100000) = 0.3 mm. Assumes uniform axial loading and linear elasticity.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST024",
+      "subject": "structures",
+      "topic": "Beam reactions",
+      "prompt": "A simply supported beam carries only a central 3000 N point load. What is each support reaction?",
+      "choices": [
+        "1,500 N",
+        "750 N",
+        "3,000 N",
+        "2,250 N"
+      ],
+      "answer": 0,
+      "explanation": "Symmetry and vertical equilibrium give each reaction P/2 = 1500 N.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST025",
+      "subject": "structures",
+      "topic": "Beam bending",
+      "prompt": "A simply supported 4 m beam carries a central 3000 N point load. Find maximum bending moment.",
+      "choices": [
+        "3,000 N·m",
+        "1,500 N·m",
+        "6,000 N·m",
+        "4,500 N·m"
+      ],
+      "answer": 0,
+      "explanation": "Mmax = PL/4 = 3000×4/4 = 3000 N·m.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST026",
+      "subject": "structures",
+      "topic": "Center of gravity",
+      "prompt": "Equal 100 kg masses lie at x = 3 m and x = 7 m. Find their combined CG.",
+      "choices": [
+        "5 m",
+        "2.5 m",
+        "10 m",
+        "7.5 m"
+      ],
+      "answer": 0,
+      "explanation": "xCG = (100×3 + 100×7)/200 = 5 m.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST027",
+      "subject": "structures",
+      "topic": "Torsion fundamentals",
+      "prompt": "A 60 N force acts perpendicular to a 0.5 m lever. Find torque magnitude.",
+      "choices": [
+        "30 N·m",
+        "15 N·m",
+        "60 N·m",
+        "45 N·m"
+      ],
+      "answer": 0,
+      "explanation": "T = Fr = 60×0.5 = 30 N·m.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST028",
+      "subject": "structures",
+      "topic": "Margin of safety",
+      "prompt": "Allowable stress is 400 MPa and applied stress is 100 MPa. Find MS = allowable/applied − 1.",
+      "choices": [
+        "3",
+        "1.5",
+        "6",
+        "4.5"
+      ],
+      "answer": 0,
+      "explanation": "MS = 400/100−1 = 3, dimensionless.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST029",
+      "subject": "structures",
+      "topic": "Axial stress",
+      "prompt": "An axial force of 8000 N acts on 100 mm². Find average normal stress.",
+      "choices": [
+        "80 MPa",
+        "40 MPa",
+        "160 MPa",
+        "120 MPa"
+      ],
+      "answer": 0,
+      "explanation": "σ = F/A = 8000/100 = 80 N/mm² = 80 MPa.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST030",
+      "subject": "structures",
+      "topic": "Strain",
+      "prompt": "A 1000 mm bar extends by 4 mm. Find engineering strain.",
+      "choices": [
+        "0.004",
+        "0.002",
+        "0.008",
+        "0.006"
+      ],
+      "answer": 0,
+      "explanation": "ε = ΔL/L = 4/1000 = 0.004, dimensionless.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST031",
+      "subject": "structures",
+      "topic": "Elasticity",
+      "prompt": "An elastic bar has F = 4000 N, L = 1000 mm, A = 100 mm² and E = 100000 N/mm². Find extension FL/(AE).",
+      "choices": [
+        "0.4 mm",
+        "0.2 mm",
+        "0.8 mm",
+        "0.6 mm"
+      ],
+      "answer": 0,
+      "explanation": "ΔL = 4000×1000/(100×100000) = 0.4 mm. Assumes uniform axial loading and linear elasticity.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST032",
+      "subject": "structures",
+      "topic": "Beam reactions",
+      "prompt": "A simply supported beam carries only a central 4000 N point load. What is each support reaction?",
+      "choices": [
+        "2,000 N",
+        "1,000 N",
+        "4,000 N",
+        "3,000 N"
+      ],
+      "answer": 0,
+      "explanation": "Symmetry and vertical equilibrium give each reaction P/2 = 2000 N.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST033",
+      "subject": "structures",
+      "topic": "Beam bending",
+      "prompt": "A simply supported 4 m beam carries a central 4000 N point load. Find maximum bending moment.",
+      "choices": [
+        "4,000 N·m",
+        "2,000 N·m",
+        "8,000 N·m",
+        "6,000 N·m"
+      ],
+      "answer": 0,
+      "explanation": "Mmax = PL/4 = 4000×4/4 = 4000 N·m.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST034",
+      "subject": "structures",
+      "topic": "Center of gravity",
+      "prompt": "Equal 100 kg masses lie at x = 4 m and x = 8 m. Find their combined CG.",
+      "choices": [
+        "6 m",
+        "3 m",
+        "12 m",
+        "9 m"
+      ],
+      "answer": 0,
+      "explanation": "xCG = (100×4 + 100×8)/200 = 6 m.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST035",
+      "subject": "structures",
+      "topic": "Torsion fundamentals",
+      "prompt": "A 80 N force acts perpendicular to a 0.5 m lever. Find torque magnitude.",
+      "choices": [
+        "40 N·m",
+        "20 N·m",
+        "80 N·m",
+        "60 N·m"
+      ],
+      "answer": 0,
+      "explanation": "T = Fr = 80×0.5 = 40 N·m.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST036",
+      "subject": "structures",
+      "topic": "Margin of safety",
+      "prompt": "Allowable stress is 500 MPa and applied stress is 100 MPa. Find MS = allowable/applied − 1.",
+      "choices": [
+        "4",
+        "2",
+        "8",
+        "6"
+      ],
+      "answer": 0,
+      "explanation": "MS = 500/100−1 = 4, dimensionless.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST037",
+      "subject": "structures",
+      "topic": "Axial stress",
+      "prompt": "An axial force of 10000 N acts on 100 mm². Find average normal stress.",
+      "choices": [
+        "100 MPa",
+        "50 MPa",
+        "200 MPa",
+        "150 MPa"
+      ],
+      "answer": 0,
+      "explanation": "σ = F/A = 10000/100 = 100 N/mm² = 100 MPa.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST038",
+      "subject": "structures",
+      "topic": "Strain",
+      "prompt": "A 1000 mm bar extends by 5 mm. Find engineering strain.",
+      "choices": [
+        "0.005",
+        "0.003",
+        "0.01",
+        "0.007"
+      ],
+      "answer": 0,
+      "explanation": "ε = ΔL/L = 5/1000 = 0.005, dimensionless.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST039",
+      "subject": "structures",
+      "topic": "Elasticity",
+      "prompt": "An elastic bar has F = 5000 N, L = 1000 mm, A = 100 mm² and E = 100000 N/mm². Find extension FL/(AE).",
+      "choices": [
+        "0.5 mm",
+        "0.25 mm",
+        "1 mm",
+        "0.75 mm"
+      ],
+      "answer": 0,
+      "explanation": "ΔL = 5000×1000/(100×100000) = 0.5 mm. Assumes uniform axial loading and linear elasticity.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST040",
+      "subject": "structures",
+      "topic": "Beam reactions",
+      "prompt": "A simply supported beam carries only a central 5000 N point load. What is each support reaction?",
+      "choices": [
+        "2,500 N",
+        "1,250 N",
+        "5,000 N",
+        "3,750 N"
+      ],
+      "answer": 0,
+      "explanation": "Symmetry and vertical equilibrium give each reaction P/2 = 2500 N.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST041",
+      "subject": "structures",
+      "topic": "Beam bending",
+      "prompt": "A simply supported 4 m beam carries a central 5000 N point load. Find maximum bending moment.",
+      "choices": [
+        "5,000 N·m",
+        "2,500 N·m",
+        "10,000 N·m",
+        "7,500 N·m"
+      ],
+      "answer": 0,
+      "explanation": "Mmax = PL/4 = 5000×4/4 = 5000 N·m.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST042",
+      "subject": "structures",
+      "topic": "Center of gravity",
+      "prompt": "Equal 100 kg masses lie at x = 5 m and x = 9 m. Find their combined CG.",
+      "choices": [
+        "7 m",
+        "3.5 m",
+        "14 m",
+        "10.5 m"
+      ],
+      "answer": 0,
+      "explanation": "xCG = (100×5 + 100×9)/200 = 7 m.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST043",
+      "subject": "structures",
+      "topic": "Torsion fundamentals",
+      "prompt": "A 100 N force acts perpendicular to a 0.5 m lever. Find torque magnitude.",
+      "choices": [
+        "50 N·m",
+        "25 N·m",
+        "100 N·m",
+        "75 N·m"
+      ],
+      "answer": 0,
+      "explanation": "T = Fr = 100×0.5 = 50 N·m.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST044",
+      "subject": "structures",
+      "topic": "Margin of safety",
+      "prompt": "Allowable stress is 600 MPa and applied stress is 100 MPa. Find MS = allowable/applied − 1.",
+      "choices": [
+        "5",
+        "2.5",
+        "10",
+        "7.5"
+      ],
+      "answer": 0,
+      "explanation": "MS = 600/100−1 = 5, dimensionless.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST045",
+      "subject": "structures",
+      "topic": "Axial stress",
+      "prompt": "An axial force of 12000 N acts on 100 mm². Find average normal stress.",
+      "choices": [
+        "120 MPa",
+        "60 MPa",
+        "240 MPa",
+        "180 MPa"
+      ],
+      "answer": 0,
+      "explanation": "σ = F/A = 12000/100 = 120 N/mm² = 120 MPa.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST046",
+      "subject": "structures",
+      "topic": "Strain",
+      "prompt": "A 1000 mm bar extends by 6 mm. Find engineering strain.",
+      "choices": [
+        "0.006",
+        "0.003",
+        "0.012",
+        "0.009"
+      ],
+      "answer": 0,
+      "explanation": "ε = ΔL/L = 6/1000 = 0.006, dimensionless.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST047",
+      "subject": "structures",
+      "topic": "Elasticity",
+      "prompt": "An elastic bar has F = 6000 N, L = 1000 mm, A = 100 mm² and E = 100000 N/mm². Find extension FL/(AE).",
+      "choices": [
+        "0.6 mm",
+        "0.3 mm",
+        "1.2 mm",
+        "0.9 mm"
+      ],
+      "answer": 0,
+      "explanation": "ΔL = 6000×1000/(100×100000) = 0.6 mm. Assumes uniform axial loading and linear elasticity.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST048",
+      "subject": "structures",
+      "topic": "Beam reactions",
+      "prompt": "A simply supported beam carries only a central 6000 N point load. What is each support reaction?",
+      "choices": [
+        "3,000 N",
+        "1,500 N",
+        "6,000 N",
+        "4,500 N"
+      ],
+      "answer": 0,
+      "explanation": "Symmetry and vertical equilibrium give each reaction P/2 = 3000 N.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST049",
+      "subject": "structures",
+      "topic": "Beam bending",
+      "prompt": "A simply supported 4 m beam carries a central 6000 N point load. Find maximum bending moment.",
+      "choices": [
+        "6,000 N·m",
+        "3,000 N·m",
+        "12,000 N·m",
+        "9,000 N·m"
+      ],
+      "answer": 0,
+      "explanation": "Mmax = PL/4 = 6000×4/4 = 6000 N·m.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST050",
+      "subject": "structures",
+      "topic": "Center of gravity",
+      "prompt": "Equal 100 kg masses lie at x = 6 m and x = 10 m. Find their combined CG.",
+      "choices": [
+        "8 m",
+        "4 m",
+        "16 m",
+        "12 m"
+      ],
+      "answer": 0,
+      "explanation": "xCG = (100×6 + 100×10)/200 = 8 m.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST051",
+      "subject": "structures",
+      "topic": "Torsion fundamentals",
+      "prompt": "A 120 N force acts perpendicular to a 0.5 m lever. Find torque magnitude.",
+      "choices": [
+        "60 N·m",
+        "30 N·m",
+        "120 N·m",
+        "90 N·m"
+      ],
+      "answer": 0,
+      "explanation": "T = Fr = 120×0.5 = 60 N·m.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST052",
+      "subject": "structures",
+      "topic": "Margin of safety",
+      "prompt": "Allowable stress is 700 MPa and applied stress is 100 MPa. Find MS = allowable/applied − 1.",
+      "choices": [
+        "6",
+        "3",
+        "12",
+        "9"
+      ],
+      "answer": 0,
+      "explanation": "MS = 700/100−1 = 6, dimensionless.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST053",
+      "subject": "structures",
+      "topic": "Axial stress",
+      "prompt": "An axial force of 14000 N acts on 100 mm². Find average normal stress.",
+      "choices": [
+        "140 MPa",
+        "70 MPa",
+        "280 MPa",
+        "210 MPa"
+      ],
+      "answer": 0,
+      "explanation": "σ = F/A = 14000/100 = 140 N/mm² = 140 MPa.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST054",
+      "subject": "structures",
+      "topic": "Strain",
+      "prompt": "A 1000 mm bar extends by 7 mm. Find engineering strain.",
+      "choices": [
+        "0.007",
+        "0.004",
+        "0.014",
+        "0.011"
+      ],
+      "answer": 0,
+      "explanation": "ε = ΔL/L = 7/1000 = 0.007, dimensionless.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST055",
+      "subject": "structures",
+      "topic": "Elasticity",
+      "prompt": "An elastic bar has F = 7000 N, L = 1000 mm, A = 100 mm² and E = 100000 N/mm². Find extension FL/(AE).",
+      "choices": [
+        "0.7 mm",
+        "0.35 mm",
+        "1.4 mm",
+        "1.05 mm"
+      ],
+      "answer": 0,
+      "explanation": "ΔL = 7000×1000/(100×100000) = 0.7 mm. Assumes uniform axial loading and linear elasticity.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST056",
+      "subject": "structures",
+      "topic": "Beam reactions",
+      "prompt": "A simply supported beam carries only a central 7000 N point load. What is each support reaction?",
+      "choices": [
+        "3,500 N",
+        "1,750 N",
+        "7,000 N",
+        "5,250 N"
+      ],
+      "answer": 0,
+      "explanation": "Symmetry and vertical equilibrium give each reaction P/2 = 3500 N.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST057",
+      "subject": "structures",
+      "topic": "Beam bending",
+      "prompt": "A simply supported 4 m beam carries a central 7000 N point load. Find maximum bending moment.",
+      "choices": [
+        "7,000 N·m",
+        "3,500 N·m",
+        "14,000 N·m",
+        "10,500 N·m"
+      ],
+      "answer": 0,
+      "explanation": "Mmax = PL/4 = 7000×4/4 = 7000 N·m.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST058",
+      "subject": "structures",
+      "topic": "Center of gravity",
+      "prompt": "Equal 100 kg masses lie at x = 7 m and x = 11 m. Find their combined CG.",
+      "choices": [
+        "9 m",
+        "4.5 m",
+        "18 m",
+        "13.5 m"
+      ],
+      "answer": 0,
+      "explanation": "xCG = (100×7 + 100×11)/200 = 9 m.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST059",
+      "subject": "structures",
+      "topic": "Torsion fundamentals",
+      "prompt": "A 140 N force acts perpendicular to a 0.5 m lever. Find torque magnitude.",
+      "choices": [
+        "70 N·m",
+        "35 N·m",
+        "140 N·m",
+        "105 N·m"
+      ],
+      "answer": 0,
+      "explanation": "T = Fr = 140×0.5 = 70 N·m.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "ST060",
+      "subject": "structures",
+      "topic": "Margin of safety",
+      "prompt": "Allowable stress is 800 MPa and applied stress is 100 MPa. Find MS = allowable/applied − 1.",
+      "choices": [
+        "7",
+        "3.5",
+        "14",
+        "10.5"
+      ],
+      "answer": 0,
+      "explanation": "MS = 800/100−1 = 7, dimensionless.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
       "id": "CR001",
       "subject": "construction",
       "topic": "Nondestructive testing",
@@ -964,6 +3556,870 @@
       ],
       "answer": 0,
       "explanation": "A completed physical repair still needs the prescribed inspections and authorized records. Applicable Philippine requirements govern local practice.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR013",
+      "subject": "construction",
+      "topic": "Repair drawing arithmetic",
+      "prompt": "A hypothetical approved drawing specifies 4 fasteners in a straight row at 20 mm center-to-center pitch. What distance spans the first and last centers?",
+      "choices": [
+        "60 mm",
+        "30 mm",
+        "120 mm",
+        "90 mm"
+      ],
+      "answer": 0,
+      "explanation": "There are N−1 gaps: (4−1)×20 = 60 mm. This is drawing arithmetic, not a universal repair spacing rule.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR014",
+      "subject": "construction",
+      "topic": "Fastener calculation",
+      "prompt": "For a training example only, specified rivet shank length is grip + 1.5d. If grip = 2 mm and d = 4 mm, find shank length.",
+      "choices": [
+        "8 mm",
+        "4 mm",
+        "16 mm",
+        "12 mm"
+      ],
+      "answer": 0,
+      "explanation": "L = grip+1.5d = 2+1.5×4 = 8 mm. Actual fastener selection requires applicable approved data.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR015",
+      "subject": "construction",
+      "topic": "Material quantity",
+      "prompt": "A rectangular aluminum sheet is 2 m long, 1 m wide and 1 mm thick. Using density 2700 kg/m³, find mass.",
+      "choices": [
+        "5.4 kg",
+        "2.7 kg",
+        "10.8 kg",
+        "8.1 kg"
+      ],
+      "answer": 0,
+      "explanation": "m = ρLwt = 2700×2×1×0.001 = 5.4 kg. Assumes a uniform, unperforated sheet.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR016",
+      "subject": "construction",
+      "topic": "Joint fundamentals",
+      "prompt": "In an idealized joint, 2000 N of shear is shared equally by 4 rivets. What is shear force per rivet?",
+      "choices": [
+        "500 N",
+        "250 N",
+        "1,000 N",
+        "750 N"
+      ],
+      "answer": 0,
+      "explanation": "Ideal equal sharing gives F/N = 2000/4 = 500 N. Real joint distribution and allowable loads require approved analysis.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR017",
+      "subject": "construction",
+      "topic": "Repair drawing arithmetic",
+      "prompt": "A hypothetical approved drawing specifies 5 fasteners in a straight row at 20 mm center-to-center pitch. What distance spans the first and last centers?",
+      "choices": [
+        "80 mm",
+        "40 mm",
+        "160 mm",
+        "120 mm"
+      ],
+      "answer": 0,
+      "explanation": "There are N−1 gaps: (5−1)×20 = 80 mm. This is drawing arithmetic, not a universal repair spacing rule.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR018",
+      "subject": "construction",
+      "topic": "Fastener calculation",
+      "prompt": "For a training example only, specified rivet shank length is grip + 1.5d. If grip = 3 mm and d = 4 mm, find shank length.",
+      "choices": [
+        "9 mm",
+        "4.5 mm",
+        "18 mm",
+        "13.5 mm"
+      ],
+      "answer": 0,
+      "explanation": "L = grip+1.5d = 3+1.5×4 = 9 mm. Actual fastener selection requires applicable approved data.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR019",
+      "subject": "construction",
+      "topic": "Material quantity",
+      "prompt": "A rectangular aluminum sheet is 3 m long, 1 m wide and 1 mm thick. Using density 2700 kg/m³, find mass.",
+      "choices": [
+        "8.1 kg",
+        "4.05 kg",
+        "16.2 kg",
+        "12.15 kg"
+      ],
+      "answer": 0,
+      "explanation": "m = ρLwt = 2700×3×1×0.001 = 8.1 kg. Assumes a uniform, unperforated sheet.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR020",
+      "subject": "construction",
+      "topic": "Joint fundamentals",
+      "prompt": "In an idealized joint, 3000 N of shear is shared equally by 4 rivets. What is shear force per rivet?",
+      "choices": [
+        "750 N",
+        "375 N",
+        "1,500 N",
+        "1,125 N"
+      ],
+      "answer": 0,
+      "explanation": "Ideal equal sharing gives F/N = 3000/4 = 750 N. Real joint distribution and allowable loads require approved analysis.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR021",
+      "subject": "construction",
+      "topic": "Repair drawing arithmetic",
+      "prompt": "A hypothetical approved drawing specifies 6 fasteners in a straight row at 20 mm center-to-center pitch. What distance spans the first and last centers?",
+      "choices": [
+        "100 mm",
+        "50 mm",
+        "200 mm",
+        "150 mm"
+      ],
+      "answer": 0,
+      "explanation": "There are N−1 gaps: (6−1)×20 = 100 mm. This is drawing arithmetic, not a universal repair spacing rule.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR022",
+      "subject": "construction",
+      "topic": "Fastener calculation",
+      "prompt": "For a training example only, specified rivet shank length is grip + 1.5d. If grip = 4 mm and d = 4 mm, find shank length.",
+      "choices": [
+        "10 mm",
+        "5 mm",
+        "20 mm",
+        "15 mm"
+      ],
+      "answer": 0,
+      "explanation": "L = grip+1.5d = 4+1.5×4 = 10 mm. Actual fastener selection requires applicable approved data.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR023",
+      "subject": "construction",
+      "topic": "Material quantity",
+      "prompt": "A rectangular aluminum sheet is 4 m long, 1 m wide and 1 mm thick. Using density 2700 kg/m³, find mass.",
+      "choices": [
+        "10.8 kg",
+        "5.4 kg",
+        "21.6 kg",
+        "16.2 kg"
+      ],
+      "answer": 0,
+      "explanation": "m = ρLwt = 2700×4×1×0.001 = 10.8 kg. Assumes a uniform, unperforated sheet.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR024",
+      "subject": "construction",
+      "topic": "Joint fundamentals",
+      "prompt": "In an idealized joint, 4000 N of shear is shared equally by 4 rivets. What is shear force per rivet?",
+      "choices": [
+        "1,000 N",
+        "500 N",
+        "2,000 N",
+        "1,500 N"
+      ],
+      "answer": 0,
+      "explanation": "Ideal equal sharing gives F/N = 4000/4 = 1000 N. Real joint distribution and allowable loads require approved analysis.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR025",
+      "subject": "construction",
+      "topic": "Repair drawing arithmetic",
+      "prompt": "A hypothetical approved drawing specifies 7 fasteners in a straight row at 20 mm center-to-center pitch. What distance spans the first and last centers?",
+      "choices": [
+        "120 mm",
+        "60 mm",
+        "240 mm",
+        "180 mm"
+      ],
+      "answer": 0,
+      "explanation": "There are N−1 gaps: (7−1)×20 = 120 mm. This is drawing arithmetic, not a universal repair spacing rule.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR026",
+      "subject": "construction",
+      "topic": "Fastener calculation",
+      "prompt": "For a training example only, specified rivet shank length is grip + 1.5d. If grip = 5 mm and d = 4 mm, find shank length.",
+      "choices": [
+        "11 mm",
+        "5.5 mm",
+        "22 mm",
+        "16.5 mm"
+      ],
+      "answer": 0,
+      "explanation": "L = grip+1.5d = 5+1.5×4 = 11 mm. Actual fastener selection requires applicable approved data.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR027",
+      "subject": "construction",
+      "topic": "Material quantity",
+      "prompt": "A rectangular aluminum sheet is 5 m long, 1 m wide and 1 mm thick. Using density 2700 kg/m³, find mass.",
+      "choices": [
+        "13.5 kg",
+        "6.75 kg",
+        "27 kg",
+        "20.25 kg"
+      ],
+      "answer": 0,
+      "explanation": "m = ρLwt = 2700×5×1×0.001 = 13.5 kg. Assumes a uniform, unperforated sheet.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR028",
+      "subject": "construction",
+      "topic": "Joint fundamentals",
+      "prompt": "In an idealized joint, 5000 N of shear is shared equally by 4 rivets. What is shear force per rivet?",
+      "choices": [
+        "1,250 N",
+        "625 N",
+        "2,500 N",
+        "1,875 N"
+      ],
+      "answer": 0,
+      "explanation": "Ideal equal sharing gives F/N = 5000/4 = 1250 N. Real joint distribution and allowable loads require approved analysis.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR029",
+      "subject": "construction",
+      "topic": "Repair drawing arithmetic",
+      "prompt": "A hypothetical approved drawing specifies 8 fasteners in a straight row at 20 mm center-to-center pitch. What distance spans the first and last centers?",
+      "choices": [
+        "140 mm",
+        "70 mm",
+        "280 mm",
+        "210 mm"
+      ],
+      "answer": 0,
+      "explanation": "There are N−1 gaps: (8−1)×20 = 140 mm. This is drawing arithmetic, not a universal repair spacing rule.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR030",
+      "subject": "construction",
+      "topic": "Fastener calculation",
+      "prompt": "For a training example only, specified rivet shank length is grip + 1.5d. If grip = 6 mm and d = 4 mm, find shank length.",
+      "choices": [
+        "12 mm",
+        "6 mm",
+        "24 mm",
+        "18 mm"
+      ],
+      "answer": 0,
+      "explanation": "L = grip+1.5d = 6+1.5×4 = 12 mm. Actual fastener selection requires applicable approved data.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR031",
+      "subject": "construction",
+      "topic": "Material quantity",
+      "prompt": "A rectangular aluminum sheet is 6 m long, 1 m wide and 1 mm thick. Using density 2700 kg/m³, find mass.",
+      "choices": [
+        "16.2 kg",
+        "8.1 kg",
+        "32.4 kg",
+        "24.3 kg"
+      ],
+      "answer": 0,
+      "explanation": "m = ρLwt = 2700×6×1×0.001 = 16.2 kg. Assumes a uniform, unperforated sheet.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR032",
+      "subject": "construction",
+      "topic": "Joint fundamentals",
+      "prompt": "In an idealized joint, 6000 N of shear is shared equally by 4 rivets. What is shear force per rivet?",
+      "choices": [
+        "1,500 N",
+        "750 N",
+        "3,000 N",
+        "2,250 N"
+      ],
+      "answer": 0,
+      "explanation": "Ideal equal sharing gives F/N = 6000/4 = 1500 N. Real joint distribution and allowable loads require approved analysis.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR033",
+      "subject": "construction",
+      "topic": "Repair drawing arithmetic",
+      "prompt": "A hypothetical approved drawing specifies 9 fasteners in a straight row at 20 mm center-to-center pitch. What distance spans the first and last centers?",
+      "choices": [
+        "160 mm",
+        "80 mm",
+        "320 mm",
+        "240 mm"
+      ],
+      "answer": 0,
+      "explanation": "There are N−1 gaps: (9−1)×20 = 160 mm. This is drawing arithmetic, not a universal repair spacing rule.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR034",
+      "subject": "construction",
+      "topic": "Fastener calculation",
+      "prompt": "For a training example only, specified rivet shank length is grip + 1.5d. If grip = 7 mm and d = 4 mm, find shank length.",
+      "choices": [
+        "13 mm",
+        "6.5 mm",
+        "26 mm",
+        "19.5 mm"
+      ],
+      "answer": 0,
+      "explanation": "L = grip+1.5d = 7+1.5×4 = 13 mm. Actual fastener selection requires applicable approved data.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR035",
+      "subject": "construction",
+      "topic": "Material quantity",
+      "prompt": "A rectangular aluminum sheet is 7 m long, 1 m wide and 1 mm thick. Using density 2700 kg/m³, find mass.",
+      "choices": [
+        "18.9 kg",
+        "9.45 kg",
+        "37.8 kg",
+        "28.35 kg"
+      ],
+      "answer": 0,
+      "explanation": "m = ρLwt = 2700×7×1×0.001 = 18.9 kg. Assumes a uniform, unperforated sheet.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR036",
+      "subject": "construction",
+      "topic": "Joint fundamentals",
+      "prompt": "In an idealized joint, 7000 N of shear is shared equally by 4 rivets. What is shear force per rivet?",
+      "choices": [
+        "1,750 N",
+        "875 N",
+        "3,500 N",
+        "2,625 N"
+      ],
+      "answer": 0,
+      "explanation": "Ideal equal sharing gives F/N = 7000/4 = 1750 N. Real joint distribution and allowable loads require approved analysis.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR037",
+      "subject": "construction",
+      "topic": "Material properties",
+      "prompt": "What distinguishes ductile metal deformation from brittle fracture?",
+      "choices": [
+        "Significant plastic deformation can precede ductile fracture",
+        "Ductile metals never fracture",
+        "Brittle material always stretches more",
+        "Ductility is only a paint property"
+      ],
+      "answer": 0,
+      "explanation": "Ductility is the ability to plastically deform before fracture; it does not imply unlimited strength.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR038",
+      "subject": "construction",
+      "topic": "Heat treatment",
+      "prompt": "What does annealing commonly do to cold-worked metal?",
+      "choices": [
+        "Reduces hardness and restores ductility",
+        "Always doubles its density",
+        "Eliminates every inclusion",
+        "Makes every alloy ferromagnetic"
+      ],
+      "answer": 0,
+      "explanation": "Suitable annealing can relieve the effects of cold work and restore ductility. Use the alloy-specific process.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR039",
+      "subject": "construction",
+      "topic": "Heat treatment",
+      "prompt": "Why is correct alloy identification needed before heat treatment?",
+      "choices": [
+        "Alloys require specific temperatures and procedures",
+        "All metals use identical treatment",
+        "Only paint shade matters",
+        "All alloys melt at the same point"
+      ],
+      "answer": 0,
+      "explanation": "Heat treatment response depends on composition and prior condition, so the specified alloy process governs.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR040",
+      "subject": "construction",
+      "topic": "Material properties",
+      "prompt": "What is work hardening in a ductile metal?",
+      "choices": [
+        "Increased strength or hardness from plastic deformation",
+        "Softening by removing paint",
+        "Reduction of density by inspection",
+        "A chemical conversion to plastic"
+      ],
+      "answer": 0,
+      "explanation": "Cold plastic deformation changes the dislocation structure and generally raises strength while reducing ductility.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR041",
+      "subject": "construction",
+      "topic": "Material identification",
+      "prompt": "What does a material temper designation communicate?",
+      "choices": [
+        "A defined material condition or treatment state",
+        "The aircraft paint code",
+        "Only the sheet length",
+        "The fastener manufacturer address"
+      ],
+      "answer": 0,
+      "explanation": "Temper describes the condition produced by specified mechanical or thermal treatment; it matters to material selection.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR042",
+      "subject": "construction",
+      "topic": "Corrosion",
+      "prompt": "Why must allowable corrosion removal limits be checked?",
+      "choices": [
+        "Removal reduces remaining structural thickness",
+        "All corrosion removal adds strength",
+        "Any remaining thickness is acceptable",
+        "Limits only affect paint color"
+      ],
+      "answer": 0,
+      "explanation": "Blending or removal can reduce section capacity. The approved data control acceptable depth and subsequent action.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR043",
+      "subject": "construction",
+      "topic": "Corrosion",
+      "prompt": "What helps prevent moisture-driven corrosion during storage?",
+      "choices": [
+        "Clean dry storage and specified protective measures",
+        "Continuous saltwater exposure",
+        "Removing every protective coating",
+        "Leaving dissimilar-metal debris in contact"
+      ],
+      "answer": 0,
+      "explanation": "Controlling contamination and moisture reduces corrosion exposure; follow prescribed storage protection.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR044",
+      "subject": "construction",
+      "topic": "Nondestructive testing",
+      "prompt": "Which NDT method uses high-frequency sound to examine a part?",
+      "choices": [
+        "Ultrasonic inspection",
+        "Liquid penetrant inspection",
+        "Visual inspection alone",
+        "Torque testing"
+      ],
+      "answer": 0,
+      "explanation": "Ultrasonic inspection uses sound propagation and reflected signals. Interpretation requires suitable technique and training.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR045",
+      "subject": "construction",
+      "topic": "Nondestructive testing",
+      "prompt": "Which inspection method can detect surface and near-surface flaws in conductive material using induced currents?",
+      "choices": [
+        "Eddy-current inspection",
+        "Dye penetrant only",
+        "Magnetic inspection of glass",
+        "A ruler measurement alone"
+      ],
+      "answer": 0,
+      "explanation": "Eddy-current inspection measures changes in induced electrical currents and requires conductive material.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR046",
+      "subject": "construction",
+      "topic": "Nondestructive testing",
+      "prompt": "What must follow magnetic-particle inspection when residual magnetism is unacceptable?",
+      "choices": [
+        "Specified demagnetization and verification",
+        "Automatic scrapping of every part",
+        "Adding unapproved filler",
+        "Painting without checking requirements"
+      ],
+      "answer": 0,
+      "explanation": "Residual magnetism can be detrimental; apply the specified demagnetization and check procedure when required.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR047",
+      "subject": "construction",
+      "topic": "Nondestructive testing",
+      "prompt": "Why must penetrant inspection surfaces be cleaned properly?",
+      "choices": [
+        "Contamination can block penetrant entry into flaws",
+        "Oil makes every crack easier to see",
+        "Paint is required over every crack",
+        "Cleaning replaces required inspection"
+      ],
+      "answer": 0,
+      "explanation": "Contamination or coatings can obscure openings and produce unreliable indications; preparation is essential.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR048",
+      "subject": "construction",
+      "topic": "Inspection tools",
+      "prompt": "What does a borescope enable in inspection?",
+      "choices": [
+        "Viewing areas with restricted direct access",
+        "Measuring all stresses automatically",
+        "Repairing a crack without tools",
+        "Replacing every inspection requirement"
+      ],
+      "answer": 0,
+      "explanation": "A borescope provides visual access to otherwise difficult areas; it does not replace other required methods.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR049",
+      "subject": "construction",
+      "topic": "Workshop practices",
+      "prompt": "Why are drill chips removed before closing a structure?",
+      "choices": [
+        "Loose debris can cause damage or interference",
+        "Chips are intentional reinforcement",
+        "All chips dissolve in service",
+        "Debris never affects control systems"
+      ],
+      "answer": 0,
+      "explanation": "Tool and debris control helps prevent foreign-object damage, corrosion and mechanical interference.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR050",
+      "subject": "construction",
+      "topic": "Sheet-metal work",
+      "prompt": "What is the purpose of deburring a drilled metal hole?",
+      "choices": [
+        "Remove unwanted sharp edges and burrs",
+        "Remove all surrounding structural material",
+        "Increase every hole by one size",
+        "Hide an oversized hole"
+      ],
+      "answer": 0,
+      "explanation": "Careful deburring removes sharp remnants without exceeding dimensional limits or damaging the part.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR051",
+      "subject": "construction",
+      "topic": "Sheet-metal work",
+      "prompt": "Why must a drill be held in the specified alignment?",
+      "choices": [
+        "To control hole geometry and avoid skewed holes",
+        "To guarantee no inspection is needed",
+        "To eliminate required tooling",
+        "To change the alloy composition"
+      ],
+      "answer": 0,
+      "explanation": "Misalignment can produce unacceptable hole geometry or damage. Applicable dimensions and practices still govern.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR052",
+      "subject": "construction",
+      "topic": "Assembly",
+      "prompt": "What is a cleco-type temporary fastener used for?",
+      "choices": [
+        "Holding aligned sheets temporarily during assembly",
+        "Permanent substitution for all structural rivets",
+        "Measuring magnetic field strength",
+        "Repairing every enlarged hole"
+      ],
+      "answer": 0,
+      "explanation": "Temporary fasteners hold work in alignment until the specified permanent fastening is completed.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR053",
+      "subject": "construction",
+      "topic": "Repair principles",
+      "prompt": "What is the primary purpose of a doubler in an approved sheet-metal repair?",
+      "choices": [
+        "Reinforce and transfer load around the repaired region",
+        "Cover damage without carrying load",
+        "Replace every inspection step",
+        "Guarantee original strength regardless of design"
+      ],
+      "answer": 0,
+      "explanation": "A properly designed repair doubler provides a load path. Its dimensions and attachment require approved data.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR054",
+      "subject": "construction",
+      "topic": "Fasteners",
+      "prompt": "Why must structural fasteners be of the specified type and material?",
+      "choices": [
+        "Strength, fit and compatibility depend on the specification",
+        "All fasteners of equal color are equivalent",
+        "Any longer fastener is automatically acceptable",
+        "Only packaging style matters"
+      ],
+      "answer": 0,
+      "explanation": "Fastener substitution can change joint strength, corrosion resistance and fit; use authorized specifications.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR055",
+      "subject": "construction",
+      "topic": "Damage assessment",
+      "prompt": "What does a crack-stop hole by itself establish?",
+      "choices": [
+        "No automatic approval of the damaged structure",
+        "Permanent airworthiness in every case",
+        "Full restoration of original section",
+        "Elimination of all future fatigue"
+      ],
+      "answer": 0,
+      "explanation": "Any stop-drilling technique and subsequent disposition must follow applicable approved data; a hole alone proves no acceptability.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR056",
+      "subject": "construction",
+      "topic": "Composites",
+      "prompt": "Why is fiber direction important when repairing a composite laminate?",
+      "choices": [
+        "Laminate strength and stiffness depend on ply orientation",
+        "All composite plies are isotropic",
+        "Direction only changes surface gloss",
+        "Fiber direction is irrelevant under load"
+      ],
+      "answer": 0,
+      "explanation": "Load-carrying capability depends on the layup, so the specified orientation and ply sequence must be preserved.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR057",
+      "subject": "construction",
+      "topic": "Composites",
+      "prompt": "Why are specified composite cure temperature and time controlled?",
+      "choices": [
+        "They affect the final resin and bond properties",
+        "Every resin cures identically at any temperature",
+        "Curing only controls exterior color",
+        "Cure schedules replace surface preparation"
+      ],
+      "answer": 0,
+      "explanation": "Cure requirements are system-specific. Incomplete or improper curing can compromise mechanical properties.",
+      "source": "airframe",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR058",
+      "subject": "construction",
+      "topic": "Workshop safety",
+      "prompt": "Why is composite sanding dust controlled with suitable protection?",
+      "choices": [
+        "Dust exposure and contamination require appropriate controls",
+        "Every composite dust is harmless",
+        "Dust improves adhesive bonding automatically",
+        "Protection is only needed outdoors"
+      ],
+      "answer": 0,
+      "explanation": "Follow material safety data and workshop controls for dust collection, personal protection and contamination prevention.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR059",
+      "subject": "construction",
+      "topic": "Quality assurance",
+      "prompt": "Why must a measuring tool have suitable calibration status?",
+      "choices": [
+        "Measurement decisions depend on known tool accuracy",
+        "Calibration changes the part alloy",
+        "Calibration removes every human error",
+        "Any damaged tool is accurate after labeling"
+      ],
+      "answer": 0,
+      "explanation": "Calibration and tool condition support reliable dimensional inspection; use a tool appropriate to the tolerance.",
+      "source": "general",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "CR060",
+      "subject": "construction",
+      "topic": "Quality assurance",
+      "prompt": "When a part fails its applicable inspection limits, what is the correct disposition?",
+      "choices": [
+        "Follow authorized rejection, repair or engineering disposition",
+        "Install it if the color matches",
+        "Erase identification and reuse it",
+        "Ignore the limit after one successful flight"
+      ],
+      "answer": 0,
+      "explanation": "Nonconforming parts require documented authorized disposition and must not be accepted solely by appearance.",
       "source": "general",
       "review": "source-checked",
       "reviewer": "AE Prepware initial author self-review; faculty review pending",
@@ -1186,6 +4642,870 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "id": "PP013",
+      "subject": "powerplant",
+      "topic": "Shaft power",
+      "prompt": "A shaft delivers 40 N·m at 120 rad/s. What is shaft power?",
+      "choices": [
+        "4.8 kW",
+        "2.4 kW",
+        "9.6 kW",
+        "7.2 kW"
+      ],
+      "answer": 0,
+      "explanation": "P = Tω = 40×120 = 4800 W = 4.8 kW.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP014",
+      "subject": "powerplant",
+      "topic": "Compression ratio",
+      "prompt": "An engine cylinder has swept volume 100 cm³ and clearance volume 50 cm³. Find compression ratio.",
+      "choices": [
+        "3 :1",
+        "1.5 :1",
+        "6 :1",
+        "4.5 :1"
+      ],
+      "answer": 0,
+      "explanation": "r = (Vs+Vc)/Vc = (100+50)/50 = 3:1.",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP015",
+      "subject": "powerplant",
+      "topic": "Thermal efficiency",
+      "prompt": "A heat engine receives 1000 J and delivers 200 J net work. Find thermal efficiency.",
+      "choices": [
+        "20 %",
+        "10 %",
+        "40 %",
+        "30 %"
+      ],
+      "answer": 0,
+      "explanation": "η = Wnet/Qin = 200/1000 = 20%.",
+      "source": "thermo",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP016",
+      "subject": "powerplant",
+      "topic": "Jet thrust",
+      "prompt": "Neglecting fuel mass and pressure thrust, a jet accelerates 2 kg/s from 100 to 300 m/s. Find thrust.",
+      "choices": [
+        "400 N",
+        "200 N",
+        "800 N",
+        "600 N"
+      ],
+      "answer": 0,
+      "explanation": "F = ṁ(Ve−V0) = 2×(300−100) = 400 N.",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP017",
+      "subject": "powerplant",
+      "topic": "Thermodynamic cycles",
+      "prompt": "For an ideal heat-engine balance with Qin = 2000 J and rejected heat 1200 J per cycle, find net work.",
+      "choices": [
+        "800 J",
+        "400 J",
+        "1,600 J",
+        "1,200 J"
+      ],
+      "answer": 0,
+      "explanation": "Wnet = Qin−Qout = 2000−1200 = 800 J.",
+      "source": "thermo",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP018",
+      "subject": "powerplant",
+      "topic": "Fuel consumption",
+      "prompt": "A 100 kW engine consumes 20 kg of fuel per hour. Find brake specific fuel consumption.",
+      "choices": [
+        "0.2 kg/(kW·h)",
+        "0.1 kg/(kW·h)",
+        "0.4 kg/(kW·h)",
+        "0.3 kg/(kW·h)"
+      ],
+      "answer": 0,
+      "explanation": "BSFC = fuel rate/brake power = 20/100 = 0.2 kg/(kW·h).",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP019",
+      "subject": "powerplant",
+      "topic": "Reciprocating engines",
+      "prompt": "A four-stroke single cylinder runs at 2000 rpm. How many power strokes per minute occur ideally?",
+      "choices": [
+        "1,000 strokes/min",
+        "500 strokes/min",
+        "2,000 strokes/min",
+        "1,500 strokes/min"
+      ],
+      "answer": 0,
+      "explanation": "One power stroke occurs per two crank revolutions: 2000/2 = 1000 per minute.",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP020",
+      "subject": "powerplant",
+      "topic": "Fuel energy",
+      "prompt": "Fuel lower heating value is 40 MJ/kg and mass flow is 2 kg/s. Find chemical energy input rate.",
+      "choices": [
+        "80 MW",
+        "40 MW",
+        "160 MW",
+        "120 MW"
+      ],
+      "answer": 0,
+      "explanation": "Energy rate = ṁ×LHV = 2×40 = 80 MJ/s = 80 MW.",
+      "source": "thermo",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP021",
+      "subject": "powerplant",
+      "topic": "Shaft power",
+      "prompt": "A shaft delivers 60 N·m at 120 rad/s. What is shaft power?",
+      "choices": [
+        "7.2 kW",
+        "3.6 kW",
+        "14.4 kW",
+        "10.8 kW"
+      ],
+      "answer": 0,
+      "explanation": "P = Tω = 60×120 = 7200 W = 7.2 kW.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP022",
+      "subject": "powerplant",
+      "topic": "Compression ratio",
+      "prompt": "An engine cylinder has swept volume 150 cm³ and clearance volume 50 cm³. Find compression ratio.",
+      "choices": [
+        "4 :1",
+        "2 :1",
+        "8 :1",
+        "6 :1"
+      ],
+      "answer": 0,
+      "explanation": "r = (Vs+Vc)/Vc = (150+50)/50 = 4:1.",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP023",
+      "subject": "powerplant",
+      "topic": "Thermal efficiency",
+      "prompt": "A heat engine receives 1000 J and delivers 300 J net work. Find thermal efficiency.",
+      "choices": [
+        "30 %",
+        "15 %",
+        "60 %",
+        "45 %"
+      ],
+      "answer": 0,
+      "explanation": "η = Wnet/Qin = 300/1000 = 30%.",
+      "source": "thermo",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP024",
+      "subject": "powerplant",
+      "topic": "Jet thrust",
+      "prompt": "Neglecting fuel mass and pressure thrust, a jet accelerates 3 kg/s from 100 to 300 m/s. Find thrust.",
+      "choices": [
+        "600 N",
+        "300 N",
+        "1,200 N",
+        "900 N"
+      ],
+      "answer": 0,
+      "explanation": "F = ṁ(Ve−V0) = 3×(300−100) = 600 N.",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP025",
+      "subject": "powerplant",
+      "topic": "Thermodynamic cycles",
+      "prompt": "For an ideal heat-engine balance with Qin = 3000 J and rejected heat 1800 J per cycle, find net work.",
+      "choices": [
+        "1,200 J",
+        "600 J",
+        "2,400 J",
+        "1,800 J"
+      ],
+      "answer": 0,
+      "explanation": "Wnet = Qin−Qout = 3000−1800 = 1200 J.",
+      "source": "thermo",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP026",
+      "subject": "powerplant",
+      "topic": "Fuel consumption",
+      "prompt": "A 100 kW engine consumes 30 kg of fuel per hour. Find brake specific fuel consumption.",
+      "choices": [
+        "0.3 kg/(kW·h)",
+        "0.15 kg/(kW·h)",
+        "0.6 kg/(kW·h)",
+        "0.45 kg/(kW·h)"
+      ],
+      "answer": 0,
+      "explanation": "BSFC = fuel rate/brake power = 30/100 = 0.3 kg/(kW·h).",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP027",
+      "subject": "powerplant",
+      "topic": "Reciprocating engines",
+      "prompt": "A four-stroke single cylinder runs at 3000 rpm. How many power strokes per minute occur ideally?",
+      "choices": [
+        "1,500 strokes/min",
+        "750 strokes/min",
+        "3,000 strokes/min",
+        "2,250 strokes/min"
+      ],
+      "answer": 0,
+      "explanation": "One power stroke occurs per two crank revolutions: 3000/2 = 1500 per minute.",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP028",
+      "subject": "powerplant",
+      "topic": "Fuel energy",
+      "prompt": "Fuel lower heating value is 40 MJ/kg and mass flow is 3 kg/s. Find chemical energy input rate.",
+      "choices": [
+        "120 MW",
+        "60 MW",
+        "240 MW",
+        "180 MW"
+      ],
+      "answer": 0,
+      "explanation": "Energy rate = ṁ×LHV = 3×40 = 120 MJ/s = 120 MW.",
+      "source": "thermo",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP029",
+      "subject": "powerplant",
+      "topic": "Shaft power",
+      "prompt": "A shaft delivers 80 N·m at 120 rad/s. What is shaft power?",
+      "choices": [
+        "9.6 kW",
+        "4.8 kW",
+        "19.2 kW",
+        "14.4 kW"
+      ],
+      "answer": 0,
+      "explanation": "P = Tω = 80×120 = 9600 W = 9.6 kW.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP030",
+      "subject": "powerplant",
+      "topic": "Compression ratio",
+      "prompt": "An engine cylinder has swept volume 200 cm³ and clearance volume 50 cm³. Find compression ratio.",
+      "choices": [
+        "5 :1",
+        "2.5 :1",
+        "10 :1",
+        "7.5 :1"
+      ],
+      "answer": 0,
+      "explanation": "r = (Vs+Vc)/Vc = (200+50)/50 = 5:1.",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP031",
+      "subject": "powerplant",
+      "topic": "Thermal efficiency",
+      "prompt": "A heat engine receives 1000 J and delivers 400 J net work. Find thermal efficiency.",
+      "choices": [
+        "40 %",
+        "20 %",
+        "80 %",
+        "60 %"
+      ],
+      "answer": 0,
+      "explanation": "η = Wnet/Qin = 400/1000 = 40%.",
+      "source": "thermo",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP032",
+      "subject": "powerplant",
+      "topic": "Jet thrust",
+      "prompt": "Neglecting fuel mass and pressure thrust, a jet accelerates 4 kg/s from 100 to 300 m/s. Find thrust.",
+      "choices": [
+        "800 N",
+        "400 N",
+        "1,600 N",
+        "1,200 N"
+      ],
+      "answer": 0,
+      "explanation": "F = ṁ(Ve−V0) = 4×(300−100) = 800 N.",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP033",
+      "subject": "powerplant",
+      "topic": "Thermodynamic cycles",
+      "prompt": "For an ideal heat-engine balance with Qin = 4000 J and rejected heat 2400 J per cycle, find net work.",
+      "choices": [
+        "1,600 J",
+        "800 J",
+        "3,200 J",
+        "2,400 J"
+      ],
+      "answer": 0,
+      "explanation": "Wnet = Qin−Qout = 4000−2400 = 1600 J.",
+      "source": "thermo",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP034",
+      "subject": "powerplant",
+      "topic": "Fuel consumption",
+      "prompt": "A 100 kW engine consumes 40 kg of fuel per hour. Find brake specific fuel consumption.",
+      "choices": [
+        "0.4 kg/(kW·h)",
+        "0.2 kg/(kW·h)",
+        "0.8 kg/(kW·h)",
+        "0.6 kg/(kW·h)"
+      ],
+      "answer": 0,
+      "explanation": "BSFC = fuel rate/brake power = 40/100 = 0.4 kg/(kW·h).",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP035",
+      "subject": "powerplant",
+      "topic": "Reciprocating engines",
+      "prompt": "A four-stroke single cylinder runs at 4000 rpm. How many power strokes per minute occur ideally?",
+      "choices": [
+        "2,000 strokes/min",
+        "1,000 strokes/min",
+        "4,000 strokes/min",
+        "3,000 strokes/min"
+      ],
+      "answer": 0,
+      "explanation": "One power stroke occurs per two crank revolutions: 4000/2 = 2000 per minute.",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP036",
+      "subject": "powerplant",
+      "topic": "Fuel energy",
+      "prompt": "Fuel lower heating value is 40 MJ/kg and mass flow is 4 kg/s. Find chemical energy input rate.",
+      "choices": [
+        "160 MW",
+        "80 MW",
+        "320 MW",
+        "240 MW"
+      ],
+      "answer": 0,
+      "explanation": "Energy rate = ṁ×LHV = 4×40 = 160 MJ/s = 160 MW.",
+      "source": "thermo",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP037",
+      "subject": "powerplant",
+      "topic": "Shaft power",
+      "prompt": "A shaft delivers 100 N·m at 120 rad/s. What is shaft power?",
+      "choices": [
+        "12 kW",
+        "6 kW",
+        "24 kW",
+        "18 kW"
+      ],
+      "answer": 0,
+      "explanation": "P = Tω = 100×120 = 12000 W = 12 kW.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP038",
+      "subject": "powerplant",
+      "topic": "Compression ratio",
+      "prompt": "An engine cylinder has swept volume 250 cm³ and clearance volume 50 cm³. Find compression ratio.",
+      "choices": [
+        "6 :1",
+        "3 :1",
+        "12 :1",
+        "9 :1"
+      ],
+      "answer": 0,
+      "explanation": "r = (Vs+Vc)/Vc = (250+50)/50 = 6:1.",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP039",
+      "subject": "powerplant",
+      "topic": "Thermal efficiency",
+      "prompt": "A heat engine receives 1000 J and delivers 500 J net work. Find thermal efficiency.",
+      "choices": [
+        "50 %",
+        "25 %",
+        "100 %",
+        "75 %"
+      ],
+      "answer": 0,
+      "explanation": "η = Wnet/Qin = 500/1000 = 50%.",
+      "source": "thermo",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP040",
+      "subject": "powerplant",
+      "topic": "Jet thrust",
+      "prompt": "Neglecting fuel mass and pressure thrust, a jet accelerates 5 kg/s from 100 to 300 m/s. Find thrust.",
+      "choices": [
+        "1,000 N",
+        "500 N",
+        "2,000 N",
+        "1,500 N"
+      ],
+      "answer": 0,
+      "explanation": "F = ṁ(Ve−V0) = 5×(300−100) = 1000 N.",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP041",
+      "subject": "powerplant",
+      "topic": "Thermodynamic cycles",
+      "prompt": "For an ideal heat-engine balance with Qin = 5000 J and rejected heat 3000 J per cycle, find net work.",
+      "choices": [
+        "2,000 J",
+        "1,000 J",
+        "4,000 J",
+        "3,000 J"
+      ],
+      "answer": 0,
+      "explanation": "Wnet = Qin−Qout = 5000−3000 = 2000 J.",
+      "source": "thermo",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP042",
+      "subject": "powerplant",
+      "topic": "Fuel consumption",
+      "prompt": "A 100 kW engine consumes 50 kg of fuel per hour. Find brake specific fuel consumption.",
+      "choices": [
+        "0.5 kg/(kW·h)",
+        "0.25 kg/(kW·h)",
+        "1 kg/(kW·h)",
+        "0.75 kg/(kW·h)"
+      ],
+      "answer": 0,
+      "explanation": "BSFC = fuel rate/brake power = 50/100 = 0.5 kg/(kW·h).",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP043",
+      "subject": "powerplant",
+      "topic": "Reciprocating engines",
+      "prompt": "A four-stroke single cylinder runs at 5000 rpm. How many power strokes per minute occur ideally?",
+      "choices": [
+        "2,500 strokes/min",
+        "1,250 strokes/min",
+        "5,000 strokes/min",
+        "3,750 strokes/min"
+      ],
+      "answer": 0,
+      "explanation": "One power stroke occurs per two crank revolutions: 5000/2 = 2500 per minute.",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP044",
+      "subject": "powerplant",
+      "topic": "Fuel energy",
+      "prompt": "Fuel lower heating value is 40 MJ/kg and mass flow is 5 kg/s. Find chemical energy input rate.",
+      "choices": [
+        "200 MW",
+        "100 MW",
+        "400 MW",
+        "300 MW"
+      ],
+      "answer": 0,
+      "explanation": "Energy rate = ṁ×LHV = 5×40 = 200 MJ/s = 200 MW.",
+      "source": "thermo",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP045",
+      "subject": "powerplant",
+      "topic": "Shaft power",
+      "prompt": "A shaft delivers 120 N·m at 120 rad/s. What is shaft power?",
+      "choices": [
+        "14.4 kW",
+        "7.2 kW",
+        "28.8 kW",
+        "21.6 kW"
+      ],
+      "answer": 0,
+      "explanation": "P = Tω = 120×120 = 14400 W = 14.4 kW.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP046",
+      "subject": "powerplant",
+      "topic": "Compression ratio",
+      "prompt": "An engine cylinder has swept volume 300 cm³ and clearance volume 50 cm³. Find compression ratio.",
+      "choices": [
+        "7 :1",
+        "3.5 :1",
+        "14 :1",
+        "10.5 :1"
+      ],
+      "answer": 0,
+      "explanation": "r = (Vs+Vc)/Vc = (300+50)/50 = 7:1.",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP047",
+      "subject": "powerplant",
+      "topic": "Thermal efficiency",
+      "prompt": "A heat engine receives 1000 J and delivers 600 J net work. Find thermal efficiency.",
+      "choices": [
+        "60 %",
+        "30 %",
+        "120 %",
+        "90 %"
+      ],
+      "answer": 0,
+      "explanation": "η = Wnet/Qin = 600/1000 = 60%.",
+      "source": "thermo",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP048",
+      "subject": "powerplant",
+      "topic": "Jet thrust",
+      "prompt": "Neglecting fuel mass and pressure thrust, a jet accelerates 6 kg/s from 100 to 300 m/s. Find thrust.",
+      "choices": [
+        "1,200 N",
+        "600 N",
+        "2,400 N",
+        "1,800 N"
+      ],
+      "answer": 0,
+      "explanation": "F = ṁ(Ve−V0) = 6×(300−100) = 1200 N.",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP049",
+      "subject": "powerplant",
+      "topic": "Thermodynamic cycles",
+      "prompt": "For an ideal heat-engine balance with Qin = 6000 J and rejected heat 3600 J per cycle, find net work.",
+      "choices": [
+        "2,400 J",
+        "1,200 J",
+        "4,800 J",
+        "3,600 J"
+      ],
+      "answer": 0,
+      "explanation": "Wnet = Qin−Qout = 6000−3600 = 2400 J.",
+      "source": "thermo",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP050",
+      "subject": "powerplant",
+      "topic": "Fuel consumption",
+      "prompt": "A 100 kW engine consumes 60 kg of fuel per hour. Find brake specific fuel consumption.",
+      "choices": [
+        "0.6 kg/(kW·h)",
+        "0.3 kg/(kW·h)",
+        "1.2 kg/(kW·h)",
+        "0.9 kg/(kW·h)"
+      ],
+      "answer": 0,
+      "explanation": "BSFC = fuel rate/brake power = 60/100 = 0.6 kg/(kW·h).",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP051",
+      "subject": "powerplant",
+      "topic": "Reciprocating engines",
+      "prompt": "A four-stroke single cylinder runs at 6000 rpm. How many power strokes per minute occur ideally?",
+      "choices": [
+        "3,000 strokes/min",
+        "1,500 strokes/min",
+        "6,000 strokes/min",
+        "4,500 strokes/min"
+      ],
+      "answer": 0,
+      "explanation": "One power stroke occurs per two crank revolutions: 6000/2 = 3000 per minute.",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP052",
+      "subject": "powerplant",
+      "topic": "Fuel energy",
+      "prompt": "Fuel lower heating value is 40 MJ/kg and mass flow is 6 kg/s. Find chemical energy input rate.",
+      "choices": [
+        "240 MW",
+        "120 MW",
+        "480 MW",
+        "360 MW"
+      ],
+      "answer": 0,
+      "explanation": "Energy rate = ṁ×LHV = 6×40 = 240 MJ/s = 240 MW.",
+      "source": "thermo",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP053",
+      "subject": "powerplant",
+      "topic": "Shaft power",
+      "prompt": "A shaft delivers 140 N·m at 120 rad/s. What is shaft power?",
+      "choices": [
+        "16.8 kW",
+        "8.4 kW",
+        "33.6 kW",
+        "25.2 kW"
+      ],
+      "answer": 0,
+      "explanation": "P = Tω = 140×120 = 16800 W = 16.8 kW.",
+      "source": "physics",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP054",
+      "subject": "powerplant",
+      "topic": "Compression ratio",
+      "prompt": "An engine cylinder has swept volume 350 cm³ and clearance volume 50 cm³. Find compression ratio.",
+      "choices": [
+        "8 :1",
+        "4 :1",
+        "16 :1",
+        "12 :1"
+      ],
+      "answer": 0,
+      "explanation": "r = (Vs+Vc)/Vc = (350+50)/50 = 8:1.",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP055",
+      "subject": "powerplant",
+      "topic": "Thermal efficiency",
+      "prompt": "A heat engine receives 1000 J and delivers 700 J net work. Find thermal efficiency.",
+      "choices": [
+        "70 %",
+        "35 %",
+        "140 %",
+        "105 %"
+      ],
+      "answer": 0,
+      "explanation": "η = Wnet/Qin = 700/1000 = 70%.",
+      "source": "thermo",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP056",
+      "subject": "powerplant",
+      "topic": "Jet thrust",
+      "prompt": "Neglecting fuel mass and pressure thrust, a jet accelerates 7 kg/s from 100 to 300 m/s. Find thrust.",
+      "choices": [
+        "1,400 N",
+        "700 N",
+        "2,800 N",
+        "2,100 N"
+      ],
+      "answer": 0,
+      "explanation": "F = ṁ(Ve−V0) = 7×(300−100) = 1400 N.",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP057",
+      "subject": "powerplant",
+      "topic": "Thermodynamic cycles",
+      "prompt": "For an ideal heat-engine balance with Qin = 7000 J and rejected heat 4200 J per cycle, find net work.",
+      "choices": [
+        "2,800 J",
+        "1,400 J",
+        "5,600 J",
+        "4,200 J"
+      ],
+      "answer": 0,
+      "explanation": "Wnet = Qin−Qout = 7000−4200 = 2800 J.",
+      "source": "thermo",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP058",
+      "subject": "powerplant",
+      "topic": "Fuel consumption",
+      "prompt": "A 100 kW engine consumes 70 kg of fuel per hour. Find brake specific fuel consumption.",
+      "choices": [
+        "0.7 kg/(kW·h)",
+        "0.35 kg/(kW·h)",
+        "1.4 kg/(kW·h)",
+        "1.05 kg/(kW·h)"
+      ],
+      "answer": 0,
+      "explanation": "BSFC = fuel rate/brake power = 70/100 = 0.7 kg/(kW·h).",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP059",
+      "subject": "powerplant",
+      "topic": "Reciprocating engines",
+      "prompt": "A four-stroke single cylinder runs at 7000 rpm. How many power strokes per minute occur ideally?",
+      "choices": [
+        "3,500 strokes/min",
+        "1,750 strokes/min",
+        "7,000 strokes/min",
+        "5,250 strokes/min"
+      ],
+      "answer": 0,
+      "explanation": "One power stroke occurs per two crank revolutions: 7000/2 = 3500 per minute.",
+      "source": "power",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "PP060",
+      "subject": "powerplant",
+      "topic": "Fuel energy",
+      "prompt": "Fuel lower heating value is 40 MJ/kg and mass flow is 7 kg/s. Find chemical energy input rate.",
+      "choices": [
+        "280 MW",
+        "140 MW",
+        "560 MW",
+        "420 MW"
+      ],
+      "answer": 0,
+      "explanation": "Energy rate = ṁ×LHV = 7×40 = 280 MJ/s = 280 MW.",
+      "source": "thermo",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
       "id": "EE001",
       "subject": "ethics",
       "topic": "Professional law",
@@ -1397,6 +5717,870 @@
       "answer": 0,
       "explanation": "Section 19 permits the oath before a Board member or another person authorized to administer oaths.",
       "source": "law",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE013",
+      "subject": "ethics",
+      "topic": "Simple interest",
+      "prompt": "At 5% simple annual interest, how much interest does ₱2,000 earn in 2 years?",
+      "choices": [
+        "200 pesos",
+        "100 pesos",
+        "400 pesos",
+        "300 pesos"
+      ],
+      "answer": 0,
+      "explanation": "I = Prt = 2000×0.05×2 = ₱200. This is interest only.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE014",
+      "subject": "ethics",
+      "topic": "Compound interest",
+      "prompt": "What is the future value of ₱2,000 after 2 years at 10% compounded annually?",
+      "choices": [
+        "2,420 pesos",
+        "1,210 pesos",
+        "4,840 pesos",
+        "3,630 pesos"
+      ],
+      "answer": 0,
+      "explanation": "F = P(1+i)^2 = 2000×1.1² = ₱2,420.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE015",
+      "subject": "ethics",
+      "topic": "Present value",
+      "prompt": "At a 10% annual discount rate, find the present value of ₱2,200 due in one year.",
+      "choices": [
+        "2,000 pesos",
+        "1,000 pesos",
+        "4,000 pesos",
+        "3,000 pesos"
+      ],
+      "answer": 0,
+      "explanation": "P = F/(1+i) = 2200/1.1 = ₱2,000.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE016",
+      "subject": "ethics",
+      "topic": "Depreciation",
+      "prompt": "An asset costs ₱20,000, has salvage value ₱4,000 and a 4-year life. Find annual straight-line depreciation.",
+      "choices": [
+        "4,000 pesos/year",
+        "2,000 pesos/year",
+        "8,000 pesos/year",
+        "6,000 pesos/year"
+      ],
+      "answer": 0,
+      "explanation": "D = (cost−salvage)/life = (20000−4000)/4 = ₱4,000/year.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE017",
+      "subject": "ethics",
+      "topic": "Break-even analysis",
+      "prompt": "Fixed cost is ₱20,000; unit price is ₱300 and variable cost is ₱200 per unit. Find break-even quantity.",
+      "choices": [
+        "200 units",
+        "100 units",
+        "400 units",
+        "300 units"
+      ],
+      "answer": 0,
+      "explanation": "Q = fixed cost/(price−variable cost) = 20000/100 = 200 units.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE018",
+      "subject": "ethics",
+      "topic": "Cost analysis",
+      "prompt": "An operation sells 200 units at ₱300 each with ₱200 variable cost per unit and ₱1000 fixed cost. Find operating profit.",
+      "choices": [
+        "19,000 pesos",
+        "9,500 pesos",
+        "38,000 pesos",
+        "28,500 pesos"
+      ],
+      "answer": 0,
+      "explanation": "Profit = Q(price−variable cost)−fixed cost = 200×100−1000 = ₱19,000.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE019",
+      "subject": "ethics",
+      "topic": "Payback",
+      "prompt": "Ignoring discounting and salvage, a ₱20,000 investment returns ₱10000 net cash per year. Find simple payback period.",
+      "choices": [
+        "2 years",
+        "1 years",
+        "4 years",
+        "3 years"
+      ],
+      "answer": 0,
+      "explanation": "Simple payback = initial cost/annual net cash = 20000/10000 = 2 years. This ignores the time value of money.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE020",
+      "subject": "ethics",
+      "topic": "Capital budgeting",
+      "prompt": "A project costs ₱2,000 now and returns ₱2,420 after 2 years. At zero discount rate, find NPV.",
+      "choices": [
+        "420 pesos",
+        "210 pesos",
+        "840 pesos",
+        "630 pesos"
+      ],
+      "answer": 0,
+      "explanation": "At i = 0, NPV = −initial + future cash = −2000+2420 = ₱420.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE021",
+      "subject": "ethics",
+      "topic": "Simple interest",
+      "prompt": "At 5% simple annual interest, how much interest does ₱3,000 earn in 2 years?",
+      "choices": [
+        "300 pesos",
+        "150 pesos",
+        "600 pesos",
+        "450 pesos"
+      ],
+      "answer": 0,
+      "explanation": "I = Prt = 3000×0.05×2 = ₱300. This is interest only.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE022",
+      "subject": "ethics",
+      "topic": "Compound interest",
+      "prompt": "What is the future value of ₱3,000 after 2 years at 10% compounded annually?",
+      "choices": [
+        "3,630 pesos",
+        "1,815 pesos",
+        "7,260 pesos",
+        "5,445 pesos"
+      ],
+      "answer": 0,
+      "explanation": "F = P(1+i)^2 = 3000×1.1² = ₱3,630.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE023",
+      "subject": "ethics",
+      "topic": "Present value",
+      "prompt": "At a 10% annual discount rate, find the present value of ₱3,300 due in one year.",
+      "choices": [
+        "3,000 pesos",
+        "1,500 pesos",
+        "6,000 pesos",
+        "4,500 pesos"
+      ],
+      "answer": 0,
+      "explanation": "P = F/(1+i) = 3300/1.1 = ₱3,000.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE024",
+      "subject": "ethics",
+      "topic": "Depreciation",
+      "prompt": "An asset costs ₱30,000, has salvage value ₱6,000 and a 4-year life. Find annual straight-line depreciation.",
+      "choices": [
+        "6,000 pesos/year",
+        "3,000 pesos/year",
+        "12,000 pesos/year",
+        "9,000 pesos/year"
+      ],
+      "answer": 0,
+      "explanation": "D = (cost−salvage)/life = (30000−6000)/4 = ₱6,000/year.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE025",
+      "subject": "ethics",
+      "topic": "Break-even analysis",
+      "prompt": "Fixed cost is ₱30,000; unit price is ₱300 and variable cost is ₱200 per unit. Find break-even quantity.",
+      "choices": [
+        "300 units",
+        "150 units",
+        "600 units",
+        "450 units"
+      ],
+      "answer": 0,
+      "explanation": "Q = fixed cost/(price−variable cost) = 30000/100 = 300 units.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE026",
+      "subject": "ethics",
+      "topic": "Cost analysis",
+      "prompt": "An operation sells 300 units at ₱300 each with ₱200 variable cost per unit and ₱1000 fixed cost. Find operating profit.",
+      "choices": [
+        "29,000 pesos",
+        "14,500 pesos",
+        "58,000 pesos",
+        "43,500 pesos"
+      ],
+      "answer": 0,
+      "explanation": "Profit = Q(price−variable cost)−fixed cost = 300×100−1000 = ₱29,000.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE027",
+      "subject": "ethics",
+      "topic": "Payback",
+      "prompt": "Ignoring discounting and salvage, a ₱30,000 investment returns ₱10000 net cash per year. Find simple payback period.",
+      "choices": [
+        "3 years",
+        "1.5 years",
+        "6 years",
+        "4.5 years"
+      ],
+      "answer": 0,
+      "explanation": "Simple payback = initial cost/annual net cash = 30000/10000 = 3 years. This ignores the time value of money.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE028",
+      "subject": "ethics",
+      "topic": "Capital budgeting",
+      "prompt": "A project costs ₱3,000 now and returns ₱3,630 after 2 years. At zero discount rate, find NPV.",
+      "choices": [
+        "630 pesos",
+        "315 pesos",
+        "1,260 pesos",
+        "945 pesos"
+      ],
+      "answer": 0,
+      "explanation": "At i = 0, NPV = −initial + future cash = −3000+3630 = ₱630.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE029",
+      "subject": "ethics",
+      "topic": "Simple interest",
+      "prompt": "At 5% simple annual interest, how much interest does ₱4,000 earn in 2 years?",
+      "choices": [
+        "400 pesos",
+        "200 pesos",
+        "800 pesos",
+        "600 pesos"
+      ],
+      "answer": 0,
+      "explanation": "I = Prt = 4000×0.05×2 = ₱400. This is interest only.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE030",
+      "subject": "ethics",
+      "topic": "Compound interest",
+      "prompt": "What is the future value of ₱4,000 after 2 years at 10% compounded annually?",
+      "choices": [
+        "4,840 pesos",
+        "2,420 pesos",
+        "9,680 pesos",
+        "7,260 pesos"
+      ],
+      "answer": 0,
+      "explanation": "F = P(1+i)^2 = 4000×1.1² = ₱4,840.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE031",
+      "subject": "ethics",
+      "topic": "Present value",
+      "prompt": "At a 10% annual discount rate, find the present value of ₱4,400 due in one year.",
+      "choices": [
+        "4,000 pesos",
+        "2,000 pesos",
+        "8,000 pesos",
+        "6,000 pesos"
+      ],
+      "answer": 0,
+      "explanation": "P = F/(1+i) = 4400/1.1 = ₱4,000.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE032",
+      "subject": "ethics",
+      "topic": "Depreciation",
+      "prompt": "An asset costs ₱40,000, has salvage value ₱8,000 and a 4-year life. Find annual straight-line depreciation.",
+      "choices": [
+        "8,000 pesos/year",
+        "4,000 pesos/year",
+        "16,000 pesos/year",
+        "12,000 pesos/year"
+      ],
+      "answer": 0,
+      "explanation": "D = (cost−salvage)/life = (40000−8000)/4 = ₱8,000/year.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE033",
+      "subject": "ethics",
+      "topic": "Break-even analysis",
+      "prompt": "Fixed cost is ₱40,000; unit price is ₱300 and variable cost is ₱200 per unit. Find break-even quantity.",
+      "choices": [
+        "400 units",
+        "200 units",
+        "800 units",
+        "600 units"
+      ],
+      "answer": 0,
+      "explanation": "Q = fixed cost/(price−variable cost) = 40000/100 = 400 units.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE034",
+      "subject": "ethics",
+      "topic": "Cost analysis",
+      "prompt": "An operation sells 400 units at ₱300 each with ₱200 variable cost per unit and ₱1000 fixed cost. Find operating profit.",
+      "choices": [
+        "39,000 pesos",
+        "19,500 pesos",
+        "78,000 pesos",
+        "58,500 pesos"
+      ],
+      "answer": 0,
+      "explanation": "Profit = Q(price−variable cost)−fixed cost = 400×100−1000 = ₱39,000.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE035",
+      "subject": "ethics",
+      "topic": "Payback",
+      "prompt": "Ignoring discounting and salvage, a ₱40,000 investment returns ₱10000 net cash per year. Find simple payback period.",
+      "choices": [
+        "4 years",
+        "2 years",
+        "8 years",
+        "6 years"
+      ],
+      "answer": 0,
+      "explanation": "Simple payback = initial cost/annual net cash = 40000/10000 = 4 years. This ignores the time value of money.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE036",
+      "subject": "ethics",
+      "topic": "Capital budgeting",
+      "prompt": "A project costs ₱4,000 now and returns ₱4,840 after 2 years. At zero discount rate, find NPV.",
+      "choices": [
+        "840 pesos",
+        "420 pesos",
+        "1,680 pesos",
+        "1,260 pesos"
+      ],
+      "answer": 0,
+      "explanation": "At i = 0, NPV = −initial + future cash = −4000+4840 = ₱840.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE037",
+      "subject": "ethics",
+      "topic": "Simple interest",
+      "prompt": "At 5% simple annual interest, how much interest does ₱5,000 earn in 2 years?",
+      "choices": [
+        "500 pesos",
+        "250 pesos",
+        "1,000 pesos",
+        "750 pesos"
+      ],
+      "answer": 0,
+      "explanation": "I = Prt = 5000×0.05×2 = ₱500. This is interest only.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE038",
+      "subject": "ethics",
+      "topic": "Compound interest",
+      "prompt": "What is the future value of ₱5,000 after 2 years at 10% compounded annually?",
+      "choices": [
+        "6,050 pesos",
+        "3,025 pesos",
+        "12,100 pesos",
+        "9,075 pesos"
+      ],
+      "answer": 0,
+      "explanation": "F = P(1+i)^2 = 5000×1.1² = ₱6,050.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE039",
+      "subject": "ethics",
+      "topic": "Present value",
+      "prompt": "At a 10% annual discount rate, find the present value of ₱5,500 due in one year.",
+      "choices": [
+        "5,000 pesos",
+        "2,500 pesos",
+        "10,000 pesos",
+        "7,500 pesos"
+      ],
+      "answer": 0,
+      "explanation": "P = F/(1+i) = 5500/1.1 = ₱5,000.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE040",
+      "subject": "ethics",
+      "topic": "Depreciation",
+      "prompt": "An asset costs ₱50,000, has salvage value ₱10,000 and a 4-year life. Find annual straight-line depreciation.",
+      "choices": [
+        "10,000 pesos/year",
+        "5,000 pesos/year",
+        "20,000 pesos/year",
+        "15,000 pesos/year"
+      ],
+      "answer": 0,
+      "explanation": "D = (cost−salvage)/life = (50000−10000)/4 = ₱10,000/year.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE041",
+      "subject": "ethics",
+      "topic": "Break-even analysis",
+      "prompt": "Fixed cost is ₱50,000; unit price is ₱300 and variable cost is ₱200 per unit. Find break-even quantity.",
+      "choices": [
+        "500 units",
+        "250 units",
+        "1,000 units",
+        "750 units"
+      ],
+      "answer": 0,
+      "explanation": "Q = fixed cost/(price−variable cost) = 50000/100 = 500 units.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE042",
+      "subject": "ethics",
+      "topic": "Cost analysis",
+      "prompt": "An operation sells 500 units at ₱300 each with ₱200 variable cost per unit and ₱1000 fixed cost. Find operating profit.",
+      "choices": [
+        "49,000 pesos",
+        "24,500 pesos",
+        "98,000 pesos",
+        "73,500 pesos"
+      ],
+      "answer": 0,
+      "explanation": "Profit = Q(price−variable cost)−fixed cost = 500×100−1000 = ₱49,000.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE043",
+      "subject": "ethics",
+      "topic": "Payback",
+      "prompt": "Ignoring discounting and salvage, a ₱50,000 investment returns ₱10000 net cash per year. Find simple payback period.",
+      "choices": [
+        "5 years",
+        "2.5 years",
+        "10 years",
+        "7.5 years"
+      ],
+      "answer": 0,
+      "explanation": "Simple payback = initial cost/annual net cash = 50000/10000 = 5 years. This ignores the time value of money.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE044",
+      "subject": "ethics",
+      "topic": "Capital budgeting",
+      "prompt": "A project costs ₱5,000 now and returns ₱6,050 after 2 years. At zero discount rate, find NPV.",
+      "choices": [
+        "1,050 pesos",
+        "525 pesos",
+        "2,100 pesos",
+        "1,575 pesos"
+      ],
+      "answer": 0,
+      "explanation": "At i = 0, NPV = −initial + future cash = −5000+6050 = ₱1,050.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE045",
+      "subject": "ethics",
+      "topic": "Simple interest",
+      "prompt": "At 5% simple annual interest, how much interest does ₱6,000 earn in 2 years?",
+      "choices": [
+        "600 pesos",
+        "300 pesos",
+        "1,200 pesos",
+        "900 pesos"
+      ],
+      "answer": 0,
+      "explanation": "I = Prt = 6000×0.05×2 = ₱600. This is interest only.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE046",
+      "subject": "ethics",
+      "topic": "Compound interest",
+      "prompt": "What is the future value of ₱6,000 after 2 years at 10% compounded annually?",
+      "choices": [
+        "7,260 pesos",
+        "3,630 pesos",
+        "14,520 pesos",
+        "10,890 pesos"
+      ],
+      "answer": 0,
+      "explanation": "F = P(1+i)^2 = 6000×1.1² = ₱7,260.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE047",
+      "subject": "ethics",
+      "topic": "Present value",
+      "prompt": "At a 10% annual discount rate, find the present value of ₱6,600 due in one year.",
+      "choices": [
+        "6,000 pesos",
+        "3,000 pesos",
+        "12,000 pesos",
+        "9,000 pesos"
+      ],
+      "answer": 0,
+      "explanation": "P = F/(1+i) = 6600/1.1 = ₱6,000.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE048",
+      "subject": "ethics",
+      "topic": "Depreciation",
+      "prompt": "An asset costs ₱60,000, has salvage value ₱12,000 and a 4-year life. Find annual straight-line depreciation.",
+      "choices": [
+        "12,000 pesos/year",
+        "6,000 pesos/year",
+        "24,000 pesos/year",
+        "18,000 pesos/year"
+      ],
+      "answer": 0,
+      "explanation": "D = (cost−salvage)/life = (60000−12000)/4 = ₱12,000/year.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE049",
+      "subject": "ethics",
+      "topic": "Break-even analysis",
+      "prompt": "Fixed cost is ₱60,000; unit price is ₱300 and variable cost is ₱200 per unit. Find break-even quantity.",
+      "choices": [
+        "600 units",
+        "300 units",
+        "1,200 units",
+        "900 units"
+      ],
+      "answer": 0,
+      "explanation": "Q = fixed cost/(price−variable cost) = 60000/100 = 600 units.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE050",
+      "subject": "ethics",
+      "topic": "Cost analysis",
+      "prompt": "An operation sells 600 units at ₱300 each with ₱200 variable cost per unit and ₱1000 fixed cost. Find operating profit.",
+      "choices": [
+        "59,000 pesos",
+        "29,500 pesos",
+        "118,000 pesos",
+        "88,500 pesos"
+      ],
+      "answer": 0,
+      "explanation": "Profit = Q(price−variable cost)−fixed cost = 600×100−1000 = ₱59,000.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE051",
+      "subject": "ethics",
+      "topic": "Payback",
+      "prompt": "Ignoring discounting and salvage, a ₱60,000 investment returns ₱10000 net cash per year. Find simple payback period.",
+      "choices": [
+        "6 years",
+        "3 years",
+        "12 years",
+        "9 years"
+      ],
+      "answer": 0,
+      "explanation": "Simple payback = initial cost/annual net cash = 60000/10000 = 6 years. This ignores the time value of money.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE052",
+      "subject": "ethics",
+      "topic": "Capital budgeting",
+      "prompt": "A project costs ₱6,000 now and returns ₱7,260 after 2 years. At zero discount rate, find NPV.",
+      "choices": [
+        "1,260 pesos",
+        "630 pesos",
+        "2,520 pesos",
+        "1,890 pesos"
+      ],
+      "answer": 0,
+      "explanation": "At i = 0, NPV = −initial + future cash = −6000+7260 = ₱1,260.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE053",
+      "subject": "ethics",
+      "topic": "Simple interest",
+      "prompt": "At 5% simple annual interest, how much interest does ₱7,000 earn in 2 years?",
+      "choices": [
+        "700 pesos",
+        "350 pesos",
+        "1,400 pesos",
+        "1,050 pesos"
+      ],
+      "answer": 0,
+      "explanation": "I = Prt = 7000×0.05×2 = ₱700. This is interest only.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE054",
+      "subject": "ethics",
+      "topic": "Compound interest",
+      "prompt": "What is the future value of ₱7,000 after 2 years at 10% compounded annually?",
+      "choices": [
+        "8,470 pesos",
+        "4,235 pesos",
+        "16,940 pesos",
+        "12,705 pesos"
+      ],
+      "answer": 0,
+      "explanation": "F = P(1+i)^2 = 7000×1.1² = ₱8,470.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE055",
+      "subject": "ethics",
+      "topic": "Present value",
+      "prompt": "At a 10% annual discount rate, find the present value of ₱7,700 due in one year.",
+      "choices": [
+        "7,000 pesos",
+        "3,500 pesos",
+        "14,000 pesos",
+        "10,500 pesos"
+      ],
+      "answer": 0,
+      "explanation": "P = F/(1+i) = 7700/1.1 = ₱7,000.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE056",
+      "subject": "ethics",
+      "topic": "Depreciation",
+      "prompt": "An asset costs ₱70,000, has salvage value ₱14,000 and a 4-year life. Find annual straight-line depreciation.",
+      "choices": [
+        "14,000 pesos/year",
+        "7,000 pesos/year",
+        "28,000 pesos/year",
+        "21,000 pesos/year"
+      ],
+      "answer": 0,
+      "explanation": "D = (cost−salvage)/life = (70000−14000)/4 = ₱14,000/year.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE057",
+      "subject": "ethics",
+      "topic": "Break-even analysis",
+      "prompt": "Fixed cost is ₱70,000; unit price is ₱300 and variable cost is ₱200 per unit. Find break-even quantity.",
+      "choices": [
+        "700 units",
+        "350 units",
+        "1,400 units",
+        "1,050 units"
+      ],
+      "answer": 0,
+      "explanation": "Q = fixed cost/(price−variable cost) = 70000/100 = 700 units.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE058",
+      "subject": "ethics",
+      "topic": "Cost analysis",
+      "prompt": "An operation sells 700 units at ₱300 each with ₱200 variable cost per unit and ₱1000 fixed cost. Find operating profit.",
+      "choices": [
+        "69,000 pesos",
+        "34,500 pesos",
+        "138,000 pesos",
+        "103,500 pesos"
+      ],
+      "answer": 0,
+      "explanation": "Profit = Q(price−variable cost)−fixed cost = 700×100−1000 = ₱69,000.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE059",
+      "subject": "ethics",
+      "topic": "Payback",
+      "prompt": "Ignoring discounting and salvage, a ₱70,000 investment returns ₱10000 net cash per year. Find simple payback period.",
+      "choices": [
+        "7 years",
+        "3.5 years",
+        "14 years",
+        "10.5 years"
+      ],
+      "answer": 0,
+      "explanation": "Simple payback = initial cost/annual net cash = 70000/10000 = 7 years. This ignores the time value of money.",
+      "source": "econ",
+      "review": "source-checked",
+      "reviewer": "AE Prepware initial author self-review; faculty review pending",
+      "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "EE060",
+      "subject": "ethics",
+      "topic": "Capital budgeting",
+      "prompt": "A project costs ₱7,000 now and returns ₱8,470 after 2 years. At zero discount rate, find NPV.",
+      "choices": [
+        "1,470 pesos",
+        "735 pesos",
+        "2,940 pesos",
+        "2,205 pesos"
+      ],
+      "answer": 0,
+      "explanation": "At i = 0, NPV = −initial + future cash = −7000+8470 = ₱1,470.",
+      "source": "econ",
       "review": "source-checked",
       "reviewer": "AE Prepware initial author self-review; faculty review pending",
       "reviewedAt": "2026-11-13"

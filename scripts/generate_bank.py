@@ -102,12 +102,14 @@ rows = {
 ('Under PD 1570 Section 7, which is a power of the Board, subject to Commission review?','Issue, suspend or revoke registration certificates for justifiable cause','Set every airline ticket price','Issue passports','Approve all foreign airport designs','Section 7 includes professional registration powers, exercisable within the decree and Commission oversight.','Professional regulation','law'),
 ('Under PD 1570 Section 19, who may take the professional oath for a registrant besides a Board member?','A person authorized to administer oaths','Any passenger','Any unregistered student','Only a foreign aircraft mechanic','Section 19 permits the oath before a Board member or another person authorized to administer oaths.','Professional registration','law')]
 }
+from expand_foundations import extend
+extend(rows)
 questions=[]
 for sid,name,weight,prefix in subjects:
     for i,row in enumerate(rows[sid],1):
         prompt,answer,b,c,d,explanation,topic,src=row
         questions.append(dict(id=f'{prefix}{i:03}',subject=sid,topic=topic,prompt=prompt,choices=[answer,b,c,d],answer=0,explanation=explanation,source=src,review='source-checked',reviewer='AE Prepware initial author self-review; faculty review pending',reviewedAt='2026-11-13'))
-bank=dict(schema=1,version='2026.11-foundations.1',title='AE Foundations',notice='Original foundation practice; not official PRC questions. Source-checked by author; independent faculty review pending. Not complete syllabus coverage.',blueprintSource='https://www.prc.gov.ph/sites/default/files/exam%20program%20nov%202026%20%28aero%29.pdf',subjects=[dict(id=s,name=n,weight=w,short=p) for s,n,w,p in subjects],sources=sources,questions=questions)
+bank=dict(schema=1,version='2026.11-foundations.2',title='AE Foundations',notice='360 original foundation items, including parameterized calculation variants; not official PRC questions. Source-checked by author; independent faculty review pending. Not complete syllabus coverage.',blueprintSource='https://www.prc.gov.ph/sites/default/files/exam%20program%20nov%202026%20%28aero%29.pdf',subjects=[dict(id=s,name=n,weight=w,short=p) for s,n,w,p in subjects],sources=sources,questions=questions)
 path=Path(__file__).resolve().parents[1]/'app/src/main/assets/bank.json'
 path.write_text(json.dumps(bank,ensure_ascii=False,indent=2)+'\n')
 print(f'{len(questions)} questions -> {path}')

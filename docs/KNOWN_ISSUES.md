@@ -1,10 +1,12 @@
-# Known limitations and outstanding validation
+# Known limitations — v0.2.0-rc.1
 
-- **Stable promotion blocked:** no physical Android device connected. Installation, System WebView compatibility, background/force-stop, font scale/TalkBack, Storage Access Framework backup/restore, upgrade and real-device timing must be checked using TESTING.md.
-- **Content review pending:** 72 source-checked foundation questions; not a complete PRC syllabus/TOS bank. Independent faculty audit and approved content expansion required for course-level reliance.
-- **Cohort service included, not hosted:** needs persistent server storage, HTTPS and operator security configuration. Streamlit alone does not host the API. Shared standings are unavailable until an instructor supplies an endpoint.
-- **Optional AI untested live:** a configured Gemini key/model and faculty review are needed. Local adaptive practice is rule-based, not an LLM. A local coursework template always works.
-- **Ranking is motivational:** offline answer keys are available to users; pseudonyms are unverified; registration can be repeated within bounded limits. No claim of proctoring, anti-cheat or official standings.
-- **Candidate signing:** CI debug keys are disposable; future candidate builds may require backup/uninstall. Production signing continuity is not established. No app-store build/publication included.
-- **Portable backups:** progress requires the same question bank version. New-bank imports reset local progress after confirmation. No cross-bank migration or anonymous-account token backup/recovery in v0.1.
-- **Server scaling:** single SQLite worker and an operator-controlled cohort, not an open large-scale public platform. Deploy behind TLS, capacity/rate limits and backups. No default external API URL or embedded secrets.
+- **Test candidate:** physical Android installation, Storage Access Framework, lifecycle, accessibility, and in-place same-signer update have no device evidence. Stable promotion remains blocked.
+- **Foundation bank:** 360 items/60 per subject includes parameter variants, not 360 independently reviewed competencies. Independent faculty review is pending; advanced TOS coverage remains incomplete. Source/structure/arithmetic checks do not substitute for faculty validation.
+- **One-time signer transition:** old v0.1 CI debug key is unavailable. Export its guest progress before uninstalling/reinstalling v0.2. The permanent v0.2 signing key is separately backed up; losing it prevents later same-certificate updates.
+- **Hosting:** no production HTTPS account API is provisioned. Offline accounts work locally. Shared ranking, cross-device recovery and server AI selection require persistent hosted API; Streamlit alone does not provide it. Live TLS/production capacity have not been tested.
+- **Live AI:** no real provider key was supplied. Successful, malformed and quota-failure paths are mocked; real model access, quotas and educational usefulness remain unvalidated. Without AI, adaptive/random study works.
+- **Practice ranking:** offline answer keys and self-selected names mean scores are not secure exam results. Server grading prevents accidental client score submission, not deliberate answer lookup.
+- **Account recovery:** no email or reset service. Keep the private recovery file and a separate progress backup. Code is shown at creation and cannot later be recovered from its local verifier. App profiles do not encrypt data against an unlocked-device user.
+- **Sync scope:** only completed account-bound 50-item sessions sync. Historical guest sessions and older 10/20-item work remain local. Flags, bookmarks and unfinished sessions require device backup. Last 200 results displayed; pending queue 200, local profiles 10. Token lifetime 30 days; reconnect with recovery code. New device can recover only data already synced.
+- **Bank changes:** pending results need the matching server bank version. Do not replace a bank while results remain queued; export a backup first. No automatic multi-bank server archival or downgrade conversion.
+- **Server scaling:** SQLite single-worker cohort service with request limits, not a public large-scale identity platform. Host behind TLS and proxy limits and back up the database privately.

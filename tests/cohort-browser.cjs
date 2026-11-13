@@ -1,21 +1,27 @@
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),http=require('node:http'),fs=require('node:fs'),path=require('node:path'),os=require('node:os'),{spawn}=require('node:child_process');
 (async()=>{
- const temp=fs.mkdtempSync(path.join(os.tmpdir(),'ae-cohort-'));
- const python=process.env.AE_PYTHON||path.join(process.cwd(),'.venv/bin/python');
- const api=spawn(python,['-m','uvicorn','backend.api:app','--host','127.0.0.1','--port','8001'],{env:{...process.env,AE_DB:path.join(temp,'test.sqlite')},stdio:'ignore'});
+ const temp=fs.mkdtempSync(path.join(os.tmpdir(),'ae-accounts-')),python=process.env.AE_PYTHON||path.join(process.cwd(),'.venv/bin/python');
+ const api=spawn(python,['-m','uvicorn','backend.api:app','--host','127.0.0.1','--port','8001'],{env:{...process.env,AE_DB:path.join(temp,'test.sqlite'),GEMINI_API_KEY:''},stdio:'ignore'});
  let browser,server;
  try{
-  for(let i=0;i<60;i++){try{const r=await fetch('http://127.0.0.1:8001/health');if(r.ok)break;}catch{}await new Promise(r=>setTimeout(r,100));}
+  let ready=false;for(let i=0;i<60;i++){try{const r=await fetch('http://127.0.0.1:8001/health');if(r.ok){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,100));}assert.ok(ready,'API started');
   server=http.createServer((req,res)=>{const file=path.join(process.cwd(),'app/src/main/assets',req.url==='/'?'index.html':req.url);try{res.setHeader('Content-Type',file.endsWith('.js')?'application/javascript':file.endsWith('.css')?'text/css':file.endsWith('.json')?'application/json':'text/html');res.end(fs.readFileSync(file));}catch{res.writeHead(404);res.end();}});await new Promise(r=>server.listen(8081,'127.0.0.1',r));
   browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}),args:['--no-sandbox']});
-  const page=await browser.newPage({viewport:{width:393,height:851}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
-  // HTTPS origin is simulated, while all grading/SQLite operations use the actual local API.
-  await page.route('https://cohort.test/**',async route=>{const response=await route.fetch({url:route.request().url().replace('https://cohort.test','http://127.0.0.1:8001')});await route.fulfill({response,headers:{...response.headers(),'access-control-allow-origin':'http://127.0.0.1:8081'}});});
-  await page.goto('http://127.0.0.1:8081');await page.getByText('A little closer').waitFor();await page.locator('[data-tab="ranks"]').click();await page.locator('#cohort-url').fill('https://cohort.test/');await page.locator('#cohort-name').fill('Integration Cadet');await page.getByRole('button',{name:'Join cohort'}).click();await page.getByRole('button',{name:'Start 20-question challenge'}).waitFor();await page.getByRole('button',{name:'Start 20-question challenge'}).click();
-  let expected=0;for(let i=0;i<20;i++){const choice=page.locator('[data-choice]').first();if(await choice.getAttribute('data-choice')==='0')expected++;await choice.click();await page.locator('[data-action="next"]').click();}
-  await page.getByText('Another step forward.').waitFor();await page.getByText('Cohort score recorded:',{exact:false}).waitFor();const local=await page.evaluate(()=>JSON.parse(localStorage.getItem('ae-prepware-v1')));assert.equal(local.history[0].correct,expected);
-  const leaderboard=await (await fetch('http://127.0.0.1:8001/leaderboard')).json();assert.equal(leaderboard.entries[0].points,expected);assert.equal(leaderboard.entries[0].attempts,20);
-  await page.locator('[data-tab="ranks"]').click();await page.getByRole('button',{name:'Refresh ↻'}).click();await page.getByText('Integration Cadet',{exact:true}).waitFor();await page.screenshot({path:'artifacts/06-cohort.png',fullPage:true});
-  assert.deepEqual(errors,[]);console.log('PASS cohort UI → real local API → SQLite → leaderboard; HTTPS origin simulated; score='+expected+'/20');
+  let drop=false;
+  async function prepare(page){await page.route('https://cohort.test/**',async route=>{const response=await route.fetch({url:route.request().url().replace('https://cohort.test','http://127.0.0.1:8001')});if(drop&&route.request().url().endsWith('/accounts/results')){drop=false;await route.abort('failed');return;}await route.fulfill({response,headers:{...response.headers(),'access-control-allow-origin':'http://127.0.0.1:8081'}});});}
+  const page=await browser.newPage({viewport:{width:393,height:851}}),errors=[];page.on('pageerror',e=>errors.push(e.message));await prepare(page);
+  await page.goto('http://127.0.0.1:8081');await page.locator('nav [data-tab="account"]').click();await page.locator('#account-name').fill('Integration Cadet');await page.getByRole('button',{name:'Create account',exact:true}).click();await page.getByRole('heading',{name:'Save your account'}).waitFor();const credentials=await page.evaluate(()=>({number:newRecovery.number,recovery:newRecovery.recovery}));await page.getByRole('button',{name:'I have saved my code'}).click();
+  await page.locator('nav [data-tab="account"]').click();await page.locator('#account-url').fill('https://cohort.test/');await page.locator('#connect-code').fill(credentials.recovery);await page.getByRole('button',{name:'Connect account',exact:true}).click();await page.getByRole('button',{name:'Sync saved results'}).waitFor();
+  await page.locator('nav [data-tab="home"]').click();await page.locator('[data-subject="aero"]').click();
+  for(let i=0;i<50;i++){await page.locator('[data-choice="0"]').click();if(i===49)drop=true;await page.locator('[data-action="next"]').click();}
+  await page.getByRole('heading',{name:'Session complete'}).waitFor();await page.getByText('Score saved on this device.',{exact:false}).waitFor();assert.equal(await page.evaluate(()=>state.pending.length),1);
+  const board=await (await fetch('http://127.0.0.1:8001/accounts/leaderboard')).json();assert.equal(board.entries[0].points,50);assert.equal(board.entries[0].attempts,50);
+  await page.locator('nav [data-tab="account"]').click();await page.getByRole('button',{name:'Sync saved results'}).click();await page.getByText('All saved results synced.',{exact:true}).waitFor();assert.equal(await page.evaluate(()=>state.pending.length),0);
+  const after=await (await fetch('http://127.0.0.1:8001/accounts/leaderboard')).json();assert.equal(after.entries[0].attempts,50);
+  await page.locator('nav [data-tab="ranks"]').click();await page.getByRole('button',{name:'Refresh ranking'}).click();await page.getByText('Integration Cadet',{exact:true}).waitFor();await page.screenshot({path:'artifacts/05-ranking.png',fullPage:true});
+  await page.locator('nav [data-tab="home"]').click();await page.locator('#selection').selectOption('ai');await page.locator('[data-subject="math"]').click();await page.getByText('AI unavailable.',{exact:false}).waitFor();assert.equal(await page.evaluate(()=>state.session.ids.length),50);
+  // A separate browser storage context simulates a new phone, using real server recovery.
+  const second=await browser.newPage({viewport:{width:393,height:851}});await prepare(second);await second.goto('http://127.0.0.1:8081');await second.locator('nav [data-tab="account"]').click();await second.locator('details.card summary').click();await second.locator('#login-number').fill(credentials.number);await second.locator('#login-code').fill(credentials.recovery);await second.locator('#login-url').fill('https://cohort.test/');await second.getByRole('button',{name:'Sign in',exact:true}).click();await second.getByRole('heading',{name:'Choose a subject'}).waitFor();assert.equal(await second.evaluate(()=>state.accountNumber),credentials.number);assert.equal(await second.evaluate(()=>state.history[0].correct),50);assert.equal(await second.evaluate(()=>Object.keys(state.stats).length),50);
+  assert.deepEqual(errors,[]);console.log('PASS accounts UI → real local API/SQLite: create, connect, 50-question grade, lost-ack retry deduplication, ranking, AI fallback, cross-device recovery; HTTPS origin simulated.');
  }finally{if(browser)await browser.close();if(server)server.close();api.kill();fs.rmSync(temp,{recursive:true,force:true});}
-})().catch(e=>{console.error(e);process.exit(1)});
+})().catch(e=>{console.error(e);process.exitCode=1;});

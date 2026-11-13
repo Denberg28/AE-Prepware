@@ -12,3 +12,8 @@ artifacts/
 node_modules/
 playwright-report/
 .streamlit/secrets.toml
+
+*.p12
+*.pfx
+signing-recovery.json
+*Private-Signing-Recovery*

@@ -1,4 +1,4 @@
-name: Verify and package candidate
+name: Verify and publish signed candidate
 on:
   push:
     branches: [main]
@@ -14,11 +14,17 @@ jobs:
   verify:
     runs-on: ubuntu-24.04
     timeout-minutes: 25
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      prepared: ${{ steps.signed.outputs.prepared }}
     steps:
       - uses: actions/checkout@v4
-      - name: Check candidate tag matches source version
+      - name: Read candidate version
+        id: version
         run: |
-          if [[ "$GITHUB_REF" == refs/tags/* && "$GITHUB_REF_NAME" != v0.1.0-rc.1 ]]; then exit 1; fi
+          VERSION=$(python3 -c 'import json; print(json.load(open("release.json"))["version"])')
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          if [[ "$GITHUB_REF" == refs/tags/* && "$GITHUB_REF_NAME" != "v$VERSION" ]]; then exit 1; fi
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -47,16 +53,28 @@ jobs:
       - run: AE_PYTHON=python node tests/cohort-browser.cjs | tee artifacts/cohort-browser.txt
       - run: pip-audit -r backend/requirements.lock --format json > artifacts/dependency-audit.json
       - run: ./gradlew :app:assembleDebug :app:assembleRelease :app:lint --no-daemon
-      - run: python scripts/package_candidate.py
+      - name: Verify prepared permanent-signer APK
+        id: signed
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          if [[ -f "release-candidates/$VERSION/AE-Prepware-$VERSION-Signed-Candidate.apk" ]]; then
+            python scripts/package_candidate.py --verify | tee artifacts/signed-verification.txt
+            echo 'prepared=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'Source checks only; permanent-signer APK has not been prepared. Publication is blocked.'
+            echo 'prepared=false' >> "$GITHUB_OUTPUT"
+          fi
       - uses: actions/upload-artifact@v4
         with:
-          name: AE-Prepware-0.1.0-rc.1-Test-Candidate
+          name: AE-Prepware-${{ steps.version.outputs.version }}-Verification
           path: |
             artifacts/
+            release-candidates/${{ steps.version.outputs.version }}/
             app/build/reports/lint-results-debug.*
           if-no-files-found: error
   prerelease:
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v'))
+    if: needs.verify.outputs.prepared == 'true' && github.event_name == 'push' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v'))
     needs: verify
     permissions:
       contents: write
@@ -65,15 +83,16 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
-          name: AE-Prepware-0.1.0-rc.1-Test-Candidate
+          name: AE-Prepware-${{ needs.verify.outputs.version }}-Verification
           path: release-artifacts
-      - name: Publish verified test candidate
+      - name: Publish verified signed test candidate
         env:
           GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ needs.verify.outputs.version }}
         run: |
-          if gh release view v0.1.0-rc.1 >/dev/null 2>&1; then
-            echo 'Existing candidate preserved; this source update does not replace published artifacts.'
+          if gh release view "v$VERSION" >/dev/null 2>&1; then
+            echo 'Existing release preserved; published versions are never overwritten.'
             exit 0
           fi
-          gh release create v0.1.0-rc.1 --target "$GITHUB_SHA" --prerelease --title "AE Prepware v0.1.0-rc.1 · Test candidate" --notes-file docs/RELEASE_NOTES.md release-artifacts/artifacts/*.apk release-artifacts/artifacts/SHA256SUMS.txt release-artifacts/artifacts/APK-VERIFICATION.txt release-artifacts/artifacts/release-manifest.json
-
+          PREPARED="release-artifacts/release-candidates/$VERSION"
+          gh release create "v$VERSION" --target "$GITHUB_SHA" --prerelease --title "AE Prepware v$VERSION · Signed test candidate" --notes-file docs/RELEASE_NOTES.md "$PREPARED/AE-Prepware-$VERSION-Signed-Candidate.apk" "$PREPARED/SHA256SUMS.txt" "$PREPARED/APK-VERIFICATION.txt" "$PREPARED/release-manifest.json" "$PREPARED/AE-Prepware-release-certificate.pem"

@@ -1,0 +1,794 @@
+[
+  {
+    "id": "MA001",
+    "prompt": "If y = 3x² + 2x, what is dy/dx at x = 2?",
+    "choices": [
+      "14",
+      "10",
+      "16",
+      "8"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "MA002",
+    "prompt": "Evaluate the definite integral of 2x from x = 0 to x = 3.",
+    "choices": [
+      "9",
+      "6",
+      "3",
+      "18"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "MA003",
+    "prompt": "A right triangle has opposite side 3 m and hypotenuse 5 m. What is sin θ?",
+    "choices": [
+      "0.6",
+      "0.8",
+      "1.667",
+      "0.75"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "MA004",
+    "prompt": "Solve 2x + 7 = 19.",
+    "choices": [
+      "6",
+      "13",
+      "5",
+      "12"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "MA005",
+    "prompt": "What is the slope of the line through (1, 2) and (4, 8)?",
+    "choices": [
+      "2",
+      "3",
+      "0.5",
+      "6"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "MA006",
+    "prompt": "Convert 180 degrees to radians.",
+    "choices": [
+      "π",
+      "2π",
+      "π/2",
+      "1/π"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "MA007",
+    "prompt": "For y = e^(2x), which derivative is correct?",
+    "choices": [
+      "2e^(2x)",
+      "e^(2x)",
+      "2x e^(2x)",
+      "e^x"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "MA008",
+    "prompt": "Solve dy/dx = 4 with initial condition y(0) = 3.",
+    "choices": [
+      "y = 4x + 3",
+      "y = 3x + 4",
+      "y = 4x",
+      "y = 4x² + 3"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "MA009",
+    "prompt": "A velocity is v(t) = 3t² m/s. What is acceleration at t = 2 s?",
+    "choices": [
+      "12 m/s²",
+      "6 m/s²",
+      "24 m/s²",
+      "3 m/s²"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "MA010",
+    "prompt": "What is the distance between (0, 0) and (3, 4)?",
+    "choices": [
+      "5",
+      "7",
+      "1",
+      "25"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "MA011",
+    "prompt": "Find the determinant of the matrix with rows (2, 1) and (3, 4).",
+    "choices": [
+      "5",
+      "11",
+      "8",
+      "−5"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "MA012",
+    "prompt": "For x ≠ 1, simplify (x² − 1)/(x − 1).",
+    "choices": [
+      "x + 1",
+      "x − 1",
+      "x² + 1",
+      "1"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "AD001",
+    "prompt": "For ρ = 1.2 kg/m³ and V = 50 m/s, what is dynamic pressure?",
+    "choices": [
+      "1,500 Pa",
+      "3,000 Pa",
+      "30 Pa",
+      "750 Pa"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "AD002",
+    "prompt": "For q = 500 Pa, wing area 10 m² and CL = 0.8, what is lift?",
+    "choices": [
+      "4,000 N",
+      "6,250 N",
+      "400 N",
+      "5,000 N"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "AD003",
+    "prompt": "At fixed density, area and lift coefficient, doubling airspeed changes lift by what factor?",
+    "choices": [
+      "4",
+      "2",
+      "8",
+      "0.5"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "AD004",
+    "prompt": "At q = 600 Pa, S = 20 m² and CD = 0.03, what is drag?",
+    "choices": [
+      "360 N",
+      "400 N",
+      "12,000 N",
+      "36 N"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "AD005",
+    "prompt": "What most directly causes an aerodynamic stall on a conventional wing?",
+    "choices": [
+      "Exceeding the critical angle of attack",
+      "Reaching a fixed altitude",
+      "Any reduction in engine power",
+      "Flying below one universal ground speed"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "AD006",
+    "prompt": "What is Mach number?",
+    "choices": [
+      "True airspeed divided by local speed of sound",
+      "Groundspeed divided by wind speed",
+      "Lift divided by drag",
+      "Density divided by pressure"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "AD007",
+    "prompt": "In steady, unaccelerated, level flight, lift is approximately equal to which force?",
+    "choices": [
+      "Weight",
+      "Thrust",
+      "Drag",
+      "Centrifugal force only"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "AD008",
+    "prompt": "For a coordinated level turn at 60° bank, what is the load factor?",
+    "choices": [
+      "2",
+      "1",
+      "0.5",
+      "4"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "AD009",
+    "prompt": "If load factor rises from 1 to 4 at unchanged configuration and weight, stall speed changes by what factor?",
+    "choices": [
+      "2",
+      "4",
+      "0.5",
+      "16"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "AD010",
+    "prompt": "For an incompressible steady flow, if streamtube area halves, what happens to mean speed?",
+    "choices": [
+      "It doubles",
+      "It halves",
+      "It stays constant",
+      "It becomes zero"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "AD011",
+    "prompt": "Which response defines positive static longitudinal stability after a small pitch disturbance?",
+    "choices": [
+      "An initial pitching tendency toward the original equilibrium",
+      "Growing pitch divergence",
+      "No initial restoring tendency",
+      "A guarantee of no oscillations"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "AD012",
+    "prompt": "With other factors fixed, increasing aspect ratio generally does what to induced drag coefficient?",
+    "choices": [
+      "Reduces it",
+      "Increases it",
+      "Makes it independent of lift",
+      "Makes profile drag vanish"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "ST001",
+    "prompt": "A 10,000 N axial tensile load acts on 100 mm². What is average normal stress?",
+    "choices": [
+      "100 MPa",
+      "10 MPa",
+      "1 MPa",
+      "1,000 MPa"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "ST002",
+    "prompt": "A 2 m bar elongates by 1 mm. What is engineering strain?",
+    "choices": [
+      "0.0005",
+      "0.002",
+      "0.5",
+      "2"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "ST003",
+    "prompt": "With E = 70 GPa and elastic strain 0.001, what is uniaxial stress?",
+    "choices": [
+      "70 MPa",
+      "7 MPa",
+      "700 MPa",
+      "0.07 MPa"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "ST004",
+    "prompt": "A simply supported 4 m beam has a 1,000 N point load at midspan. What is each vertical reaction?",
+    "choices": [
+      "500 N",
+      "1,000 N",
+      "250 N",
+      "2,000 N"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "ST005",
+    "prompt": "For that 4 m simply supported beam and 1,000 N midspan load, what is maximum bending moment?",
+    "choices": [
+      "1,000 N·m",
+      "4,000 N·m",
+      "500 N·m",
+      "250 N·m"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "ST006",
+    "prompt": "Using σ = My/I, where is bending normal stress zero in a homogeneous beam under pure bending?",
+    "choices": [
+      "At the neutral axis",
+      "At the outermost fiber",
+      "At every upper surface",
+      "Only at supports"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "ST007",
+    "prompt": "A 20 N force acts perpendicular to a lever 0.5 m from a pivot. What torque results?",
+    "choices": [
+      "10 N·m",
+      "40 N·m",
+      "20 N·m",
+      "0.025 N·m"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "ST008",
+    "prompt": "Which structural member primarily carries axial compressive load?",
+    "choices": [
+      "A strut",
+      "A tension-only cable",
+      "A flexible wire in slack",
+      "An unbonded sealant bead"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "ST009",
+    "prompt": "In Euler buckling with fixed E, I and end conditions, doubling column length changes critical load by what factor?",
+    "choices": [
+      "One quarter",
+      "Two",
+      "Four",
+      "One half"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "ST010",
+    "prompt": "A 100 kg mass is at x = 1 m and a 300 kg mass is at x = 3 m. Where is their combined CG?",
+    "choices": [
+      "2.5 m",
+      "2.0 m",
+      "1.5 m",
+      "4.0 m"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "ST011",
+    "prompt": "Allowable stress is 150 MPa and applied stress is 100 MPa. Using MS = allowable/applied − 1, what is margin of safety?",
+    "choices": [
+      "0.5",
+      "1.5",
+      "50 MPa",
+      "−0.5"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "ST012",
+    "prompt": "Which describes fatigue failure?",
+    "choices": [
+      "Crack initiation and growth under repeated loading",
+      "Only instantaneous melting",
+      "Only overload above ultimate stress",
+      "A guaranteed increase in strength with cycles"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "CR001",
+    "prompt": "Which process uses penetrant and developer to reveal surface-breaking discontinuities in a clean nonporous part?",
+    "choices": [
+      "Liquid penetrant inspection",
+      "Eddy-current demagnetization",
+      "Brinell hardness testing",
+      "Ultrasonic welding"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "CR002",
+    "prompt": "Magnetic particle inspection is suitable primarily for which material class?",
+    "choices": [
+      "Ferromagnetic materials",
+      "All plastics",
+      "All aluminum alloys",
+      "Glass fibers"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "CR003",
+    "prompt": "What combination promotes galvanic corrosion?",
+    "choices": [
+      "Dissimilar metals in electrical contact with an electrolyte",
+      "Identical dry plastics touching",
+      "A dry isolated metal alone",
+      "Any two nonconductors without moisture"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "CR004",
+    "prompt": "Before drilling or cutting a structural repair, what should determine allowable limits and repair details?",
+    "choices": [
+      "Applicable approved maintenance or repair data",
+      "The fastest available internet video",
+      "Appearance of a different aircraft",
+      "A guess based only on sheet color"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "CR005",
+    "prompt": "What is the principal reinforcing role of fibers in a fiber-reinforced polymer laminate?",
+    "choices": [
+      "Carry much of the load along their direction",
+      "Provide only paint color",
+      "Eliminate all directional properties",
+      "Melt during normal service"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "CR006",
+    "prompt": "What is delamination in a composite laminate?",
+    "choices": [
+      "Separation between laminate layers",
+      "Uniform paint fading",
+      "A designed bolt clearance",
+      "Normal resin mixing"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "CR007",
+    "prompt": "Why is a torque wrench used when a specified fastener torque is required?",
+    "choices": [
+      "To apply a controlled tightening torque",
+      "To measure rivet electrical resistance",
+      "To prove all cracks are absent",
+      "To measure sheet thickness"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "CR008",
+    "prompt": "What is the main function of safety wire installed correctly on a suitable fastener?",
+    "choices": [
+      "Resist loosening rotation",
+      "Increase bolt diameter",
+      "Replace required torque",
+      "Restore stripped threads"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "CR009",
+    "prompt": "Why are cracks generally unacceptable stress raisers in a loaded aircraft structure?",
+    "choices": [
+      "They concentrate stress locally",
+      "They always reduce local stress to zero",
+      "They guarantee ductile behavior",
+      "They provide controlled lubrication"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "CR010",
+    "prompt": "For a flush-riveted thin skin, countersinking versus dimpling should be chosen using what?",
+    "choices": [
+      "Applicable repair data and material/thickness limits",
+      "Only the technician’s preferred tool",
+      "Only exterior paint color",
+      "The largest available cutter"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "CR011",
+    "prompt": "What is traceability in aircraft material control?",
+    "choices": [
+      "Linking a part or material to its identity and required records",
+      "Sorting only by color",
+      "Removing all batch numbers",
+      "Using every unmarked offcut"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "CR012",
+    "prompt": "What must happen after a repair before return to service?",
+    "choices": [
+      "Required inspection and authorized documentation per applicable rules",
+      "Only repainting",
+      "Only verbal approval by a passenger",
+      "Automatic acceptance because it fits"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "PP001",
+    "prompt": "What is the ideal four-stroke spark-ignition engine sequence?",
+    "choices": [
+      "Intake, compression, power, exhaust",
+      "Intake, power, compression, exhaust",
+      "Compression, intake, exhaust, power",
+      "Power, intake, exhaust, compression"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "PP002",
+    "prompt": "A four-stroke single cylinder completes one power stroke in how many crankshaft revolutions?",
+    "choices": [
+      "2",
+      "1",
+      "4",
+      "0.5"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "PP003",
+    "prompt": "For compression ratio (Vs + Vc)/Vc, with swept volume 450 cm³ and clearance volume 50 cm³, what is the ratio?",
+    "choices": [
+      "10:1",
+      "9:1",
+      "8:1",
+      "5:1"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "PP004",
+    "prompt": "What supplies most of the shaft work needed by a simple turbojet compressor?",
+    "choices": [
+      "The turbine",
+      "The fuel pump alone",
+      "The inlet lip",
+      "The exhaust cone alone"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "PP005",
+    "prompt": "What is the main purpose of a compressor in a gas turbine engine?",
+    "choices": [
+      "Increase air pressure before combustion",
+      "Remove all oxygen",
+      "Convert exhaust thrust directly into lift",
+      "Eliminate the need for a turbine"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "PP006",
+    "prompt": "Which ideal thermodynamic cycle models the basic constant-pressure gas turbine?",
+    "choices": [
+      "Brayton cycle",
+      "Otto cycle",
+      "Rankine cycle",
+      "Carnot refrigeration cycle"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "PP007",
+    "prompt": "For a heat engine receiving 1,000 J and delivering 300 J net work, what is thermal efficiency?",
+    "choices": [
+      "30%",
+      "70%",
+      "3%",
+      "300%"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "PP008",
+    "prompt": "A shaft delivers 100 N·m at 100 rad/s. What is shaft power?",
+    "choices": [
+      "10 kW",
+      "1 kW",
+      "100 kW",
+      "0.1 kW"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "PP009",
+    "prompt": "What is the principal function of a propeller?",
+    "choices": [
+      "Convert shaft power into propulsive thrust",
+      "Create fuel by compression",
+      "Replace all wing lift",
+      "Store electrical charge"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "PP010",
+    "prompt": "Why is engine lubrication necessary?",
+    "choices": [
+      "Reduce friction and help remove heat between moving surfaces",
+      "Increase dry metal contact",
+      "Replace combustion air",
+      "Prevent every possible engine failure"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "PP011",
+    "prompt": "Ignoring fuel mass and pressure thrust, mass flow 20 kg/s accelerated from 100 to 300 m/s produces what thrust?",
+    "choices": [
+      "4,000 N",
+      "6,000 N",
+      "2,000 N",
+      "8,000 N"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "PP012",
+    "prompt": "A detonation event in a spark-ignition engine is best described as what?",
+    "choices": [
+      "Abnormal rapid combustion of the end gas",
+      "Normal spark timing in every cycle",
+      "An intentional cooling process",
+      "A harmless oil pressure change"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "EE001",
+    "prompt": "Which Philippine decree specifically regulates aeronautical engineering practice?",
+    "choices": [
+      "PD 1570",
+      "PD 1096 only",
+      "RA 4136 only",
+      "RA 9003 only"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "EE002",
+    "prompt": "Under PD 1570 Section 17, what general weighted average is required, with no subject below 50%?",
+    "choices": [
+      "75%",
+      "70%",
+      "80%",
+      "50%"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "EE003",
+    "prompt": "Under PD 1570 Section 3, the Board of Aeronautical Engineering is created under which body?",
+    "choices": [
+      "Professional Regulation Commission",
+      "Civil Aviation Authority of the Philippines",
+      "Department of Tourism",
+      "An aircraft manufacturer"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "EE004",
+    "prompt": "What is the title given to PD 1570 in Section 1?",
+    "choices": [
+      "Philippine Aeronautical Engineering Decree",
+      "Philippine Maritime Code",
+      "National Building Code",
+      "Civil Code of Aircraft Sales"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "EE005",
+    "prompt": "At 10% simple interest per year, what interest accrues on ₱10,000 over 2 years?",
+    "choices": [
+      "₱2,000",
+      "₱1,000",
+      "₱2,100",
+      "₱12,100"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "EE006",
+    "prompt": "What is the future value of ₱10,000 after 2 years at 10% interest compounded annually?",
+    "choices": [
+      "₱12,100",
+      "₱12,000",
+      "₱11,000",
+      "₱10,200"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "EE007",
+    "prompt": "What is the present value of ₱11,000 due in one year at a 10% annual discount rate?",
+    "choices": [
+      "₱10,000",
+      "₱12,100",
+      "₱9,000",
+      "₱1,000"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "EE008",
+    "prompt": "An asset costs ₱100,000, has ₱20,000 salvage value and a 4-year life. What is annual straight-line depreciation?",
+    "choices": [
+      "₱20,000",
+      "₱25,000",
+      "₱30,000",
+      "₱5,000"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "EE009",
+    "prompt": "A project costs ₱1,000 now and returns ₱1,210 in 2 years. At 10% annually, what is NPV?",
+    "choices": [
+      "₱0",
+      "₱210",
+      "−₱100",
+      "₱100"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "EE010",
+    "prompt": "Fixed cost is ₱10,000 and contribution margin is ₱100 per unit. What is the break-even quantity?",
+    "choices": [
+      "100 units",
+      "10 units",
+      "1,000 units",
+      "50 units"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "EE011",
+    "prompt": "Under PD 1570 Section 7, which is a power of the Board, subject to Commission review?",
+    "choices": [
+      "Issue, suspend or revoke registration certificates for justifiable cause",
+      "Set every airline ticket price",
+      "Issue passports",
+      "Approve all foreign airport designs"
+    ],
+    "answer": 0
+  },
+  {
+    "id": "EE012",
+    "prompt": "Under PD 1570 Section 19, who may take the professional oath for a registrant besides a Board member?",
+    "choices": [
+      "A person authorized to administer oaths",
+      "Any passenger",
+      "Any unregistered student",
+      "Only a foreign aircraft mechanic"
+    ],
+    "answer": 0
+  }
+]

@@ -1,1 +1,1 @@
-{"name":"ae-prepware-tests","version":"0.1.0-rc.1","private":true,"scripts":{"test":"node --test tests/*.test.cjs","test:browser":"node tests/browser.cjs"},"devDependencies":{"playwright":"1.58.2"}}
+{"name":"ae-prepware-tests","version":"0.2.0-rc.1","private":true,"scripts":{"test":"node --test tests/*.test.cjs","test:browser":"node tests/browser.cjs"},"devDependencies":{"playwright":"1.58.2"}}

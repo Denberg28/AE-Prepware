@@ -1,100 +1,90 @@
-# AE Prepware ✈
+# AE Prepware
 
-A lightweight Android study companion for Philippine Aeronautical Engineers Licensure Examination preparation. Offline multiple-choice practice, explanations, progress, adaptive quests and optional cohort challenges. **v0.1.0-rc.1 is a test candidate, not a stable or comprehensive board reviewer.**
+Minimal Android practice for Philippine Aeronautical Engineers Licensure Examination subjects. **v0.2.0-rc.1 is a permanently signed test candidate**, pending physical Android testing and independent faculty content review.
 
-## Install and study
+## Study
 
-Download the candidate APK from [Releases](https://github.com/Denberg28/AE-Prepware/releases). Android 8.0+ and a current Android System WebView are required. Allow installation from your browser/file manager, install the APK, then open AE Prepware. No account, ad service or AI key is required for offline study.
+1. Choose a subject on **Subjects**. The app draws 50 distinct questions from that subject and shuffles A–D.
+2. Select a letter. The answer locks, shows **Correct** or the correct letter/text, and offers a collapsed **Explanation** pane.
+3. Finish all 50 to see your score. **Results** records sessions and subject progress. Save & exit/reopening resumes exactly.
 
-- **Today:** start recommended practice or resume your saved question.
-- **Study:** subject sessions, shuffled practice, mistakes, bookmarks and a 20-item weighted check.
-- **Progress:** question coverage, practice accuracy, correct-answer streak milestones and session log.
-- **Cohort:** optionally join an instructor-provided HTTPS service with a pseudonym. Submit server-scored challenges and view standings.
-- **Settings (•••):** name, JSON backup/restore, approved question-bank import and disputed-question reports.
+The bundled bank contains 360 original foundation items (60 per subject), including parameterized calculation variants. This is not comprehensive TOS coverage, official PRC content or a pass guarantee. Answer keys and source explanations are fixed; live AI cannot change them. Imported banks must have independent approval metadata. A subject needs 50 active items: insufficient items show an error rather than repeat questions.
 
-72 original foundation questions include explanations and references. They cover all six subject headings and use PRC November 2026 weights; they do **not** cover every syllabus/TOS competency. The bundled bank has author self-review; independent faculty review is pending. No copied commercial Prepware/Quizlet content, recalled exam questions, PRC affiliation or guaranteed passing result. Review corrections with qualified faculty before relying on the material.
+Offline use needs no server, AI key or payment. Random selection is the default. Adaptive selection favors unseen/missed questions. **AI assisted** uses a connected account's synced performance to request topic priorities; without a provider or service it falls back to adaptive selection, labeled in the UI.
 
-## Reproducible setup
+## Accounts, saved results and ranking
 
-Android: JDK 17 or 21, Gradle wrapper 8.10.2 (checksum pinned), Android SDK platform 35 and build tools 35.0.0; minimum API 26, target 35. Android has no third-party runtime dependencies.
+Create an account in **Account**. The app issues an **AE- account number** and a private recovery code. Save the recovery file and a separate progress backup. Account number alone cannot sign in. Guest progress can be bound to the first new account; different profiles have separate storage. Up to ten local profiles are supported. Recovery codes are verified by digest locally and salted scrypt on the service; the app does not retain their plaintext after creation. Anyone using an unlocked, signed-in phone can view that profile; profiles are not a device encryption boundary.
+
+An account works offline first. For online backup/ranking, use the instructor's **HTTPS API root URL**, enter the recovery code and select **Connect account**. Completed 50-item sessions queue locally and are graded again by the server. Lost responses and retries do not double-count results or points. Sync retains queued sessions on failures. The pending queue caps at 200; sync/export before more sessions. Latest 200 summaries are shown locally and in cloud recovery; server aggregate progress retains all synced attempts.
+
+Shared ranking awards one point per distinct correct question per server day (Asia/Manila). Public ranking shows a display name and masked account suffix. These are self-paced practice standings, not verified identities or proctored exam scores: offline answer keys are inspectable. The service is not deployed by this repository. New-device sign-in restores synced results/progress; unsynced results, flags and bookmarks need a progress backup. Lost recovery codes cannot be reset by account number. Server login tokens expire after 30 days; reconnect with the code. Device signout clears its token; online deletion permanently removes server records, while local scores remain.
+
+## Install and update
+
+Download the signed candidate from [GitHub Releases](https://github.com/Denberg28/AE-Prepware/releases). Android 8+ and a current Android System WebView are required. Allow APK installation from your browser/file manager.
+
+**One-time transition from v0.1:** export progress in the old app first. That CI build used a disposable debug certificate whose private key is unavailable. Uninstall it, install v0.2, then import the old guest backup and create your account. Original question IDs and progress/session schema remain compatible. Never uninstall without backup. Subsequent versions use the permanent certificate and a higher versionCode so normal updates can preserve app data. A signing certificate does not imply educational validation or a stable release.
+
+The public certificate, fingerprint, SHA-256 checksums and verification report accompany the APK. See [signing and release procedure](signing/README.md). Private signing recovery material is never public. To roll back, export a matching progress/bank backup first; Android blocks lower-version installs without uninstall, and backups tied to expanded banks may not load in older apps. Keep the older APK and its matching backup.
+
+## Build and test
+
+Android: JDK 17/21, Gradle 8.10.2 wrapper, SDK platform 35/build-tools 35.0.0. Minimum API 26, target 35; no Android third-party runtime dependencies. `release.json` controls version/code and pinned certificate. Local debug APKs are for development; publication uses the permanent signed release.
 
 ```sh
-# ANDROID_HOME points to your SDK; alternatively create ignored local.properties
 ./gradlew :app:assembleDebug :app:assembleRelease :app:lint
 node --test tests/*.test.cjs
-```
-
-Debug APK: `app/build/outputs/apk/debug/app-debug.apk`. Release build is unsigned until the maintainer provides a private signing key. The candidate distributed by CI is explicitly debug-signed. Never commit a keystore. A future production signer must be provisioned before stable distribution; export a backup before switching signing identity because uninstall may be necessary.
-
-Python 3.12 recommended. Use a virtual environment:
-
-```sh
 python -m venv .venv
-. .venv/bin/activate  # Windows: .venv\Scripts\activate
+. .venv/bin/activate # Windows: .venv\Scripts\activate
 pip install -r backend/requirements.lock
 python -m pytest -q
-python -m streamlit run streamlit_app.py --server.address 127.0.0.1
+npm ci
+npx playwright install chromium
+mkdir -p artifacts
+node tests/browser.cjs
+node tests/cohort-browser.cjs
 ```
 
-The Streamlit dashboard provides a template coursework plan, optional Gemini AI drafts and per-question faculty approval/export. It can run locally or on Streamlit Community Cloud. No deployed dashboard or paid hosting is assumed. Review work is preserved by exporting JSON, not by relying on the Streamlit session.
+The integration browser test uses real local API/SQLite, simulated HTTPS origin and separate storage contexts; it is not a physical-phone or live TLS test. `CHROMIUM_PATH` selects a system Chromium. See [test gates](docs/TESTING.md) and [v0.2 evidence](docs/evidence/V0_2_VERIFICATION.md).
 
-### Streamlit Community Cloud setup
+## Hosted account API
 
-Create an app with these entries:
+```sh
+# From repo root, Python virtual environment, one worker
+# AE_DB=/persistent/path/cohort.sqlite
+# AE_BANK=/path/to/approved-bank.json # optional, exact same bank on phones
+# GEMINI_API_KEY=server-only-key     # optional AI topic selection
+# GEMINI_MODEL=gemini-3.5-flash-lite # optional model override
+python -m uvicorn backend.api:app --host 127.0.0.1 --port 8000 --workers 1
+```
+
+Use persistent disk, private database backups and a valid HTTPS reverse proxy with request/connection limits. No API key is embedded in Android. AI receives only topic names and aggregate attempts/correct counts, not account identifiers, names, recovery codes or student records. Configure provider quotas separately. It can select only allowlisted topics; malformed/provider failures use adaptive selection and cannot change bank keys. Streamlit Community Cloud hosts the faculty UI below; it does **not** host this FastAPI service or automatically pass its Secrets to a separately hosted API. Legacy v0.1 cohort endpoints remain available for compatibility; new account rankings are separate.
+
+## Streamlit faculty dashboard
+
+Run `python -m streamlit run streamlit_app.py`. For Community Cloud:
 
 | Field | Value |
 | --- | --- |
 | Repository | `Denberg28/AE-Prepware` |
 | Branch | `main` |
 | Main file path | `streamlit_app.py` |
-| Python version (Advanced settings) | `3.12` |
+| Python | `3.12` |
 
-Paste the following **top-level TOML entries** into **Advanced settings → Secrets** before deployment, or **App settings → Secrets** for an existing app:
+In **Advanced settings → Secrets** (or existing **App settings → Secrets**) use top-level TOML:
 
 ```toml
 GEMINI_API_KEY = "paste-your-gemini-api-key-here"
 GEMINI_MODEL = "gemini-3.5-flash-lite"
-# Optional, separately hosted cohort service:
+# Optional separately hosted service:
 # AE_API_URL = "https://your-cohort-api.example.com"
 ```
 
-Only the API key is required for AI; omit `GEMINI_MODEL` to use the shown default, or choose a model available to your account. Save Secrets and rerun the app. In **Coursework → Optional AI draft assistant**, click **Draft a coursework plan with AI**. Configuration status means settings were loaded, not that the provider accepted the key. Invalid keys, quota limits and network errors show a generic error; local coursework still works. Live generation remains untested without a real key.
+Restrict dashboard sharing to instructors. Anyone with access can trigger server API usage. The root `requirements.txt` installs the minimal dashboard runtime. Streamlit Secrets take priority over environment variables. For local use, copy `.streamlit/secrets.toml.example` to ignored `.streamlit/secrets.toml`. The old `backend/dashboard.py` entry remains supported. Draft coursework always requires instructor review, and the dashboard never inserts live drafts into the scored bank. Export review work before reboots.
 
-Settings are read from `st.secrets` first, then server environment variables. For local use, copy `.streamlit/secrets.toml.example` to `.streamlit/secrets.toml` and edit the ignored copy. Never put a real key in source, the example file, Android, or a student input field. Root `requirements.txt` installs just the dashboard runtime; `backend/requirements.lock` retains the full development/API environment. The older `backend/dashboard.py` entry also remains supported.
+## Content and limitations
 
-Restrict app sharing to intended instructors in Streamlit Cloud; on other hosting, use an authentication gateway. Anyone with dashboard access can trigger API usage with the server key. Streamlit hosts this faculty UI, not the separate cohort API. Keep the Android app offline-first. Export review work before app reboots or upgrades. To roll back this setup, use the previous commit's `backend/dashboard.py` entry and environment settings; no Android data migration is involved.
+Edit original content in `scripts/generate_bank.py` and `scripts/expand_foundations.py`; regenerate with `python scripts/generate_bank.py`. Preserve IDs/keys for unchanged items; changes to identity/key require versioning and progress migration review. All independent faculty approvals require individual checks and a new bank version. No copied commercial Prepware/Quizlet items or recalled exams.
 
-Optional cohort API:
-
-```sh
-# From the repository root, in the virtual environment
-# AE_DB=/persistent/path/cohort.sqlite
-# AE_BANK=/path/to/faculty-approved-bank.json  # optional; same version on phones
-python -m uvicorn backend.api:app --host 127.0.0.1 --port 8000 --workers 1
-```
-
-Put the API behind a valid HTTPS reverse proxy with request limits and persistent disk. Give students the HTTPS root URL. Android rejects cleartext HTTP. Cohort hosting is not included in the APK and has not been deployed. Local study remains available without it. See [architecture](docs/ARCHITECTURE.md) for account/privacy and hosting limits.
-
-Browser regression test (desktop simulation of local UI, not Android validation):
-
-```sh
-npm ci
-npx playwright install chromium
-node tests/browser.cjs
-```
-
-The browser test starts its own static server on port 8080. Set `CHROMIUM_PATH` when using a system Chromium. Screenshots/evidence go to ignored `artifacts/`.
-
-## Content maintenance
-
-Edit `scripts/generate_bank.py`, then `python scripts/generate_bank.py`. The bundled bank is source-checked by its initial author, not automatically faculty-approved. The dashboard can review a bank one question at a time and export an entirely approved bank with a new version. Android only accepts imported banks marked approved for **all** questions. Review metadata is not a cryptographic signature; obtain banks only from trusted instructors.
-
-Backups require the same bank version. Changing banks resets progress after confirmation; export a progress backup and preserve the matching old bank first. Unsupported/corrupt data is rejected and retained for recovery. Setting aside a disputed question excludes it from future local practice; export reports for faculty review.
-
-## Delivery and rollback
-
-GitHub CI runs bank/core/API tests, browser regression, dependency audit, Android assemble/lint and APK packaging checks. The initial main build (or its matching version tag) publishes a **prerelease** only after required CI checks. Bump the version before publishing another artifact; existing releases are never overwritten. CI uploads the tested candidate APK, checksums, source identity and reports. No stable promotion is automatic. Candidate signer changes between clean CI builds; use backup/uninstall/reinstall if Android rejects an upgrade. This is deliberate candidate-only signing, not production continuity.
-
-There is no earlier baseline release. To roll back after later updates, keep a matching bank/progress backup, uninstall only after export, reinstall the earlier compatible APK and restore that backup. Schema downgrade across incompatible banks is unsupported.
-
-See [specification](docs/SPEC.md), [test gates and device procedure](docs/TESTING.md), [known limitations](docs/KNOWN_ISSUES.md), [content policy](docs/CONTENT.md), and [changelog](CHANGELOG.md).
+See [scope](docs/V0_2_SCOPE.md), [architecture](docs/ARCHITECTURE.md), [content policy](docs/CONTENT.md), [known limitations](docs/KNOWN_ISSUES.md), [changelog](CHANGELOG.md) and [release notes](docs/RELEASE_NOTES.md).

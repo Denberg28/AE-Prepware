@@ -1,3 +1,5 @@
+> Historical v0.1 baseline specification. Current v0.2 flow and acceptance criteria: [V0_2_SCOPE.md](V0_2_SCOPE.md).
+
 # AE Prepware 0.1 MVP specification
 
 ## Baseline and assumptions

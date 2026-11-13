@@ -2,7 +2,7 @@
 'use strict';
 const DAY=86400000;
 const day=(now=Date.now())=>{const d=new Date(now);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
-function fresh(){return {schema:1,name:'Cadet',stats:{},daily:{},bookmarks:[],flags:[],history:[],session:null,endpoint:'',cohort:null};}
+function fresh(){return {schema:1,name:'Cadet',stats:{},daily:{},bookmarks:[],flags:[],history:[],session:null,endpoint:'',cohort:null,accountNumber:null,pending:[],selection:'random'};}
 function validateBank(b,imported=false){
  if(!b||b.schema!==1||typeof b.version!=='string'||!Array.isArray(b.subjects)||!Array.isArray(b.questions)||b.questions.length<6||b.questions.length>3000)throw Error('Unsupported question bank.');
  const weights={math:10,aero:25,structures:20,construction:15,powerplant:20,ethics:10};const subjects=new Set(Object.keys(weights));
@@ -19,12 +19,17 @@ function validateBank(b,imported=false){
 function validateState(s,bank){
  if(!s||s.schema!==1||typeof s.name!=='string'||s.name.length>40||!s.stats||typeof s.stats!=='object'||Array.isArray(s.stats)||!s.daily||typeof s.daily!=='object'||Array.isArray(s.daily)||!Array.isArray(s.bookmarks)||!Array.isArray(s.flags)||!Array.isArray(s.history)||s.history.length>200)throw Error('Backup format is invalid.');
  const ids=new Set(bank.questions.map(q=>q.id));
+ if(s.accountNumber!=null&&!/^AE-[0-9]{16}$/.test(s.accountNumber))throw Error('Invalid account number.');
+ if(s.pending!==undefined&&(!Array.isArray(s.pending)||s.pending.length>200))throw Error('Invalid pending results.');
+ for(const h of [...s.history,...(s.pending||[])]){if(!h||!Number.isInteger(h.total)||h.total<1||h.total>100||!Number.isInteger(h.correct)||h.correct<0||h.correct>h.total||!Number.isFinite(h.date))throw Error('Invalid result record.');if(h.ids&&(!Array.isArray(h.ids)||h.ids.length!==h.total||new Set(h.ids).size!==h.total||h.ids.some(id=>!ids.has(id))||!Array.isArray(h.answers)||h.answers.length!==h.total||h.answers.some(a=>!Number.isInteger(a)||a<0||a>3)||typeof h.id!=='string'||!/^[-a-zA-Z0-9_]{1,64}$/.test(h.id)||h.accountNumber!==s.accountNumber))throw Error('Invalid account result.');}
+ for(const h of s.history){if(h.orders&&(!Array.isArray(h.orders)||h.orders.length!==h.total||h.orders.some(o=>!Array.isArray(o)||o.some(x=>!Number.isInteger(x))||[...o].sort().join('')!=='0123')))throw Error('Invalid recorded answer order.');if(h.ids&&h.correct!==h.ids.filter((id,i)=>bank.questions.find(q=>q.id===id).answer===h.answers[i]).length)throw Error('Recorded score does not match answers.');}
+ for(const h of s.pending||[]){if(!h.ids||!h.id||h.total!==50||h.bankVersion!==bank.version)throw Error('Invalid pending session.');}
  for(const [id,x]of Object.entries(s.stats)){if(!ids.has(id)||!x||!Number.isInteger(x.seen)||x.seen<1||!Number.isInteger(x.correct)||x.correct<0||x.correct>x.seen||!Number.isInteger(x.streak)||x.streak<0||!Number.isFinite(x.due)||!Number.isFinite(x.last))throw Error('Invalid progress record.');}
  for(const [d,v]of Object.entries(s.daily)){if(!/^\d{4}-\d{2}-\d{2}$/.test(d)||!v||!Array.isArray(v.answered)||!Array.isArray(v.correct)||new Set(v.answered).size!==v.answered.length||new Set(v.correct).size!==v.correct.length||v.answered.some(x=>!ids.has(x))||v.correct.some(x=>!v.answered.includes(x)))throw Error('Invalid daily progress.');}
  if(s.bookmarks.some(id=>!ids.has(id))||s.flags.some(id=>!ids.has(id)))throw Error('Unknown bookmarked or reported question.');
  if(s.endpoint&& !validEndpoint(s.endpoint))throw Error('Invalid cohort service URL.');
  if(s.cohort&& (typeof s.cohort.token!=='string'||s.cohort.token.length>100||typeof s.cohort.id!=='string'))throw Error('Invalid cohort account.');
- if(s.session){const t=s.session;if(!Array.isArray(t.ids)||!t.ids.length||t.ids.length>100||new Set(t.ids).size!==t.ids.length||t.ids.some(id=>!ids.has(id))||!Array.isArray(t.orders)||t.orders.length!==t.ids.length||t.orders.some(o=>!Array.isArray(o)||[...o].sort().join('')!=='0123')||!Number.isInteger(t.index)||t.index<0||t.index>=t.ids.length||!Array.isArray(t.answers)||t.answers.length!==t.ids.length||t.answers.some(a=>a!==null&&(!Number.isInteger(a)||a<0||a>3))||t.answers.some((a,i)=>i<t.index&&a===null||i>t.index&&a!==null)||typeof t.mode!=='string')throw Error('Invalid saved session.');}
+ if(s.session){const t=s.session;if(!Array.isArray(t.ids)||!t.ids.length||t.ids.length>100||new Set(t.ids).size!==t.ids.length||t.ids.some(id=>!ids.has(id))||!Array.isArray(t.orders)||t.orders.length!==t.ids.length||t.orders.some(o=>!Array.isArray(o)||o.some(x=>!Number.isInteger(x))||[...o].sort().join('')!=='0123')||!Number.isInteger(t.index)||t.index<0||t.index>=t.ids.length||!Array.isArray(t.answers)||t.answers.length!==t.ids.length||t.answers.some(a=>a!==null&&(!Number.isInteger(a)||a<0||a>3))||t.answers.some((a,i)=>i<t.index&&a===null||i>t.index&&a!==null)||typeof t.mode!=='string')throw Error('Invalid saved session.');}
  return s;
 }
 function shuffle(arr,rng=Math.random){arr=[...arr];for(let i=arr.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
@@ -38,14 +43,15 @@ function pick(state,bank,mode='adaptive',subject=null,count=10,now=Date.now(),rn
  if(mode==='mock'){
   const result=[];for(const s of bank.subjects){const quota=s.weight/5;const pool=shuffle(candidates.filter(q=>q.subject===s.id),rng);if(pool.length<quota)throw Error('Not enough active questions for a weighted 20-question check. Restore reported questions or use practice.');result.push(...pool.slice(0,quota));}return shuffle(result,rng);
  }
- if(mode==='adaptive'){
+ if((mode==='subject'||mode==='adaptive-subject')&&candidates.length<count)throw Error(`This subject has ${candidates.length} active questions. A session needs ${count} distinct questions. Restore set-aside questions or import a larger approved bank.`);
+ if(mode==='adaptive'||mode==='adaptive-subject'){
   const focus=subject||weakest(state,bank)?.id;
   const scored=candidates.map(q=>{const st=state.stats[q.id];return {q,score:(q.subject===focus?5:0)+(!st?3:st.streak===0?6:st.due<=now?4:0)+rng()*3};});
   return scored.sort((a,b)=>b.score-a.score).slice(0,count).map(x=>x.q);
  }
  return shuffle(candidates,rng).slice(0,count);
 }
-function start(state,questions,mode,rng=Math.random){if(!questions.length)throw Error('No questions here yet.');state.session={ids:questions.map(q=>q.id),orders:questions.map(()=>shuffle([0,1,2,3],rng)),answers:questions.map(()=>null),index:0,mode,started:Date.now()};return state.session;}
+function start(state,questions,mode,rng=Math.random){if((state.pending||[]).length>=200)throw Error('Sync or export your 200 pending account results before starting another session.');if(!questions.length)throw Error('No questions here yet.');state.session={ids:questions.map(q=>q.id),orders:questions.map(()=>shuffle([0,1,2,3],rng)),answers:questions.map(()=>null),index:0,mode,started:Date.now()};return state.session;}
 function answer(state,bank,choice,now=Date.now()){
  const t=state.session;if(!t||!Number.isInteger(choice)||choice<0||choice>3)throw Error('Invalid answer.');
  const i=t.index;if(t.answers[i]!==null)return false;
@@ -60,10 +66,13 @@ function answer(state,bank,choice,now=Date.now()){
 function finish(state,bank,now=Date.now()){
  const t=state.session;if(!t||t.answers.some(a=>a===null))throw Error('Finish every question before submitting.');
  const map=new Map(bank.questions.map(q=>[q.id,q]));const correct=t.ids.filter((id,i)=>t.answers[i]===map.get(id).answer).length;
- const result={mode:t.mode,total:t.ids.length,correct,date:now};state.history.unshift(result);state.history=state.history.slice(0,200);state.session=null;return result;
+ const result={id:uid(),mode:t.mode,total:t.ids.length,correct,date:now,started:t.started,subject:new Set(t.ids.map(id=>map.get(id).subject)).size===1?map.get(t.ids[0]).subject:'mixed',accountNumber:state.accountNumber||null,bankVersion:bank.version,ids:[...t.ids],answers:[...t.answers],orders:t.orders.map(o=>[...o])};
+ if(state.accountNumber&&t.ids.length===50){state.pending=state.pending||[];if(state.pending.length>=200)throw Error('Pending results queue is full. Sync or export before completing.');state.pending.push(result);}
+ state.history.unshift(result);state.history=state.history.slice(0,200);state.session=null;return result;
 }
+function uid(){return globalThis.crypto.randomUUID();}
 function xp(state){return Object.values(state.daily).reduce((n,d)=>n+d.correct.length*10+d.answered.filter(id=>!d.correct.includes(id)).length*2,0);}
 function streak(state,now=Date.now()){let n=0,t=now;if(!state.daily[day(t)]?.answered.length)t-=DAY;while(state.daily[day(t)]?.answered.length){n++;t-=DAY;}return n;}
 function validEndpoint(value){try{const u=new URL(value);return u.protocol==='https:'&&!u.username&&!u.password&&!u.search&&!u.hash&&u.pathname==='/';}catch{return false;}}
-return {DAY,day,fresh,validateBank,validateState,shuffle,summary,weakest,pick,start,answer,finish,xp,streak,validEndpoint};
+return {uid,DAY,day,fresh,validateBank,validateState,shuffle,summary,weakest,pick,start,answer,finish,xp,streak,validEndpoint};
 });

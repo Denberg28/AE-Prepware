@@ -42,7 +42,7 @@ with study:
                     response.raise_for_status()
                     text='\n'.join(p.get('text','') for p in response.json()['candidates'][0]['content']['parts'])
                 st.session_state.ai_plan=text
-            except (httpx.HTTPError,KeyError,IndexError,ValueError):st.error('The AI draft could not be generated. Check server configuration or use the local coursework plan. No draft was published.')
+            except (httpx.HTTPError,KeyError,IndexError,ValueError,ImportError):st.error('The AI draft could not be generated. Check server configuration or use the local coursework plan. No draft was published.')
         if st.session_state.get('ai_plan'):
             st.warning('AI draft · instructor review required')
             st.markdown(st.session_state.ai_plan)
@@ -89,7 +89,7 @@ with cohort:
             from urllib.parse import urlparse
             parsed=urlparse(url)
             if parsed.scheme!='https' or not parsed.netloc or parsed.username or parsed.password or parsed.path not in ('','/') or parsed.query or parsed.fragment:raise ValueError()
-            data=httpx.get(url.rstrip('/')+'/leaderboard',timeout=10,follow_redirects=False);data.raise_for_status()
+            data=httpx.get(url.rstrip('/')+'/accounts/leaderboard',timeout=10,follow_redirects=False);data.raise_for_status()
             st.dataframe(data.json()['entries'],hide_index=True,use_container_width=True)
         except (httpx.HTTPError,ValueError,KeyError):st.error('Could not load standings. Check the HTTPS API URL and service.')
-    st.caption('Standings use first-correct daily question points. Participant names are self-chosen; these are practice results, not proctored examination rankings.')
+    st.caption('Account standings use first-correct daily question points and masked account suffixes. Names are self-chosen; these are practice results, not proctored examination rankings.')

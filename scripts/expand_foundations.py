@@ -1,0 +1,97 @@
+"""Original, parameterized educational exercises; never live AI-generated keys.
+
+Eight calculation families x six parameter sets per subject, except construction
+which combines 24 conceptual items and 24 calculation exercises. Not TOS coverage.
+"""
+
+def extend(rows):
+    def number(x):
+        return f'{x:,.3f}'.rstrip('0').rstrip('.') if isinstance(x, float) else f'{x:,}'
+    def add(sid, prompt, value, unit, explanation, topic, source):
+        # Multiplicative distractors are unambiguously different after formatting.
+        choices=[number(value*k)+(f' {unit}' if unit else '') for k in (1, 0.5, 2, 1.5)]
+        assert len(set(choices))==4
+        rows[sid].append((prompt,*choices,explanation,topic,source))
+    for n in range(2,8):
+        a=n+1; x=n
+        add('math',f'For y = {a}x² + 5x, evaluate dy/dx at x = {x}.',2*a*x+5,'',f'dy/dx = 2({a})x + 5. At x = {x}, the result is {2*a*x+5}.','Derivatives','calc')
+        add('math',f'Evaluate the integral of {a}x from 0 to {n}.',a*n*n/2,'',f'Integrate to {a}x²/2 and apply the limits: {a}×{n}²/2 = {number(a*n*n/2)}.','Integration','calc')
+        add('math',f'Solve {a}x + {n} = {a*(n+3)+n}.',n+3,'',f'Subtract {n}, then divide by {a}: x = {n+3}.','Algebra','algebra')
+        add('math',f'Find the slope through (0, {n}) and ({a}, {n+2*a}).',2,'',f'Slope = ({n+2*a}−{n})/({a}−0) = 2.','Analytic geometry','algebra')
+        add('math',f'Find the determinant of the 2×2 matrix with rows ({n}, 1) and (1, {a}).',n*a-1,'',f'Determinant = ad−bc = {n}×{a}−1 = {n*a-1}.','Algebra','algebra')
+        add('math',f'With dy/dx = {a} and y(0) = {n}, what is y({n})?',a*n+n,'',f'Integration gives y = {a}x + {n}; y({n}) = {a*n+n}.','Differential equations','calc')
+        add('math',f'A right triangle has legs {3*n} m and {4*n} m. What is its hypotenuse?',5*n,'m',f'Pythagoras: √({3*n}² + {4*n}²) = {5*n} m.','Trigonometry','algebra')
+        add('math',f'Velocity is v(t) = {a}t² m/s. What is acceleration at t = {n} s?',2*a*n,'m/s²',f'a(t) = dv/dt = {2*a}t; a({n}) = {2*a*n} m/s².','Engineering calculus','calc')
+
+        v=10*(n+2); q=0.6*v*v
+        add('aero',f'At density 1.2 kg/m³ and speed {v} m/s, calculate dynamic pressure.',q,'Pa',f'q = ρV²/2 = 1.2×{v}²/2 = {number(q)} Pa.','Dynamic pressure','lift')
+        add('aero',f'A wing has S = {n+8} m², CL = 0.6 and q = {100*n} Pa. What is lift?',100*n*(n+8)*0.6,'N',f'L = qSCL = {100*n}×{n+8}×0.6 = {number(100*n*(n+8)*0.6)} N.','Lift','lift')
+        add('aero',f'With q = 500 Pa, S = 10 m² and lift {1000*n} N, what CL is required?',n/5,'',f'CL = L/(qS) = {1000*n}/5000 = {number(n/5)}.','Lift coefficient','lift')
+        add('aero',f'At q = {100*n} Pa, S = 12 m² and CD = 0.04, what is drag?',48*n,'N',f'D = qSCD = {100*n}×12×0.04 = {48*n} N.','Drag','drag')
+        add('aero',f'True airspeed is {34*n} m/s and local sound speed is 340 m/s. Find Mach number.',n/10,'',f'M = V/a = {34*n}/340 = {number(n/10)}.','Compressible flow','phak')
+        add('aero',f'A rectangular wing has span {2*n} m and area {2*n*n} m². Find aspect ratio b²/S.',2,'',f'AR = ({2*n})²/{2*n*n} = 2, a dimensionless geometric ratio.','Wing geometry','phak')
+        add('aero',f'An aircraft weighs {2000*n} N and has 20 m² wing area. What is wing loading W/S?',100*n,'N/m²',f'W/S = {2000*n}/20 = {100*n} N/m².','Wing loading','phak')
+        add('aero',f'In steady incompressible flow, A1 = 4 m², V1 = {10*n} m/s and A2 = 2 m². Find V2.',20*n,'m/s',f'A1V1 = A2V2, so V2 = 4×{10*n}/2 = {20*n} m/s.','Continuity','phak')
+
+        add('structures',f'An axial force of {2000*n} N acts on 100 mm². Find average normal stress.',20*n,'MPa',f'σ = F/A = {2000*n}/100 = {20*n} N/mm² = {20*n} MPa.','Axial stress','physics')
+        add('structures',f'A 1000 mm bar extends by {n} mm. Find engineering strain.',n/1000,'',f'ε = ΔL/L = {n}/1000 = {number(n/1000)}, dimensionless.','Strain','physics')
+        add('structures',f'An elastic bar has F = {1000*n} N, L = 1000 mm, A = 100 mm² and E = 100000 N/mm². Find extension FL/(AE).',n/10,'mm',f'ΔL = {1000*n}×1000/(100×100000) = {number(n/10)} mm. Assumes uniform axial loading and linear elasticity.','Elasticity','physics')
+        add('structures',f'A simply supported beam carries only a central {1000*n} N point load. What is each support reaction?',500*n,'N',f'Symmetry and vertical equilibrium give each reaction P/2 = {500*n} N.','Beam reactions','physics')
+        add('structures',f'A simply supported 4 m beam carries a central {1000*n} N point load. Find maximum bending moment.',1000*n,'N·m',f'Mmax = PL/4 = {1000*n}×4/4 = {1000*n} N·m.','Beam bending','physics')
+        add('structures',f'Equal 100 kg masses lie at x = {n} m and x = {n+4} m. Find their combined CG.',n+2,'m',f'xCG = (100×{n} + 100×{n+4})/200 = {n+2} m.','Center of gravity','physics')
+        add('structures',f'A {20*n} N force acts perpendicular to a 0.5 m lever. Find torque magnitude.',10*n,'N·m',f'T = Fr = {20*n}×0.5 = {10*n} N·m.','Torsion fundamentals','physics')
+        add('structures',f'Allowable stress is {100*(n+1)} MPa and applied stress is 100 MPa. Find MS = allowable/applied − 1.',n,'',f'MS = {100*(n+1)}/100−1 = {n}, dimensionless.','Margin of safety','general')
+
+        add('powerplant',f'A shaft delivers {20*n} N·m at 120 rad/s. What is shaft power?',2.4*n,'kW',f'P = Tω = {20*n}×120 = {2400*n} W = {number(2.4*n)} kW.','Shaft power','physics')
+        add('powerplant',f'An engine cylinder has swept volume {50*n} cm³ and clearance volume 50 cm³. Find compression ratio.',n+1,':1',f'r = (Vs+Vc)/Vc = ({50*n}+50)/50 = {n+1}:1.','Compression ratio','power')
+        add('powerplant',f'A heat engine receives 1000 J and delivers {100*n} J net work. Find thermal efficiency.',10*n,'%',f'η = Wnet/Qin = {100*n}/1000 = {10*n}%.','Thermal efficiency','thermo')
+        add('powerplant',f'Neglecting fuel mass and pressure thrust, a jet accelerates {n} kg/s from 100 to 300 m/s. Find thrust.',200*n,'N',f'F = ṁ(Ve−V0) = {n}×(300−100) = {200*n} N.','Jet thrust','power')
+        add('powerplant',f'For an ideal heat-engine balance with Qin = {1000*n} J and rejected heat {600*n} J per cycle, find net work.',400*n,'J',f'Wnet = Qin−Qout = {1000*n}−{600*n} = {400*n} J.','Thermodynamic cycles','thermo')
+        add('powerplant',f'A 100 kW engine consumes {10*n} kg of fuel per hour. Find brake specific fuel consumption.',n/10,'kg/(kW·h)',f'BSFC = fuel rate/brake power = {10*n}/100 = {number(n/10)} kg/(kW·h).','Fuel consumption','power')
+        add('powerplant',f'A four-stroke single cylinder runs at {1000*n} rpm. How many power strokes per minute occur ideally?',500*n,'strokes/min',f'One power stroke occurs per two crank revolutions: {1000*n}/2 = {500*n} per minute.','Reciprocating engines','power')
+        add('powerplant',f'Fuel lower heating value is 40 MJ/kg and mass flow is {n} kg/s. Find chemical energy input rate.',40*n,'MW',f'Energy rate = ṁ×LHV = {n}×40 = {40*n} MJ/s = {40*n} MW.','Fuel energy','thermo')
+
+        p=1000*n
+        add('ethics',f'At 5% simple annual interest, how much interest does ₱{p:,} earn in 2 years?',p/10,'pesos',f'I = Prt = {p}×0.05×2 = ₱{number(p/10)}. This is interest only.','Simple interest','econ')
+        add('ethics',f'What is the future value of ₱{p:,} after 2 years at 10% compounded annually?',p*1.21,'pesos',f'F = P(1+i)^2 = {p}×1.1² = ₱{number(p*1.21)}.','Compound interest','econ')
+        add('ethics',f'At a 10% annual discount rate, find the present value of ₱{1100*n:,} due in one year.',p,'pesos',f'P = F/(1+i) = {1100*n}/1.1 = ₱{p:,}.','Present value','econ')
+        add('ethics',f'An asset costs ₱{10000*n:,}, has salvage value ₱{2000*n:,} and a 4-year life. Find annual straight-line depreciation.',2000*n,'pesos/year',f'D = (cost−salvage)/life = ({10000*n}−{2000*n})/4 = ₱{2000*n:,}/year.','Depreciation','econ')
+        add('ethics',f'Fixed cost is ₱{10000*n:,}; unit price is ₱300 and variable cost is ₱200 per unit. Find break-even quantity.',100*n,'units',f'Q = fixed cost/(price−variable cost) = {10000*n}/100 = {100*n} units.','Break-even analysis','econ')
+        add('ethics',f'An operation sells {100*n} units at ₱300 each with ₱200 variable cost per unit and ₱1000 fixed cost. Find operating profit.',10000*n-1000,'pesos',f'Profit = Q(price−variable cost)−fixed cost = {100*n}×100−1000 = ₱{10000*n-1000:,}.','Cost analysis','econ')
+        add('ethics',f'Ignoring discounting and salvage, a ₱{10000*n:,} investment returns ₱10000 net cash per year. Find simple payback period.',n,'years',f'Simple payback = initial cost/annual net cash = {10000*n}/10000 = {n} years. This ignores the time value of money.','Payback','econ')
+        add('ethics',f'A project costs ₱{p:,} now and returns ₱{1210*n:,} after 2 years. At zero discount rate, find NPV.',210*n,'pesos',f'At i = 0, NPV = −initial + future cash = −{p}+{1210*n} = ₱{210*n:,}.','Capital budgeting','econ')
+
+        add('construction',f'A hypothetical approved drawing specifies {n+2} fasteners in a straight row at 20 mm center-to-center pitch. What distance spans the first and last centers?',20*(n+1),'mm',f'There are N−1 gaps: ({n+2}−1)×20 = {20*(n+1)} mm. This is drawing arithmetic, not a universal repair spacing rule.','Repair drawing arithmetic','general')
+        add('construction',f'For a training example only, specified rivet shank length is grip + 1.5d. If grip = {n} mm and d = 4 mm, find shank length.',n+6,'mm',f'L = grip+1.5d = {n}+1.5×4 = {n+6} mm. Actual fastener selection requires applicable approved data.','Fastener calculation','airframe')
+        add('construction',f'A rectangular aluminum sheet is {n} m long, 1 m wide and 1 mm thick. Using density 2700 kg/m³, find mass.',2.7*n,'kg',f'm = ρLwt = 2700×{n}×1×0.001 = {number(2.7*n)} kg. Assumes a uniform, unperforated sheet.','Material quantity','general')
+        add('construction',f'In an idealized joint, {1000*n} N of shear is shared equally by 4 rivets. What is shear force per rivet?',250*n,'N',f'Ideal equal sharing gives F/N = {1000*n}/4 = {250*n} N. Real joint distribution and allowable loads require approved analysis.','Joint fundamentals','airframe')
+
+    concepts=[
+      ('What distinguishes ductile metal deformation from brittle fracture?', 'Significant plastic deformation can precede ductile fracture', 'Ductile metals never fracture', 'Brittle material always stretches more', 'Ductility is only a paint property', 'Ductility is the ability to plastically deform before fracture; it does not imply unlimited strength.', 'Material properties'),
+      ('What does annealing commonly do to cold-worked metal?', 'Reduces hardness and restores ductility', 'Always doubles its density', 'Eliminates every inclusion', 'Makes every alloy ferromagnetic', 'Suitable annealing can relieve the effects of cold work and restore ductility. Use the alloy-specific process.', 'Heat treatment'),
+      ('Why is correct alloy identification needed before heat treatment?', 'Alloys require specific temperatures and procedures', 'All metals use identical treatment', 'Only paint shade matters', 'All alloys melt at the same point', 'Heat treatment response depends on composition and prior condition, so the specified alloy process governs.', 'Heat treatment'),
+      ('What is work hardening in a ductile metal?', 'Increased strength or hardness from plastic deformation', 'Softening by removing paint', 'Reduction of density by inspection', 'A chemical conversion to plastic', 'Cold plastic deformation changes the dislocation structure and generally raises strength while reducing ductility.', 'Material properties'),
+      ('What does a material temper designation communicate?', 'A defined material condition or treatment state', 'The aircraft paint code', 'Only the sheet length', 'The fastener manufacturer address', 'Temper describes the condition produced by specified mechanical or thermal treatment; it matters to material selection.', 'Material identification'),
+      ('Why must allowable corrosion removal limits be checked?', 'Removal reduces remaining structural thickness', 'All corrosion removal adds strength', 'Any remaining thickness is acceptable', 'Limits only affect paint color', 'Blending or removal can reduce section capacity. The approved data control acceptable depth and subsequent action.', 'Corrosion'),
+      ('What helps prevent moisture-driven corrosion during storage?', 'Clean dry storage and specified protective measures', 'Continuous saltwater exposure', 'Removing every protective coating', 'Leaving dissimilar-metal debris in contact', 'Controlling contamination and moisture reduces corrosion exposure; follow prescribed storage protection.', 'Corrosion'),
+      ('Which NDT method uses high-frequency sound to examine a part?', 'Ultrasonic inspection', 'Liquid penetrant inspection', 'Visual inspection alone', 'Torque testing', 'Ultrasonic inspection uses sound propagation and reflected signals. Interpretation requires suitable technique and training.', 'Nondestructive testing'),
+      ('Which inspection method can detect surface and near-surface flaws in conductive material using induced currents?', 'Eddy-current inspection', 'Dye penetrant only', 'Magnetic inspection of glass', 'A ruler measurement alone', 'Eddy-current inspection measures changes in induced electrical currents and requires conductive material.', 'Nondestructive testing'),
+      ('What must follow magnetic-particle inspection when residual magnetism is unacceptable?', 'Specified demagnetization and verification', 'Automatic scrapping of every part', 'Adding unapproved filler', 'Painting without checking requirements', 'Residual magnetism can be detrimental; apply the specified demagnetization and check procedure when required.', 'Nondestructive testing'),
+      ('Why must penetrant inspection surfaces be cleaned properly?', 'Contamination can block penetrant entry into flaws', 'Oil makes every crack easier to see', 'Paint is required over every crack', 'Cleaning replaces required inspection', 'Contamination or coatings can obscure openings and produce unreliable indications; preparation is essential.', 'Nondestructive testing'),
+      ('What does a borescope enable in inspection?', 'Viewing areas with restricted direct access', 'Measuring all stresses automatically', 'Repairing a crack without tools', 'Replacing every inspection requirement', 'A borescope provides visual access to otherwise difficult areas; it does not replace other required methods.', 'Inspection tools'),
+      ('Why are drill chips removed before closing a structure?', 'Loose debris can cause damage or interference', 'Chips are intentional reinforcement', 'All chips dissolve in service', 'Debris never affects control systems', 'Tool and debris control helps prevent foreign-object damage, corrosion and mechanical interference.', 'Workshop practices'),
+      ('What is the purpose of deburring a drilled metal hole?', 'Remove unwanted sharp edges and burrs', 'Remove all surrounding structural material', 'Increase every hole by one size', 'Hide an oversized hole', 'Careful deburring removes sharp remnants without exceeding dimensional limits or damaging the part.', 'Sheet-metal work'),
+      ('Why must a drill be held in the specified alignment?', 'To control hole geometry and avoid skewed holes', 'To guarantee no inspection is needed', 'To eliminate required tooling', 'To change the alloy composition', 'Misalignment can produce unacceptable hole geometry or damage. Applicable dimensions and practices still govern.', 'Sheet-metal work'),
+      ('What is a cleco-type temporary fastener used for?', 'Holding aligned sheets temporarily during assembly', 'Permanent substitution for all structural rivets', 'Measuring magnetic field strength', 'Repairing every enlarged hole', 'Temporary fasteners hold work in alignment until the specified permanent fastening is completed.', 'Assembly'),
+      ('What is the primary purpose of a doubler in an approved sheet-metal repair?', 'Reinforce and transfer load around the repaired region', 'Cover damage without carrying load', 'Replace every inspection step', 'Guarantee original strength regardless of design', 'A properly designed repair doubler provides a load path. Its dimensions and attachment require approved data.', 'Repair principles'),
+      ('Why must structural fasteners be of the specified type and material?', 'Strength, fit and compatibility depend on the specification', 'All fasteners of equal color are equivalent', 'Any longer fastener is automatically acceptable', 'Only packaging style matters', 'Fastener substitution can change joint strength, corrosion resistance and fit; use authorized specifications.', 'Fasteners'),
+      ('What does a crack-stop hole by itself establish?', 'No automatic approval of the damaged structure', 'Permanent airworthiness in every case', 'Full restoration of original section', 'Elimination of all future fatigue', 'Any stop-drilling technique and subsequent disposition must follow applicable approved data; a hole alone proves no acceptability.', 'Damage assessment'),
+      ('Why is fiber direction important when repairing a composite laminate?', 'Laminate strength and stiffness depend on ply orientation', 'All composite plies are isotropic', 'Direction only changes surface gloss', 'Fiber direction is irrelevant under load', 'Load-carrying capability depends on the layup, so the specified orientation and ply sequence must be preserved.', 'Composites'),
+      ('Why are specified composite cure temperature and time controlled?', 'They affect the final resin and bond properties', 'Every resin cures identically at any temperature', 'Curing only controls exterior color', 'Cure schedules replace surface preparation', 'Cure requirements are system-specific. Incomplete or improper curing can compromise mechanical properties.', 'Composites'),
+      ('Why is composite sanding dust controlled with suitable protection?', 'Dust exposure and contamination require appropriate controls', 'Every composite dust is harmless', 'Dust improves adhesive bonding automatically', 'Protection is only needed outdoors', 'Follow material safety data and workshop controls for dust collection, personal protection and contamination prevention.', 'Workshop safety'),
+      ('Why must a measuring tool have suitable calibration status?', 'Measurement decisions depend on known tool accuracy', 'Calibration changes the part alloy', 'Calibration removes every human error', 'Any damaged tool is accurate after labeling', 'Calibration and tool condition support reliable dimensional inspection; use a tool appropriate to the tolerance.', 'Quality assurance'),
+      ('When a part fails its applicable inspection limits, what is the correct disposition?', 'Follow authorized rejection, repair or engineering disposition', 'Install it if the color matches', 'Erase identification and reuse it', 'Ignore the limit after one successful flight', 'Nonconforming parts require documented authorized disposition and must not be accepted solely by appearance.', 'Quality assurance'),
+    ]
+    for prompt,a,b,c,d,why,topic in concepts:
+        rows['construction'].append((prompt,a,b,c,d,why,topic,'airframe' if topic in ('Composites','Sheet-metal work','Repair principles','Damage assessment','Corrosion','Nondestructive testing','Assembly','Fasteners') else 'general'))
+    assert all(len(q)==60 for q in rows.values()), {s:len(q) for s,q in rows.items()}

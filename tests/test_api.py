@@ -72,7 +72,7 @@ def test_expiration_limits_and_oversized_request(cohort):
     assert client.post('/participants',json={'name':'Another'}).status_code==429
 
 def test_bank_schema_gates_drafts_and_wrong_blueprint():
-    bank=load_bank();assert len(bank['questions'])==72
+    bank=load_bank();assert len(bank['questions'])==360
     with pytest.raises(ValueError):validate_bank(bank,imported=True)
     bank=copy.deepcopy(bank);bank['subjects'][0]['weight']=25
     with pytest.raises(ValueError):validate_bank(bank)
