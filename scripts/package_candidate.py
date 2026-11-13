@@ -15,6 +15,7 @@ import ssl
 import subprocess
 import zipfile
 from source_digest import source_digest,ROOT
+from apk_contract import payload,vcs_revision
 
 parser=argparse.ArgumentParser()
 parser.add_argument('--apk',type=Path)
@@ -40,14 +41,12 @@ if 'application-debuggable' in manifest:raise SystemExit('Published candidate mu
 # Compare *all* unsigned ZIP payloads except Gradle's source-commit marker, which
 # legitimately differs when the prepared artifact is added in a later commit.
 unsigned=ROOT/'app/build/outputs/apk/release/app-release-unsigned.apk'
-def payload(path):
-    with zipfile.ZipFile(path) as z:
-        return {n:z.read(n) for n in z.namelist() if not n.endswith('/') and n!='META-INF/com/android/build/gradle/vcs-info.textproto'}
 if not unsigned.is_file() or payload(package)!=payload(unsigned):raise SystemExit('Signed APK ZIP payload does not match the rebuilt unsigned release')
 sha=hashlib.sha256(package.read_bytes()).hexdigest();digest=source_digest()
 source=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
 if args.verify:
     metadata=json.loads((prepared/'release-manifest.json').read_text())
+    if vcs_revision(package)!=metadata['sourceCommit']:raise SystemExit('APK VCS revision does not match recorded source commit')
     if metadata['sha256']!=sha or metadata['androidSourceDigest']!=digest or metadata['certificateSha256']!=config['certificateSha256'] or metadata['version']!=version:raise SystemExit('Prepared artifact metadata mismatch')
     checksums=(prepared/'SHA256SUMS.txt').read_text()
     if checksums!=sha+'  '+name+'\n':raise SystemExit('Checksum file mismatch')
@@ -58,6 +57,7 @@ if args.verify:
             if z.read('assets/'+p.name)!=p.read_bytes():raise SystemExit('Bundled asset mismatch: '+p.name)
     print('PASS signed candidate certificate, manifest, checksum, source digest and rebuilt ZIP payload')
 else:
+    if vcs_revision(package)!=source:raise SystemExit('Rebuild and sign the current committed source before packaging')
     tracked=subprocess.check_output(['git','status','--porcelain','--untracked-files=no'],cwd=ROOT,text=True).strip()
     if tracked:raise SystemExit('Commit source changes before packaging')
     prepared.mkdir(parents=True,exist_ok=True)
