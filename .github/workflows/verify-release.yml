@@ -7,9 +7,12 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+defaults:
+  run:
+    shell: bash
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
@@ -57,7 +60,7 @@ jobs:
     needs: verify
     permissions:
       contents: write
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
@@ -69,3 +72,4 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release create v0.1.0-rc.1 --target "$GITHUB_SHA" --prerelease --title "AE Prepware v0.1.0-rc.1 · Test candidate" --notes-file docs/RELEASE_NOTES.md release-artifacts/artifacts/*.apk release-artifacts/artifacts/SHA256SUMS.txt release-artifacts/artifacts/APK-VERIFICATION.txt release-artifacts/artifacts/release-manifest.json
+
