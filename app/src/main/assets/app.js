@@ -1,6 +1,6 @@
 'use strict';
 const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const KEY='ae-prepware-v1',BANKKEY='ae-prepware-custom-bank',VERSION='0.4.0-rc.1';
+const KEY='ae-prepware-v1',BANKKEY='ae-prepware-custom-bank',VERSION='0.4.1-rc.1';
 const shortNames={math:'Mathematics',aero:'Aerodynamics',structures:'Structures & design',construction:'Construction & repair',powerplant:'Power plant',ethics:'Economics, laws & ethics'};
 let bank,bundled,state,account=null,tab='home',result=null,ranking=null,storageBlocked=false,busy=false,newRecovery=null;
 const stateKey=()=>Accounts.key(account),bankKey=()=>account?'ae-bank-'+account:BANKKEY;
@@ -14,16 +14,19 @@ function save(){
  catch{storageBlocked=true;throw Error('Progress could not be saved. Free device storage and export recovery data in Settings.');}
 }
 function sourceLink(q){const s=bank.sources[q.source];return `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)} ↗</a><p class="inline-note">${esc(s.locator)}${q.upload?'<br>'+esc(q.upload.locator):''}</p>`;}
-function accountLine(){return `<p class="account-line">${account?`${esc(state.name)} · ${esc(account)}`:'Guest · Create an account to bind your results'}</p>`;}
-function explanation(q){return `<details class="explanation"><summary>Explanation</summary><p>${esc(q.explanation)}</p>${sourceLink(q)}</details>`;}
-function setTab(value){tab=value;result=null;render();window.scrollTo(0,0);}
+function accountLine(){return `<p class="account-line">${account?`${esc(state.name)} · ${esc(account)}`:'Guest'}</p>`;}
+function explanation(q){return `<details class="explanation"><summary>Explanation</summary>${q.review==='source-key-verified'?'<p class="inline-note source-review">Printed key checked · Faculty review pending</p>':''}<p>${esc(q.explanation)}</p>${sourceLink(q)}</details>`;}
+function setTab(value){tab=value;result=null;render();$('#content').scrollTo(0,0);}
 function render(){
  document.body.classList.toggle('quiz',tab==='quiz');
- document.querySelectorAll('nav [data-tab]').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));
+ const activeTab=['quiz','result','study'].includes(tab)?'home':tab;
+ document.querySelectorAll('nav [data-tab]').forEach(x=>{const active=x.dataset.tab===activeTab;x.classList.toggle('active',active);if(active)x.setAttribute('aria-current','page');else x.removeAttribute('aria-current');});
  ({home:renderHome,study:renderHome,quiz:renderQuiz,result:renderResult,progress:renderProgress,ranks:renderRanks,account:renderAccount,settings:renderSettings}[tab]||renderHome)();
 }
 function renderHome(){
- $('#app').innerHTML=`${accountLine()}<h1>Choose a subject</h1><p class="muted">50 questions. One answer at a time.</p><fieldset class="source-picker"><legend>Test bank</legend><label><input type="checkbox" data-source="AI" ${['AI','hybrid'].includes(state.sourceMode??'AI')?'checked':''}> AI · AI-produced</label><label><input type="checkbox" data-source="IN" ${['IN','hybrid'].includes(state.sourceMode)?'checked':''}> IN · Instructor-uploaded</label><p class="inline-note">Tick both for Hybrid: 25 AI + 25 IN. One source: 50 questions.</p></fieldset>${state.session?`<button class="btn full spaced" data-action="resume">Continue · ${state.session.index+1} / ${state.session.ids.length}</button>`:''}<div class="subject-tabs" aria-label="Exam subjects">${bank.subjects.map(s=>`<button class="subject-tab" data-subject="${esc(s.id)}" ${poolReady(s.id,state.sourceMode??'AI')?'':'disabled'}><strong>${esc(subjectName(s.id))}</strong><small>${AE.sourceCounts(state,bank,s.id).AI} AI · ${AE.sourceCounts(state,bank,s.id).IN} IN · ${s.weight}% exam weight</small></button>`).join('')}</div><label for="selection">Question selection</label><select id="selection"><option value="random" ${state.selection==='random'?'selected':''}>Random</option><option value="adaptive" ${state.selection==='adaptive'?'selected':''}>Adaptive · focus on mistakes</option><option value="ai" ${state.selection==='ai'?'selected':''}>AI assisted · connected account</option></select><p class="inline-note">Answers appear after each choice. Open Explanation only when you need it.</p><p class="fine">${bank.questions.filter(q=>q.active!==false).length} active questions. AI includes calculation variants. ${bank.distribution==='private-study'?'IN guide keys match the uploaded PDFs; faculty review pending.':'IN becomes available after a reviewed instructor import. Faculty review pending.'} Not official PRC questions or complete board coverage.</p>`;
+ const sourceMode=state.sourceMode??'AI';
+ const sessionInfo=sourceMode==='hybrid'?'Hybrid · 25 AI + 25 IN':sourceMode?`50 questions · ${sourceMode}`:'Select a bank';
+ $('#app').innerHTML=`<section data-screen="subjects" aria-label="Subjects"><h1 class="sr-only">Subjects</h1><fieldset class="source-picker"><legend>Test bank</legend><div class="source-options"><label><input type="checkbox" data-source="AI" aria-label="AI-produced questions" ${['AI','hybrid'].includes(sourceMode)?'checked':''}> AI</label><label><input type="checkbox" data-source="IN" aria-label="IN instructor-uploaded questions" ${['IN','hybrid'].includes(sourceMode)?'checked':''}> IN</label></div><p class="session-info" role="status">${esc(sessionInfo)}</p></fieldset>${state.session?`<button class="btn full" data-action="resume">Continue · ${state.session.index+1} / ${state.session.ids.length}</button>`:''}<div class="subject-tabs" aria-label="Exam subjects">${bank.subjects.map(s=>{const counts=AE.sourceCounts(state,bank,s.id);return `<button class="subject-tab" data-subject="${esc(s.id)}" ${poolReady(s.id,sourceMode)?'':'disabled'}><strong>${esc(subjectName(s.id))}</strong><small>${counts.AI} AI · ${counts.IN} IN</small></button>`;}).join('')}</div><label for="selection">Selection</label><select id="selection"><option value="random" ${state.selection==='random'?'selected':''}>Random</option><option value="adaptive" ${state.selection==='adaptive'?'selected':''}>Adaptive</option><option value="ai" ${state.selection==='ai'?'selected':''}>AI assisted</option></select></section>`;
 }
 async function begin(subject){
  if(storageBlocked)throw Error('Recover storage in Settings before answering.');
@@ -47,20 +50,20 @@ function renderQuiz(){
  const t=state.session;if(!t){setTab('home');return;}
  const q=bank.questions.find(q=>q.id===t.ids[t.index]),chosen=t.answers[t.index],checked=chosen!==null,ok=chosen===q.answer,order=t.orders[t.index],letter='ABCD'[order.indexOf(q.answer)];
  const deferred=['mock','cohort'].includes(t.mode); // Preserve unfinished v0.1 sessions.
- $('#app').innerHTML=`<div class="row"><button class="link" data-tab="home">← Save & exit</button><span class="eyebrow">${t.index+1} / ${t.ids.length}</span></div><progress class="bar" max="${t.ids.length}" value="${t.index+(checked?1:0)}"></progress><p class="eyebrow">${esc(subjectName(q.subject))} · <span class="source-badge">${AE.origin(q)}</span></p>${q.review==='source-key-verified'?'<p class="inline-note source-review">Uploaded guide · printed key checked · faculty review pending</p>':''}<h1 class="question">${esc(q.prompt)}</h1>${order.map((original,i)=>`<button class="choice ${checked&&!deferred&&original===q.answer?'correct':checked&&!deferred&&original===chosen&&!ok?'wrong':''}" data-choice="${original}" ${checked?'disabled':''}><span class="letter">${'ABCD'[i]}</span><span>${esc(q.choices[original])}</span></button>`).join('')}${checked?deferred?'<p class="inline-note">Answer saved. Review appears after submission for this older session.</p>':`<div class="feedback ${ok?'':'bad'}" role="status"><strong>${ok?'Correct':'Incorrect'}</strong>${ok?'':`<p>Correct answer: <b>${letter}</b> · ${esc(q.choices[q.answer])}</p>`}</div>${explanation(q)}`:`<p class="inline-note">Select ${q.choices.map((_,i)=>'ABCD'[i]).join(', ')}.</p>`}${checked?`<button class="btn full spaced" data-action="next">${t.index===t.ids.length-1?'Finish & see score':'Next question →'}</button>`:''}<div class="row spaced"><button class="link" data-action="bookmark">${state.bookmarks.includes(q.id)?'★ Saved':'☆ Save question'}</button><button class="link" data-action="report">Set aside</button></div>`;
+ $('#app').innerHTML=`<div class="row quiz-toolbar"><button class="link" data-tab="home">← Save & exit</button><span class="eyebrow">${t.index+1} / ${t.ids.length}</span></div><progress class="bar" max="${t.ids.length}" value="${t.index+(checked?1:0)}"></progress><p class="eyebrow">${esc(subjectName(q.subject))} · <span class="source-badge">${AE.origin(q)}</span></p><h1 class="question">${esc(q.prompt)}</h1>${order.map((original,i)=>`<button class="choice ${checked&&!deferred&&original===q.answer?'correct':checked&&!deferred&&original===chosen&&!ok?'wrong':''}" data-choice="${original}" ${checked?'disabled':''}><span class="letter">${'ABCD'[i]}</span><span>${esc(q.choices[original])}</span></button>`).join('')}${checked?deferred?'<p class="inline-note">Answer saved. Review appears after submission for this older session.</p>':`<div class="feedback ${ok?'':'bad'}" role="status"><strong>${ok?'Correct':'Incorrect'}</strong>${ok?'':`<p>Correct answer: <b>${letter}</b> · ${esc(q.choices[q.answer])}</p>`}</div>${explanation(q)}`:''}${checked?`<button class="btn full spaced" data-action="next">${t.index===t.ids.length-1?'Finish & see score':'Next question →'}</button>`:''}<div class="row spaced"><button class="link" data-action="bookmark">${state.bookmarks.includes(q.id)?'★ Saved':'☆ Save question'}</button><button class="link" data-action="report">Set aside</button></div>`;
 }
 async function next(){
  const t=state.session;if(!t||t.answers[t.index]===null)return;
- if(t.index<t.ids.length-1){t.index++;save();render();window.scrollTo(0,0);return;}
+ if(t.index<t.ids.length-1){t.index++;save();render();$('#content').scrollTo(0,0);return;}
  if(t.mode==='cohort')await request('/challenges/'+encodeURIComponent(t.challenge)+'/submit',{answers:t.ids.map((id,i)=>({id,choice:t.answers[i]}))},true);
- result=AE.finish(state,bank);save();tab='result';render();window.scrollTo(0,0);
+ result=AE.finish(state,bank);save();tab='result';render();$('#content').scrollTo(0,0);
  if(account&&state.endpoint&&state.cohort){try{await syncResults();render();}catch(e){notice('Score saved on this device. '+e.message);}}
 }
 function reviewItems(h){return (h.ids||[]).map((id,i)=>{const q=bank.questions.find(q=>q.id===id);if(!q)return '';const order=h.orders?.[i]||[0,1,2,3];return `<details class="review-item"><summary>${i+1}. ${h.answers[i]===q.answer?'Correct':'Incorrect'} · ${esc(q.prompt)}</summary><p class="inline-note">Your answer: ${'ABCD'[order.indexOf(h.answers[i])]} · ${esc(q.choices[h.answers[i]])}</p><p>Correct answer: ${'ABCD'[order.indexOf(q.answer)]} · ${esc(q.choices[q.answer])}</p>${explanation(q)}</details>`;}).join('');}
 function renderResult(){
  if(!result){setTab('home');return;}
  const current=state.history.find(h=>h.id===result.id)||result;
- $('#app').innerHTML=`${accountLine()}<h1>Session complete</h1><p class="muted">${esc(subjectName(result.subject))}</p><div class="score">${result.correct}<small> / ${result.total}</small></div><p class="center muted">${Math.round(100*result.correct/result.total)}% correct</p><p class="center inline-note">${account?`Saved to ${esc(account)}${current.synced?' · Synced':' on this device'}`:'Saved as guest · Create an account to bind your results'}</p><button class="btn full spaced" data-tab="home">Choose a subject</button><button class="link full" data-tab="progress">View recorded results</button><h2 class="section">Answer review</h2>${reviewItems(result)}`;
+ $('#app').innerHTML=`${accountLine()}<h1>Session complete</h1><p class="muted">${esc(subjectName(result.subject))}</p><div class="score">${result.correct}<small> / ${result.total}</small></div><p class="center muted">${Math.round(100*result.correct/result.total)}% correct</p><p class="center inline-note">${account?`Saved to ${esc(account)}${current.synced?' · Synced':' on this device'}`:'Saved as guest · Create an account to bind your results'}</p><button class="btn full spaced" data-tab="home">Subjects</button><button class="link full" data-tab="progress">View recorded results</button><h2 class="section">Answer review</h2>${reviewItems(result)}`;
 }
 function renderProgress(){
  const summary=AE.summary(state,bank),attempts=summary.reduce((n,s)=>n+s.seen,0),correct=summary.reduce((n,s)=>n+s.correct,0);
@@ -179,8 +182,8 @@ document.addEventListener('click',async e=>{
  try{busy=true;el.setAttribute('aria-busy','true');
   if(el.dataset.tab){setTab(el.dataset.tab);return;}
   if(el.dataset.subject){await begin(el.dataset.subject);return;}
-  if(el.dataset.result!==undefined){result=state.history[Number(el.dataset.result)];tab='result';render();window.scrollTo(0,0);return;}
-  if(el.dataset.choice!==undefined){if(storageBlocked)throw Error('Recover storage before answering.');AE.answer(state,bank,Number(el.dataset.choice));save();render();return;}
+  if(el.dataset.result!==undefined){result=state.history[Number(el.dataset.result)];tab='result';render();$('#content').scrollTo(0,0);return;}
+  if(el.dataset.choice!==undefined){if(storageBlocked)throw Error('Recover storage before answering.');AE.answer(state,bank,Number(el.dataset.choice));save();render();$('.feedback')?.scrollIntoView({block:'nearest'});return;}
   await doAction(el.dataset.action);
  }catch(err){notice(err.message);}finally{busy=false;el.removeAttribute('aria-busy');}
 });

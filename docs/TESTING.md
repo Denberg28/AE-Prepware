@@ -63,3 +63,14 @@ private bank path; book text is excluded from logs/screenshots. This exercises
 public-app upgrade retention, nav contrast, small screens and enlarged text.
 The independent Poppler footer check covers all imported keys; it does not
 replace faculty semantic review. See evidence/V0_4_VERIFICATION.md.
+
+
+## v0.4.1 center-only scroll check
+
+`node tests/shell-browser.cjs` checks header/nav positions before and after wheel
+scrolling, long-question/feedback scrolling and next/tab changes. It verifies the
+document never scrolls, controls remain inside the center pane, settings stay
+reachable, removed instructions stay absent, and unfinished session order/answers
+survive navigation. Includes 320x480, 393x760 and 720x480 plus enlarged text.
+Native system bars remain a physical-phone check; no new phone validation is
+inferred from the screenshot used to report this UI change.

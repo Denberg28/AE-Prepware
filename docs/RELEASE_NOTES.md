@@ -1,8 +1,14 @@
-# AE Prepware v0.4.0-rc.1 · Signed test candidate
+# AE Prepware v0.4.1-rc.1 · Signed test candidate
 
-Fixes top/bottom system-bar spacing and improves label visibility. Header/main/
-checkbox spacing is more compact; bottom navigation is opaque with stronger text.
-A native inset parent keeps fixed WebView controls above Android system UI.
+Keeps the AE Prepware/Settings header and bottom navigation stationary on every
+screen, including the questionnaire. Only the center pane scrolls. Next question
+and tab changes reset the center without moving either bar.
+
+Removes the large subject heading, guest signup prompt, repeated instructions and
+per-card exam-weight text. Keeps compact bank/session status and source counts.
+Uses consistent readable type, answer spacing and touch targets. Review status
+and detailed bank notices remain in Explanation/Settings. Consolidates duplicated
+CSS into one stylesheet and adds scrolling/visibility/session regression checks.
 
 Supports original three-choice IN content, mixed three/four-choice sessions,
 large private banks in IndexedDB, bank export, and an 8 MB JSON transfer limit.
@@ -15,9 +21,9 @@ Original A-C choices and explanations are retained. Source-key agreement does
 not mean independent faculty review or current Philippine regulatory validation.
 No Mathematics or Philippine Laws/Ethics IN pool comes from these books.
 
-Install over the permanently signed v0.2/v0.3 app without uninstalling; export
+Install over the permanently signed v0.2/v0.3/v0.4 app without uninstalling; export
 both progress and the current bank first. Package ph.diversify.aeprepware,
-versionCode 4, same certificate. Physical Android insets, keyboard, installation,
+versionCode 5, same certificate. Physical Android insets, keyboard, installation,
 upgrade and accessibility validation remain pending. Candidate only; no stable
 or board-pass claim. No new production service or live AI deployment.
 

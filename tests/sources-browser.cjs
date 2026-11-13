@@ -6,7 +6,7 @@ const server=http.createServer((req,res)=>{const file=path.join(root,req.url==='
  await new Promise(r=>server.listen(8082,'127.0.0.1',r));
  browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}),args:['--no-sandbox']});
  const page=await browser.newPage({viewport:{width:393,height:851}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto('http://127.0.0.1:8082');await page.getByRole('heading',{name:'Choose a subject'}).waitFor();
+ await page.goto('http://127.0.0.1:8082');await page.locator('[data-screen=subjects]').waitFor();
  await page.locator('[data-source=AI]').uncheck();assert.equal(await page.locator('[data-subject]:disabled').count(),6);
  await page.locator('[data-source=IN]').check();assert.equal(await page.locator('[data-subject]:disabled').count(),6);
  await page.locator('[data-source=IN]').uncheck();await page.locator('[data-source=AI]').check();
@@ -30,7 +30,7 @@ const server=http.createServer((req,res)=>{const file=path.join(root,req.url==='
  await page.setViewportSize({width:320,height:640});await page.locator('nav [data-tab=home]').click();assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
  // A new device can install a later full snapshot even without intermediate refreshes.
  const later=structuredClone(bank);later.extends='intermediate-not-on-this-device';later.version='synthetic-later';
- const second=await browser.newPage();await second.goto('http://127.0.0.1:8082');await second.getByRole('heading',{name:'Choose a subject'}).waitFor();
+ const second=await browser.newPage();await second.goto('http://127.0.0.1:8082');await second.locator('[data-screen=subjects]').waitFor();
  await second.evaluate(bank=>{void window.receiveImport(JSON.stringify(bank));},later);await second.locator('#confirm').click();await second.getByText('Approved question bank imported for this profile.',{exact:true}).waitFor();assert.equal(await second.evaluate(()=>bank.version),later.version);
  await second.evaluate(bank=>window.receiveImport(JSON.stringify(bank)),later);await second.getByText('Use a new bank version',{exact:false}).waitFor();
  assert.deepEqual(errors,[]);console.log('PASS mobile source/refresh: no-source/empty-IN blocks, cancel/confirm, ongoing old-key resume, 50/50 historical score, exact Hybrid quota, tamper/reused-version rejection, new-device full snapshot and 320px layout.');

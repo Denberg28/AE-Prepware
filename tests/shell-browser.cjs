@@ -1,0 +1,24 @@
+const {chromium}=require('playwright'),http=require('node:http'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const root=path.resolve('app/src/main/assets');
+const server=http.createServer((req,res)=>{const file=path.join(root,req.url==='/'?'index.html':req.url);try{res.setHeader('Content-Type',file.endsWith('.js')?'application/javascript':file.endsWith('.css')?'text/css':file.endsWith('.json')?'application/json':'text/html');res.end(fs.readFileSync(file));}catch{res.writeHead(404);res.end();}});
+const bounds=page=>page.evaluate(()=>{const rect=s=>{const r=document.querySelector(s).getBoundingClientRect();return {top:r.top,bottom:r.bottom,height:r.height};};return {header:rect('header'),nav:rect('nav'),content:rect('#content'),windowY:scrollY,documentY:document.scrollingElement.scrollTop};});
+(async()=>{let browser;try{
+ fs.mkdirSync('artifacts',{recursive:true});await new Promise(r=>server.listen(8084,'127.0.0.1',r));browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}),args:['--no-sandbox']});
+ const page=await browser.newPage({viewport:{width:393,height:760}}),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('http://127.0.0.1:8084');await page.locator('[data-screen=subjects]').waitFor();
+ assert.equal(await page.getByText('Choose a subject',{exact:true}).count(),0);assert.equal(await page.getByText('50 questions. One answer at a time.',{exact:true}).count(),0);assert.equal(await page.getByText('Tick both for Hybrid:',{exact:false}).count(),0);
+ for(const [width,height]of [[320,480],[393,760],[720,480]]){
+  await page.setViewportSize({width,height});await page.locator('nav [data-tab=home]').click();
+  const before=await bounds(page),canScroll=await page.locator('#content').evaluate(x=>x.scrollHeight>x.clientHeight);await page.locator('#content').hover();await page.mouse.wheel(0,1600);if(canScroll)await page.waitForFunction(()=>document.querySelector('#content').scrollTop>0);
+  const after=await bounds(page);assert.deepEqual(after.header,before.header);assert.deepEqual(after.nav,before.nav);assert.equal(after.windowY,0);assert.equal(after.documentY,0);assert.ok(after.content.top>=after.header.bottom);assert.ok(after.content.bottom<=after.nav.top);assert.ok(after.nav.bottom<=height);
+  await page.getByRole('button',{name:'Settings',exact:true}).click();await page.getByRole('heading',{name:'Settings',exact:true}).waitFor();assert.equal(await page.locator('#content').evaluate(x=>x.scrollTop),0);
+ }
+ await page.setViewportSize({width:393,height:760});await page.locator('nav [data-tab=home]').click();await page.screenshot({path:'artifacts/08-steady-subjects.png'});
+ await page.locator('[data-subject=math]').click();assert.ok(await page.locator('nav').isVisible());assert.equal(await page.getByText('Select A, B, C, D.',{exact:true}).count(),0);
+ await page.evaluate(()=>{const q=bank.questions.find(q=>q.id===state.session.ids[state.session.index]);q.prompt='Synthetic long question with readable text, units and enough detail to test scrolling. '.repeat(22);render();});
+ const before=await bounds(page);await page.locator('[data-choice="0"]').scrollIntoViewIfNeeded();await page.locator('[data-choice="0"]').click();await page.locator('.feedback').waitFor();const after=await bounds(page);assert.deepEqual(after.header,before.header);assert.deepEqual(after.nav,before.nav);assert.equal(after.windowY,0);
+ await page.locator('[data-action=next]').click();assert.equal(await page.locator('#content').evaluate(x=>x.scrollTop),0);assert.equal(await page.evaluate(()=>state.session.index),1);await page.screenshot({path:'artifacts/09-steady-questionnaire.png'});
+ const snapshot=await page.evaluate(()=>structuredClone(state.session));await page.getByRole('button',{name:'Settings',exact:true}).click();await page.locator('nav [data-tab=home]').click();await page.getByRole('button',{name:'Continue · 2 / 50'}).click();assert.deepEqual(await page.evaluate(()=>state.session),snapshot);
+ await page.setViewportSize({width:320,height:480});await page.evaluate(()=>document.documentElement.style.fontSize='22px');await page.getByRole('button',{name:'Settings',exact:true}).click();await page.locator('[data-action=export-bank]').scrollIntoViewIfNeeded();assert.ok(await page.locator('[data-action=export-bank]').isVisible());assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);assert.deepEqual(errors,[]);
+ console.log('PASS shell: header/nav stay visible, center-only wheel/long-question scrolling, no document scroll/overlap, removed clutter, next/tab reset, session persistence and small-screen enlarged-text reachability.');
+ }finally{if(browser)await browser.close();server.close();}
+})().catch(e=>{console.error(e);process.exitCode=1;});

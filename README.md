@@ -1,6 +1,6 @@
 # AE Prepware
 
-Minimal Android practice for Philippine Aeronautical Engineers Licensure Examination subjects. **v0.4.0-rc.1 is a test candidate**, pending physical Android testing and independent faculty content review.
+Minimal Android practice for Philippine Aeronautical Engineers Licensure Examination subjects. **v0.4.1-rc.1 is a test candidate**, pending physical Android testing and independent faculty content review.
 
 ## Study
 
@@ -50,9 +50,10 @@ node tests/browser.cjs
 node tests/cohort-browser.cjs
 node tests/sources-browser.cjs
 node tests/private-bank-browser.cjs
+node tests/shell-browser.cjs
 ```
 
-The integration browser test uses real local API/SQLite, simulated HTTPS origin and separate storage contexts; it is not a physical-phone or live TLS test. `CHROMIUM_PATH` selects a system Chromium. See [test gates](docs/TESTING.md) and [v0.4 evidence](docs/evidence/V0_4_VERIFICATION.md).
+The integration browser test uses real local API/SQLite, simulated HTTPS origin and separate storage contexts; it is not a physical-phone or live TLS test. `CHROMIUM_PATH` selects a system Chromium. See [test gates](docs/TESTING.md) and [v0.4.1 evidence](docs/evidence/V0_4_1_VERIFICATION.md).
 
 ## Hosted account API
 

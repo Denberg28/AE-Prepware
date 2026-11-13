@@ -6,7 +6,7 @@ const stored=()=>{const number=localStorage.getItem('ae-active-account-v1');retu
  fs.mkdirSync('artifacts',{recursive:true});await new Promise(r=>server.listen(8080,'127.0.0.1',r));
  browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}),args:['--no-sandbox']});
  const page=await browser.newPage({viewport:{width:393,height:851}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto('http://127.0.0.1:8080');await page.getByRole('heading',{name:'Choose a subject'}).waitFor();assert.equal(await page.locator('[data-subject]').count(),6);
+ await page.goto('http://127.0.0.1:8080');await page.locator('[data-screen=subjects]').waitFor();assert.equal(await page.locator('[data-subject]').count(),6);
  await page.screenshot({path:'artifacts/01-subjects.png',fullPage:true});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
  await page.locator('[data-subject="math"]').click();let s=await page.evaluate(stored);assert.equal(s.session.ids.length,50);assert.equal(new Set(s.session.ids).size,50);
  await page.locator('[data-choice="1"]').click();await page.getByText('Incorrect',{exact:true}).waitFor();
@@ -25,11 +25,11 @@ const stored=()=>{const number=localStorage.getItem('ae-active-account-v1');retu
  await page.locator('nav [data-tab="account"]').click();await page.locator('#account-name').fill('Integration Cadet');await page.getByRole('button',{name:'Create account',exact:true}).click();
  await page.getByRole('heading',{name:'Save your account'}).waitFor();const credentials=await page.evaluate(()=>({number:newRecovery.number,recovery:newRecovery.recovery}));
  await page.getByRole('button',{name:'I have saved my code'}).click();s=await page.evaluate(stored);assert.equal(s.accountNumber,credentials.number);assert.equal(s.history[0].correct,49);
- await page.reload();await page.getByRole('heading',{name:'Choose a subject'}).waitFor();assert.equal((await page.evaluate(stored)).accountNumber,credentials.number);
+ await page.reload();await page.locator('[data-screen=subjects]').waitFor();assert.equal((await page.evaluate(stored)).accountNumber,credentials.number);
  await page.locator('nav [data-tab="progress"]').click();await page.screenshot({path:'artifacts/04-progress.png',fullPage:true});
  await page.locator('nav [data-tab="account"]').click();await page.getByRole('button',{name:'Sign out on this device'}).click();await page.locator('#confirm').click();await page.getByRole('button',{name:'Create account',exact:true}).waitFor();assert.equal((await page.evaluate(()=>state)).history.length,0);
  await page.locator('details.card summary').click();await page.locator('#login-number').fill(credentials.number);await page.locator('#login-code').fill('b'.repeat(64));await page.getByRole('button',{name:'Sign in',exact:true}).click();await page.getByText('Account number or recovery code is incorrect.',{exact:true}).waitFor();
- await page.locator('#login-code').fill(credentials.recovery);await page.getByRole('button',{name:'Sign in',exact:true}).click();await page.getByRole('heading',{name:'Choose a subject'}).waitFor();assert.equal((await page.evaluate(stored)).history[0].correct,49);
+ await page.locator('#login-code').fill(credentials.recovery);await page.getByRole('button',{name:'Sign in',exact:true}).click();await page.locator('[data-screen=subjects]').waitFor();assert.equal((await page.evaluate(stored)).history[0].correct,49);
  // Backup replacement preserves account binding and cancellation behavior.
  const snapshot=await page.evaluate(stored),bankVersion=await page.evaluate(()=>bank.version);
  await page.evaluate(({snapshot,bankVersion})=>{void window.receiveImport(JSON.stringify({type:'ae-progress',bankVersion,state:snapshot}));},{snapshot,bankVersion});await page.locator('#cancel').click();assert.deepEqual(await page.evaluate(stored),snapshot);

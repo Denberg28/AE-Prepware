@@ -1,4 +1,4 @@
-# Known limitations — v0.4.0-rc.1
+# Known limitations — v0.4.1-rc.1
 
 - **Test candidate:** physical Android installation, Storage Access Framework, lifecycle, accessibility, and in-place same-signer update have no device evidence. Stable promotion remains blocked.
 - **Foundation bank:** 360 items/60 per subject includes parameter variants, not 360 independently reviewed competencies. Independent faculty review is pending; advanced TOS coverage remains incomplete. Source/structure/arithmetic checks do not substitute for faculty validation.

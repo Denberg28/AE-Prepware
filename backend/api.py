@@ -44,7 +44,7 @@ def create_app(db_path=None, bank_path=None, clock=time.time):
         CREATE TABLE IF NOT EXISTS submissions(challenge TEXT PRIMARY KEY REFERENCES challenges(id) ON DELETE CASCADE, participant TEXT NOT NULL REFERENCES participants(id) ON DELETE CASCADE, score INTEGER NOT NULL, total INTEGER NOT NULL);
         CREATE TABLE IF NOT EXISTS rate_limits(bucket TEXT PRIMARY KEY, start REAL NOT NULL, count INTEGER NOT NULL);
         ''')
-    app=FastAPI(title='AE Prepware Cohort',version='0.4.0-rc.1',docs_url=None,redoc_url=None)
+    app=FastAPI(title='AE Prepware Cohort',version='0.4.1-rc.1',docs_url=None,redoc_url=None)
     app.add_middleware(CORSMiddleware,allow_origins=['https://appassets.androidplatform.net']+([os.environ['AE_DEV_ORIGIN']] if os.getenv('AE_DEV_ORIGIN') else []),allow_methods=['GET','POST','OPTIONS'],allow_headers=['Authorization','Content-Type'])
     @app.middleware('http')
     async def limit_body(request:Request,call_next):
@@ -81,7 +81,7 @@ def create_app(db_path=None, bank_path=None, clock=time.time):
         if not row:raise HTTPException(401,'Participant credentials are invalid.')
         return dict(row)
     @app.get('/health')
-    def health():return {'schema':1,'bankVersion':bank['version'],'version':'0.4.0-rc.1'}
+    def health():return {'schema':1,'bankVersion':bank['version'],'version':'0.4.1-rc.1'}
     @app.post('/participants',status_code=201)
     def join(body:Participant,request:Request):
         rate('join:'+hashlib.sha256((request.client.host if request.client else 'unknown').encode()).hexdigest(),60,3600)

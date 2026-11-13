@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.1-rc.1 — 2026-11-13
+
+- Keep header/navigation stationary; only the center pane scrolls on all screens.
+- Remove the subject heading and repeated instructions; use compact source/session status and source counts. Move review detail into Explanation/Settings.
+- Consolidate styles, standardize readable question/choice fonts and spacing, and keep navigation accessible during a quiz.
+- Verify center-only scrolling, steady bars, next/tab scroll reset, long questions, enlarged text and saved-session continuity.
+- Retain the private 2,003-item IN bank, original keys, account/progress formats and signing identity.
+
 ## 0.4.0-rc.1 — 2026-11-13
 
 - Inset a native parent around WebView so the header and fixed navigation stay clear of Android system bars. Compact header/content/checkbox spacing and improve label contrast.

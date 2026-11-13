@@ -45,6 +45,7 @@ jobs:
       - run: mkdir -p artifacts && node tests/browser.cjs | tee artifacts/browser.txt
       - run: node tests/sources-browser.cjs | tee artifacts/sources-browser.txt
       - run: node tests/private-bank-browser.cjs | tee artifacts/private-bank-browser.txt
+      - run: node tests/shell-browser.cjs | tee artifacts/shell-browser.txt
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
