@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.8.0-rc.1 — 2026-11-14
+
+- Establish commitment, competence and readiness as the product principle and home entry point.
+- Add upper-right full Sync: idempotent private backups, recovery of the monitoring journal and unfinished checks, opt-in practice ranking and facilitator sharing, and authenticated compatible bank pulls.
+- Add persistent SQLite snapshot revisions/conflict detection, enrollment-gated private bank downloads, protected faculty summary retrieval and a combined Streamlit/API host.
+- Append 20 original source-checked bearing/heading/throat exercises with independent numerical tests and a one-tap drill; retain all old question keys and the compact core.
+
+- Add offline Board Readiness Monitoring under Results: activity goals, first-attempt observations, retained initial diagnostics, recent competence evidence and subject priorities.
+- Add 20-item new-item diagnostics and seven-day spaced rechecks with deferred feedback, restart persistence and exact once-only grading.
+- Keep PRC-weighted foundation scores incomplete until all six subjects have recent evidence; separate foundation targets from unestablished board readiness and content gaps.
+- Add voluntary alias-based facilitator JSON exports and an admin-gated faculty report importer/CSV, with per-file validation, freshness, duplicate handling and spreadsheet-injection protection.
+- Preserve old question IDs/keys, scores, normal practice, source quotas, accounts, themes and signing identity.
+
 ## 0.6.0-rc.1 — 2026-11-14
 
 - Review official 2022–2026 programs and the detailed PRC TOS; record sources, selection policy and coverage gaps.

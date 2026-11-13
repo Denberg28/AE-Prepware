@@ -19,7 +19,7 @@ def test_curation_is_reproducible_append_only_and_no_new_ai():
     old.pop('focus');old.pop('extends',None);old['version']='historical-input'
     old['questions'][[q['id'] for q in old['questions']].index('ST005')].pop('active',None)
     new=curate(old,policy,'new-version')
-    assert len(new['questions'])==len(old['questions'])==360
+    assert len(new['questions'])==len(old['questions'])==380
     assert len(new['focus']['questions'])==120
     assert compatible_refresh(old,new)==new
     assert new['focus']==bank['focus']

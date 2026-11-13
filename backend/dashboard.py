@@ -12,7 +12,7 @@ from backend.dashboard_config import setting
 
 st.set_page_config(page_title='AE Prepware · Faculty',page_icon='✈',layout='centered')
 st.title('AE Prepware')
-st.caption('Faculty hangar · Coursework, question review and cohort standings')
+st.caption('Commitment · Competence · Readiness')
 st.info('Run this dashboard privately. The student Android app works offline. AI drafts are unscored until an instructor checks and approves them.')
 if 'bank' not in st.session_state:st.session_state.bank=load_bank()
 bank=st.session_state.bank
@@ -24,7 +24,7 @@ def store_update(updated):
     compatible_refresh(base,updated)
     st.session_state.bank=updated
     st.session_state.bank_refresh=updated
-study,review,cohort=st.tabs(['Coursework','Question review','Cohort'])
+study,review,cohort,monitor=st.tabs(['Coursework','Question review','Cohort','Board readiness'])
 with study:
     selected=st.selectbox('Subject',bank['subjects'],format_func=lambda s:s['name'])
     topics=sorted({q['topic'] for q in bank['questions'] if q['subject']==selected['id']})
@@ -132,3 +132,52 @@ with cohort:
             st.dataframe(data.json()['entries'],hide_index=True,use_container_width=True)
         except (httpx.HTTPError,ValueError,KeyError):st.error('Could not load standings. Check the HTTPS API URL and service.')
     st.caption('Account standings use first-correct daily question points and masked account suffixes. Names are self-chosen; these are practice results, not proctored examination rankings.')
+
+with monitor:
+    st.subheader('Board Readiness Monitoring System')
+    st.caption('Voluntary device summaries: participation, competence evidence and subject support. No pass prediction or motivation rating.')
+    if not authorized:
+        st.info('Sign in under Question review to open faculty monitoring. Run the dashboard privately.')
+    else:
+        from backend.readiness_reports import analyze_report, cohort_rows, export_csv
+        st.markdown('**Commitment:** recorded study consistency. **Competence:** first attempts and subject checks. **Readiness:** recent evidence and retention across all subjects.')
+        if st.button('Sync online readiness summaries'):
+            try:
+                from urllib.parse import urlparse
+                root=setting('AE_API_URL');key=setting('AE_FACULTY_SYNC_KEY')
+                parsed=urlparse(root)
+                if parsed.scheme!='https' or not parsed.netloc or parsed.username or parsed.password or parsed.path not in ('','/') or parsed.query or parsed.fragment or len(key)<32:raise ValueError()
+                response=httpx.get(root.rstrip('/')+'/faculty/monitoring',headers={'Authorization':'Bearer '+key},timeout=15,follow_redirects=False)
+                response.raise_for_status();data=response.json()
+                if not isinstance(data.get('entries'),list):raise ValueError()
+                st.session_state.online_readiness=data['entries']
+            except (httpx.HTTPError,ValueError,KeyError,TypeError):
+                st.error('Could not sync online summaries. Configure AE_API_URL and AE_FACULTY_SYNC_KEY for the persistent service, then retry.')
+        if 'online_readiness' in st.session_state:
+            st.dataframe(st.session_state.online_readiness,hide_index=True,use_container_width=True)
+            st.caption('Only students who enabled facilitator sharing appear. These device summaries remain separate from server-graded practice rankings.')
+        st.info('Collect reports students choose to share from Results → Facilitator report. These summaries are device-recorded, not proctored or independently verified. Study outside the app is unobserved. Current PRC bank coverage is incomplete.')
+        uploads=st.file_uploader('Student readiness reports',type='json',accept_multiple_files=True)
+        reports=[]
+        if len(uploads or [])>50:
+            st.error('Open at most 50 reports at a time.')
+        else:
+            for i,upload in enumerate(uploads or []):
+                try:reports.append(analyze_report(upload.getvalue()))
+                except (ValueError,KeyError,TypeError,OverflowError):st.error(f'Report {i+1} is invalid or unsupported. No data from that file was included.')
+        if reports:
+            rows=cohort_rows(reports)
+            st.dataframe(rows,hide_index=True,use_container_width=True)
+            st.caption('Latest report per profile. Separate profiles and different bank versions are not equivalent assessment forms. Participation windows end at each report date; check freshness is recalculated on import. Report age and missing subjects must be considered before intervention.')
+            st.download_button('Download facilitator summary CSV',export_csv(rows),'AE-Readiness-Cohort.csv','text/csv')
+            newest={}
+            for item in reports:
+                if item['profile'] not in newest or item['generatedAt']>newest[item['profile']]['generatedAt']:newest[item['profile']]=item
+            selected_report=st.selectbox('Inspect student evidence',list(newest.values()),format_func=lambda r:r['Alias']+' · '+r['Report date']+' · '+r['profile'][-4:])
+            for item in selected_report['subjects']:
+                with st.expander(item['id']+' · '+item['status']):
+                    st.write('Latest check: '+(str(item['latest']['correct'])+'/20' if item['latest'] else 'No recent check'))
+                    if item.get('baseline'):st.write('Initial recorded diagnostic: '+str(item['baseline']['correct'])+'/20')
+                    st.write('Recorded first attempts: '+str(item['first']['correct'])+'/'+str(item['first']['total']))
+                    if item['topics']:st.dataframe(item['topics'],hide_index=True)
+            st.caption('Use these observations to discuss access, attendance, prerequisite knowledge and study support with the student. Low recorded activity does not establish lack of commitment. Uploads remain in this dashboard session; no report is automatically sent to the cohort API or public rankings.')

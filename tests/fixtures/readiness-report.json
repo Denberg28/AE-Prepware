@@ -1,0 +1,423 @@
+{
+  "type": "ae-board-readiness",
+  "schema": 1,
+  "policy": "brms-1",
+  "profile": "00000000-0000-4000-8000-000000000001",
+  "alias": "Synthetic Cadet",
+  "generatedAt": 1794628801000,
+  "bankVersion": "2026.11-prc-foundations.1",
+  "provenance": "device-recorded, self-paced; not proctored or independently verified",
+  "trackingSince": 1794628800000,
+  "commitment": {
+    "observed7": 1,
+    "timezone": "Asia/Manila",
+    "goal": {
+      "days": 4,
+      "questions": 10
+    },
+    "days": [
+      {
+        "date": "2026-10-18",
+        "questions": 0
+      },
+      {
+        "date": "2026-10-19",
+        "questions": 0
+      },
+      {
+        "date": "2026-10-20",
+        "questions": 0
+      },
+      {
+        "date": "2026-10-21",
+        "questions": 0
+      },
+      {
+        "date": "2026-10-22",
+        "questions": 0
+      },
+      {
+        "date": "2026-10-23",
+        "questions": 0
+      },
+      {
+        "date": "2026-10-24",
+        "questions": 0
+      },
+      {
+        "date": "2026-10-25",
+        "questions": 0
+      },
+      {
+        "date": "2026-10-26",
+        "questions": 0
+      },
+      {
+        "date": "2026-10-27",
+        "questions": 0
+      },
+      {
+        "date": "2026-10-28",
+        "questions": 0
+      },
+      {
+        "date": "2026-10-29",
+        "questions": 0
+      },
+      {
+        "date": "2026-10-30",
+        "questions": 0
+      },
+      {
+        "date": "2026-10-31",
+        "questions": 0
+      },
+      {
+        "date": "2026-11-01",
+        "questions": 0
+      },
+      {
+        "date": "2026-11-02",
+        "questions": 0
+      },
+      {
+        "date": "2026-11-03",
+        "questions": 0
+      },
+      {
+        "date": "2026-11-04",
+        "questions": 0
+      },
+      {
+        "date": "2026-11-05",
+        "questions": 0
+      },
+      {
+        "date": "2026-11-06",
+        "questions": 0
+      },
+      {
+        "date": "2026-11-07",
+        "questions": 0
+      },
+      {
+        "date": "2026-11-08",
+        "questions": 0
+      },
+      {
+        "date": "2026-11-09",
+        "questions": 0
+      },
+      {
+        "date": "2026-11-10",
+        "questions": 0
+      },
+      {
+        "date": "2026-11-11",
+        "questions": 0
+      },
+      {
+        "date": "2026-11-12",
+        "questions": 0
+      },
+      {
+        "date": "2026-11-13",
+        "questions": 0
+      },
+      {
+        "date": "2026-11-14",
+        "questions": 120
+      }
+    ],
+    "active7": 1,
+    "qualified7": 1,
+    "active28": 1
+  },
+  "competence": {
+    "assessed": 6,
+    "weighted": 88,
+    "subjects": [
+      {
+        "id": "math",
+        "name": "Mathematics",
+        "weight": 10,
+        "status": "Confirm retention",
+        "checks": [
+          {
+            "id": "3f915388-2988-49c1-be17-f729b9ed131e",
+            "kind": "diagnostic",
+            "at": 1794628800019,
+            "total": 20,
+            "correct": 20
+          }
+        ],
+        "latest": {
+          "id": "3f915388-2988-49c1-be17-f729b9ed131e",
+          "kind": "diagnostic",
+          "at": 1794628800019,
+          "total": 20,
+          "correct": 20
+        },
+        "baseline": {
+          "id": "3f915388-2988-49c1-be17-f729b9ed131e",
+          "kind": "diagnostic",
+          "at": 1794628800019,
+          "total": 20,
+          "correct": 20,
+          "bankVersion": "2026.11-prc-foundations.1"
+        },
+        "first": {
+          "total": 20,
+          "correct": 20
+        },
+        "core": {
+          "total": 20,
+          "seen": 8
+        },
+        "topics": []
+      },
+      {
+        "id": "aero",
+        "name": "Aerodynamics",
+        "weight": 25,
+        "status": "Support needed",
+        "checks": [
+          {
+            "id": "504dab73-c7f2-4a0b-b106-e4204fce0200",
+            "kind": "diagnostic",
+            "at": 1794628800019,
+            "total": 20,
+            "correct": 10
+          }
+        ],
+        "latest": {
+          "id": "504dab73-c7f2-4a0b-b106-e4204fce0200",
+          "kind": "diagnostic",
+          "at": 1794628800019,
+          "total": 20,
+          "correct": 10
+        },
+        "baseline": {
+          "id": "504dab73-c7f2-4a0b-b106-e4204fce0200",
+          "kind": "diagnostic",
+          "at": 1794628800019,
+          "total": 20,
+          "correct": 10,
+          "bankVersion": "2026.11-prc-foundations.1"
+        },
+        "first": {
+          "total": 20,
+          "correct": 10
+        },
+        "core": {
+          "total": 20,
+          "seen": 10
+        },
+        "topics": []
+      },
+      {
+        "id": "structures",
+        "name": "Aircraft Structures and Design",
+        "weight": 20,
+        "status": "Confirm retention",
+        "checks": [
+          {
+            "id": "0d6c0bf8-4bba-4bba-945e-9ba0f5987707",
+            "kind": "diagnostic",
+            "at": 1794628800019,
+            "total": 20,
+            "correct": 20
+          }
+        ],
+        "latest": {
+          "id": "0d6c0bf8-4bba-4bba-945e-9ba0f5987707",
+          "kind": "diagnostic",
+          "at": 1794628800019,
+          "total": 20,
+          "correct": 20
+        },
+        "baseline": {
+          "id": "0d6c0bf8-4bba-4bba-945e-9ba0f5987707",
+          "kind": "diagnostic",
+          "at": 1794628800019,
+          "total": 20,
+          "correct": 20,
+          "bankVersion": "2026.11-prc-foundations.1"
+        },
+        "first": {
+          "total": 20,
+          "correct": 20
+        },
+        "core": {
+          "total": 20,
+          "seen": 10
+        },
+        "topics": []
+      },
+      {
+        "id": "construction",
+        "name": "Aircraft Construction, Repair and Modification",
+        "weight": 15,
+        "status": "Confirm retention",
+        "checks": [
+          {
+            "id": "896793d6-4897-4111-9c8b-81784ad16df4",
+            "kind": "diagnostic",
+            "at": 1794628800019,
+            "total": 20,
+            "correct": 20
+          }
+        ],
+        "latest": {
+          "id": "896793d6-4897-4111-9c8b-81784ad16df4",
+          "kind": "diagnostic",
+          "at": 1794628800019,
+          "total": 20,
+          "correct": 20
+        },
+        "baseline": {
+          "id": "896793d6-4897-4111-9c8b-81784ad16df4",
+          "kind": "diagnostic",
+          "at": 1794628800019,
+          "total": 20,
+          "correct": 20,
+          "bankVersion": "2026.11-prc-foundations.1"
+        },
+        "first": {
+          "total": 20,
+          "correct": 20
+        },
+        "core": {
+          "total": 20,
+          "seen": 7
+        },
+        "topics": []
+      },
+      {
+        "id": "powerplant",
+        "name": "Aircraft Power Plant",
+        "weight": 20,
+        "status": "Confirm retention",
+        "checks": [
+          {
+            "id": "72bdee4d-b0cc-4a4a-9cff-25b389a88c21",
+            "kind": "diagnostic",
+            "at": 1794628800019,
+            "total": 20,
+            "correct": 20
+          }
+        ],
+        "latest": {
+          "id": "72bdee4d-b0cc-4a4a-9cff-25b389a88c21",
+          "kind": "diagnostic",
+          "at": 1794628800019,
+          "total": 20,
+          "correct": 20
+        },
+        "baseline": {
+          "id": "72bdee4d-b0cc-4a4a-9cff-25b389a88c21",
+          "kind": "diagnostic",
+          "at": 1794628800019,
+          "total": 20,
+          "correct": 20,
+          "bankVersion": "2026.11-prc-foundations.1"
+        },
+        "first": {
+          "total": 20,
+          "correct": 20
+        },
+        "core": {
+          "total": 20,
+          "seen": 8
+        },
+        "topics": []
+      },
+      {
+        "id": "ethics",
+        "name": "Engineering Economics and Management Laws and Ethics",
+        "weight": 10,
+        "status": "Confirm retention",
+        "checks": [
+          {
+            "id": "da464a9d-2a1c-4ea5-b397-e35a02eed183",
+            "kind": "diagnostic",
+            "at": 1794628800019,
+            "total": 20,
+            "correct": 20
+          }
+        ],
+        "latest": {
+          "id": "da464a9d-2a1c-4ea5-b397-e35a02eed183",
+          "kind": "diagnostic",
+          "at": 1794628800019,
+          "total": 20,
+          "correct": 20
+        },
+        "baseline": {
+          "id": "da464a9d-2a1c-4ea5-b397-e35a02eed183",
+          "kind": "diagnostic",
+          "at": 1794628800019,
+          "total": 20,
+          "correct": 20,
+          "bankVersion": "2026.11-prc-foundations.1"
+        },
+        "first": {
+          "total": 20,
+          "correct": 20
+        },
+        "core": {
+          "total": 20,
+          "seen": 6
+        },
+        "topics": []
+      }
+    ]
+  },
+  "readiness": {
+    "status": "Subject support needed",
+    "subjectsMeetingTarget": 0,
+    "boardReadiness": "Not established",
+    "coverage": "Incomplete or unvalidated PRC coverage",
+    "target": 80,
+    "spacingDays": 7,
+    "windowDays": 30,
+    "priorities": [
+      {
+        "subject": "aero",
+        "reason": "Support needed",
+        "action": "Review errors and prerequisite concepts with a facilitator."
+      },
+      {
+        "subject": "structures",
+        "reason": "Confirm retention",
+        "action": "Check retention after at least seven days."
+      },
+      {
+        "subject": "powerplant",
+        "reason": "Confirm retention",
+        "action": "Check retention after at least seven days."
+      },
+      {
+        "subject": "construction",
+        "reason": "Confirm retention",
+        "action": "Check retention after at least seven days."
+      },
+      {
+        "subject": "math",
+        "reason": "Confirm retention",
+        "action": "Check retention after at least seven days."
+      },
+      {
+        "subject": "ethics",
+        "reason": "Confirm retention",
+        "action": "Check retention after at least seven days."
+      }
+    ]
+  },
+  "limits": [
+    "Activity measures app participation, not motivation or outside study.",
+    "New-item means unanswered in this profile, including known prior revisions; it does not establish unfamiliarity with the concept.",
+    "Legacy first-attempt outcomes are unknown. Monitoring is local and included in progress backups; cloud score recovery does not restore this journal.",
+    "Current bank coverage and independent faculty validation are incomplete. These rules are study targets, not a pass prediction."
+  ]
+}

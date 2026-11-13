@@ -1,27 +1,11 @@
-# AE Prepware v0.5.0-rc.1 · Signed test candidate
+# AE Prepware v0.8.0-rc.1 · Signed test candidate
 
-PRC weight badges, a minimal professional button/card design, and light/dark mode
-with a sun/moon toggle at the upper right. The preference persists independently
-of profiles, works offline and updates Android system bars. Theme changes retain
-the current question, shuffled choices, selected answer and scroll position.
+Commitment, competence and readiness now guide the application. Results includes study-day goals, first-attempt evidence, new-item diagnostics, seven-day retention checks and subject support priorities. Missing evidence stays visible; practice results do not become pass probabilities.
 
-Subject weights are verified against the official PRC November 2026 program:
-Math 10%, Aerodynamics 25%, Structures 20%, Construction/Repair 15%, Power Plant
-20%, Economics/Laws/Ethics 10%. A linked breakdown is available in Settings.
-Fixed header/navigation and center-only scrolling remain in place. Theme palettes
-cover forms, feedback, dialogs, disabled cards and source/weight badges.
+The upper-right Sync icon uploads server-graded scores and a private profile snapshot, refreshes practice ranking and checks the compatible bank. Snapshot recovery includes the monitoring journal and unfinished check. Lost acknowledgements can be retried without duplicate grades; stale revisions and incompatible banks preserve local work. Ranking and facilitator sharing are separate opt-ins. The faculty Streamlit dashboard can retrieve shared summaries through its admin gate. A persistent API and HTTPS configuration are required; no production host has been deployed.
 
-The PUBLIC APK has the 360 original AI foundation items. The separate PRIVATE
-study APK retains 2,003 source-key-checked IN items from the supplied guides,
-with 67 figure/ambiguous items held. Bank bytes/keys are unchanged. No Mathematics
-or Philippine Laws/Ethics IN pool comes from those books. Source-key agreement
-is not independent faculty approval or current Philippine rule verification.
+A one-tap Bearing · Heading · Throat drill adds 20 original AI-labeled calculation exercises: six bearing, six heading and eight throat/nozzle questions. Formula and source self-review plus independent printed-givens arithmetic checks are complete; faculty review is pending. Existing question IDs, wording and keys remain intact. The compact public 120-item and private 240-item foundation cores stay unchanged. The full public bank has 380 AI records; the private build additionally retains the original 2,003 IN source items and 34 subject-correction copies.
 
-Install over the permanently signed prior candidate without uninstalling. Export
-progress and the current bank first. Package ph.diversify.aeprepware, versionCode
-6, unchanged certificate. Physical Android cold-start/theme/system-bar/keyboard,
-installation and accessibility confirmation remain pending. Candidate only.
+Package identity ph.diversify.aeprepware and permanent release certificate are preserved. Version code 9. Export progress and your current bank before updating over a permanently signed prior candidate; do not uninstall first. Keep the prior APK and matching backups for rollback; Android normally blocks a lower version code.
 
-Keep the old APK and matching backups for rollback. Android blocks lower-version
-installs; uninstalling erases app data. v0.2/v0.3 do not understand three-choice
-private banks or IndexedDB bank storage. No new hosted service is deployed.
+Automated unit/API, browser, local combined-host, Android assemble/lint and packaging evidence accompany this candidate. Real phone installation/upgrade, WebView lifecycle/storage/native UI and production TLS/concurrency remain untested. Current PRC coverage and independent faculty validation remain incomplete. This is a test candidate, not a stable classroom deployment or official readiness certification.

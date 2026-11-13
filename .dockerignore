@@ -1,0 +1,14 @@
+.git
+.venv
+private-study
+tmp
+artifacts
+release-candidates
+app/build
+.gradle
+node_modules
+*.sqlite*
+.streamlit/secrets.toml
+*.p12
+*.jks
+*.keystore

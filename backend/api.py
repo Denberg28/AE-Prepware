@@ -24,7 +24,7 @@ class Submission(BaseModel):
     model_config=ConfigDict(extra='forbid')
     answers:list[Answer]=Field(min_length=20,max_length=20)
 
-def create_app(db_path=None, bank_path=None, clock=time.time):
+def create_app(db_path=None, bank_path=None, clock=time.time, lifespan=None):
     bank=load_bank(bank_path or os.getenv('AE_BANK'))
     question_map={q['id']:q for q in bank['questions']}
     path=str(db_path or os.getenv('AE_DB','ae-prepware.sqlite'))
@@ -44,21 +44,24 @@ def create_app(db_path=None, bank_path=None, clock=time.time):
         CREATE TABLE IF NOT EXISTS submissions(challenge TEXT PRIMARY KEY REFERENCES challenges(id) ON DELETE CASCADE, participant TEXT NOT NULL REFERENCES participants(id) ON DELETE CASCADE, score INTEGER NOT NULL, total INTEGER NOT NULL);
         CREATE TABLE IF NOT EXISTS rate_limits(bucket TEXT PRIMARY KEY, start REAL NOT NULL, count INTEGER NOT NULL);
         ''')
-    app=FastAPI(title='AE Prepware Cohort',version='0.5.0-rc.1',docs_url=None,redoc_url=None)
+    app=FastAPI(title='AE Prepware Cohort',version='0.8.0-rc.1',lifespan=lifespan,docs_url=None,redoc_url=None)
     app.add_middleware(CORSMiddleware,allow_origins=['https://appassets.androidplatform.net']+([os.environ['AE_DEV_ORIGIN']] if os.getenv('AE_DEV_ORIGIN') else []),allow_methods=['GET','POST','OPTIONS'],allow_headers=['Authorization','Content-Type'])
     @app.middleware('http')
     async def limit_body(request:Request,call_next):
         from starlette.responses import JSONResponse
+        if bank.get('distribution')=='private-study' and request.url.path.split('/')[1] in ('participants','challenges','leaderboard'):
+            return JSONResponse({'detail':'Legacy public cohort routes are disabled on private bank hosts.'},status_code=403)
         try: size=int(request.headers.get('content-length','0') or 0)
         except ValueError: return JSONResponse({'detail':'Invalid content length'},status_code=400)
-        if size>16000:
+        maximum=1_000_000 if request.url.path=='/accounts/snapshot' else 16000
+        if size>maximum:
             return JSONResponse({'detail':'Request too large'},status_code=413)
         # Enforce actual body size too, including chunked requests.
         if request.method=='POST':
             body=b''
             async for chunk in request.stream():
                 body+=chunk
-                if len(body)>16000:return JSONResponse({'detail':'Request too large'},status_code=413)
+                if len(body)>maximum:return JSONResponse({'detail':'Request too large'},status_code=413)
             request._body=body
         response=await call_next(request)
         response.headers['Cache-Control']='no-store'
@@ -81,7 +84,7 @@ def create_app(db_path=None, bank_path=None, clock=time.time):
         if not row:raise HTTPException(401,'Participant credentials are invalid.')
         return dict(row)
     @app.get('/health')
-    def health():return {'schema':1,'bankVersion':bank['version'],'version':'0.5.0-rc.1'}
+    def health():return {'schema':1,'bankVersion':bank['version'],'version':'0.8.0-rc.1','capabilities':['snapshot-v1','bank-pull','faculty-monitoring']}
     @app.post('/participants',status_code=201)
     def join(body:Participant,request:Request):
         rate('join:'+hashlib.sha256((request.client.host if request.client else 'unknown').encode()).hexdigest(),60,3600)

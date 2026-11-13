@@ -1,5 +1,6 @@
 (function(root,factory){const api=factory();if(typeof module==='object')module.exports=api;else root.AE=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
 'use strict';
+const Readiness=typeof module==='object'?require('./readiness.js'):globalThis.Readiness;
 const DAY=86400000;
 const day=(now=Date.now())=>{const d=new Date(now);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
 function fresh(){return {schema:1,name:'Cadet',stats:{},daily:{},bookmarks:[],flags:[],history:[],session:null,endpoint:'',cohort:null,accountNumber:null,pending:[],selection:'adaptive',sourceMode:'AI',studyScope:'focus'};}
@@ -69,6 +70,9 @@ function validateState(s,bank){
  if(s.endpoint&& !validEndpoint(s.endpoint))throw Error('Invalid cohort service URL.');
  if(s.cohort&& (typeof s.cohort.token!=='string'||s.cohort.token.length>100||typeof s.cohort.id!=='string'))throw Error('Invalid cohort account.');
  if(s.session){const t=s.session;if(!Array.isArray(t.ids)||!t.ids.length||t.ids.length>100||new Set(t.ids).size!==t.ids.length||t.ids.some(id=>!ids.has(id))||!Array.isArray(t.orders)||t.orders.length!==t.ids.length||t.orders.some((o,i)=>!validOrder(o,bank.questions.find(q=>q.id===t.ids[i])?.choices.length||0))||!Number.isInteger(t.index)||t.index<0||t.index>=t.ids.length||!Array.isArray(t.answers)||t.answers.length!==t.ids.length||t.answers.some((a,i)=>a!==null&&(!Number.isInteger(a)||a<0||a>=(bank.questions.find(q=>q.id===t.ids[i])?.choices.length||0)))||t.answers.some((a,i)=>i<t.index&&a===null||i>t.index&&a!==null)||typeof t.mode!=='string')throw Error('Invalid saved session.');}
+ if(s.session&&['diagnostic','retention'].includes(s.session.mode)){const t=s.session;if(t.ids.length!==20||!Array.isArray(t.fresh)||t.fresh.length!==20||t.fresh.some(x=>x!==(t.mode==='diagnostic'))||!Array.isArray(t.answerTimes)||t.answerTimes.length!==20||t.answerTimes.some((x,i)=>t.answers[i]===null?x!==null:!Number.isFinite(x)||x<0))throw Error('Invalid saved diagnostic.');}
+ Readiness.validate(s,bank);
+ for(const h of s.history){if(h.monitoring){const m=h.monitoring;if(m.schema!==1||!['diagnostic','retention'].includes(m.kind)||h.mode!==m.kind||h.total!==20||!Array.isArray(m.fresh)||m.fresh.length!==20||m.fresh.some(x=>typeof x!=='boolean'||x!==(m.kind==='diagnostic'))||!Number.isFinite(m.from)||!Number.isFinite(m.to)||m.from<0||m.to<m.from||m.to>h.date)throw Error('Invalid diagnostic record.');}}
  return s;
 }
 function shuffle(arr,rng=Math.random){arr=[...arr];for(let i=arr.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
@@ -96,7 +100,12 @@ function answer(state,bank,choice,now=Date.now()){
  const i=t.index;if(t.answers[i]!==null)return false;
  const q=bank.questions.find(q=>q.id===t.ids[i]);if(!q)throw Error('Question no longer exists.');
  if(choice>=q.choices.length)throw Error('Invalid answer.');
- const ok=choice===q.answer;t.answers[i]=choice;
+ t.answers[i]=choice;Readiness.activity(state,q.id,now);
+ if(['diagnostic','retention'].includes(t.mode)){t.answerTimes=t.answerTimes||t.ids.map(()=>null);t.answerTimes[i]=now;return true;}
+ grade(state,bank,q,choice,now,t.mode);return true;
+}
+function grade(state,bank,q,choice,now,mode){
+ const ok=choice===q.answer,novel=!Readiness.wasSeen(state,bank,q);Readiness.observe(state,q,ok,now,mode,novel);
  const old=state.stats[q.id]||{seen:0,correct:0,streak:0};const streak=ok?old.streak+1:0;
  state.stats[q.id]={seen:old.seen+1,correct:old.correct+(ok?1:0),streak,last:now,due:now+(ok?[1,3,7,14,30][Math.min(streak-1,4)]*DAY:10*60000)};
  const d=state.daily[day(now)]||(state.daily[day(now)]={answered:[],correct:[]});
@@ -105,14 +114,26 @@ function answer(state,bank,choice,now=Date.now()){
 }
 function finish(state,bank,now=Date.now()){
  const t=state.session;if(!t||t.answers.some(a=>a===null))throw Error('Finish every question before submitting.');
- const map=new Map(bank.questions.map(q=>[q.id,q]));const correct=t.ids.filter((id,i)=>t.answers[i]===map.get(id).answer).length;
+ if(state.accountNumber&&[20,50].includes(t.ids.length)&&(state.pending||[]).length>=200)throw Error('Pending results queue is full. Sync or export before completing.');
+ if(['diagnostic','retention'].includes(t.mode)&&(t.ids.length!==20||new Set(t.ids).size!==20||!Array.isArray(t.fresh)||t.fresh.length!==20||t.fresh.some(x=>x!==(t.mode==='diagnostic'))||!Array.isArray(t.answerTimes)||t.answerTimes.length!==20||t.answerTimes.some(x=>!Number.isFinite(x)||x<0||x>now)))throw Error('Invalid diagnostic evidence.');
+ const map=new Map(bank.questions.map(q=>[q.id,q]));
+ if(['diagnostic','retention'].includes(t.mode))for(let i=0;i<t.ids.length;i++)grade(state,bank,map.get(t.ids[i]),t.answers[i],t.answerTimes[i],t.mode);
+ const correct=t.ids.filter((id,i)=>t.answers[i]===map.get(id).answer).length;
  const result={id:uid(),mode:t.mode,total:t.ids.length,correct,date:now,started:t.started,subject:new Set(t.ids.map(id=>map.get(id).subject)).size===1?map.get(t.ids[0]).subject:'mixed',accountNumber:state.accountNumber||null,bankVersion:bank.version,ids:[...t.ids],answers:[...t.answers],orders:t.orders.map(o=>[...o])};
  if(state.accountNumber&&[20,50].includes(t.ids.length)&&result.subject!=='mixed'){state.pending=state.pending||[];if(state.pending.length>=200)throw Error('Pending results queue is full. Sync or export before completing.');state.pending.push(result);}
+ if(['diagnostic','retention'].includes(t.mode))result.monitoring={schema:1,kind:t.mode,fresh:[...t.fresh],from:Math.min(...t.answerTimes),to:Math.max(...t.answerTimes)};
+ if(result.monitoring)Readiness.finishCheck(state,bank,result);
  state.history.unshift(result);state.history=state.history.slice(0,200);state.session=null;return result;
+}
+
+function startCheck(state,bank,subject,kind,sourceMode='AI',rng=Math.random){
+ const pool=Readiness.checkPool(state,bank,subject,kind,sourceMode),needs=sourceMode==='hybrid'?{AI:10,IN:10}:{[sourceMode]:20};let chosen=[];
+ for(const [source,count]of Object.entries(needs)){const candidates=pool.filter(q=>origin(q)===source);if(candidates.length<count)throw Error(`${source} has ${candidates.length} eligible items; this check needs ${count}. New-item checks need unseen questions; spaced rechecks need seven days since the last answer.`);chosen.push(...diversify(shuffle(candidates,rng),count));}
+ const t=start(state,shuffle(chosen,rng),kind,rng);t.fresh=t.ids.map(()=>kind==='diagnostic');t.answerTimes=t.ids.map(()=>null);return t;
 }
 function uid(){return globalThis.crypto.randomUUID();}
 function xp(state){return Object.values(state.daily).reduce((n,d)=>n+d.correct.length*10+d.answered.filter(id=>!d.correct.includes(id)).length*2,0);}
 function streak(state,now=Date.now()){let n=0,t=now;if(!state.daily[day(t)]?.answered.length)t-=DAY;while(state.daily[day(t)]?.answered.length){n++;t-=DAY;}return n;}
 function validEndpoint(value){try{const u=new URL(value);return u.protocol==='https:'&&!u.username&&!u.password&&!u.search&&!u.hash&&u.pathname==='/';}catch{return false;}}
-return {origin,questionContent,validateRefresh,scopeBank,diversify,sourceCounts,pickSources,uid,DAY,day,fresh,validateBank,validateState,shuffle,summary,weakest,pick,start,answer,finish,xp,streak,validEndpoint};
+return {origin,questionContent,validateRefresh,scopeBank,diversify,sourceCounts,pickSources,uid,DAY,day,fresh,validateBank,validateState,shuffle,summary,weakest,pick,start,startCheck,answer,finish,xp,streak,validEndpoint};
 });

@@ -71,3 +71,14 @@ mutable scoring endpoint. Restricted source documents stay outside public git.
 Optional `focus` metadata selects immutable question IDs and maps each to a PRC area. Each area records the printed 2010 TOS item count; this does not claim complete competency coverage. Validators reject unknown/retired IDs and subject mismatches. Default core sessions contain 20 items (Hybrid 10 each); full-bank sessions remain 50 (Hybrid 25 each). Topic diversity follows local/server priority ranking. API plans default to full for older clients and accept an explicit `scope`. Results accept exactly 20 or 50 distinct, same-subject answers; historical archives and retry identity remain authoritative.
 
 `profileBank` upgrades a stored snapshot only when the bundled version directly extends it, every old question/citation is unchanged, and saved progress validates against the new snapshot. Persistence precedes replacement in memory. Other stored banks survive. Private classification corrections retire old IDs and append source-key-verified copies; no historical subject or answer is rewritten. Admin revisions transfer core membership to the approved revision.
+
+## v0.7 monitoring
+
+`readiness.js` provides descriptive, versioned `brms-1` calculations. A per-profile journal stores 28 activity days, up to 3,000 immutable first outcomes and six initial diagnostic summaries. Existing history provides bounded check evidence. `core.js` records activity at an answer but grades new diagnostic/retention modes only at successful completion; original practice/legacy behavior remains compatible. New-item selection follows prior `supersedes` chains and source quotas. Checks preserve times/eligibility through restart. The report projection excludes credentials and question text/keys.
+
+The faculty importer recomputes target states and weighted scores from bounded check summaries rather than trusting uploaded readiness labels. It does not authenticate device observations. Admin-gated manual uploads and a hardened CSV create no new service or database. Existing answer-only result sync is unchanged; remote account recovery restores scores without the local monitoring journal. Cloud history is not reclassified as diagnostic evidence.
+
+
+## Full profile synchronization
+
+See `ONLINE_SYNC.md`. Owner-only snapshots use optimistic revisions plus operation IDs and a durable client upload copy. Server-graded result history remains separate from snapshots and voluntary facilitator reports. Snapshot restore preserves first-attempt observations and merges newer server results. Ranking consent is stored independently, and private bank downloads require per-account enrollment. The combined ASGI runner mounts Streamlit at `/dashboard` beside the API. Production persistence/TLS is a deployment requirement, not an assumed feature of Streamlit Community Cloud.

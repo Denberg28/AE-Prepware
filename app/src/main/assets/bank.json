@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026.11-prc-foundations.1",
+  "version": "2026.11-prc-foundations.1-feedback1",
   "title": "AE Foundations",
   "notice": "PRC foundations: selected existing source-checked items, not actual PRC past papers. Coverage is incomplete; consult the coverage gaps in Settings. Full bank retains extra practice. No faculty approval or pass guarantee.",
   "blueprintSource": "https://www.prc.gov.ph/sites/default/files/exam%20program%20nov%202026%20%28aero%29.pdf",
@@ -102,6 +102,16 @@
       "title": "OpenStax Principles of Finance",
       "url": "https://openstax.org/details/books/principles-finance",
       "locator": "Time value of money, present value, capital budgeting"
+    },
+    "feedback-nav": {
+      "title": "FAA Pilot’s Handbook of Aeronautical Knowledge, Chapter 16",
+      "url": "https://www.faa.gov/sites/faa.gov/files/18_phak_ch16.pdf",
+      "locator": "Navigation: Magnetic Variation; Compass Deviation; Wind Triangle; ADF, figures 16-37 and 16-38. Original exercises, not FAA or PRC exam items."
+    },
+    "feedback-nozzle": {
+      "title": "NASA Glenn: Compressible Area Ratio",
+      "url": "https://www.grc.nasa.gov/www/BGH/astar.html",
+      "locator": "Calorically perfect gas mass flow, sonic throat and area–Mach equations. Original exercises; SI units and ideal isentropic assumptions stated in each stem."
     }
   },
   "questions": [
@@ -6945,9 +6955,389 @@
       "review": "source-checked",
       "reviewer": "AE Prepware initial author self-review; faculty review pending",
       "reviewedAt": "2026-11-13"
+    },
+    {
+      "id": "FB-B01",
+      "subject": "aero",
+      "origin": "AI",
+      "topic": "Bearing computation",
+      "prompt": "Magnetic heading is 300°. A fixed-card ADF indicates relative bearing 270° clockwise from the nose. Find the magnetic bearing TO the station (000°–359°).",
+      "choices": [
+        "210°",
+        "30°",
+        "270°",
+        "300°"
+      ],
+      "answer": 0,
+      "explanation": "MB TO = (MH + RB) modulo 360 = (300 + 270) modulo 360 = 210°. Heading and bearing use magnetic north; relative bearing uses the nose.",
+      "source": "feedback-nav",
+      "review": "source-checked",
+      "reviewer": "AE Prepware author: formula, assumptions and arithmetic self-review; independent faculty review pending",
+      "reviewedAt": "2026-11-14"
+    },
+    {
+      "id": "FB-B02",
+      "subject": "aero",
+      "origin": "AI",
+      "topic": "Bearing computation",
+      "prompt": "Magnetic heading is 350°. A fixed-card ADF indicates relative bearing 25° clockwise from the nose. Find the magnetic bearing TO the station (000°–359°).",
+      "choices": [
+        "15°",
+        "195°",
+        "25°",
+        "350°"
+      ],
+      "answer": 0,
+      "explanation": "MB TO = (MH + RB) modulo 360 = (350 + 25) modulo 360 = 15°. Heading and bearing use magnetic north; relative bearing uses the nose.",
+      "source": "feedback-nav",
+      "review": "source-checked",
+      "reviewer": "AE Prepware author: formula, assumptions and arithmetic self-review; independent faculty review pending",
+      "reviewedAt": "2026-11-14"
+    },
+    {
+      "id": "FB-B03",
+      "subject": "aero",
+      "origin": "AI",
+      "topic": "Bearing computation",
+      "prompt": "Magnetic heading is 75°. A fixed-card ADF indicates relative bearing 310° clockwise from the nose. Find the magnetic bearing TO the station (000°–359°).",
+      "choices": [
+        "25°",
+        "205°",
+        "310°",
+        "75°"
+      ],
+      "answer": 0,
+      "explanation": "MB TO = (MH + RB) modulo 360 = (75 + 310) modulo 360 = 25°. Heading and bearing use magnetic north; relative bearing uses the nose.",
+      "source": "feedback-nav",
+      "review": "source-checked",
+      "reviewer": "AE Prepware author: formula, assumptions and arithmetic self-review; independent faculty review pending",
+      "reviewedAt": "2026-11-14"
+    },
+    {
+      "id": "FB-B04",
+      "subject": "aero",
+      "origin": "AI",
+      "topic": "Bearing computation",
+      "prompt": "The magnetic bearing TO an NDB is 70°. What is the reciprocal magnetic bearing FROM the station (000°–359°)?",
+      "choices": [
+        "250°",
+        "70°",
+        "160°",
+        "340°"
+      ],
+      "answer": 0,
+      "explanation": "Bearing FROM = (bearing TO + 180) modulo 360 = (70 + 180) modulo 360 = 250°. TO and FROM are reciprocal directions.",
+      "source": "feedback-nav",
+      "review": "source-checked",
+      "reviewer": "AE Prepware author: formula, assumptions and arithmetic self-review; independent faculty review pending",
+      "reviewedAt": "2026-11-14"
+    },
+    {
+      "id": "FB-B05",
+      "subject": "aero",
+      "origin": "AI",
+      "topic": "Bearing computation",
+      "prompt": "The magnetic bearing TO an NDB is 245°. What is the reciprocal magnetic bearing FROM the station (000°–359°)?",
+      "choices": [
+        "65°",
+        "245°",
+        "335°",
+        "155°"
+      ],
+      "answer": 0,
+      "explanation": "Bearing FROM = (bearing TO + 180) modulo 360 = (245 + 180) modulo 360 = 65°. TO and FROM are reciprocal directions.",
+      "source": "feedback-nav",
+      "review": "source-checked",
+      "reviewer": "AE Prepware author: formula, assumptions and arithmetic self-review; independent faculty review pending",
+      "reviewedAt": "2026-11-14"
+    },
+    {
+      "id": "FB-B06",
+      "subject": "aero",
+      "origin": "AI",
+      "topic": "Bearing computation",
+      "prompt": "The magnetic bearing TO an NDB is 355°. What is the reciprocal magnetic bearing FROM the station (000°–359°)?",
+      "choices": [
+        "175°",
+        "355°",
+        "85°",
+        "265°"
+      ],
+      "answer": 0,
+      "explanation": "Bearing FROM = (bearing TO + 180) modulo 360 = (355 + 180) modulo 360 = 175°. TO and FROM are reciprocal directions.",
+      "source": "feedback-nav",
+      "review": "source-checked",
+      "reviewer": "AE Prepware author: formula, assumptions and arithmetic self-review; independent faculty review pending",
+      "reviewedAt": "2026-11-14"
+    },
+    {
+      "id": "FB-H01",
+      "subject": "aero",
+      "origin": "AI",
+      "topic": "Heading computation",
+      "prompt": "True heading is 95°, variation 7° E, and deviation 2° E. Convert TRUE to MAGNETIC to COMPASS heading. Find compass heading (000°–359°).",
+      "choices": [
+        "86°",
+        "104°",
+        "88°",
+        "266°"
+      ],
+      "answer": 0,
+      "explanation": "From true to magnetic subtract east variation, add west. From magnetic to compass subtract east deviation, add west. CH = (95 − (7) − (2)) modulo 360 = 86°. Wind correction is already included in the given heading.",
+      "source": "feedback-nav",
+      "review": "source-checked",
+      "reviewer": "AE Prepware author: formula, assumptions and arithmetic self-review; independent faculty review pending",
+      "reviewedAt": "2026-11-14"
+    },
+    {
+      "id": "FB-H02",
+      "subject": "aero",
+      "origin": "AI",
+      "topic": "Heading computation",
+      "prompt": "True heading is 350°, variation 12° W, and deviation 3° E. Convert TRUE to MAGNETIC to COMPASS heading. Find compass heading (000°–359°).",
+      "choices": [
+        "359°",
+        "341°",
+        "2°",
+        "179°"
+      ],
+      "answer": 0,
+      "explanation": "From true to magnetic subtract east variation, add west. From magnetic to compass subtract east deviation, add west. CH = (350 − (-12) − (3)) modulo 360 = 359°. Wind correction is already included in the given heading.",
+      "source": "feedback-nav",
+      "review": "source-checked",
+      "reviewer": "AE Prepware author: formula, assumptions and arithmetic self-review; independent faculty review pending",
+      "reviewedAt": "2026-11-14"
+    },
+    {
+      "id": "FB-H03",
+      "subject": "aero",
+      "origin": "AI",
+      "topic": "Heading computation",
+      "prompt": "True heading is 8°, variation 11° E, and deviation 4° W. Convert TRUE to MAGNETIC to COMPASS heading. Find compass heading (000°–359°).",
+      "choices": [
+        "1°",
+        "15°",
+        "357°",
+        "181°"
+      ],
+      "answer": 0,
+      "explanation": "From true to magnetic subtract east variation, add west. From magnetic to compass subtract east deviation, add west. CH = (8 − (11) − (-4)) modulo 360 = 1°. Wind correction is already included in the given heading.",
+      "source": "feedback-nav",
+      "review": "source-checked",
+      "reviewer": "AE Prepware author: formula, assumptions and arithmetic self-review; independent faculty review pending",
+      "reviewedAt": "2026-11-14"
+    },
+    {
+      "id": "FB-H04",
+      "subject": "aero",
+      "origin": "AI",
+      "topic": "Heading computation",
+      "prompt": "Desired TRUE course is 90°, TAS 100 kt, with wind 20 kt blowing directly FROM the LEFT of that course (no along-course component). Find true heading to hold the course, to 0.001° (000°–359.999°).",
+      "choices": [
+        "78.463°",
+        "101.537°",
+        "90°",
+        "258.463°"
+      ],
+      "answer": 0,
+      "explanation": "Crab left into wind. Wind correction magnitude = asin(20/100). TH = (90 − asin(20/100) in degrees) modulo 360 = 78.463°. All directions are true; do not add variation.",
+      "source": "feedback-nav",
+      "review": "source-checked",
+      "reviewer": "AE Prepware author: formula, assumptions and arithmetic self-review; independent faculty review pending",
+      "reviewedAt": "2026-11-14"
+    },
+    {
+      "id": "FB-H05",
+      "subject": "aero",
+      "origin": "AI",
+      "topic": "Heading computation",
+      "prompt": "Desired TRUE course is 0°, TAS 120 kt, with wind 30 kt blowing directly FROM the LEFT of that course (no along-course component). Find true heading to hold the course, to 0.001° (000°–359.999°).",
+      "choices": [
+        "345.522°",
+        "14.478°",
+        "0°",
+        "165.522°"
+      ],
+      "answer": 0,
+      "explanation": "Crab left into wind. Wind correction magnitude = asin(30/120). TH = (0 − asin(30/120) in degrees) modulo 360 = 345.522°. All directions are true; do not add variation.",
+      "source": "feedback-nav",
+      "review": "source-checked",
+      "reviewer": "AE Prepware author: formula, assumptions and arithmetic self-review; independent faculty review pending",
+      "reviewedAt": "2026-11-14"
+    },
+    {
+      "id": "FB-H06",
+      "subject": "aero",
+      "origin": "AI",
+      "topic": "Heading computation",
+      "prompt": "Desired TRUE course is 270°, TAS 150 kt, with wind 15 kt blowing directly FROM the LEFT of that course (no along-course component). Find true heading to hold the course, to 0.001° (000°–359.999°).",
+      "choices": [
+        "264.261°",
+        "275.739°",
+        "270°",
+        "84.261°"
+      ],
+      "answer": 0,
+      "explanation": "Crab left into wind. Wind correction magnitude = asin(15/150). TH = (270 − asin(15/150) in degrees) modulo 360 = 264.261°. All directions are true; do not add variation.",
+      "source": "feedback-nav",
+      "review": "source-checked",
+      "reviewer": "AE Prepware author: formula, assumptions and arithmetic self-review; independent faculty review pending",
+      "reviewedAt": "2026-11-14"
+    },
+    {
+      "id": "FB-T01",
+      "subject": "aero",
+      "origin": "AI",
+      "topic": "Throat computation",
+      "prompt": "Steady one-dimensional flow passes a nozzle throat at 6 kg/s. LOCAL throat density is 1.2 kg/m³ and LOCAL velocity 250 m/s. Find throat area in m².",
+      "choices": [
+        "0.02 m²",
+        "0.01 m²",
+        "0.04 m²",
+        "0.03 m²"
+      ],
+      "answer": 0,
+      "explanation": "Continuity: A = mass flow/(local density × local velocity) = 6/(1.2 × 250) = 0.020 m². The given local values avoid confusing total with static conditions; sonic flow is not assumed.",
+      "source": "feedback-nozzle",
+      "review": "source-checked",
+      "reviewer": "AE Prepware author: formula, assumptions and arithmetic self-review; independent faculty review pending",
+      "reviewedAt": "2026-11-14"
+    },
+    {
+      "id": "FB-T02",
+      "subject": "aero",
+      "origin": "AI",
+      "topic": "Throat computation",
+      "prompt": "Steady one-dimensional flow passes a nozzle throat at 12 kg/s. LOCAL throat density is 1.5 kg/m³ and LOCAL velocity 400 m/s. Find throat area in m².",
+      "choices": [
+        "0.02 m²",
+        "0.01 m²",
+        "0.04 m²",
+        "0.03 m²"
+      ],
+      "answer": 0,
+      "explanation": "Continuity: A = mass flow/(local density × local velocity) = 12/(1.5 × 400) = 0.020 m². The given local values avoid confusing total with static conditions; sonic flow is not assumed.",
+      "source": "feedback-nozzle",
+      "review": "source-checked",
+      "reviewer": "AE Prepware author: formula, assumptions and arithmetic self-review; independent faculty review pending",
+      "reviewedAt": "2026-11-14"
+    },
+    {
+      "id": "FB-T03",
+      "subject": "aero",
+      "origin": "AI",
+      "topic": "Throat computation",
+      "prompt": "Air (γ = 1.4, R = 287 J/(kg·K)) flows steadily through an ideal isentropic nozzle, CHOKED at its throat. TOTAL pressure is 500 kPa, TOTAL temperature 300 K, and mass flow 10 kg/s. Find sonic throat area in cm², to 0.001 cm².",
+      "choices": [
+        "85.706 cm²",
+        "42.853 cm²",
+        "171.412 cm²",
+        "128.559 cm²"
+      ],
+      "answer": 0,
+      "explanation": "At M = 1, mass flux = p0/√T0 × √(γ/R) × [2/(γ+1)]^[(γ+1)/(2(γ−1))] = 1166.779280 kg/(m²·s). Convert 500 kPa to 500000 Pa, then A* = 10/1166.779280 m² × 10000 = 85.706 cm².",
+      "source": "feedback-nozzle",
+      "review": "source-checked",
+      "reviewer": "AE Prepware author: formula, assumptions and arithmetic self-review; independent faculty review pending",
+      "reviewedAt": "2026-11-14"
+    },
+    {
+      "id": "FB-T04",
+      "subject": "aero",
+      "origin": "AI",
+      "topic": "Throat computation",
+      "prompt": "Air (γ = 1.4, R = 287 J/(kg·K)) flows steadily through an ideal isentropic nozzle, CHOKED at its throat. TOTAL pressure is 400 kPa, TOTAL temperature 320 K, and mass flow 8 kg/s. Find sonic throat area in cm², to 0.001 cm².",
+      "choices": [
+        "88.517 cm²",
+        "44.258 cm²",
+        "177.034 cm²",
+        "132.775 cm²"
+      ],
+      "answer": 0,
+      "explanation": "At M = 1, mass flux = p0/√T0 × √(γ/R) × [2/(γ+1)]^[(γ+1)/(2(γ−1))] = 903.783344 kg/(m²·s). Convert 400 kPa to 400000 Pa, then A* = 8/903.783344 m² × 10000 = 88.517 cm².",
+      "source": "feedback-nozzle",
+      "review": "source-checked",
+      "reviewer": "AE Prepware author: formula, assumptions and arithmetic self-review; independent faculty review pending",
+      "reviewedAt": "2026-11-14"
+    },
+    {
+      "id": "FB-T05",
+      "subject": "aero",
+      "origin": "AI",
+      "topic": "Throat computation",
+      "prompt": "Air (γ = 1.4) flows steadily and isentropically through a nozzle, sonic at its throat. At a SUPERSONIC station M = 2, area A = 0.05 m². Find sonic throat area A* in cm², to 0.001 cm².",
+      "choices": [
+        "296.296 cm²",
+        "148.148 cm²",
+        "592.593 cm²",
+        "444.444 cm²"
+      ],
+      "answer": 0,
+      "explanation": "A/A* = (1/M){[2/(γ+1)][1+(γ−1)M²/2]}^[(γ+1)/(2(γ−1))] = 1.687500. A* = 0.05/1.687500 m² × 10000 = 296.296 cm². Area at a supersonic station exceeds sonic area.",
+      "source": "feedback-nozzle",
+      "review": "source-checked",
+      "reviewer": "AE Prepware author: formula, assumptions and arithmetic self-review; independent faculty review pending",
+      "reviewedAt": "2026-11-14"
+    },
+    {
+      "id": "FB-T06",
+      "subject": "aero",
+      "origin": "AI",
+      "topic": "Throat computation",
+      "prompt": "Air (γ = 1.4) flows steadily and isentropically through a nozzle, sonic at its throat. At a SUPERSONIC station M = 3, area A = 0.08 m². Find sonic throat area A* in cm², to 0.001 cm².",
+      "choices": [
+        "188.921 cm²",
+        "94.461 cm²",
+        "377.843 cm²",
+        "283.382 cm²"
+      ],
+      "answer": 0,
+      "explanation": "A/A* = (1/M){[2/(γ+1)][1+(γ−1)M²/2]}^[(γ+1)/(2(γ−1))] = 4.234568. A* = 0.08/4.234568 m² × 10000 = 188.921 cm². Area at a supersonic station exceeds sonic area.",
+      "source": "feedback-nozzle",
+      "review": "source-checked",
+      "reviewer": "AE Prepware author: formula, assumptions and arithmetic self-review; independent faculty review pending",
+      "reviewedAt": "2026-11-14"
+    },
+    {
+      "id": "FB-T07",
+      "subject": "aero",
+      "origin": "AI",
+      "topic": "Throat computation",
+      "prompt": "For steady ideal isentropic air flow (γ = 1.4), total pressure is 600 kPa and total temperature 360 K. At a CHOKED sonic throat, find STATIC throat temperature, to 0.001 K.",
+      "choices": [
+        "300 K",
+        "150 K",
+        "600 K",
+        "450 K"
+      ],
+      "answer": 0,
+      "explanation": "T*/T0 = 2/(γ+1) = 1/1.2; T* = 360/1.2 = 300.000 K. Total and static properties are different.",
+      "source": "feedback-nozzle",
+      "review": "source-checked",
+      "reviewer": "AE Prepware author: formula, assumptions and arithmetic self-review; independent faculty review pending",
+      "reviewedAt": "2026-11-14"
+    },
+    {
+      "id": "FB-T08",
+      "subject": "aero",
+      "origin": "AI",
+      "topic": "Throat computation",
+      "prompt": "For steady ideal isentropic air flow (γ = 1.4), total pressure is 500 kPa and total temperature 300 K. At a CHOKED sonic throat, find STATIC throat pressure, to 0.001 kPa.",
+      "choices": [
+        "264.141 kPa",
+        "132.07 kPa",
+        "528.282 kPa",
+        "396.211 kPa"
+      ],
+      "answer": 0,
+      "explanation": "p*/p0 = [2/(γ+1)]^[γ/(γ−1)] = (1/1.2)^3.5; p* = 500×(1/1.2)^3.5 = 264.141 kPa. Total and static properties are different.",
+      "source": "feedback-nozzle",
+      "review": "source-checked",
+      "reviewer": "AE Prepware author: formula, assumptions and arithmetic self-review; independent faculty review pending",
+      "reviewedAt": "2026-11-14"
     }
   ],
-  "extends": "2026.11-foundations.2",
+  "extends": "2026.11-prc-foundations.1",
   "focus": {
     "schema": 1,
     "title": "PRC foundations",

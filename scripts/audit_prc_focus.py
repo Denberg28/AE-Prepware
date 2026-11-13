@@ -100,6 +100,7 @@ def audit(path):
     expanded=[]
     for q in bank['questions']:
         if q.get('origin','AI')!='AI':continue
+        if not re.fullmatch(r'[A-Z]{2}[0-9]{3}',q['id']):continue
         n=int(q['id'][2:])
         if n<13 or (q['subject']=='construction' and n>36):continue
         value=expanded_value(q)

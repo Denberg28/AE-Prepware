@@ -1,7 +1,7 @@
 {
-  "bankVersion": "2026.11-prc-foundations.1",
-  "bankSha256": "4234a54f0e53cbca5e62509ae9c0826733e848633ff104ccd499cdad7cbd4627",
-  "records": 360,
+  "bankVersion": "2026.11-prc-foundations.1-feedback1",
+  "bankSha256": "c033358df787bb804e5d576f06e83d12420298f1b50b77a1f9b15ebebc826fdf",
+  "records": 380,
   "coreItems": 120,
   "coreBySubject": {
     "math": {
@@ -923,7 +923,7 @@
     "EE060"
   ],
   "expandedNumericCheckCount": 264,
-  "aiRepeatedNumericStemGroups": 44,
+  "aiRepeatedNumericStemGroups": 50,
   "auditScope": "All records schema/provenance/duplicate-active validation; all core records selected for relevance; selected AI numeric answers recalculated. IN source-key matching is inherited, not independent faculty review. Nonzero area counts do not demonstrate complete competency coverage.",
   "facultyApproved": false,
   "authenticPrcPastPapers": false

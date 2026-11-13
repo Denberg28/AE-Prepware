@@ -223,3 +223,28 @@ button:focus-visible, a:focus-visible, summary:focus-visible, select:focus-visib
 
 /* Theme changes are instantaneous so text never crosses a low-contrast fade. */
 .theme-switching *, .theme-switching *::before, .theme-switching *::after { transition: none !important; }
+
+/* Descriptive monitoring uses the same accessible light/dark tokens. */
+.readiness-number { font-size: 30px; font-weight: 700; line-height: 1.4; }
+.readiness-number small { font-size: 15px; font-weight: 500; color: var(--muted); }
+.activity-week { display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); gap: 4px; margin: 16px 0; }
+.activity-day { border: 1px solid var(--line); border-radius: 8px; padding: 8px 1px; text-align: center; }
+.activity-day span { display: block; font-size: 10px; color: var(--muted); }
+.activity-day strong { font-size: 15px; }
+.activity-day.met { background: var(--soft); border-color: var(--accent); }
+.readiness-status { display: inline-block; font-size: 13px; font-weight: 600; color: var(--muted); background: var(--soft); margin-top: 8px; padding: 5px 8px; border-radius: 6px; }
+.readiness-status.support { color: var(--warning-ink); background: var(--warning-bg); }
+.readiness-status.met { color: var(--success-ink); background: var(--success-bg); }
+.readiness-subject h3 { margin: 0; font-size: 17px; }
+.readiness-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.readiness-actions button { flex: 1 1 120px; min-height: 46px; padding: 10px; font-size: 14px; }
+[data-readiness] input { width: 100%; }
+
+.principles {width:100%;text-align:left;color:var(--ink);cursor:pointer;margin:0 0 12px;background:var(--surface)}
+.principles strong{display:block;font-size:14px;line-height:1.6}
+.principles span{display:block;font-size:12px;line-height:1.6;color:var(--muted)}
+#sync-toggle.syncing svg {animation:sync-spin 1.2s linear infinite}
+@keyframes sync-spin {to {transform:rotate(360deg)}}
+.sharing-option {display:flex;align-items:center;gap:10px;margin-top:16px;font-size:14px;line-height:1.5}
+.sharing-option input {width:20px;height:20px;flex:0 0 auto}
+@media(prefers-reduced-motion:reduce){#sync-toggle.syncing svg{animation:none}}

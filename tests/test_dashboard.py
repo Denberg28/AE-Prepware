@@ -34,9 +34,38 @@ def test_settings_fall_back_without_secrets_file(monkeypatch):
 def test_cloud_entry_without_key_keeps_local_workflow():
     app = AppTest.from_file(str(ENTRY)).run()
     assert not app.exception
-    assert len(app.tabs) == 3
+    assert len(app.tabs) == 4
     assert draft_button(app).disabled
     assert any('AI is not configured' in item.value for item in app.info)
+
+
+def test_faculty_monitoring_requires_admin_signin(monkeypatch):
+    from backend.authoring import password_hash
+    monkeypatch.setenv('AE_ADMIN_USERNAME','test-facilitator')
+    monkeypatch.setenv('AE_ADMIN_PASSWORD_HASH',password_hash('test-readiness-password'))
+    app=AppTest.from_file(str(ENTRY)).run()
+    assert not app.exception
+    assert any('Sign in under Question review' in x.value for x in app.info)
+    assert not any(getattr(x,'label','')=='Student readiness reports' for x in app.get('file_uploader'))
+    next(x for x in app.text_input if x.label=='Admin username').set_value('test-facilitator')
+    next(x for x in app.text_input if x.label=='Admin password').set_value('test-readiness-password')
+    next(b for b in app.button if b.label=='Sign in admin').click().run()
+    assert not app.exception
+    assert any(getattr(x,'label','')=='Student readiness reports' for x in app.get('file_uploader'))
+    key='test-faculty-secret-'+'a'*32
+    monkeypatch.setenv('AE_API_URL','https://cohort.example.com')
+    monkeypatch.setenv('AE_FACULTY_SYNC_KEY',key)
+    calls=[]
+    def get(url,**kwargs):
+        calls.append((url,kwargs))
+        return httpx.Response(200,request=httpx.Request('GET',url),json={'entries':[{'Alias':'Student A','Subjects checked':3}]})
+    monkeypatch.setattr(httpx,'get',get)
+    next(b for b in app.button if b.label=='Sync online readiness summaries').click().run()
+    assert not app.exception and len(calls)==1
+    assert calls[0][0]=='https://cohort.example.com/faculty/monitoring'
+    assert calls[0][1]['headers']['Authorization']=='Bearer '+key
+    assert app.session_state['online_readiness'][0]['Alias']=='Student A'
+    assert key not in str(app.main)
 
 
 def test_cloud_secrets_reach_request_and_key_stays_off_ui(monkeypatch):

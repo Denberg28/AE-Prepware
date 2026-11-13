@@ -52,7 +52,7 @@ def test_in_upload_approval_provenance_dedup_and_atomic_merge():
     original = copy.deepcopy(bank)
     upload = instructor_upload()
     merged = merge_instructor_upload(bank, upload, 'test-IN1')
-    assert len(merged['questions']) == 410
+    assert len(merged['questions']) == 430
     assert bank == original
     for mutate in (
         lambda q: q.update(review='pending'),
@@ -133,7 +133,7 @@ def test_admin_password_and_real_dashboard_edit(monkeypatch):
     next(b for b in app.button if b.label == 'Save reviewed revision').click().run()
     assert not app.exception
     bank = app.session_state['bank']
-    assert len(bank['questions']) == 361
+    assert len(bank['questions']) == 381
     assert bank['questions'][0]['active'] is False
     assert bank['questions'][-1]['answer'] == 1
     next(b for b in app.button if b.label == 'Sign out admin').click().run()

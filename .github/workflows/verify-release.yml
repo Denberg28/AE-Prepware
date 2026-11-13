@@ -48,6 +48,7 @@ jobs:
       - run: node tests/shell-browser.cjs | tee artifacts/shell-browser.txt
       - run: node tests/theme-browser.cjs | tee artifacts/theme-browser.txt
       - run: node tests/focus-browser.cjs | tee artifacts/focus-browser.txt
+      - run: node tests/readiness-browser.cjs | tee artifacts/readiness-browser.txt
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -56,6 +57,8 @@ jobs:
       - run: pip install -r backend/requirements.lock -r scripts/requirements-authoring.lock
       - run: python -m pytest -q | tee artifacts/pytest.txt
       - run: AE_PYTHON=python node tests/cohort-browser.cjs | tee artifacts/cohort-browser.txt
+      - run: AE_PYTHON=python node tests/sync-browser.cjs | tee artifacts/sync-browser.txt
+      - run: AE_PYTHON=python node tests/online-browser.cjs | tee artifacts/online-browser.txt
       - run: pip-audit -r backend/requirements.lock --format json > artifacts/dependency-audit.json
       - run: pip-audit -r scripts/requirements-authoring.lock --format json > artifacts/authoring-audit.json
       - run: ./gradlew :app:assembleDebug :app:assembleRelease :app:lint --no-daemon

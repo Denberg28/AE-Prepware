@@ -60,7 +60,7 @@ if bank.get('focus'):
     if not args.focus_audit or not args.focus_policy:raise SystemExit('Focused candidates require their audit and selection policy')
     focus_audit=json.loads(args.focus_audit.read_text())
     if focus_audit['bankSha256']!=hashlib.sha256(args.bank.read_bytes()).hexdigest() or focus_audit['coreItems']!=len(bank['focus']['questions']):raise SystemExit('Focus audit does not match the candidate bank')
-    for p in [args.focus_audit,args.focus_policy,ROOT/'docs/PRC_2022_2026_REVIEW.md',ROOT/'docs/prc-research-sources.json']:shutil.copy2(p,args.output_dir/p.name)
+    for p in [args.focus_audit,args.focus_policy,ROOT/'docs/PRC_2022_2026_REVIEW.md',ROOT/'docs/prc-research-sources.json',ROOT/'docs/BOARD_READINESS.md']:shutil.copy2(p,args.output_dir/p.name)
 sha=hashlib.sha256(output.read_bytes()).hexdigest()
 metadata={**config,'artifact':apk_name,'sha256':sha,'bytes':output.stat().st_size,'distribution':'private-study','sourceCommit':source,
           'androidSourceDigest':source_digest(),'bankVersion':bank['version'],'bankSha256':hashlib.sha256(args.bank.read_bytes()).hexdigest(),
@@ -74,12 +74,12 @@ metadata={**config,'artifact':apk_name,'sha256':sha,'bytes':output.stat().st_siz
 (args.output_dir/'APK-VERIFICATION.txt').write_text('Private study candidate. Source: '+source+'\n\n'+signature+'\n'+manifest)
 (args.output_dir/'README.txt').write_text(f'''AE Prepware {config["version"]} - private IN study candidate
 
-Install {apk_name} over the permanently signed v0.2 through v0.5 app, without uninstalling.
+Install {apk_name} over the permanently signed v0.2 through v0.6 app, without uninstalling.
 Export progress and the current question bank first. Package identity and signer
 are unchanged; versionCode {config["versionCode"]}. Physical phone validation is pending.
 
 The default PRC foundations set contains {len(bank.get('focus',{}).get('questions',{}))} selected items.
-The full snapshot retains 360 AI records and {audit.get('uniqueSourceQuestions',len(imported))} unique
+The full snapshot retains 380 AI records and {audit.get('uniqueSourceQuestions',len(imported))} unique
 IN source records, plus {audit.get('subjectCorrectionCopies',0)} copies with corrected subject assignments.
 Old IDs, original A-C choices, source explanations and printed keys are preserved.
 {audit["held"]} original figure/ambiguous imports remain held; {len(audit.get('additionalRetiredReview',[]))}
@@ -100,6 +100,13 @@ AE-IN-private-bank.json together with a progress backup before reinstalling or
 changing phones. Settings can export both. Use the same private bank in a hosted
 API (AE_BANK) for account synchronization; no matching server is deployed here.
 Imported book content is private and is not uploaded to the public repository.
+
+Board Readiness Monitoring is under Results. New-item diagnostics and seven-day
+spaced checks reveal feedback after submission. Participation is not motivation;
+foundation targets do not certify board readiness. Voluntary facilitator JSON
+reports can be opened in the private faculty dashboard. Monitoring stays local
+and is included in progress backups; cloud score recovery does not restore it.
+Read BOARD_READINESS.md for rules, limitations and facilitator instructions.
 
 Rollback: retain your prior APK and its matching bank/progress backups. Android
 blocks lower-version installs; uninstalling deletes local data. Do not uninstall
