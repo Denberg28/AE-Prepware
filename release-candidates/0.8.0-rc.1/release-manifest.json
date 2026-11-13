@@ -1,0 +1,18 @@
+{
+  "version": "0.8.0-rc.1",
+  "versionCode": 9,
+  "tier": "test-candidate",
+  "sourceCommit": "2ae912d6c39d2ff61d07e43d461d75c5aff6f2ef",
+  "androidSourceDigest": "7c7179e85261542403a2c437166ecdf54a61bcf0c924411858bf9a5cb917ce53",
+  "package": "ph.diversify.aeprepware",
+  "artifact": "AE-Prepware-0.8.0-rc.1-Signed-Candidate.apk",
+  "bytes": 83041,
+  "sha256": "b908e95fac0165d947beb111977e3279b4bb6bb58ece79318d54f46e950e744b",
+  "certificateSha256": "e1bd22bfbfca24168a53bccddf887e70ff5e5f11ea9320d2597f2b4939b1f11f",
+  "bankVersion": "2026.11-prc-foundations.1-feedback1",
+  "questions": 380,
+  "androidDeviceTested": false,
+  "facultyApproved": false,
+  "hostedServiceDeployed": false,
+  "liveAiTested": false
+}
