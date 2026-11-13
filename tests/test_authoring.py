@@ -137,3 +137,23 @@ def test_admin_password_and_real_dashboard_edit(monkeypatch):
     assert bank['questions'][-1]['answer'] == 1
     next(b for b in app.button if b.label == 'Sign out admin').click().run()
     assert not any(b.label == 'Save reviewed revision' for b in app.button)
+
+
+def test_existing_private_admin_bootstrap_is_accepted(monkeypatch):
+    monkeypatch.delenv('AE_ADMIN_USERNAME', raising=False)
+    monkeypatch.delenv('AE_ADMIN_PASSWORD_HASH', raising=False)
+    monkeypatch.setenv('AE_ADMIN_NUMBER', 'AE-1234567890123456')
+    monkeypatch.setenv('AE_ADMIN_RECOVERY', 'c'*64)
+    app = AppTest.from_file(str(Path(__file__).resolve().parents[1] / 'streamlit_app.py')).run()
+    assert not app.exception
+    assert not any(b.label == 'Save reviewed revision' for b in app.button)
+    next(x for x in app.text_input if x.label == 'Admin account number').set_value('AE-1234567890123456')
+    next(x for x in app.text_input if x.label == 'Admin recovery code').set_value('wrong')
+    next(b for b in app.button if b.label == 'Sign in admin').click().run()
+    assert any('incorrect' in e.value for e in app.error)
+    next(x for x in app.text_input if x.label == 'Admin account number').set_value('AE-1234567890123456')
+    next(x for x in app.text_input if x.label == 'Admin recovery code').set_value(' '.join(['C'*8]*8))
+    next(b for b in app.button if b.label == 'Sign in admin').click().run()
+    assert not app.exception
+    assert any(b.label == 'Save reviewed revision' for b in app.button)
+    assert 'c'*64 not in str(app.session_state)

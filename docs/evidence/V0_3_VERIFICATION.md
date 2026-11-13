@@ -17,7 +17,7 @@ Self-reviewed software evidence (not independent faculty or physical validation)
 | Gate | Status | Evidence |
 | --- | --- | --- |
 | A/B/C JS core/account/source | PASS | 21 Node tests; original keys, locks, queues, provenance, exact quotas, immutable refresh |
-| A/B/D Python | PASS | 25 pytest tests; actual Streamlit admin sign-in/edit/signout, IN sanitation, real SQLite archived-key restart/grading and source selection |
+| A/B/D Python | PASS | 25 pytest tests for the packaged candidate; 26 including the subsequent dashboard bootstrap compatibility check; actual Streamlit admin sign-in/edit/signout, existing private bootstrap compatibility, IN sanitation, real SQLite archived-key restart/grading and source selection |
 | B/C browser study | PASS | Existing 50-question score/feedback, recovery/isolation, saved order, backup/corruption/legacy workflow |
 | B/C browser source refresh | PASS | Empty/no-source blocks, refresh cancel/confirm, original-key ongoing session, historical 50/50 score, 25+25 quota, tamper rejection, later full snapshot on a new device, reused-version rejection, 320 px layout |
 | D account integration | PASS | Actual local API/SQLite, dropped-ack retry, grade/ranking, cloud recovery; HTTPS origin simulated |

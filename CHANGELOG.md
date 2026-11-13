@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased · faculty dashboard compatibility
+
+- Preserve the existing private admin number/recovery bootstrap alongside username/password-hash login. Android APK bytes are unchanged.
+
 ## 0.3.0-rc.1 — 2026-11-13
 
 - Label the bundled foundation bank AI and show AI/IN origin in questions. Add source checkboxes: 50 AI, 50 IN, or 25+25 Hybrid; disable insufficient pools.

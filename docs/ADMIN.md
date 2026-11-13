@@ -1,5 +1,13 @@
 # Faculty admin and corrections
 
+The existing private admin bootstrap is supported: configure its `AE_ADMIN_NUMBER`
+and `AE_ADMIN_RECOVERY` as server Secrets/environment variables, then sign in with
+the account number and recovery code. The pair must match server configuration;
+a student account/recovery pair does not grant admin access. Recovery codes stay
+server-side and are never embedded in Android. No new bootstrap is needed.
+Alternatively, configure the username/salted-password-hash method below. If that
+method is configured, it takes precedence; partial settings disable fallback.
+
 Use a privately shared instructor dashboard. Student study accounts do not grant
 admin permission. Editing and IN upload controls require a separate server-side
 admin sign-in. No default password or embedded Android admin secret exists.
