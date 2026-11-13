@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0-rc.1 — 2026-11-13
+
+- Label the bundled foundation bank AI and show AI/IN origin in questions. Add source checkboxes: 50 AI, 50 IN, or 25+25 Hybrid; disable insufficient pools.
+- Add separate server-side faculty admin sign-in, reviewed text/choice/key/explanation revisions and validated instructor JSON import/export. No default admin password.
+- Keep old IDs and keys for historic/queued sessions; compatible Android refreshes preserve progress. Archive API bank versions for grading after updates and reject changed archived IDs.
+- Add instructor_uploads contract/merge CLI, duplicate and provenance checks, admin and mobile refresh regression tests.
+- No recovered IN corpus is bundled. Physical Android update/SAF/accessibility and independent faculty review remain pending; candidate tier only.
+
 ## 0.2.0-rc.1 — 2026-11-13
 
 Minimal subject-first UI with 50 distinct questions, shuffled letters, immediate locked feedback, collapsed explanations and recorded final scores. 360 original foundation items (60/subject, including parameter variants), preserving the original 72 IDs/keys. Offline recoverable account numbers with isolated profiles; optional server-graded result sync, retry-safe queues, account recovery/progress/ranking, adaptive selection and bounded Gemini topic selection. Streamlit Secrets setup preserved. Permanent non-debug release signer, public certificate, private recovery backup and CI verification of prepared signed APKs against rebuilt source payloads. One-time backup/reinstall from v0.1 required because its disposable CI signer is unavailable. Android device, live hosting/AI and faculty review remain pending.

@@ -1,21 +1,27 @@
-# AE Prepware v0.2.0-rc.1 — signed test candidate
+# AE Prepware v0.3.0-rc.1 · Signed test candidate
 
-Simplified Android UI: choose a subject, answer 50 distinct randomized bank questions, receive immediate correct/incorrect letter feedback, and expand explanations only when needed. Final score and answer review are saved in Results.
+AI/IN source controls, faculty admin corrections and safe bank refreshes.
 
-Adds offline account creation with account number/recovery code, separate local profiles, resumable study and account-bound results. Optional HTTPS API sync regrades results, deduplicates retries and backs up progress for recovery on another device. Ranking uses daily unique-correct points. Random/adaptive selection works offline; optional Gemini-assisted topic selection uses synced account progress and cannot change bank answers.
+- Tick AI, IN or both before choosing a subject: 50 from one source or 25+25 Hybrid.
+- Show AI/IN origin in each question; block insufficient pools without duplicates.
+- Separate server-side admin sign-in for text, choices, key and explanation edits.
+- Append reviewed corrections; retain original IDs/keys for old scores and sessions.
+- Import compatible reviewed updates without resetting progress or queued results.
+- Archive API bank versions so older queued results retain their original grade.
+- Instructor JSON provenance/approval/duplicate validation and dedicated upload folder.
 
-Bank expanded from 72 to 360 original foundation items, including parameterized calculation exercises; 60 per subject. Existing 72 IDs/keys preserved. Faculty review and full TOS coverage remain pending. Optional Streamlit faculty dashboard and Secrets setup remain supported.
+The bundle contains 360 AI foundation items, 60 per subject. IN pools start empty;
+no missing/reported 2,005-question corpus is represented as delivered. Reviewed
+instructor JSON can enable IN and Hybrid per subject. No commercial source PDF is
+redistributed. Admin editing needs AE_ADMIN_USERNAME and AE_ADMIN_PASSWORD_HASH
+in Streamlit Secrets; see docs/ADMIN.md. The service is not newly deployed.
 
-## Install / update
+Update over permanent-signer v0.2 without uninstalling; export progress and any
+custom bank first. Package identity remains ph.diversify.aeprepware; versionCode 3.
+The certificate is unchanged. Physical Android installation, in-place upgrade,
+SAF, accessibility, live hosting/AI and independent faculty validation remain
+untested. This is a test candidate, not a stable release or pass guarantee.
 
-Android 8+ and current System WebView. Package ph.diversify.aeprepware, versionCode 2. This APK is non-debuggable and uses the permanent AE Prepware release certificate. Public certificate, fingerprint, source/build verification, checksum and manifest are attached. Private signing key is not public.
-
-**From v0.1 only: export your progress backup BEFORE uninstalling.** The previous CI debug signing key is unavailable, so this first permanent-signer version requires a one-time uninstall/reinstall. Install v0.2, restore the old guest backup, then create an account. Later versions can update with the same permanent certificate and increasing versionCode. Back up before updates or downgrades; app uninstall deletes local data.
-
-## Verification and limits
-
-Automated core/account/API tests, mobile browser study flow, real local API/SQLite integration (including dropped sync acknowledgement and another-device recovery), Android debug/release build/lint, dependency audit and APK signature/source-payload checks are required before publication. Evidence is under docs/evidence/V0_2_VERIFICATION.md and CI artifacts.
-
-No physical phone testing, production HTTPS deployment, real Gemini provider call or independent faculty content approval is claimed. Accounts work offline, but shared ranking/cloud recovery requires an operator-hosted service; no default hosted endpoint is embedded. Streamlit hosts only faculty UI. These are practice results, not official/proctored rankings or a guarantee of passing. Candidate only, no stable promotion.
-
-Rollback requires an APK and bank/progress backup compatible with that version. Android blocks lower versionCode and mismatched certificates; export before uninstalling. Never overwrite a published version or change the permanent signing key for normal updates.
+Retain v0.2 and its matching progress/bank backup for rollback. Android blocks
+lower-version installs; uninstalling deletes local data. Do not import a new-bank
+backup into an old APK. Preserve server SQLite bank_versions archives.

@@ -1,14 +1,18 @@
 # AE Prepware
 
-Minimal Android practice for Philippine Aeronautical Engineers Licensure Examination subjects. **v0.2.0-rc.1 is a permanently signed test candidate**, pending physical Android testing and independent faculty content review.
+Minimal Android practice for Philippine Aeronautical Engineers Licensure Examination subjects. **v0.3.0-rc.1 is a test candidate**, pending physical Android testing and independent faculty content review.
 
 ## Study
 
-1. Choose a subject on **Subjects**. The app draws 50 distinct questions from that subject and shuffles A–D.
+1. Tick **AI**, **IN**, or both on **Subjects**, then choose a subject. AI labels AI-produced questions; IN labels instructor-uploaded questions. A single source needs 50 active questions; Hybrid needs 25 from each. The app draws 50 distinct questions and shuffles A–D. Insufficient pools are disabled.
 2. Select a letter. The answer locks, shows **Correct** or the correct letter/text, and offers a collapsed **Explanation** pane.
 3. Finish all 50 to see your score. **Results** records sessions and subject progress. Save & exit/reopening resumes exactly.
 
 The bundled bank contains 360 original foundation items (60 per subject), including parameterized calculation variants. This is not comprehensive TOS coverage, official PRC content or a pass guarantee. Answer keys and source explanations are fixed; live AI cannot change them. Imported banks must have independent approval metadata. A subject needs 50 active items: insufficient items show an error rather than repeat questions.
+
+The 360 bundled items are explicitly labeled **AI**. No recovered IN corpus is included: IN-only and Hybrid become available per subject after reviewed instructor JSON is imported. The prior session's reported 2,005-question import was absent from the recoverable repository and is not claimed as delivered. See [instructor uploads](instructor_uploads/README.md).
+
+Faculty admins can correct text, choices, keys and explanations after a separate server-side sign-in. Corrections append reviewed revisions and retain old questions for saved scores and pending results. Compatible bank refreshes preserve Android progress and unfinished sessions; the API archives original keys across restarts. [Admin setup and editing](docs/ADMIN.md) describes configuration, exports and recovery. Keep server Secrets private; there is no default admin password.
 
 Offline use needs no server, AI key or payment. Random selection is the default. Adaptive selection favors unseen/missed questions. **AI assisted** uses a connected account's synced performance to request topic priorities; without a provider or service it falls back to adaptive selection, labeled in the UI.
 
@@ -44,9 +48,10 @@ npx playwright install chromium
 mkdir -p artifacts
 node tests/browser.cjs
 node tests/cohort-browser.cjs
+node tests/sources-browser.cjs
 ```
 
-The integration browser test uses real local API/SQLite, simulated HTTPS origin and separate storage contexts; it is not a physical-phone or live TLS test. `CHROMIUM_PATH` selects a system Chromium. See [test gates](docs/TESTING.md) and [v0.2 evidence](docs/evidence/V0_2_VERIFICATION.md).
+The integration browser test uses real local API/SQLite, simulated HTTPS origin and separate storage contexts; it is not a physical-phone or live TLS test. `CHROMIUM_PATH` selects a system Chromium. See [test gates](docs/TESTING.md) and [v0.3 evidence](docs/evidence/V0_3_VERIFICATION.md).
 
 ## Hosted account API
 

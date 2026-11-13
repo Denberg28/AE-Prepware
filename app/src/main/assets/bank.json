@@ -106,6 +106,7 @@
   },
   "questions": [
     {
+      "origin": "AI",
       "id": "MA001",
       "subject": "math",
       "topic": "Derivatives",
@@ -124,6 +125,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA002",
       "subject": "math",
       "topic": "Integration",
@@ -142,6 +144,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA003",
       "subject": "math",
       "topic": "Trigonometry",
@@ -160,6 +163,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA004",
       "subject": "math",
       "topic": "Algebra",
@@ -178,6 +182,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA005",
       "subject": "math",
       "topic": "Analytic geometry",
@@ -196,6 +201,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA006",
       "subject": "math",
       "topic": "Trigonometry",
@@ -214,6 +220,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA007",
       "subject": "math",
       "topic": "Derivatives",
@@ -232,6 +239,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA008",
       "subject": "math",
       "topic": "Differential equations",
@@ -250,6 +258,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA009",
       "subject": "math",
       "topic": "Engineering calculus",
@@ -268,6 +277,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA010",
       "subject": "math",
       "topic": "Analytic geometry",
@@ -286,6 +296,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA011",
       "subject": "math",
       "topic": "Algebra",
@@ -304,6 +315,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA012",
       "subject": "math",
       "topic": "Limits and algebra",
@@ -322,6 +334,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA013",
       "subject": "math",
       "topic": "Derivatives",
@@ -340,6 +353,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA014",
       "subject": "math",
       "topic": "Integration",
@@ -358,6 +372,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA015",
       "subject": "math",
       "topic": "Algebra",
@@ -376,6 +391,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA016",
       "subject": "math",
       "topic": "Analytic geometry",
@@ -394,6 +410,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA017",
       "subject": "math",
       "topic": "Algebra",
@@ -412,6 +429,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA018",
       "subject": "math",
       "topic": "Differential equations",
@@ -430,6 +448,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA019",
       "subject": "math",
       "topic": "Trigonometry",
@@ -448,6 +467,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA020",
       "subject": "math",
       "topic": "Engineering calculus",
@@ -466,6 +486,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA021",
       "subject": "math",
       "topic": "Derivatives",
@@ -484,6 +505,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA022",
       "subject": "math",
       "topic": "Integration",
@@ -502,6 +524,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA023",
       "subject": "math",
       "topic": "Algebra",
@@ -520,6 +543,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA024",
       "subject": "math",
       "topic": "Analytic geometry",
@@ -538,6 +562,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA025",
       "subject": "math",
       "topic": "Algebra",
@@ -556,6 +581,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA026",
       "subject": "math",
       "topic": "Differential equations",
@@ -574,6 +600,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA027",
       "subject": "math",
       "topic": "Trigonometry",
@@ -592,6 +619,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA028",
       "subject": "math",
       "topic": "Engineering calculus",
@@ -610,6 +638,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA029",
       "subject": "math",
       "topic": "Derivatives",
@@ -628,6 +657,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA030",
       "subject": "math",
       "topic": "Integration",
@@ -646,6 +676,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA031",
       "subject": "math",
       "topic": "Algebra",
@@ -664,6 +695,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA032",
       "subject": "math",
       "topic": "Analytic geometry",
@@ -682,6 +714,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA033",
       "subject": "math",
       "topic": "Algebra",
@@ -700,6 +733,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA034",
       "subject": "math",
       "topic": "Differential equations",
@@ -718,6 +752,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA035",
       "subject": "math",
       "topic": "Trigonometry",
@@ -736,6 +771,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA036",
       "subject": "math",
       "topic": "Engineering calculus",
@@ -754,6 +790,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA037",
       "subject": "math",
       "topic": "Derivatives",
@@ -772,6 +809,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA038",
       "subject": "math",
       "topic": "Integration",
@@ -790,6 +828,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA039",
       "subject": "math",
       "topic": "Algebra",
@@ -808,6 +847,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA040",
       "subject": "math",
       "topic": "Analytic geometry",
@@ -826,6 +866,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA041",
       "subject": "math",
       "topic": "Algebra",
@@ -844,6 +885,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA042",
       "subject": "math",
       "topic": "Differential equations",
@@ -862,6 +904,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA043",
       "subject": "math",
       "topic": "Trigonometry",
@@ -880,6 +923,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA044",
       "subject": "math",
       "topic": "Engineering calculus",
@@ -898,6 +942,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA045",
       "subject": "math",
       "topic": "Derivatives",
@@ -916,6 +961,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA046",
       "subject": "math",
       "topic": "Integration",
@@ -934,6 +980,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA047",
       "subject": "math",
       "topic": "Algebra",
@@ -952,6 +999,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA048",
       "subject": "math",
       "topic": "Analytic geometry",
@@ -970,6 +1018,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA049",
       "subject": "math",
       "topic": "Algebra",
@@ -988,6 +1037,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA050",
       "subject": "math",
       "topic": "Differential equations",
@@ -1006,6 +1056,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA051",
       "subject": "math",
       "topic": "Trigonometry",
@@ -1024,6 +1075,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA052",
       "subject": "math",
       "topic": "Engineering calculus",
@@ -1042,6 +1094,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA053",
       "subject": "math",
       "topic": "Derivatives",
@@ -1060,6 +1113,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA054",
       "subject": "math",
       "topic": "Integration",
@@ -1078,6 +1132,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA055",
       "subject": "math",
       "topic": "Algebra",
@@ -1096,6 +1151,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA056",
       "subject": "math",
       "topic": "Analytic geometry",
@@ -1114,6 +1170,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA057",
       "subject": "math",
       "topic": "Algebra",
@@ -1132,6 +1189,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA058",
       "subject": "math",
       "topic": "Differential equations",
@@ -1150,6 +1208,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA059",
       "subject": "math",
       "topic": "Trigonometry",
@@ -1168,6 +1227,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "MA060",
       "subject": "math",
       "topic": "Engineering calculus",
@@ -1186,6 +1246,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD001",
       "subject": "aero",
       "topic": "Dynamic pressure",
@@ -1204,6 +1265,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD002",
       "subject": "aero",
       "topic": "Lift",
@@ -1222,6 +1284,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD003",
       "subject": "aero",
       "topic": "Lift",
@@ -1240,6 +1303,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD004",
       "subject": "aero",
       "topic": "Drag",
@@ -1258,6 +1322,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD005",
       "subject": "aero",
       "topic": "Stall",
@@ -1276,6 +1341,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD006",
       "subject": "aero",
       "topic": "Compressible flow",
@@ -1294,6 +1360,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD007",
       "subject": "aero",
       "topic": "Flight equilibrium",
@@ -1312,6 +1379,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD008",
       "subject": "aero",
       "topic": "Turning flight",
@@ -1330,6 +1398,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD009",
       "subject": "aero",
       "topic": "Flight envelope",
@@ -1348,6 +1417,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD010",
       "subject": "aero",
       "topic": "Continuity",
@@ -1366,6 +1436,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD011",
       "subject": "aero",
       "topic": "Stability",
@@ -1384,6 +1455,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD012",
       "subject": "aero",
       "topic": "Induced drag",
@@ -1402,6 +1474,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD013",
       "subject": "aero",
       "topic": "Dynamic pressure",
@@ -1420,6 +1493,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD014",
       "subject": "aero",
       "topic": "Lift",
@@ -1438,6 +1512,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD015",
       "subject": "aero",
       "topic": "Lift coefficient",
@@ -1456,6 +1531,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD016",
       "subject": "aero",
       "topic": "Drag",
@@ -1474,6 +1550,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD017",
       "subject": "aero",
       "topic": "Compressible flow",
@@ -1492,6 +1569,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD018",
       "subject": "aero",
       "topic": "Wing geometry",
@@ -1510,6 +1588,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD019",
       "subject": "aero",
       "topic": "Wing loading",
@@ -1528,6 +1607,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD020",
       "subject": "aero",
       "topic": "Continuity",
@@ -1546,6 +1626,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD021",
       "subject": "aero",
       "topic": "Dynamic pressure",
@@ -1564,6 +1645,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD022",
       "subject": "aero",
       "topic": "Lift",
@@ -1582,6 +1664,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD023",
       "subject": "aero",
       "topic": "Lift coefficient",
@@ -1600,6 +1683,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD024",
       "subject": "aero",
       "topic": "Drag",
@@ -1618,6 +1702,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD025",
       "subject": "aero",
       "topic": "Compressible flow",
@@ -1636,6 +1721,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD026",
       "subject": "aero",
       "topic": "Wing geometry",
@@ -1654,6 +1740,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD027",
       "subject": "aero",
       "topic": "Wing loading",
@@ -1672,6 +1759,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD028",
       "subject": "aero",
       "topic": "Continuity",
@@ -1690,6 +1778,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD029",
       "subject": "aero",
       "topic": "Dynamic pressure",
@@ -1708,6 +1797,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD030",
       "subject": "aero",
       "topic": "Lift",
@@ -1726,6 +1816,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD031",
       "subject": "aero",
       "topic": "Lift coefficient",
@@ -1744,6 +1835,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD032",
       "subject": "aero",
       "topic": "Drag",
@@ -1762,6 +1854,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD033",
       "subject": "aero",
       "topic": "Compressible flow",
@@ -1780,6 +1873,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD034",
       "subject": "aero",
       "topic": "Wing geometry",
@@ -1798,6 +1892,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD035",
       "subject": "aero",
       "topic": "Wing loading",
@@ -1816,6 +1911,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD036",
       "subject": "aero",
       "topic": "Continuity",
@@ -1834,6 +1930,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD037",
       "subject": "aero",
       "topic": "Dynamic pressure",
@@ -1852,6 +1949,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD038",
       "subject": "aero",
       "topic": "Lift",
@@ -1870,6 +1968,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD039",
       "subject": "aero",
       "topic": "Lift coefficient",
@@ -1888,6 +1987,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD040",
       "subject": "aero",
       "topic": "Drag",
@@ -1906,6 +2006,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD041",
       "subject": "aero",
       "topic": "Compressible flow",
@@ -1924,6 +2025,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD042",
       "subject": "aero",
       "topic": "Wing geometry",
@@ -1942,6 +2044,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD043",
       "subject": "aero",
       "topic": "Wing loading",
@@ -1960,6 +2063,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD044",
       "subject": "aero",
       "topic": "Continuity",
@@ -1978,6 +2082,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD045",
       "subject": "aero",
       "topic": "Dynamic pressure",
@@ -1996,6 +2101,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD046",
       "subject": "aero",
       "topic": "Lift",
@@ -2014,6 +2120,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD047",
       "subject": "aero",
       "topic": "Lift coefficient",
@@ -2032,6 +2139,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD048",
       "subject": "aero",
       "topic": "Drag",
@@ -2050,6 +2158,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD049",
       "subject": "aero",
       "topic": "Compressible flow",
@@ -2068,6 +2177,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD050",
       "subject": "aero",
       "topic": "Wing geometry",
@@ -2086,6 +2196,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD051",
       "subject": "aero",
       "topic": "Wing loading",
@@ -2104,6 +2215,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD052",
       "subject": "aero",
       "topic": "Continuity",
@@ -2122,6 +2234,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD053",
       "subject": "aero",
       "topic": "Dynamic pressure",
@@ -2140,6 +2253,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD054",
       "subject": "aero",
       "topic": "Lift",
@@ -2158,6 +2272,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD055",
       "subject": "aero",
       "topic": "Lift coefficient",
@@ -2176,6 +2291,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD056",
       "subject": "aero",
       "topic": "Drag",
@@ -2194,6 +2310,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD057",
       "subject": "aero",
       "topic": "Compressible flow",
@@ -2212,6 +2329,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD058",
       "subject": "aero",
       "topic": "Wing geometry",
@@ -2230,6 +2348,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD059",
       "subject": "aero",
       "topic": "Wing loading",
@@ -2248,6 +2367,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "AD060",
       "subject": "aero",
       "topic": "Continuity",
@@ -2266,6 +2386,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST001",
       "subject": "structures",
       "topic": "Axial stress",
@@ -2284,6 +2405,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST002",
       "subject": "structures",
       "topic": "Strain",
@@ -2302,6 +2424,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST003",
       "subject": "structures",
       "topic": "Elasticity",
@@ -2320,6 +2443,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST004",
       "subject": "structures",
       "topic": "Beam reactions",
@@ -2338,6 +2462,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST005",
       "subject": "structures",
       "topic": "Beam bending",
@@ -2356,6 +2481,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST006",
       "subject": "structures",
       "topic": "Beam bending",
@@ -2374,6 +2500,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST007",
       "subject": "structures",
       "topic": "Torsion fundamentals",
@@ -2392,6 +2519,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST008",
       "subject": "structures",
       "topic": "Structural members",
@@ -2410,6 +2538,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST009",
       "subject": "structures",
       "topic": "Buckling",
@@ -2428,6 +2557,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST010",
       "subject": "structures",
       "topic": "Center of gravity",
@@ -2446,6 +2576,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST011",
       "subject": "structures",
       "topic": "Margin of safety",
@@ -2464,6 +2595,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST012",
       "subject": "structures",
       "topic": "Fatigue",
@@ -2482,6 +2614,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST013",
       "subject": "structures",
       "topic": "Axial stress",
@@ -2500,6 +2633,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST014",
       "subject": "structures",
       "topic": "Strain",
@@ -2518,6 +2652,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST015",
       "subject": "structures",
       "topic": "Elasticity",
@@ -2536,6 +2671,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST016",
       "subject": "structures",
       "topic": "Beam reactions",
@@ -2554,6 +2690,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST017",
       "subject": "structures",
       "topic": "Beam bending",
@@ -2572,6 +2709,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST018",
       "subject": "structures",
       "topic": "Center of gravity",
@@ -2590,6 +2728,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST019",
       "subject": "structures",
       "topic": "Torsion fundamentals",
@@ -2608,6 +2747,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST020",
       "subject": "structures",
       "topic": "Margin of safety",
@@ -2626,6 +2766,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST021",
       "subject": "structures",
       "topic": "Axial stress",
@@ -2644,6 +2785,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST022",
       "subject": "structures",
       "topic": "Strain",
@@ -2662,6 +2804,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST023",
       "subject": "structures",
       "topic": "Elasticity",
@@ -2680,6 +2823,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST024",
       "subject": "structures",
       "topic": "Beam reactions",
@@ -2698,6 +2842,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST025",
       "subject": "structures",
       "topic": "Beam bending",
@@ -2716,6 +2861,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST026",
       "subject": "structures",
       "topic": "Center of gravity",
@@ -2734,6 +2880,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST027",
       "subject": "structures",
       "topic": "Torsion fundamentals",
@@ -2752,6 +2899,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST028",
       "subject": "structures",
       "topic": "Margin of safety",
@@ -2770,6 +2918,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST029",
       "subject": "structures",
       "topic": "Axial stress",
@@ -2788,6 +2937,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST030",
       "subject": "structures",
       "topic": "Strain",
@@ -2806,6 +2956,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST031",
       "subject": "structures",
       "topic": "Elasticity",
@@ -2824,6 +2975,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST032",
       "subject": "structures",
       "topic": "Beam reactions",
@@ -2842,6 +2994,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST033",
       "subject": "structures",
       "topic": "Beam bending",
@@ -2860,6 +3013,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST034",
       "subject": "structures",
       "topic": "Center of gravity",
@@ -2878,6 +3032,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST035",
       "subject": "structures",
       "topic": "Torsion fundamentals",
@@ -2896,6 +3051,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST036",
       "subject": "structures",
       "topic": "Margin of safety",
@@ -2914,6 +3070,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST037",
       "subject": "structures",
       "topic": "Axial stress",
@@ -2932,6 +3089,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST038",
       "subject": "structures",
       "topic": "Strain",
@@ -2950,6 +3108,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST039",
       "subject": "structures",
       "topic": "Elasticity",
@@ -2968,6 +3127,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST040",
       "subject": "structures",
       "topic": "Beam reactions",
@@ -2986,6 +3146,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST041",
       "subject": "structures",
       "topic": "Beam bending",
@@ -3004,6 +3165,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST042",
       "subject": "structures",
       "topic": "Center of gravity",
@@ -3022,6 +3184,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST043",
       "subject": "structures",
       "topic": "Torsion fundamentals",
@@ -3040,6 +3203,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST044",
       "subject": "structures",
       "topic": "Margin of safety",
@@ -3058,6 +3222,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST045",
       "subject": "structures",
       "topic": "Axial stress",
@@ -3076,6 +3241,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST046",
       "subject": "structures",
       "topic": "Strain",
@@ -3094,6 +3260,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST047",
       "subject": "structures",
       "topic": "Elasticity",
@@ -3112,6 +3279,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST048",
       "subject": "structures",
       "topic": "Beam reactions",
@@ -3130,6 +3298,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST049",
       "subject": "structures",
       "topic": "Beam bending",
@@ -3148,6 +3317,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST050",
       "subject": "structures",
       "topic": "Center of gravity",
@@ -3166,6 +3336,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST051",
       "subject": "structures",
       "topic": "Torsion fundamentals",
@@ -3184,6 +3355,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST052",
       "subject": "structures",
       "topic": "Margin of safety",
@@ -3202,6 +3374,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST053",
       "subject": "structures",
       "topic": "Axial stress",
@@ -3220,6 +3393,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST054",
       "subject": "structures",
       "topic": "Strain",
@@ -3238,6 +3412,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST055",
       "subject": "structures",
       "topic": "Elasticity",
@@ -3256,6 +3431,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST056",
       "subject": "structures",
       "topic": "Beam reactions",
@@ -3274,6 +3450,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST057",
       "subject": "structures",
       "topic": "Beam bending",
@@ -3292,6 +3469,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST058",
       "subject": "structures",
       "topic": "Center of gravity",
@@ -3310,6 +3488,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST059",
       "subject": "structures",
       "topic": "Torsion fundamentals",
@@ -3328,6 +3507,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "ST060",
       "subject": "structures",
       "topic": "Margin of safety",
@@ -3346,6 +3526,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR001",
       "subject": "construction",
       "topic": "Nondestructive testing",
@@ -3364,6 +3545,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR002",
       "subject": "construction",
       "topic": "Nondestructive testing",
@@ -3382,6 +3564,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR003",
       "subject": "construction",
       "topic": "Corrosion",
@@ -3400,6 +3583,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR004",
       "subject": "construction",
       "topic": "Repair data",
@@ -3418,6 +3602,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR005",
       "subject": "construction",
       "topic": "Composites",
@@ -3436,6 +3621,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR006",
       "subject": "construction",
       "topic": "Composites",
@@ -3454,6 +3640,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR007",
       "subject": "construction",
       "topic": "Fasteners",
@@ -3472,6 +3659,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR008",
       "subject": "construction",
       "topic": "Fastener locking",
@@ -3490,6 +3678,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR009",
       "subject": "construction",
       "topic": "Damage assessment",
@@ -3508,6 +3697,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR010",
       "subject": "construction",
       "topic": "Sheet-metal repair",
@@ -3526,6 +3716,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR011",
       "subject": "construction",
       "topic": "Quality assurance",
@@ -3544,6 +3735,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR012",
       "subject": "construction",
       "topic": "Quality assurance",
@@ -3562,6 +3754,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR013",
       "subject": "construction",
       "topic": "Repair drawing arithmetic",
@@ -3580,6 +3773,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR014",
       "subject": "construction",
       "topic": "Fastener calculation",
@@ -3598,6 +3792,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR015",
       "subject": "construction",
       "topic": "Material quantity",
@@ -3616,6 +3811,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR016",
       "subject": "construction",
       "topic": "Joint fundamentals",
@@ -3634,6 +3830,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR017",
       "subject": "construction",
       "topic": "Repair drawing arithmetic",
@@ -3652,6 +3849,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR018",
       "subject": "construction",
       "topic": "Fastener calculation",
@@ -3670,6 +3868,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR019",
       "subject": "construction",
       "topic": "Material quantity",
@@ -3688,6 +3887,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR020",
       "subject": "construction",
       "topic": "Joint fundamentals",
@@ -3706,6 +3906,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR021",
       "subject": "construction",
       "topic": "Repair drawing arithmetic",
@@ -3724,6 +3925,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR022",
       "subject": "construction",
       "topic": "Fastener calculation",
@@ -3742,6 +3944,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR023",
       "subject": "construction",
       "topic": "Material quantity",
@@ -3760,6 +3963,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR024",
       "subject": "construction",
       "topic": "Joint fundamentals",
@@ -3778,6 +3982,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR025",
       "subject": "construction",
       "topic": "Repair drawing arithmetic",
@@ -3796,6 +4001,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR026",
       "subject": "construction",
       "topic": "Fastener calculation",
@@ -3814,6 +4020,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR027",
       "subject": "construction",
       "topic": "Material quantity",
@@ -3832,6 +4039,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR028",
       "subject": "construction",
       "topic": "Joint fundamentals",
@@ -3850,6 +4058,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR029",
       "subject": "construction",
       "topic": "Repair drawing arithmetic",
@@ -3868,6 +4077,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR030",
       "subject": "construction",
       "topic": "Fastener calculation",
@@ -3886,6 +4096,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR031",
       "subject": "construction",
       "topic": "Material quantity",
@@ -3904,6 +4115,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR032",
       "subject": "construction",
       "topic": "Joint fundamentals",
@@ -3922,6 +4134,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR033",
       "subject": "construction",
       "topic": "Repair drawing arithmetic",
@@ -3940,6 +4153,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR034",
       "subject": "construction",
       "topic": "Fastener calculation",
@@ -3958,6 +4172,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR035",
       "subject": "construction",
       "topic": "Material quantity",
@@ -3976,6 +4191,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR036",
       "subject": "construction",
       "topic": "Joint fundamentals",
@@ -3994,6 +4210,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR037",
       "subject": "construction",
       "topic": "Material properties",
@@ -4012,6 +4229,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR038",
       "subject": "construction",
       "topic": "Heat treatment",
@@ -4030,6 +4248,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR039",
       "subject": "construction",
       "topic": "Heat treatment",
@@ -4048,6 +4267,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR040",
       "subject": "construction",
       "topic": "Material properties",
@@ -4066,6 +4286,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR041",
       "subject": "construction",
       "topic": "Material identification",
@@ -4084,6 +4305,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR042",
       "subject": "construction",
       "topic": "Corrosion",
@@ -4102,6 +4324,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR043",
       "subject": "construction",
       "topic": "Corrosion",
@@ -4120,6 +4343,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR044",
       "subject": "construction",
       "topic": "Nondestructive testing",
@@ -4138,6 +4362,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR045",
       "subject": "construction",
       "topic": "Nondestructive testing",
@@ -4156,6 +4381,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR046",
       "subject": "construction",
       "topic": "Nondestructive testing",
@@ -4174,6 +4400,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR047",
       "subject": "construction",
       "topic": "Nondestructive testing",
@@ -4192,6 +4419,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR048",
       "subject": "construction",
       "topic": "Inspection tools",
@@ -4210,6 +4438,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR049",
       "subject": "construction",
       "topic": "Workshop practices",
@@ -4228,6 +4457,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR050",
       "subject": "construction",
       "topic": "Sheet-metal work",
@@ -4246,6 +4476,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR051",
       "subject": "construction",
       "topic": "Sheet-metal work",
@@ -4264,6 +4495,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR052",
       "subject": "construction",
       "topic": "Assembly",
@@ -4282,6 +4514,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR053",
       "subject": "construction",
       "topic": "Repair principles",
@@ -4300,6 +4533,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR054",
       "subject": "construction",
       "topic": "Fasteners",
@@ -4318,6 +4552,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR055",
       "subject": "construction",
       "topic": "Damage assessment",
@@ -4336,6 +4571,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR056",
       "subject": "construction",
       "topic": "Composites",
@@ -4354,6 +4590,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR057",
       "subject": "construction",
       "topic": "Composites",
@@ -4372,6 +4609,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR058",
       "subject": "construction",
       "topic": "Workshop safety",
@@ -4390,6 +4628,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR059",
       "subject": "construction",
       "topic": "Quality assurance",
@@ -4408,6 +4647,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "CR060",
       "subject": "construction",
       "topic": "Quality assurance",
@@ -4426,6 +4666,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP001",
       "subject": "powerplant",
       "topic": "Reciprocating engines",
@@ -4444,6 +4685,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP002",
       "subject": "powerplant",
       "topic": "Reciprocating engines",
@@ -4462,6 +4704,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP003",
       "subject": "powerplant",
       "topic": "Compression ratio",
@@ -4480,6 +4723,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP004",
       "subject": "powerplant",
       "topic": "Gas turbines",
@@ -4498,6 +4742,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP005",
       "subject": "powerplant",
       "topic": "Gas turbines",
@@ -4516,6 +4761,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP006",
       "subject": "powerplant",
       "topic": "Thermodynamic cycles",
@@ -4534,6 +4780,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP007",
       "subject": "powerplant",
       "topic": "Thermal efficiency",
@@ -4552,6 +4799,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP008",
       "subject": "powerplant",
       "topic": "Shaft power",
@@ -4570,6 +4818,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP009",
       "subject": "powerplant",
       "topic": "Propellers",
@@ -4588,6 +4837,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP010",
       "subject": "powerplant",
       "topic": "Lubrication",
@@ -4606,6 +4856,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP011",
       "subject": "powerplant",
       "topic": "Jet thrust",
@@ -4624,6 +4875,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP012",
       "subject": "powerplant",
       "topic": "Abnormal combustion",
@@ -4642,6 +4894,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP013",
       "subject": "powerplant",
       "topic": "Shaft power",
@@ -4660,6 +4913,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP014",
       "subject": "powerplant",
       "topic": "Compression ratio",
@@ -4678,6 +4932,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP015",
       "subject": "powerplant",
       "topic": "Thermal efficiency",
@@ -4696,6 +4951,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP016",
       "subject": "powerplant",
       "topic": "Jet thrust",
@@ -4714,6 +4970,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP017",
       "subject": "powerplant",
       "topic": "Thermodynamic cycles",
@@ -4732,6 +4989,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP018",
       "subject": "powerplant",
       "topic": "Fuel consumption",
@@ -4750,6 +5008,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP019",
       "subject": "powerplant",
       "topic": "Reciprocating engines",
@@ -4768,6 +5027,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP020",
       "subject": "powerplant",
       "topic": "Fuel energy",
@@ -4786,6 +5046,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP021",
       "subject": "powerplant",
       "topic": "Shaft power",
@@ -4804,6 +5065,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP022",
       "subject": "powerplant",
       "topic": "Compression ratio",
@@ -4822,6 +5084,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP023",
       "subject": "powerplant",
       "topic": "Thermal efficiency",
@@ -4840,6 +5103,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP024",
       "subject": "powerplant",
       "topic": "Jet thrust",
@@ -4858,6 +5122,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP025",
       "subject": "powerplant",
       "topic": "Thermodynamic cycles",
@@ -4876,6 +5141,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP026",
       "subject": "powerplant",
       "topic": "Fuel consumption",
@@ -4894,6 +5160,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP027",
       "subject": "powerplant",
       "topic": "Reciprocating engines",
@@ -4912,6 +5179,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP028",
       "subject": "powerplant",
       "topic": "Fuel energy",
@@ -4930,6 +5198,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP029",
       "subject": "powerplant",
       "topic": "Shaft power",
@@ -4948,6 +5217,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP030",
       "subject": "powerplant",
       "topic": "Compression ratio",
@@ -4966,6 +5236,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP031",
       "subject": "powerplant",
       "topic": "Thermal efficiency",
@@ -4984,6 +5255,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP032",
       "subject": "powerplant",
       "topic": "Jet thrust",
@@ -5002,6 +5274,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP033",
       "subject": "powerplant",
       "topic": "Thermodynamic cycles",
@@ -5020,6 +5293,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP034",
       "subject": "powerplant",
       "topic": "Fuel consumption",
@@ -5038,6 +5312,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP035",
       "subject": "powerplant",
       "topic": "Reciprocating engines",
@@ -5056,6 +5331,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP036",
       "subject": "powerplant",
       "topic": "Fuel energy",
@@ -5074,6 +5350,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP037",
       "subject": "powerplant",
       "topic": "Shaft power",
@@ -5092,6 +5369,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP038",
       "subject": "powerplant",
       "topic": "Compression ratio",
@@ -5110,6 +5388,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP039",
       "subject": "powerplant",
       "topic": "Thermal efficiency",
@@ -5128,6 +5407,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP040",
       "subject": "powerplant",
       "topic": "Jet thrust",
@@ -5146,6 +5426,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP041",
       "subject": "powerplant",
       "topic": "Thermodynamic cycles",
@@ -5164,6 +5445,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP042",
       "subject": "powerplant",
       "topic": "Fuel consumption",
@@ -5182,6 +5464,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP043",
       "subject": "powerplant",
       "topic": "Reciprocating engines",
@@ -5200,6 +5483,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP044",
       "subject": "powerplant",
       "topic": "Fuel energy",
@@ -5218,6 +5502,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP045",
       "subject": "powerplant",
       "topic": "Shaft power",
@@ -5236,6 +5521,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP046",
       "subject": "powerplant",
       "topic": "Compression ratio",
@@ -5254,6 +5540,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP047",
       "subject": "powerplant",
       "topic": "Thermal efficiency",
@@ -5272,6 +5559,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP048",
       "subject": "powerplant",
       "topic": "Jet thrust",
@@ -5290,6 +5578,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP049",
       "subject": "powerplant",
       "topic": "Thermodynamic cycles",
@@ -5308,6 +5597,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP050",
       "subject": "powerplant",
       "topic": "Fuel consumption",
@@ -5326,6 +5616,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP051",
       "subject": "powerplant",
       "topic": "Reciprocating engines",
@@ -5344,6 +5635,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP052",
       "subject": "powerplant",
       "topic": "Fuel energy",
@@ -5362,6 +5654,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP053",
       "subject": "powerplant",
       "topic": "Shaft power",
@@ -5380,6 +5673,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP054",
       "subject": "powerplant",
       "topic": "Compression ratio",
@@ -5398,6 +5692,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP055",
       "subject": "powerplant",
       "topic": "Thermal efficiency",
@@ -5416,6 +5711,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP056",
       "subject": "powerplant",
       "topic": "Jet thrust",
@@ -5434,6 +5730,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP057",
       "subject": "powerplant",
       "topic": "Thermodynamic cycles",
@@ -5452,6 +5749,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP058",
       "subject": "powerplant",
       "topic": "Fuel consumption",
@@ -5470,6 +5768,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP059",
       "subject": "powerplant",
       "topic": "Reciprocating engines",
@@ -5488,6 +5787,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "PP060",
       "subject": "powerplant",
       "topic": "Fuel energy",
@@ -5506,6 +5806,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE001",
       "subject": "ethics",
       "topic": "Professional law",
@@ -5524,6 +5825,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE002",
       "subject": "ethics",
       "topic": "Passing standard",
@@ -5542,6 +5844,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE003",
       "subject": "ethics",
       "topic": "Professional regulation",
@@ -5560,6 +5863,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE004",
       "subject": "ethics",
       "topic": "Professional law",
@@ -5578,6 +5882,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE005",
       "subject": "ethics",
       "topic": "Simple interest",
@@ -5596,6 +5901,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE006",
       "subject": "ethics",
       "topic": "Compound interest",
@@ -5614,6 +5920,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE007",
       "subject": "ethics",
       "topic": "Present value",
@@ -5632,6 +5939,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE008",
       "subject": "ethics",
       "topic": "Depreciation",
@@ -5650,6 +5958,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE009",
       "subject": "ethics",
       "topic": "Capital budgeting",
@@ -5668,6 +5977,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE010",
       "subject": "ethics",
       "topic": "Break-even analysis",
@@ -5686,6 +5996,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE011",
       "subject": "ethics",
       "topic": "Professional regulation",
@@ -5704,6 +6015,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE012",
       "subject": "ethics",
       "topic": "Professional registration",
@@ -5722,6 +6034,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE013",
       "subject": "ethics",
       "topic": "Simple interest",
@@ -5740,6 +6053,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE014",
       "subject": "ethics",
       "topic": "Compound interest",
@@ -5758,6 +6072,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE015",
       "subject": "ethics",
       "topic": "Present value",
@@ -5776,6 +6091,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE016",
       "subject": "ethics",
       "topic": "Depreciation",
@@ -5794,6 +6110,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE017",
       "subject": "ethics",
       "topic": "Break-even analysis",
@@ -5812,6 +6129,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE018",
       "subject": "ethics",
       "topic": "Cost analysis",
@@ -5830,6 +6148,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE019",
       "subject": "ethics",
       "topic": "Payback",
@@ -5848,6 +6167,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE020",
       "subject": "ethics",
       "topic": "Capital budgeting",
@@ -5866,6 +6186,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE021",
       "subject": "ethics",
       "topic": "Simple interest",
@@ -5884,6 +6205,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE022",
       "subject": "ethics",
       "topic": "Compound interest",
@@ -5902,6 +6224,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE023",
       "subject": "ethics",
       "topic": "Present value",
@@ -5920,6 +6243,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE024",
       "subject": "ethics",
       "topic": "Depreciation",
@@ -5938,6 +6262,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE025",
       "subject": "ethics",
       "topic": "Break-even analysis",
@@ -5956,6 +6281,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE026",
       "subject": "ethics",
       "topic": "Cost analysis",
@@ -5974,6 +6300,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE027",
       "subject": "ethics",
       "topic": "Payback",
@@ -5992,6 +6319,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE028",
       "subject": "ethics",
       "topic": "Capital budgeting",
@@ -6010,6 +6338,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE029",
       "subject": "ethics",
       "topic": "Simple interest",
@@ -6028,6 +6357,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE030",
       "subject": "ethics",
       "topic": "Compound interest",
@@ -6046,6 +6376,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE031",
       "subject": "ethics",
       "topic": "Present value",
@@ -6064,6 +6395,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE032",
       "subject": "ethics",
       "topic": "Depreciation",
@@ -6082,6 +6414,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE033",
       "subject": "ethics",
       "topic": "Break-even analysis",
@@ -6100,6 +6433,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE034",
       "subject": "ethics",
       "topic": "Cost analysis",
@@ -6118,6 +6452,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE035",
       "subject": "ethics",
       "topic": "Payback",
@@ -6136,6 +6471,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE036",
       "subject": "ethics",
       "topic": "Capital budgeting",
@@ -6154,6 +6490,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE037",
       "subject": "ethics",
       "topic": "Simple interest",
@@ -6172,6 +6509,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE038",
       "subject": "ethics",
       "topic": "Compound interest",
@@ -6190,6 +6528,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE039",
       "subject": "ethics",
       "topic": "Present value",
@@ -6208,6 +6547,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE040",
       "subject": "ethics",
       "topic": "Depreciation",
@@ -6226,6 +6566,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE041",
       "subject": "ethics",
       "topic": "Break-even analysis",
@@ -6244,6 +6585,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE042",
       "subject": "ethics",
       "topic": "Cost analysis",
@@ -6262,6 +6604,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE043",
       "subject": "ethics",
       "topic": "Payback",
@@ -6280,6 +6623,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE044",
       "subject": "ethics",
       "topic": "Capital budgeting",
@@ -6298,6 +6642,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE045",
       "subject": "ethics",
       "topic": "Simple interest",
@@ -6316,6 +6661,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE046",
       "subject": "ethics",
       "topic": "Compound interest",
@@ -6334,6 +6680,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE047",
       "subject": "ethics",
       "topic": "Present value",
@@ -6352,6 +6699,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE048",
       "subject": "ethics",
       "topic": "Depreciation",
@@ -6370,6 +6718,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE049",
       "subject": "ethics",
       "topic": "Break-even analysis",
@@ -6388,6 +6737,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE050",
       "subject": "ethics",
       "topic": "Cost analysis",
@@ -6406,6 +6756,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE051",
       "subject": "ethics",
       "topic": "Payback",
@@ -6424,6 +6775,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE052",
       "subject": "ethics",
       "topic": "Capital budgeting",
@@ -6442,6 +6794,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE053",
       "subject": "ethics",
       "topic": "Simple interest",
@@ -6460,6 +6813,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE054",
       "subject": "ethics",
       "topic": "Compound interest",
@@ -6478,6 +6832,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE055",
       "subject": "ethics",
       "topic": "Present value",
@@ -6496,6 +6851,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE056",
       "subject": "ethics",
       "topic": "Depreciation",
@@ -6514,6 +6870,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE057",
       "subject": "ethics",
       "topic": "Break-even analysis",
@@ -6532,6 +6889,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE058",
       "subject": "ethics",
       "topic": "Cost analysis",
@@ -6550,6 +6908,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE059",
       "subject": "ethics",
       "topic": "Payback",
@@ -6568,6 +6927,7 @@
       "reviewedAt": "2026-11-13"
     },
     {
+      "origin": "AI",
       "id": "EE060",
       "subject": "ethics",
       "topic": "Capital budgeting",

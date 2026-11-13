@@ -1,9 +1,11 @@
 'use strict';
 const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const KEY='ae-prepware-v1',BANKKEY='ae-prepware-custom-bank',VERSION='0.2.0-rc.1';
+const KEY='ae-prepware-v1',BANKKEY='ae-prepware-custom-bank',VERSION='0.3.0-rc.1';
 const shortNames={math:'Mathematics',aero:'Aerodynamics',structures:'Structures & design',construction:'Construction & repair',powerplant:'Power plant',ethics:'Economics, laws & ethics'};
 let bank,bundled,state,account=null,tab='home',result=null,ranking=null,storageBlocked=false,busy=false,newRecovery=null;
 const stateKey=()=>Accounts.key(account),bankKey=()=>account?'ae-bank-'+account:BANKKEY;
+const sourcesSelected=()=>{const ai=$('[data-source=AI]')?.checked,ins=$('[data-source=IN]')?.checked;return ai&&ins?'hybrid':ai?'AI':ins?'IN':'';};
+const poolReady=(subject,mode)=>{const c=AE.sourceCounts(state,bank,subject);return mode==='hybrid'?c.AI>=25&&c.IN>=25:!!mode&&c[mode]>=50;};
 const subjectName=id=>id==='mixed'?'Mixed subjects':shortNames[id]||id||'Practice';
 function notice(message=''){$('#notice').textContent=message;}
 function save(){
@@ -21,21 +23,22 @@ function render(){
  ({home:renderHome,study:renderHome,quiz:renderQuiz,result:renderResult,progress:renderProgress,ranks:renderRanks,account:renderAccount,settings:renderSettings}[tab]||renderHome)();
 }
 function renderHome(){
- $('#app').innerHTML=`${accountLine()}<h1>Choose a subject</h1><p class="muted">50 questions. One answer at a time.</p>${state.session?`<button class="btn full spaced" data-action="resume">Continue · ${state.session.index+1} / ${state.session.ids.length}</button>`:''}<div class="subject-tabs" aria-label="Exam subjects">${bank.subjects.map(s=>`<button class="subject-tab" data-subject="${esc(s.id)}"><strong>${esc(subjectName(s.id))}</strong><small>${bank.questions.filter(q=>q.subject===s.id&&!state.flags.includes(q.id)).length} available · ${s.weight}% exam weight</small></button>`).join('')}</div><label for="selection">Question selection</label><select id="selection"><option value="random" ${state.selection==='random'?'selected':''}>Random</option><option value="adaptive" ${state.selection==='adaptive'?'selected':''}>Adaptive · focus on mistakes</option><option value="ai" ${state.selection==='ai'?'selected':''}>AI assisted · connected account</option></select><p class="inline-note">Answers appear after each choice. Open Explanation only when you need it.</p><p class="fine">${bank.questions.length} foundation questions, including calculation variants. Faculty review pending. Not official PRC questions or complete board coverage.</p>`;
+ $('#app').innerHTML=`${accountLine()}<h1>Choose a subject</h1><p class="muted">50 questions. One answer at a time.</p><fieldset class="source-picker"><legend>Test bank</legend><label><input type="checkbox" data-source="AI" ${['AI','hybrid'].includes(state.sourceMode??'AI')?'checked':''}> AI · AI-produced</label><label><input type="checkbox" data-source="IN" ${['IN','hybrid'].includes(state.sourceMode)?'checked':''}> IN · Instructor-uploaded</label><p class="inline-note">Tick both for Hybrid: 25 AI + 25 IN. One source: 50 questions.</p></fieldset>${state.session?`<button class="btn full spaced" data-action="resume">Continue · ${state.session.index+1} / ${state.session.ids.length}</button>`:''}<div class="subject-tabs" aria-label="Exam subjects">${bank.subjects.map(s=>`<button class="subject-tab" data-subject="${esc(s.id)}" ${poolReady(s.id,state.sourceMode??'AI')?'':'disabled'}><strong>${esc(subjectName(s.id))}</strong><small>${AE.sourceCounts(state,bank,s.id).AI} AI · ${AE.sourceCounts(state,bank,s.id).IN} IN · ${s.weight}% exam weight</small></button>`).join('')}</div><label for="selection">Question selection</label><select id="selection"><option value="random" ${state.selection==='random'?'selected':''}>Random</option><option value="adaptive" ${state.selection==='adaptive'?'selected':''}>Adaptive · focus on mistakes</option><option value="ai" ${state.selection==='ai'?'selected':''}>AI assisted · connected account</option></select><p class="inline-note">Answers appear after each choice. Open Explanation only when you need it.</p><p class="fine">${bank.questions.filter(q=>q.active!==false).length} active questions. AI includes calculation variants. IN becomes available after a reviewed instructor import. Faculty review pending. Not official PRC questions or complete board coverage.</p>`;
 }
 async function begin(subject){
  if(storageBlocked)throw Error('Recover storage in Settings before answering.');
  if(state.session&&!await ask('Start another session?','Answered questions stay in progress. This replaces the unfinished session.','Start 50 questions'))return;
+ const sourceMode=sourcesSelected();if(!poolReady(subject,sourceMode))throw Error('Choose an available AI/IN pool: 50 from one source or 25 of each.');state.sourceMode=sourceMode;
  const selection=$('#selection')?.value||state.selection||'random';state.selection=selection;
  let questions,mode='subject';
  if(selection==='ai'&&account&&state.cohort&&state.endpoint){
-  const plan=await request('/accounts/plan',{subject,ai:true},true);
+  const plan=await request('/accounts/plan',{subject,ai:true,sourceMode},true);
   if(plan.bankVersion!==bank.version||!Array.isArray(plan.ids)||plan.ids.length!==50||new Set(plan.ids).size!==50)throw Error('The service returned an incompatible question selection.');
   questions=plan.ids.map(id=>bank.questions.find(q=>q.id===id&&q.subject===subject));
-  if(questions.some(q=>!q)||questions.some(q=>state.flags.includes(q.id))){questions=AE.pick(state,bank,'adaptive-subject',subject,50);mode='adaptive-subject';notice('Used local adaptive selection to respect set-aside questions.');}
+  if(questions.some(q=>!q||q.active===false||state.flags.includes(q.id))||['AI','IN'].some(src=>questions.filter(q=>q&&AE.origin(q)===src).length!==(sourceMode==='hybrid'?25:sourceMode===src?50:0))){questions=AE.pickSources(state,bank,'adaptive-subject',subject,sourceMode);mode='adaptive-subject';notice('Used local adaptive selection to respect set-aside questions.');}
   else notice(plan.selection==='ai-assisted'?'AI-assisted topic selection. Questions and keys come from the test bank.':'AI unavailable. Used account-based adaptive selection.');
  }else{
-  mode=selection==='random'?'subject':'adaptive-subject';questions=AE.pick(state,bank,mode,subject,50);
+  mode=selection==='random'?'subject':'adaptive-subject';questions=AE.pickSources(state,bank,mode,subject,sourceMode);
   if(selection==='ai')notice('AI needs a connected account. Used local adaptive selection.');else notice('');
  }
  AE.start(state,questions,mode);save();setTab('quiz');
@@ -44,7 +47,7 @@ function renderQuiz(){
  const t=state.session;if(!t){setTab('home');return;}
  const q=bank.questions.find(q=>q.id===t.ids[t.index]),chosen=t.answers[t.index],checked=chosen!==null,ok=chosen===q.answer,order=t.orders[t.index],letter='ABCD'[order.indexOf(q.answer)];
  const deferred=['mock','cohort'].includes(t.mode); // Preserve unfinished v0.1 sessions.
- $('#app').innerHTML=`<div class="row"><button class="link" data-tab="home">← Save & exit</button><span class="eyebrow">${t.index+1} / ${t.ids.length}</span></div><progress class="bar" max="${t.ids.length}" value="${t.index+(checked?1:0)}"></progress><p class="eyebrow">${esc(subjectName(q.subject))}</p><h1 class="question">${esc(q.prompt)}</h1>${order.map((original,i)=>`<button class="choice ${checked&&!deferred&&original===q.answer?'correct':checked&&!deferred&&original===chosen&&!ok?'wrong':''}" data-choice="${original}" ${checked?'disabled':''}><span class="letter">${'ABCD'[i]}</span><span>${esc(q.choices[original])}</span></button>`).join('')}${checked?deferred?'<p class="inline-note">Answer saved. Review appears after submission for this older session.</p>':`<div class="feedback ${ok?'':'bad'}" role="status"><strong>${ok?'Correct':'Incorrect'}</strong>${ok?'':`<p>Correct answer: <b>${letter}</b> · ${esc(q.choices[q.answer])}</p>`}</div>${explanation(q)}`:'<p class="inline-note">Select A, B, C or D.</p>'}${checked?`<button class="btn full spaced" data-action="next">${t.index===t.ids.length-1?'Finish & see score':'Next question →'}</button>`:''}<div class="row spaced"><button class="link" data-action="bookmark">${state.bookmarks.includes(q.id)?'★ Saved':'☆ Save question'}</button><button class="link" data-action="report">Set aside</button></div>`;
+ $('#app').innerHTML=`<div class="row"><button class="link" data-tab="home">← Save & exit</button><span class="eyebrow">${t.index+1} / ${t.ids.length}</span></div><progress class="bar" max="${t.ids.length}" value="${t.index+(checked?1:0)}"></progress><p class="eyebrow">${esc(subjectName(q.subject))} · <span class="source-badge">${AE.origin(q)}</span></p><h1 class="question">${esc(q.prompt)}</h1>${order.map((original,i)=>`<button class="choice ${checked&&!deferred&&original===q.answer?'correct':checked&&!deferred&&original===chosen&&!ok?'wrong':''}" data-choice="${original}" ${checked?'disabled':''}><span class="letter">${'ABCD'[i]}</span><span>${esc(q.choices[original])}</span></button>`).join('')}${checked?deferred?'<p class="inline-note">Answer saved. Review appears after submission for this older session.</p>':`<div class="feedback ${ok?'':'bad'}" role="status"><strong>${ok?'Correct':'Incorrect'}</strong>${ok?'':`<p>Correct answer: <b>${letter}</b> · ${esc(q.choices[q.answer])}</p>`}</div>${explanation(q)}`:'<p class="inline-note">Select A, B, C or D.</p>'}${checked?`<button class="btn full spaced" data-action="next">${t.index===t.ids.length-1?'Finish & see score':'Next question →'}</button>`:''}<div class="row spaced"><button class="link" data-action="bookmark">${state.bookmarks.includes(q.id)?'★ Saved':'☆ Save question'}</button><button class="link" data-action="report">Set aside</button></div>`;
 }
 async function next(){
  const t=state.session;if(!t||t.answers[t.index]===null)return;
@@ -92,7 +95,7 @@ async function syncResults(){
  notice('All saved results synced.');
 }
 function validateRemote(r,number){if(r.number!==number||r.bankVersion!==bank.version||typeof r.token!=='string'||!r.stats||!Array.isArray(r.history))throw Error('The service returned an incompatible account or bank.');}
-async function loadProfile(number){account=number;bank=structuredClone(bundled);const raw=localStorage.getItem(bankKey());if(raw)bank=AE.validateBank(JSON.parse(raw),true);state=AE.validateState(JSON.parse(localStorage.getItem(stateKey())),bank);if(state.accountNumber!==number)throw Error('Account profile mismatch.');state.pending=state.pending||[];state.selection=state.selection||'random';ranking=null;storageBlocked=false;}
+async function loadProfile(number){account=number;bank=structuredClone(bundled);const raw=localStorage.getItem(bankKey());if(raw)bank=AE.validateBank(JSON.parse(raw),true,bundled);state=AE.validateState(JSON.parse(localStorage.getItem(stateKey())),bank);if(state.accountNumber!==number)throw Error('Account profile mismatch.');state.pending=state.pending||[];state.selection=state.selection||'random';ranking=null;storageBlocked=false;}
 async function doAction(action){
  if(action==='resume')return setTab('quiz');
  if(action==='next')return next();
@@ -108,7 +111,7 @@ async function doAction(action){
   if(!/^AE-\d{16}$/.test(number)||!/^[a-f0-9]{64}$/.test(recovery))throw Error('Enter your account number and complete recovery code.');
   if(Accounts.index(localStorage).some(p=>p.number===number)){
    const existing=await Accounts.login(localStorage,number,recovery);
-   const chosenBank=localStorage.getItem('ae-bank-'+number);AE.validateState(existing,chosenBank?AE.validateBank(JSON.parse(chosenBank),true):bundled);
+   const chosenBank=localStorage.getItem('ae-bank-'+number);AE.validateState(existing,chosenBank?AE.validateBank(JSON.parse(chosenBank),true,bundled):bundled);
    localStorage.setItem(Accounts.ACTIVE,number);await loadProfile(number);
   }else{
    if(!url)throw Error('Enter the HTTPS service URL to recover an account from another device.');
@@ -131,7 +134,7 @@ async function doAction(action){
  }
  if(action==='signout'&&await ask('Sign out?','Save your recovery code and progress backup first. Local account data stays on this device.','Sign out')){
   if(state.cohort&&state.endpoint){try{await request('/accounts/logout',{},true);}catch{ /* Offline signout still clears this device token. */ }}
-  state.cohort=null;save();localStorage.removeItem(Accounts.ACTIVE);account=null;bank=structuredClone(bundled);const guestBank=localStorage.getItem(BANKKEY);if(guestBank)bank=AE.validateBank(JSON.parse(guestBank),true);const raw=localStorage.getItem(KEY);state=raw?AE.validateState(JSON.parse(raw),bank):AE.fresh();newRecovery=null;ranking=null;setTab('account');notice('Signed out.');return;
+  state.cohort=null;save();localStorage.removeItem(Accounts.ACTIVE);account=null;bank=structuredClone(bundled);const guestBank=localStorage.getItem(BANKKEY);if(guestBank)bank=AE.validateBank(JSON.parse(guestBank),true,bundled);const raw=localStorage.getItem(KEY);state=raw?AE.validateState(JSON.parse(raw),bank):AE.fresh();newRecovery=null;ranking=null;setTab('account');notice('Signed out.');return;
  }
  if(action==='delete-account'&&await ask('Permanently delete online account?','All online results, progress and ranking for this account will be deleted. Local results remain.','Delete online')){await request('/accounts/delete',{},true);state.cohort=null;state.history.forEach(h=>h.synced=false);save();render();notice('Online account deleted. Local results remain; they are not automatically re-uploaded.');return;}
  if(action==='refresh-ranks'){ranking=await request('/accounts/leaderboard');if(!Array.isArray(ranking.entries))throw Error('Invalid ranking response.');render();notice('Ranking updated.');return;}
@@ -152,18 +155,23 @@ window.receiveImport=async function(text){try{
  if(data.type==='ae-account-recovery'){if(!/^AE-\d{16}$/.test(data.number)||!/^[a-f0-9]{64}$/.test(data.recovery))throw Error('Invalid account recovery file.');setTab('account');if(!account){$('details.card').open=true;$('#login-number').value=data.number;$('#login-code').value=data.recovery;notice('Account recovery loaded. Sign in to continue.');}else if(data.number===account){$('#connect-code').value=data.recovery;notice('Recovery code loaded for this account.');}else throw Error('Sign out before recovering a different account.');return;}
  if(data.type==='ae-progress'){
   const legacy=data.bankVersion==='2026.11-foundations.1'&&bank.version==='2026.11-foundations.2';
-  if(data.bankVersion!==bank.version&&!legacy)throw Error('Backup bank version differs. Import the matching approved bank first.');
+  if(data.bankVersion!==bank.version&&data.bankVersion!==bank.extends&&!legacy)throw Error('Backup bank version differs. Import the matching approved bank first.');
   AE.validateState(data.state,bank);if((data.state.accountNumber||null)!==account)throw Error('Sign in to the matching account before importing this backup.');
   if(!await ask('Replace current profile progress?','Export your current backup first. This changes only the signed-in profile.','Replace progress'))return;
   state=data.state;state.pending=state.pending||[];state.selection=state.selection||'random';state.cohort=null;storageBlocked=false;save();setTab('home');notice('Backup restored.');
  }else{
+  if(data.extends===bank.version){
+   AE.validateRefresh(bank,data);AE.validateState(state,data);
+   if(!await ask('Refresh question bank?','Reviewed updates apply to future sessions. Saved results, queued answers and the current session keep their original questions.','Refresh bank'))return;
+   localStorage.setItem(bankKey(),JSON.stringify(data));bank=data;render();notice('Question bank refreshed. Your progress and queued results are preserved.');return;
+  }
   AE.validateBank(data,true);if(state.pending?.length)throw Error('Sync pending results before changing the question bank. Export a backup if the service is unavailable.');
   if(!await ask('Replace current profile bank?','All questions must be faculty approved. This resets this profile’s progress. Export a backup first.','Use approved bank'))return;
   const next=AE.fresh();next.name=state.name;next.accountNumber=account;localStorage.setItem(bankKey(),JSON.stringify(data));bank=data;state=next;storageBlocked=false;save();setTab('home');notice('Approved question bank imported for this profile.');
  }
  }catch(e){notice('Import stopped: '+e.message);}};
 window.handleBack=()=>{if($('#modal').open){$('#cancel').click();return;}setTab('home');};
-document.addEventListener('change',e=>{if(e.target.id==='selection'){try{state.selection=e.target.value;save();}catch(err){notice(err.message);}}});
+document.addEventListener('change',e=>{if(e.target.dataset.source){try{state.sourceMode=sourcesSelected();save();render();}catch(err){notice(err.message);}return;}if(e.target.id==='selection'){try{state.selection=e.target.value;save();}catch(err){notice(err.message);}}});
 document.addEventListener('click',async e=>{
  const el=e.target.closest('[data-action],[data-tab],[data-choice],[data-subject],[data-result]');if(!el||busy||el.disabled)return;
  try{busy=true;el.setAttribute('aria-busy','true');
@@ -178,7 +186,7 @@ $('#import').addEventListener('change',async e=>{const f=e.target.files[0];if(f)
 (async()=>{try{
  const response=await fetch('bank.json');if(!response.ok)throw Error('Bundled bank is unavailable.');bundled=AE.validateBank(await response.json());bank=structuredClone(bundled);state=AE.fresh();
  try{account=Accounts.active(localStorage);}catch{storageBlocked=true;notice('Account directory could not be read. Existing profile records are preserved.');}
- try{const custom=localStorage.getItem(bankKey());if(custom)bank=AE.validateBank(JSON.parse(custom),true);}catch{storageBlocked=true;notice('Imported bank could not be read. Export recovery data in Settings before recovery.');}
+ try{const custom=localStorage.getItem(bankKey());if(custom)bank=AE.validateBank(JSON.parse(custom),true,bundled);}catch{storageBlocked=true;notice('Imported bank could not be read. Export recovery data in Settings before recovery.');}
  try{const raw=localStorage.getItem(stateKey());if(raw)state=AE.validateState(JSON.parse(raw),bank);if((state.accountNumber||null)!==account)throw Error('Profile mismatch');state.pending=state.pending||[];state.selection=state.selection||'random';}catch{storageBlocked=true;state=AE.fresh();state.accountNumber=account;notice('Saved progress could not be read. It has been preserved. Open Settings to export the raw record or recover from a backup.');}
  render();
  }catch(e){$('#app').innerHTML=`<h1>Could not open Prepware</h1><p>${esc(e.message)}</p><p>Your stored data has not been erased.</p>`;}})();

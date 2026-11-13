@@ -41,3 +41,27 @@ Streamlit remains a separately hosted private faculty dashboard. Secrets support
 release.json pins versionCode, version and permanent certificate fingerprint. Private signer is backed up separately; public certificate is committed. Source commit is built and signed privately; a subsequent commit adds the prepared signed APK plus source digest, checksum and public reports. CI independently rebuilds and compares all ZIP payload entries except the changing VCS marker, verifies cert/manifest/assets/digest, and publishes the same signed bytes only after required gates. No private key is committed, uploaded to CI, or included in APK.
 
 Initial transition from v0.1 requires backup/uninstall/reinstall because its CI debug private key is unavailable. v0.2+ updates must raise versionCode and retain the permanent signer. Physical Android install/update/content review still gate stable release.
+
+
+## v0.3 provenance and bank lifecycle
+
+`origin` is AI or IN (legacy records default to AI). IN additionally requires
+approved review metadata and upload file/locator/rights. Session selection uses
+only active, unreported questions: one source 50 or Hybrid 25 each. AI topic
+planning obeys the same quotas and cannot generate scored keys.
+
+Faculty editing is behind separate server-side scrypt authentication. Every
+correction retains the original origin and appends an approved ID with
+`supersedes`; the old ID becomes inactive for future draws but remains available
+for old sessions/results. `extends` links an exported refresh to its starting
+bank version. Existing grading/display/citation/review fields are immutable.
+Multiple dashboard edits in one workspace export one refresh from its baseline.
+Mobile validates compatibility before persisting the new bank, leaving progress
+untouched. Persistence failure leaves the old in-memory bank and state intact.
+A crash after the new append-only bank is stored still has a compatible old state.
+
+The service snapshots full banks in SQLite bank_versions and refuses reused
+versions with different content or mutation/removal of archived IDs. Queued
+results use their archived version, not the current key. Server bank activation
+is an explicit single-worker restart with the exported file; there is no live
+mutable scoring endpoint. Restricted source documents stay outside public git.

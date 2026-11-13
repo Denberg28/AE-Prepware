@@ -43,6 +43,7 @@ jobs:
       - run: node --test tests/*.test.cjs
       - run: npx playwright install --with-deps chromium
       - run: mkdir -p artifacts && node tests/browser.cjs | tee artifacts/browser.txt
+      - run: node tests/sources-browser.cjs | tee artifacts/sources-browser.txt
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'

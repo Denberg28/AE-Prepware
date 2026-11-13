@@ -1,4 +1,4 @@
-# Verification gates — v0.2.0-rc.1
+# Verification gates — v0.3.0-rc.1
 
 Scope/acceptance is in V0_2_SCOPE.md. Candidate gates below run on final source; physical Android and faculty review block stable promotion. No motors or custom hardware are controlled, so physical-control HIL is N/A. Desktop simulation is not phone testing.
 
@@ -34,3 +34,20 @@ Record device, Android/System WebView versions, APK hash and certificate fingerp
 ## Evidence and tier
 
 See evidence/V0_2_VERIFICATION.md. PASS/FAIL/NOT TESTED/BLOCKED refer only to observed checks. Missing phone, live hosting/AI or content checks must be disclosed. No stable promotion or pass guarantee. Preserve the existing release; never reuse a version/tag for changed APK bytes.
+
+## v0.3 source and admin regression
+
+Run `node tests/sources-browser.cjs` after creating artifacts. Synthetic IN fixtures
+are test-only and are never bundled. It verifies empty/no-source blocking,
+AI/IN source labels, 25+25 Hybrid selection, compatible refresh cancellation and
+confirmation, original-key resume/score, tamper rejection and 320 px layout.
+`tests/test_authoring.py` uses the actual Streamlit AppTest to verify failed login,
+admin-only edit access, reviewed versioned correction, and signout. Actual
+FastAPI/SQLite restart tests verify original queued-key grading and source quotas.
+The merge tests reject unapproved/unknown-rights/duplicate records atomically.
+Python and JS core tests verify old scores/queues/sessions remain valid.
+
+Physical tests must additionally import a reviewed bank using Android SAF,
+resume an old-key session, verify AI/IN/Hybrid pools, install this candidate over
+v0.2 with the same certificate and confirm profile data survives. Desktop browser
+or static certificate checks do not replace these physical-device gates.

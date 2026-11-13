@@ -35,6 +35,7 @@ class Selection(BaseModel):
     model_config = ConfigDict(extra='forbid', strict=True)
     subject: str = Field(min_length=1, max_length=30)
     ai: bool = False
+    sourceMode: str = Field(default='AI', pattern=r'^(AI|IN|hybrid)$')
 
 
 def recovery_hash(code, salt):
@@ -50,7 +51,20 @@ def attach_accounts(app, db, rate, clock, bank):
         CREATE TABLE IF NOT EXISTS study_results(account TEXT NOT NULL REFERENCES study_accounts(number) ON DELETE CASCADE,id TEXT NOT NULL,payload TEXT NOT NULL,result TEXT NOT NULL,created REAL NOT NULL,PRIMARY KEY(account,id));
         CREATE TABLE IF NOT EXISTS account_progress(account TEXT NOT NULL REFERENCES study_accounts(number) ON DELETE CASCADE,question TEXT NOT NULL,seen INTEGER NOT NULL,correct INTEGER NOT NULL,streak INTEGER NOT NULL,last REAL NOT NULL,PRIMARY KEY(account,question));
         CREATE TABLE IF NOT EXISTS account_credits(account TEXT NOT NULL REFERENCES study_accounts(number) ON DELETE CASCADE,day TEXT NOT NULL,question TEXT NOT NULL,PRIMARY KEY(account,day,question));
+        CREATE TABLE IF NOT EXISTS bank_versions(version TEXT PRIMARY KEY,payload TEXT NOT NULL);
         ''')
+        saved = c.execute('SELECT payload FROM bank_versions WHERE version=?', (bank['version'],)).fetchone()
+        if saved and json.loads(saved['payload']) != bank:
+            raise ValueError('Bank version already exists with different content; use a new version')
+        # Archived keys support results queued before an append-only correction.
+        archived = [json.loads(r['payload']) for r in c.execute('SELECT payload FROM bank_versions')]
+        from .authoring import question_content
+        for previous in archived:
+            for q in previous['questions']:
+                if q['id'] not in questions or question_content(previous, q) != question_content(bank, questions[q['id']]):
+                    raise ValueError('Bank removes or mutates an archived question: ' + q['id'])
+        c.execute('INSERT OR IGNORE INTO bank_versions VALUES(?,?)', (bank['version'], json.dumps(bank)))
+    versions = {b['version']: {q['id']: q for q in b['questions']} for b in [*archived, bank]}
 
     def ip_bucket(request):
         return hashlib.sha256((request.client.host if request.client else 'unknown').encode()).hexdigest()
@@ -142,15 +156,16 @@ def attach_accounts(app, db, rate, clock, bank):
                 if old['payload']!=canonical:
                     raise HTTPException(409, 'This session ID already has different answers.')
                 return json.loads(old['result'])
-            if body.bankVersion!=bank['version']:
+            grading = versions.get(body.bankVersion)
+            if grading is None:
                 raise HTTPException(409, 'Question bank versions differ. Preserve the queued result and use the matching API bank.')
             ids=[a.id for a in body.answers]
-            if body.subject not in SUBJECTS or len(set(ids))!=50 or any(i not in questions or questions[i]['subject']!=body.subject for i in ids):
+            if body.subject not in SUBJECTS or len(set(ids))!=50 or any(i not in grading or grading[i]['subject']!=body.subject for i in ids):
                 raise HTTPException(422, 'Provide 50 distinct bank questions from the selected subject.')
             now=clock(); day=datetime.fromtimestamp(now,ZoneInfo('Asia/Manila')).strftime('%Y-%m-%d')
             correct=0; credited=0
             for a in body.answers:
-                ok=int(a.choice==questions[a.id]['answer']); correct+=ok
+                ok=int(a.choice==grading[a.id]['answer']); correct+=ok
                 row=c.execute('SELECT * FROM account_progress WHERE account=? AND question=?', (who['number'],a.id)).fetchone()
                 seen=(row['seen'] if row else 0)+1
                 successes=(row['correct'] if row else 0)+ok
@@ -158,7 +173,7 @@ def attach_accounts(app, db, rate, clock, bank):
                 c.execute('INSERT OR REPLACE INTO account_progress VALUES(?,?,?,?,?,?)', (who['number'],a.id,seen,successes,streak,now))
                 if ok:
                     credited+=c.execute('INSERT OR IGNORE INTO account_credits VALUES(?,?,?)',(who['number'],day,a.id)).rowcount
-            result={'id':body.id,'accountNumber':who['number'],'subject':body.subject,'bankVersion':bank['version'],'mode':'subject','total':50,'correct':correct,'date':int(now*1000),'ids':ids,'answers':[a.choice for a in body.answers],'credited':credited,'synced':True}
+            result={'id':body.id,'accountNumber':who['number'],'subject':body.subject,'bankVersion':body.bankVersion,'mode':'subject','total':50,'correct':correct,'date':int(now*1000),'ids':ids,'answers':[a.choice for a in body.answers],'credited':credited,'synced':True}
             c.execute('INSERT INTO study_results VALUES(?,?,?,?,?)', (who['number'],body.id,canonical,json.dumps(result),now))
             return result
 
@@ -175,9 +190,10 @@ def attach_accounts(app, db, rate, clock, bank):
     @app.post('/accounts/plan')
     def plan(body: Selection, who=Depends(identity)):
         rate('account-plan:'+who['number'], 20, 3600)
-        pool=[q for q in bank['questions'] if q['subject']==body.subject]
-        if len(pool)<50:
-            raise HTTPException(409, 'This subject needs at least 50 bank questions.')
+        needs = {'AI': 25, 'IN': 25} if body.sourceMode == 'hybrid' else {body.sourceMode: 50}
+        pool=[q for q in bank['questions'] if q['subject']==body.subject and q.get('active', True) and q.get('origin', 'AI') in needs]
+        if any(sum(q.get('origin', 'AI') == source for q in pool) < count for source, count in needs.items()):
+            raise HTTPException(409, 'Not enough active questions for the selected AI/IN source. Hybrid needs 25 of each; a single source needs 50.')
         with db() as c:
             progress={r['question']:dict(r) for r in c.execute('SELECT * FROM account_progress WHERE account=?', (who['number'],))}
         topics=sorted({q['topic'] for q in pool}); focus=[]; selection='adaptive'
@@ -205,5 +221,8 @@ def attach_accounts(app, db, rate, clock, bank):
         def priority(q):
             p=progress.get(q['id'])
             return (5 if q['topic'] in focus else 0)+(6 if p and p['streak']==0 else 3 if not p else 1)+rng.random()*4
-        chosen=sorted(pool,key=priority,reverse=True)[:50];rng.shuffle(chosen)
+        chosen=[]
+        for source, count in needs.items():
+            chosen.extend(sorted((q for q in pool if q.get('origin', 'AI') == source), key=priority, reverse=True)[:count])
+        rng.shuffle(chosen)
         return {'bankVersion':bank['version'],'ids':[q['id'] for q in chosen],'selection':selection,'topics':focus}

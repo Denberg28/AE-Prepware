@@ -1,4 +1,4 @@
-# Known limitations — v0.2.0-rc.1
+# Known limitations — v0.3.0-rc.1
 
 - **Test candidate:** physical Android installation, Storage Access Framework, lifecycle, accessibility, and in-place same-signer update have no device evidence. Stable promotion remains blocked.
 - **Foundation bank:** 360 items/60 per subject includes parameter variants, not 360 independently reviewed competencies. Independent faculty review is pending; advanced TOS coverage remains incomplete. Source/structure/arithmetic checks do not substitute for faculty validation.
@@ -8,5 +8,7 @@
 - **Practice ranking:** offline answer keys and self-selected names mean scores are not secure exam results. Server grading prevents accidental client score submission, not deliberate answer lookup.
 - **Account recovery:** no email or reset service. Keep the private recovery file and a separate progress backup. Code is shown at creation and cannot later be recovered from its local verifier. App profiles do not encrypt data against an unlocked-device user.
 - **Sync scope:** only completed account-bound 50-item sessions sync. Historical guest sessions and older 10/20-item work remain local. Flags, bookmarks and unfinished sessions require device backup. Last 200 results displayed; pending queue 200, local profiles 10. Token lifetime 30 days; reconnect with recovery code. New device can recover only data already synced.
-- **Bank changes:** pending results need the matching server bank version. Do not replace a bank while results remain queued; export a backup first. No automatic multi-bank server archival or downgrade conversion.
+- **Bank changes:** compatible append-only refreshes preserve progress and queued results. API `bank_versions` archives are required to grade older queued sessions; unknown versions return a recoverable 409. Back up the SQLite database and export banks before updating. Unrelated full replacements still reset profile progress and are blocked with pending results. No downgrade conversion.
+- **IN content:** no recoverable instructor corpus was present; all six IN pools are empty until reviewed instructor JSON is imported. The prior reported 2,005-question import is not part of this candidate. Copyrighted source PDFs are not redistributed.
+- **Admin setup:** editing is disabled until separate server-side admin credentials are configured. Five-attempt throttling is per browser session, so privately share the dashboard or use authenticated hosting. Edits survive only after bank export; unexported dashboard session memory is temporary.
 - **Server scaling:** SQLite single-worker cohort service with request limits, not a public large-scale identity platform. Host behind TLS and proxy limits and back up the database privately.

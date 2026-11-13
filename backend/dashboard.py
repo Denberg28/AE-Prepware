@@ -16,6 +16,14 @@ st.caption('Faculty hangar · Coursework, question review and cohort standings')
 st.info('Run this dashboard privately. The student Android app works offline. AI drafts are unscored until an instructor checks and approves them.')
 if 'bank' not in st.session_state:st.session_state.bank=load_bank()
 bank=st.session_state.bank
+if 'bank_workspace_base' not in st.session_state: st.session_state.bank_workspace_base=copy.deepcopy(bank)
+def store_update(updated):
+    from backend.authoring import compatible_refresh
+    base=st.session_state.bank_workspace_base
+    updated['extends']=base['version']
+    compatible_refresh(base,updated)
+    st.session_state.bank=updated
+    st.session_state.bank_refresh=updated
 study,review,cohort=st.tabs(['Coursework','Question review','Cohort'])
 with study:
     selected=st.selectbox('Subject',bank['subjects'],format_func=lambda s:s['name'])
@@ -48,40 +56,71 @@ with study:
             st.markdown(st.session_state.ai_plan)
             st.download_button('Download draft plan',st.session_state.ai_plan,'AE-coursework-DRAFT.md')
 with review:
-    st.caption(f'{len(bank["questions"])} original foundation questions · {bank["version"]}')
-    upload=st.file_uploader('Open a bank JSON for review',type='json')
-    if upload and st.button('Load bank'):
-        try:
-            if upload.size>2_000_000:raise ValueError('File exceeds 2 MB')
-            candidate=validate_bank(json.loads(upload.getvalue()))
-            st.session_state.bank=candidate;st.session_state.approvals={};st.rerun()
-        except (ValueError,KeyError,TypeError) as exc:st.error(str(exc))
-    q=st.selectbox('Question',bank['questions'],format_func=lambda x:f'{x["id"]} · {x["topic"]}')
-    st.write(q['prompt'])
-    st.write('\n'.join(f'{"ABCD"[i]}. {c}' for i,c in enumerate(q['choices'])))
-    st.success('Current key: '+q['choices'][q['answer']])
-    st.write(q['explanation'])
-    src=bank['sources'][q['source']]
-    st.link_button(src['title'],src['url'])
-    st.caption(src['locator'])
-    st.caption('Use the repository generator or JSON editor to correct wording, choices and explanations before approving. Any edit requires a new bank version and re-review.')
-    reviewer=st.text_input('Instructor reviewer name')
-    checked=st.checkbox('I independently checked the wording, unique answer, calculation, units, explanation and cited source.',key='checked_'+q['id'])
-    if st.button('Approve this question',disabled=not (reviewer.strip() and checked)):
-        st.session_state.setdefault('approvals',{})[q['id']]={'review':'approved','reviewer':reviewer.strip(),'reviewedAt':date.today().isoformat()}
-        st.success('Approval recorded in this dashboard session. Export to preserve it.')
-    approvals=st.session_state.get('approvals',{})
-    approved=sum(x['review']=='approved' or x['id'] in approvals for x in bank['questions'])
-    st.write(f'{approved}/{len(bank["questions"])} instructor-approved')
-    export=copy.deepcopy(bank)
-    for item in export['questions']:item.update(approvals.get(item['id'],{}))
-    st.download_button('Save review work in progress',json.dumps(export,ensure_ascii=False,indent=2),'AE-bank-review-work.json')
-    version=st.text_input('New approved bank version',value=bank['version']+'-faculty1')
-    if approved==len(bank['questions']) and version.strip()!=bank['version']:
-        export['version']=version.strip();export['notice']='Original practice questions independently approved by the named instructors; not official PRC items or a pass guarantee.'
-        validate_bank(export,imported=True)
-        st.download_button('Export approved Android question bank',json.dumps(export,ensure_ascii=False,indent=2),'AE-approved-bank.json')
-    else:st.caption('All questions need instructor approval and a new version before the Android import can accept the bank.')
+    from backend.dashboard_auth import admin_gate
+    from backend.authoring import revise_question, merge_instructor_upload
+    st.caption(f'{len(bank["questions"])} question records · {bank["version"]}')
+    authorized = admin_gate()
+    if authorized:
+        upload = st.file_uploader('Open a saved bank workspace', type='json')
+        if upload and st.button('Load bank'):
+            try:
+                if upload.size > 2_000_000:
+                    raise ValueError('File exceeds 2 MB')
+                candidate = validate_bank(json.loads(upload.getvalue()), imported=True, trusted=load_bank())
+                st.session_state.bank = candidate
+                st.session_state.bank_workspace_base = copy.deepcopy(candidate)
+                st.session_state.pop('bank_refresh', None)
+                st.rerun()
+            except (ValueError, KeyError, TypeError) as exc:
+                st.error(str(exc))
+        active = [q for q in bank['questions'] if q.get('active', True)]
+        q = st.selectbox('Question', active, format_func=lambda x: f'{x.get("origin", "AI")} · {x["id"]} · {x["topic"]}')
+        st.caption('Source: ' + q.get('origin', 'AI') + ' · ' + q['review'])
+        st.write(q['prompt'])
+        st.write('\n'.join(f'{"ABCD"[i]}. {c}' for i, c in enumerate(q['choices'])))
+        st.success('Current key: ' + q['choices'][q['answer']])
+        st.write(q['explanation'])
+        src = bank['sources'][q['source']]
+        st.link_button(src['title'], src['url'])
+        st.caption(src['locator'])
+        if q.get('upload'):
+            st.caption('Upload: ' + q['upload']['file'] + ' · ' + q['upload']['locator'])
+        with st.form('edit_' + q['id']):
+            st.subheader('Correct this question')
+            prompt = st.text_area('Question text', q['prompt'])
+            choices = [st.text_input('Choice ' + letter, q['choices'][i]) for i, letter in enumerate('ABCD')]
+            answer = st.selectbox('Correct answer', list(range(4)), index=q['answer'], format_func=lambda i: 'ABCD'[i])
+            explanation = st.text_area('Explanation', q['explanation'])
+            reviewer = st.text_input('Instructor reviewer name')
+            version = st.text_input('New bank version', bank['version'] + '-revision1')
+            checked = st.checkbox('I independently checked this question, answer, explanation and source.')
+            commit_edit = st.form_submit_button('Save reviewed revision')
+        if commit_edit:
+            try:
+                if not checked:
+                    raise ValueError('Independent instructor review is required')
+                updated = revise_question(bank, q['id'], prompt=prompt, choices=choices,
+                    answer=answer, explanation=explanation, reviewer=reviewer, version=version)
+                store_update(updated)
+                st.rerun()
+            except (ValueError, KeyError, TypeError) as exc:
+                st.error(str(exc))
+        st.caption('A correction retires the old ID and creates a reviewed revision. Old scores keep the old key. Export after every edit; dashboard memory may reset on reboot.')
+        with st.expander('Add instructor questions · IN'):
+            incoming = st.file_uploader('Reviewed instructor JSON', type='json', key='in_upload')
+            incoming_version = st.text_input('Merged bank version', bank['version'] + '-IN1')
+            st.caption('Use the instructor_uploads folder schema. Each question needs source/page, upload filename, redistribution rights, reviewer and approval. PDF extraction never implies approval.')
+            if st.button('Add reviewed IN questions', disabled=incoming is None):
+                try:
+                    if incoming.size > 2_000_000:
+                        raise ValueError('File exceeds 2 MB')
+                    updated = merge_instructor_upload(bank, json.loads(incoming.getvalue()), incoming_version)
+                    store_update(updated)
+                    st.rerun()
+                except (ValueError, KeyError, TypeError) as exc:
+                    st.error(str(exc))
+        st.download_button('Save bank workspace / Android refresh', json.dumps(bank, ensure_ascii=False, indent=2), 'AE-bank-refresh.json')
+        st.caption('Import each exported refresh on the matching current bank in Android Settings. Progress, active sessions and queued results are retained for append-only updates. Restart the API with the same export after backing up its database.')
 with cohort:
     url=st.text_input('HTTPS cohort API root URL',value=setting('AE_API_URL'))
     if st.button('Load standings'):
