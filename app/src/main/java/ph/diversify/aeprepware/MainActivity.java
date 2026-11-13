@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.webkit.*;
 import android.view.View;
 import android.view.WindowInsets;
+import android.view.WindowInsetsController;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 import org.json.JSONObject;
@@ -19,6 +20,7 @@ import java.nio.charset.StandardCharsets;
 public final class MainActivity extends Activity {
     private static final String ORIGIN = "https://appassets.androidplatform.net";
     private WebView web;
+    private FrameLayout content;
     private String pendingExport;
     @Override public void onCreate(Bundle state) {
         super.onCreate(state);
@@ -31,7 +33,7 @@ public final class MainActivity extends Activity {
             View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
         getWindow().setStatusBarColor(Color.WHITE);
         getWindow().setNavigationBarColor(Color.WHITE);
-        FrameLayout content = new FrameLayout(this);
+        content = new FrameLayout(this);
         web = new WebView(this);
         content.addView(web, new FrameLayout.LayoutParams(-1, -1));
         setContentView(content);
@@ -54,6 +56,8 @@ public final class MainActivity extends Activity {
         settings.setAllowContentAccess(false);
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
         settings.setSafeBrowsingEnabled(true);
+        if (Build.VERSION.SDK_INT >= 33) settings.setAlgorithmicDarkeningAllowed(false);
+        else if (Build.VERSION.SDK_INT >= 29) settings.setForceDark(WebSettings.FORCE_DARK_OFF);
         web.addJavascriptInterface(new FilesBridge(), "AndroidFiles");
         web.setWebViewClient(new WebViewClient() {
             @Override public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest req) {
@@ -75,10 +79,39 @@ public final class MainActivity extends Activity {
                 return true;
             }
         });
+        applyTheme(getPreferences(MODE_PRIVATE).getString("theme", "light"));
         web.loadUrl(ORIGIN+"/index.html");
+    }
+    private void applyTheme(String theme) {
+        boolean dark = "dark".equals(theme);
+        int surface = Color.parseColor(dark ? "#141d2b" : "#ffffff");
+        content.setBackgroundColor(surface);
+        getWindow().getDecorView().setBackgroundColor(surface);
+        web.setBackgroundColor(Color.parseColor(dark ? "#0e1520" : "#f5f7fa"));
+        getWindow().setStatusBarColor(surface);
+        getWindow().setNavigationBarColor(surface);
+        if (Build.VERSION.SDK_INT >= 30) {
+            WindowInsetsController controller = getWindow().getInsetsController();
+            if (controller != null) {
+                int mask = WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS | WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS;
+                controller.setSystemBarsAppearance(dark ? 0 : mask, mask);
+            }
+        } else {
+            int flags = getWindow().getDecorView().getSystemUiVisibility();
+            int mask = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
+            getWindow().getDecorView().setSystemUiVisibility(dark ? flags & ~mask : flags | mask);
+        }
     }
     private void toast(String text) { runOnUiThread(() -> Toast.makeText(this, text, Toast.LENGTH_LONG).show()); }
     public final class FilesBridge {
+        @JavascriptInterface public void setTheme(String theme) {
+            if (!"light".equals(theme) && !"dark".equals(theme)) return;
+            runOnUiThread(() -> {
+                if (isFinishing() || isDestroyed()) return;
+                getPreferences(MODE_PRIVATE).edit().putString("theme", theme).apply();
+                applyTheme(theme);
+            });
+        }
         @JavascriptInterface public void exportBackup(String json, String fileName) {
             if (json.length() > 8_000_000) { toast("Backup exceeds 8 MB."); return; }
             runOnUiThread(() -> {

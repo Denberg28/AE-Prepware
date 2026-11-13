@@ -1,6 +1,14 @@
 # AE Prepware
 
-Minimal Android practice for Philippine Aeronautical Engineers Licensure Examination subjects. **v0.4.1-rc.1 is a test candidate**, pending physical Android testing and independent faculty content review.
+Minimal Android practice for Philippine Aeronautical Engineers Licensure Examination subjects. **v0.5.0-rc.1 is a test candidate**, pending physical Android testing and independent faculty content review.
+
+## Appearance and subject weights
+
+Use the moon/sun button at the upper right to switch light/dark. The device-wide
+choice is saved separately from accounts and progress. Android system bars follow
+the selected theme. Subject cards show PRC exam weights; Settings lists the full
+breakdown and official November 2026 examination-program source. Both app bars
+remain stationary, and only the center pane scrolls.
 
 ## Study
 
@@ -51,9 +59,10 @@ node tests/cohort-browser.cjs
 node tests/sources-browser.cjs
 node tests/private-bank-browser.cjs
 node tests/shell-browser.cjs
+node tests/theme-browser.cjs
 ```
 
-The integration browser test uses real local API/SQLite, simulated HTTPS origin and separate storage contexts; it is not a physical-phone or live TLS test. `CHROMIUM_PATH` selects a system Chromium. See [test gates](docs/TESTING.md) and [v0.4.1 evidence](docs/evidence/V0_4_1_VERIFICATION.md).
+The integration browser test uses real local API/SQLite, simulated HTTPS origin and separate storage contexts; it is not a physical-phone or live TLS test. `CHROMIUM_PATH` selects a system Chromium. See [test gates](docs/TESTING.md) and [v0.5 evidence](docs/evidence/V0_5_VERIFICATION.md).
 
 ## Hosted account API
 

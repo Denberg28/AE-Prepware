@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.0-rc.1 — 2026-11-13
+
+- Restore PRC subject-weight badges and the linked Settings breakdown, verified against the official November 2026 PRC program.
+- Add a remembered sun/moon theme toggle at the upper right; use matching Android status/navigation bar colors and icon contrast.
+- Refine subject cards, bank selectors, controls and feedback with shared light/dark design tokens and accessible contrast.
+- Apply theme before page styling, prevent low-contrast crossfades and preserve question order/answers when toggling.
+- Keep fixed chrome, center-only scrolling, signing identity and all private IN data unchanged.
+
 ## 0.4.1-rc.1 — 2026-11-13
 
 - Keep header/navigation stationary; only the center pane scrolls on all screens.

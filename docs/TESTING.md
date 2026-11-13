@@ -74,3 +74,14 @@ reachable, removed instructions stay absent, and unfinished session order/answer
 survive navigation. Includes 320x480, 393x760 and 720x480 plus enlarged text.
 Native system bars remain a physical-phone check; no new phone validation is
 inferred from the screenshot used to report this UI change.
+
+
+## v0.5 appearance checks
+
+Run `node tests/theme-browser.cjs`: exact subject badges, theme contrast for cards,
+weights, navigation, choices, feedback and forms (>=4.5 for normal text), toggle
+placement/touch size, preference persistence/native bridge calls, unchanged quiz
+state/order, fixed chrome across widths, and recoverable theme-storage failure.
+The browser mock proves bridge messages, not real system-bar pixels. Check the
+actual Android light/dark icons, keyboard, cold start and app return on a phone.
+Official weight source: https://www.prc.gov.ph/sites/default/files/exam%20program%20nov%202026%20%28aero%29.pdf

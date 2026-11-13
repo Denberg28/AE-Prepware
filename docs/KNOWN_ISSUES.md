@@ -1,4 +1,4 @@
-# Known limitations — v0.4.1-rc.1
+# Known limitations — v0.5.0-rc.1
 
 - **Test candidate:** physical Android installation, Storage Access Framework, lifecycle, accessibility, and in-place same-signer update have no device evidence. Stable promotion remains blocked.
 - **Foundation bank:** 360 items/60 per subject includes parameter variants, not 360 independently reviewed competencies. Independent faculty review is pending; advanced TOS coverage remains incomplete. Source/structure/arithmetic checks do not substitute for faculty validation.
@@ -12,3 +12,5 @@
 - **IN content:** the public APK has no book contents. A separately delivered private build includes 2,003 source-key-matched guide questions; 67 items are held. These historical FAA guides are not independent faculty approval, current Philippine law validation or complete PRC TOS coverage. Mathematics and Laws/Ethics have no IN pool. Original PDFs remain private.
 - **Admin setup:** editing is disabled until separate server-side admin credentials are configured. Five-attempt throttling is per browser session, so privately share the dashboard or use authenticated hosting. Edits survive only after bank export; unexported dashboard session memory is temporary.
 - **Server scaling:** SQLite single-worker cohort service with request limits, not a public large-scale identity platform. Host behind TLS and proxy limits and back up the database privately.
+
+- **Theme device check:** browser contrast/persistence and Android builds pass; real system-bar/keyboard/cold-start appearance still needs phone validation. Theme is a device preference, not included in student progress backups.

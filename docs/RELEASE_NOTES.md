@@ -1,33 +1,27 @@
-# AE Prepware v0.4.1-rc.1 · Signed test candidate
+# AE Prepware v0.5.0-rc.1 · Signed test candidate
 
-Keeps the AE Prepware/Settings header and bottom navigation stationary on every
-screen, including the questionnaire. Only the center pane scrolls. Next question
-and tab changes reset the center without moving either bar.
+PRC weight badges, a minimal professional button/card design, and light/dark mode
+with a sun/moon toggle at the upper right. The preference persists independently
+of profiles, works offline and updates Android system bars. Theme changes retain
+the current question, shuffled choices, selected answer and scroll position.
 
-Removes the large subject heading, guest signup prompt, repeated instructions and
-per-card exam-weight text. Keeps compact bank/session status and source counts.
-Uses consistent readable type, answer spacing and touch targets. Review status
-and detailed bank notices remain in Explanation/Settings. Consolidates duplicated
-CSS into one stylesheet and adds scrolling/visibility/session regression checks.
+Subject weights are verified against the official PRC November 2026 program:
+Math 10%, Aerodynamics 25%, Structures 20%, Construction/Repair 15%, Power Plant
+20%, Economics/Laws/Ethics 10%. A linked breakdown is available in Settings.
+Fixed header/navigation and center-only scrolling remain in place. Theme palettes
+cover forms, feedback, dialogs, disabled cards and source/weight badges.
 
-Supports original three-choice IN content, mixed three/four-choice sessions,
-large private banks in IndexedDB, bank export, and an 8 MB JSON transfer limit.
-Existing account/progress formats and permanent signing identity are retained.
+The PUBLIC APK has the 360 original AI foundation items. The separate PRIVATE
+study APK retains 2,003 source-key-checked IN items from the supplied guides,
+with 67 figure/ambiguous items held. Bank bytes/keys are unchanged. No Mathematics
+or Philippine Laws/Ethics IN pool comes from those books. Source-key agreement
+is not independent faculty approval or current Philippine rule verification.
 
-The PUBLIC APK contains 360 original AI foundation questions. The user-supplied
-books are available only in the separately delivered PRIVATE study build:
-2,003 source-key-matched IN questions, with 67 figure/ambiguous items held.
-Original A-C choices and explanations are retained. Source-key agreement does
-not mean independent faculty review or current Philippine regulatory validation.
-No Mathematics or Philippine Laws/Ethics IN pool comes from these books.
+Install over the permanently signed prior candidate without uninstalling. Export
+progress and the current bank first. Package ph.diversify.aeprepware, versionCode
+6, unchanged certificate. Physical Android cold-start/theme/system-bar/keyboard,
+installation and accessibility confirmation remain pending. Candidate only.
 
-Install over the permanently signed v0.2/v0.3/v0.4 app without uninstalling; export
-both progress and the current bank first. Package ph.diversify.aeprepware,
-versionCode 5, same certificate. Physical Android insets, keyboard, installation,
-upgrade and accessibility validation remain pending. Candidate only; no stable
-or board-pass claim. No new production service or live AI deployment.
-
-Retain old APK and matching bank/progress backups for rollback. Android blocks
-lower-version installs; uninstalling erases local data. Old APKs do not support
-new three-choice private banks or IndexedDB bank storage. Do not downgrade
-without exporting the correct backup pair first.
+Keep the old APK and matching backups for rollback. Android blocks lower-version
+installs; uninstalling erases app data. v0.2/v0.3 do not understand three-choice
+private banks or IndexedDB bank storage. No new hosted service is deployed.
