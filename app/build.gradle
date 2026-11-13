@@ -9,3 +9,19 @@ android {
     compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
     lint { abortOnError true; checkReleaseBuilds true }
 }
+// A private authoring build may overlay a locally supplied bank. Public builds
+// use only committed original content; the publication verifier rejects private banks.
+def privateBankFile = project.findProperty('privateBankFile')
+if (privateBankFile) {
+    def privateAssets = layout.buildDirectory.dir('private-assets')
+    def preparePrivateAssets = tasks.register('preparePrivateAssets', Sync) {
+        from('src/main/assets') { exclude 'bank.json' }
+        from(rootProject.file(privateBankFile)) { rename { 'bank.json' } }
+        into(privateAssets)
+        doFirst {
+            if (!rootProject.file(privateBankFile).isFile()) throw new GradleException('Private bank file is missing')
+        }
+    }
+    android.sourceSets.main.assets.setSrcDirs([privateAssets])
+    tasks.named('preBuild').configure { dependsOn preparePrivateAssets }
+}

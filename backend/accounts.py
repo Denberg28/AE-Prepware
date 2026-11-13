@@ -162,6 +162,8 @@ def attach_accounts(app, db, rate, clock, bank):
             ids=[a.id for a in body.answers]
             if body.subject not in SUBJECTS or len(set(ids))!=50 or any(i not in grading or grading[i]['subject']!=body.subject for i in ids):
                 raise HTTPException(422, 'Provide 50 distinct bank questions from the selected subject.')
+            if any(a.choice >= len(grading[a.id]['choices']) for a in body.answers):
+                raise HTTPException(422, 'Answer choice does not exist in this source question.')
             now=clock(); day=datetime.fromtimestamp(now,ZoneInfo('Asia/Manila')).strftime('%Y-%m-%d')
             correct=0; credited=0
             for a in body.answers:

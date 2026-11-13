@@ -1,6 +1,6 @@
 # AE Prepware
 
-Minimal Android practice for Philippine Aeronautical Engineers Licensure Examination subjects. **v0.3.0-rc.1 is a test candidate**, pending physical Android testing and independent faculty content review.
+Minimal Android practice for Philippine Aeronautical Engineers Licensure Examination subjects. **v0.4.0-rc.1 is a test candidate**, pending physical Android testing and independent faculty content review.
 
 ## Study
 
@@ -10,7 +10,7 @@ Minimal Android practice for Philippine Aeronautical Engineers Licensure Examina
 
 The bundled bank contains 360 original foundation items (60 per subject), including parameterized calculation variants. This is not comprehensive TOS coverage, official PRC content or a pass guarantee. Answer keys and source explanations are fixed; live AI cannot change them. Imported banks must have independent approval metadata. A subject needs 50 active items: insufficient items show an error rather than repeat questions.
 
-The 360 bundled items are explicitly labeled **AI**. No recovered IN corpus is included: IN-only and Hybrid become available per subject after reviewed instructor JSON is imported. The prior session's reported 2,005-question import was absent from the recoverable repository and is not claimed as delivered. See [instructor uploads](instructor_uploads/README.md).
+The 360 bundled items are explicitly labeled **AI**. No recovered IN corpus is included: IN-only and Hybrid become available per subject after reviewed instructor JSON is imported. The attached guides were subsequently processed for a separate private study build: 2,003 text-only IN questions were matched to printed keys; 67 figure/ambiguous items were held. Those book contents are not in the public repository/APK. [Private guide workflow](docs/PRIVATE_GUIDES.md). See [instructor uploads](instructor_uploads/README.md).
 
 Faculty admins can correct text, choices, keys and explanations after a separate server-side sign-in. Corrections append reviewed revisions and retain old questions for saved scores and pending results. Compatible bank refreshes preserve Android progress and unfinished sessions; the API archives original keys across restarts. [Admin setup and editing](docs/ADMIN.md) describes configuration, exports and recovery. Keep server Secrets private; there is no default admin password.
 
@@ -41,7 +41,7 @@ Android: JDK 17/21, Gradle 8.10.2 wrapper, SDK platform 35/build-tools 35.0.0. M
 node --test tests/*.test.cjs
 python -m venv .venv
 . .venv/bin/activate # Windows: .venv\Scripts\activate
-pip install -r backend/requirements.lock
+pip install -r backend/requirements.lock -r scripts/requirements-authoring.lock
 python -m pytest -q
 npm ci
 npx playwright install chromium
@@ -49,9 +49,10 @@ mkdir -p artifacts
 node tests/browser.cjs
 node tests/cohort-browser.cjs
 node tests/sources-browser.cjs
+node tests/private-bank-browser.cjs
 ```
 
-The integration browser test uses real local API/SQLite, simulated HTTPS origin and separate storage contexts; it is not a physical-phone or live TLS test. `CHROMIUM_PATH` selects a system Chromium. See [test gates](docs/TESTING.md) and [v0.3 evidence](docs/evidence/V0_3_VERIFICATION.md).
+The integration browser test uses real local API/SQLite, simulated HTTPS origin and separate storage contexts; it is not a physical-phone or live TLS test. `CHROMIUM_PATH` selects a system Chromium. See [test gates](docs/TESTING.md) and [v0.4 evidence](docs/evidence/V0_4_VERIFICATION.md).
 
 ## Hosted account API
 

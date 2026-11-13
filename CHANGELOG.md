@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0-rc.1 — 2026-11-13
+
+- Inset a native parent around WebView so the header and fixed navigation stay clear of Android system bars. Compact header/content/checkbox spacing and improve label contrast.
+- Preserve original three-choice IN questions alongside four-choice questions; grade and restore mixed sessions correctly.
+- Persist large imported banks in IndexedDB with legacy bank support and bank export; raise JSON file limit to 8 MB.
+- Add a private PDF importer, source-key review status, figure/ambiguous hold queue, private asset build overlay and a public-publication guard.
+- Separately deliver 2,003 private IN items from the supplied guides; 67 held for manual review. Book content is excluded from public git/APKs.
+
 ## Unreleased · faculty dashboard compatibility
 
 - Preserve the existing private admin number/recovery bootstrap alongside username/password-hash login. Android APK bytes are unchanged.

@@ -24,7 +24,7 @@ Record device, Android/System WebView versions, APK hash and certificate fingerp
 2. Cold start five times in airplane mode (target ≤3 s), choose each subject, confirm 50 distinct same-subject IDs and shuffled choices. Answer/next response target ≤250 ms on tested device. Incorrect selection shows correct displayed letter/text; correct selection locks/marks correctly; explanations start closed and expand accessibly.
 3. Complete 50 with a known mix of answers and compare exact score/history after force-stop/reopen. Repeated taps cannot double-credit. Save/exit, background/resume five times, rotate three times; exact saved question/answer/order persists.
 4. Create two local accounts, record different results, sign out/in using recovery files, verify isolation. Wrong number/code rejected. Account number alone cannot sign in. Guest and account backup imports cannot cross-bind. Keep code private; code cannot be reconstructed from the local verifier.
-5. Test SAF export/import for progress and account recovery; cancel and retry; wrong account/bank, malformed JSON and >2 MB rejected without changes. Recover a deliberately corrupted disposable profile only after exporting raw data. Simulate low disk: saving error must block further answers and expose recovery export, not overwrite valid persisted progress.
+5. Test SAF export/import for progress and account recovery; cancel and retry; wrong account/bank, malformed JSON and >8 MB rejected without changes. Recover a deliberately corrupted disposable profile only after exporting raw data. Simulate low disk: saving error must block further answers and expose recovery export, not overwrite valid persisted progress.
 6. Test 320 dp phone/tablet/landscape, font scaling 1.0/1.5, TalkBack, keyboard/system bars. All letters, next and explanation controls reachable; no overflow/clipping. Current WebView is required.
 7. Host API behind real HTTPS with persistent disk. Two phones restore the same account and sync different sessions; server records correct ownership/grade. Drop network at submission after server commit and retry: same ID counts once. Stop/restart API; records/ranking persist. Offline scores queue; 200 pending blocks new sessions without deleting data. Delete online account: its public rank/results/tokens disappear, local data remains.
 8. With authorized provider key/model, request AI topic selection for different histories. Confirm only existing bank IDs, no changed keys, no personal data, useful focus and declared fallback on timeout/quota/malformed response. Live provider access is separately tested from mock success.
@@ -51,3 +51,15 @@ Physical tests must additionally import a reviewed bank using Android SAF,
 resume an old-key session, verify AI/IN/Hybrid pools, install this candidate over
 v0.2 with the same certificate and confirm profile data survives. Desktop browser
 or static certificate checks do not replace these physical-device gates.
+
+
+## v0.4 private bank/layout checks
+
+Install `scripts/requirements-authoring.lock` for PDF parser tests. Run
+`node tests/private-bank-browser.cjs` with original synthetic fixtures in public
+CI. For a local private verification only, set `AE_PRIVATE_BANK` to the generated
+private bank path; book text is excluded from logs/screenshots. This exercises
+3-choice scoring/resume, source-review labels, IndexedDB/account copy, later
+public-app upgrade retention, nav contrast, small screens and enlarged text.
+The independent Poppler footer check covers all imported keys; it does not
+replace faculty semantic review. See evidence/V0_4_VERIFICATION.md.

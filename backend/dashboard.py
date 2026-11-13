@@ -64,8 +64,8 @@ with review:
         upload = st.file_uploader('Open a saved bank workspace', type='json')
         if upload and st.button('Load bank'):
             try:
-                if upload.size > 2_000_000:
-                    raise ValueError('File exceeds 2 MB')
+                if upload.size > 8_000_000:
+                    raise ValueError('File exceeds 8 MB')
                 candidate = validate_bank(json.loads(upload.getvalue()), imported=True, trusted=load_bank())
                 st.session_state.bank = candidate
                 st.session_state.bank_workspace_base = copy.deepcopy(candidate)
@@ -88,8 +88,8 @@ with review:
         with st.form('edit_' + q['id']):
             st.subheader('Correct this question')
             prompt = st.text_area('Question text', q['prompt'])
-            choices = [st.text_input('Choice ' + letter, q['choices'][i]) for i, letter in enumerate('ABCD')]
-            answer = st.selectbox('Correct answer', list(range(4)), index=q['answer'], format_func=lambda i: 'ABCD'[i])
+            choices = [st.text_input('Choice ' + letter, q['choices'][i]) for i, letter in enumerate('ABCD'[:len(q['choices'])])]
+            answer = st.selectbox('Correct answer', list(range(len(q['choices']))), index=q['answer'], format_func=lambda i: 'ABCD'[i])
             explanation = st.text_area('Explanation', q['explanation'])
             reviewer = st.text_input('Instructor reviewer name')
             version = st.text_input('New bank version', bank['version'] + '-revision1')
@@ -112,8 +112,8 @@ with review:
             st.caption('Use the instructor_uploads folder schema. Each question needs source/page, upload filename, redistribution rights, reviewer and approval. PDF extraction never implies approval.')
             if st.button('Add reviewed IN questions', disabled=incoming is None):
                 try:
-                    if incoming.size > 2_000_000:
-                        raise ValueError('File exceeds 2 MB')
+                    if incoming.size > 8_000_000:
+                        raise ValueError('File exceeds 8 MB')
                     updated = merge_instructor_upload(bank, json.loads(incoming.getvalue()), incoming_version)
                     store_update(updated)
                     st.rerun()

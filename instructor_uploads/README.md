@@ -32,11 +32,11 @@ Allowed rights: `instructor-original`, `permission-granted`, `public-domain`,
 `open-license`. A rights label is the uploader's attestation; it is not a legal
 verification. Include licensing details in the source locator where applicable.
 Do not mark extracted questions approved until a qualified instructor checks the
-prompt, four distinct choices, unique correct answer, explanation, source/page
+prompt, three or three or four distinct choices, unique correct answer, explanation, source/page
 and subject mapping. Figure-dependent or ambiguous items need manual resolution.
 Do not substitute AI explanations without review. Existing IDs or conflicting
 source IDs are rejected, atomically. Up to 3,000 total archived + active records;
-Android JSON imports are limited to 2 MB.
+Android JSON imports are limited to 8 MB.
 
 Admin: Question review → sign in → Add instructor questions → export refresh.
 Alternatively:

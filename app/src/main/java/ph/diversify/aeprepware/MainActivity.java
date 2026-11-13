@@ -4,8 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Build;
+import android.graphics.Color;
 import android.webkit.*;
 import android.view.View;
+import android.view.WindowInsets;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 import org.json.JSONObject;
 import java.io.*;
@@ -18,14 +22,31 @@ public final class MainActivity extends Activity {
     private String pendingExport;
     @Override public void onCreate(Bundle state) {
         super.onCreate(state);
+        // Inset a native parent, not WebView padding: CSS fixed navigation must
+        // use a viewport that ends above Android's gesture/three-button bar.
+        if (Build.VERSION.SDK_INT >= 30) getWindow().setDecorFitsSystemWindows(false);
+        else getWindow().getDecorView().setSystemUiVisibility(
+            View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
+            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR |
+            View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
+        getWindow().setStatusBarColor(Color.WHITE);
+        getWindow().setNavigationBarColor(Color.WHITE);
+        FrameLayout content = new FrameLayout(this);
         web = new WebView(this);
-        setContentView(web);
-        web.setPadding(0,0,0,0);
-        web.setOnApplyWindowInsetsListener((view, insets) -> {
+        content.addView(web, new FrameLayout.LayoutParams(-1, -1));
+        setContentView(content);
+        content.setOnApplyWindowInsetsListener((view, insets) -> {
+            if (Build.VERSION.SDK_INT >= 30) {
+                android.graphics.Insets bars = insets.getInsets(WindowInsets.Type.systemBars() | WindowInsets.Type.displayCutout());
+                int bottom = Math.max(bars.bottom, insets.getInsets(WindowInsets.Type.ime()).bottom);
+                view.setPadding(bars.left, bars.top, bars.right, bottom);
+                return WindowInsets.CONSUMED;
+            }
             view.setPadding(insets.getSystemWindowInsetLeft(), insets.getSystemWindowInsetTop(),
                 insets.getSystemWindowInsetRight(), insets.getSystemWindowInsetBottom());
             return insets.consumeSystemWindowInsets();
         });
+        content.requestApplyInsets();
         WebSettings settings = web.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
@@ -58,11 +79,11 @@ public final class MainActivity extends Activity {
     }
     private void toast(String text) { runOnUiThread(() -> Toast.makeText(this, text, Toast.LENGTH_LONG).show()); }
     public final class FilesBridge {
-        @JavascriptInterface public void exportBackup(String json) {
-            if (json.length() > 2_000_000) { toast("Backup exceeds 2 MB."); return; }
+        @JavascriptInterface public void exportBackup(String json, String fileName) {
+            if (json.length() > 8_000_000) { toast("Backup exceeds 8 MB."); return; }
             runOnUiThread(() -> {
                 pendingExport = json;
-                Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT).setType("application/json").addCategory(Intent.CATEGORY_OPENABLE).putExtra(Intent.EXTRA_TITLE,"AE-Prepware-backup.json");
+                Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT).setType("application/json").addCategory(Intent.CATEGORY_OPENABLE).putExtra(Intent.EXTRA_TITLE, fileName != null && fileName.matches("[A-Za-z0-9_.-]{1,100}") ? fileName : "AE-Prepware-backup.json");
                 startActivityForResult(intent, 20);
             });
         }
@@ -83,7 +104,7 @@ public final class MainActivity extends Activity {
                 try (InputStream in=getContentResolver().openInputStream(data.getData()); ByteArrayOutputStream out=new ByteArrayOutputStream()) {
                     if(in==null) throw new IOException();
                     byte[] buffer=new byte[4096]; int n;
-                    while((n=in.read(buffer))!=-1) { out.write(buffer,0,n); if(out.size()>2_000_000) throw new IOException("File exceeds 2 MB"); }
+                    while((n=in.read(buffer))!=-1) { out.write(buffer,0,n); if(out.size()>8_000_000) throw new IOException("File exceeds 8 MB"); }
                     web.evaluateJavascript("window.receiveImport("+JSONObject.quote(out.toString("UTF-8"))+")",null);
                 }
             }

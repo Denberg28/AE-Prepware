@@ -17,3 +17,7 @@ playwright-report/
 *.pfx
 signing-recovery.json
 *Private-Signing-Recovery*
+
+# Restricted user-supplied teaching sources and derived private banks
+private-study/
+tmp/

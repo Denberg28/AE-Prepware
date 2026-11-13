@@ -38,6 +38,10 @@ manifest=subprocess.check_output([str(tools/'aapt'),'dump','badging',str(package
 for expected in ["package: name='ph.diversify.aeprepware'",f"versionName='{version}'",f"versionCode='{config['versionCode']}'","sdkVersion:'26'","targetSdkVersion:'35'"]:
     if expected not in manifest:raise SystemExit('Manifest mismatch: '+expected)
 if 'application-debuggable' in manifest:raise SystemExit('Published candidate must not be debuggable')
+with zipfile.ZipFile(package) as archive:
+    packaged_bank=json.loads(archive.read('assets/bank.json'))
+if packaged_bank.get('distribution') == 'private-study' or any(q.get('upload',{}).get('rights') == 'user-provided-private' for q in packaged_bank['questions']):
+    raise SystemExit('Private user-supplied guide content must not enter public candidate publication')
 # Compare *all* unsigned ZIP payloads except Gradle's source-commit marker, which
 # legitimately differs when the prepared artifact is added in a later commit.
 unsigned=ROOT/'app/build/outputs/apk/release/app-release-unsigned.apk'

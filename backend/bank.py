@@ -24,9 +24,9 @@ def validate_bank(bank, imported=False, trusted=None, partial=False):
         if q.get('subject') not in SUBJECTS or not isinstance(q.get('topic'),str) or not q['topic'].strip() or len(q['topic'])>200:
             raise ValueError('Invalid subject/topic')
         choices=q.get('choices',[])
-        if len(choices)!=4 or not all(isinstance(c,str) and c.strip() and len(c)<=1000 for c in choices) or len(set(choices))!=4:
-            raise ValueError('Exactly four distinct choices are required')
-        if type(q.get('answer')) is not int or q['answer'] not in range(4):
+        if len(choices) not in (3,4) or not all(isinstance(c,str) and c.strip() and len(c)<=1000 for c in choices) or len(set(choices))!=len(choices):
+            raise ValueError('Three or four distinct choices are required')
+        if type(q.get('answer')) is not int or q['answer'] not in range(len(choices)):
             raise ValueError('Invalid answer index')
         for field in ('prompt','explanation'):
             if not isinstance(q.get(field),str) or not 10<=len(q[field])<=4000:
@@ -41,15 +41,17 @@ def validate_bank(bank, imported=False, trusted=None, partial=False):
             if fingerprint in active_content:
                 raise ValueError('Duplicate active question content')
             active_content.add(fingerprint)
+        private_verified = False
         if q.get('origin') == 'IN':
             upload = q.get('upload', {})
-            if not isinstance(upload, dict) or not all(isinstance(upload.get(k), str) and upload[k].strip() and len(upload[k])<=500 for k in ('file', 'locator', 'rights')) or upload['rights'] not in ('instructor-original', 'permission-granted', 'public-domain', 'open-license') or q.get('review') != 'approved':
+            private_verified = isinstance(upload, dict) and bank.get('distribution') == 'private-study' and q.get('review') == 'source-key-verified' and upload.get('rights') == 'user-provided-private' and isinstance(upload.get('sha256'), str) and bool(re.fullmatch(r'[a-f0-9]{64}', upload['sha256'])) and upload.get('key') == 'ABCD'[q['answer']] and type(upload.get('keyPage')) is int and upload['keyPage'] > 0
+            if not isinstance(upload, dict) or not all(isinstance(upload.get(k), str) and upload[k].strip() and len(upload[k])<=500 for k in ('file', 'locator', 'rights')) or upload['rights'] not in ('instructor-original', 'permission-granted', 'public-domain', 'open-license', 'user-provided-private') or (q.get('review') != 'approved' and not private_verified) or (upload['rights'] == 'user-provided-private' and bank.get('distribution') != 'private-study'):
                 raise ValueError('IN questions require instructor approval and upload provenance/rights')
         unchanged = False
         if q['id'] in trusted_questions:
             from .authoring import question_content
             unchanged = question_content(bank, q) == question_content(trusted, trusted_questions[q['id']])
-        if q.get('review') not in (('approved',) if imported and not unchanged else ('source-checked','approved')) or not q.get('reviewer') or not q.get('reviewedAt'):
+        if (not private_verified and q.get('review') not in (('approved',) if imported and not unchanged else ('source-checked','approved'))) or not q.get('reviewer') or not q.get('reviewedAt'):
             raise ValueError('Review metadata missing')
         if not isinstance(q['reviewer'], str) or not q['reviewer'].strip() or len(q['reviewer'])>200 or not isinstance(q['reviewedAt'], str) or not re.fullmatch(r'\d{4}-\d{2}-\d{2}', q['reviewedAt']):
             raise ValueError('Invalid review metadata')

@@ -1,27 +1,27 @@
-# AE Prepware v0.3.0-rc.1 · Signed test candidate
+# AE Prepware v0.4.0-rc.1 · Signed test candidate
 
-AI/IN source controls, faculty admin corrections and safe bank refreshes.
+Fixes top/bottom system-bar spacing and improves label visibility. Header/main/
+checkbox spacing is more compact; bottom navigation is opaque with stronger text.
+A native inset parent keeps fixed WebView controls above Android system UI.
 
-- Tick AI, IN or both before choosing a subject: 50 from one source or 25+25 Hybrid.
-- Show AI/IN origin in each question; block insufficient pools without duplicates.
-- Separate server-side admin sign-in for text, choices, key and explanation edits.
-- Append reviewed corrections; retain original IDs/keys for old scores and sessions.
-- Import compatible reviewed updates without resetting progress or queued results.
-- Archive API bank versions so older queued results retain their original grade.
-- Instructor JSON provenance/approval/duplicate validation and dedicated upload folder.
+Supports original three-choice IN content, mixed three/four-choice sessions,
+large private banks in IndexedDB, bank export, and an 8 MB JSON transfer limit.
+Existing account/progress formats and permanent signing identity are retained.
 
-The bundle contains 360 AI foundation items, 60 per subject. IN pools start empty;
-no missing/reported 2,005-question corpus is represented as delivered. Reviewed
-instructor JSON can enable IN and Hybrid per subject. No commercial source PDF is
-redistributed. Admin editing needs AE_ADMIN_USERNAME and AE_ADMIN_PASSWORD_HASH
-in Streamlit Secrets; see docs/ADMIN.md. The service is not newly deployed.
+The PUBLIC APK contains 360 original AI foundation questions. The user-supplied
+books are available only in the separately delivered PRIVATE study build:
+2,003 source-key-matched IN questions, with 67 figure/ambiguous items held.
+Original A-C choices and explanations are retained. Source-key agreement does
+not mean independent faculty review or current Philippine regulatory validation.
+No Mathematics or Philippine Laws/Ethics IN pool comes from these books.
 
-Update over permanent-signer v0.2 without uninstalling; export progress and any
-custom bank first. Package identity remains ph.diversify.aeprepware; versionCode 3.
-The certificate is unchanged. Physical Android installation, in-place upgrade,
-SAF, accessibility, live hosting/AI and independent faculty validation remain
-untested. This is a test candidate, not a stable release or pass guarantee.
+Install over the permanently signed v0.2/v0.3 app without uninstalling; export
+both progress and the current bank first. Package ph.diversify.aeprepware,
+versionCode 4, same certificate. Physical Android insets, keyboard, installation,
+upgrade and accessibility validation remain pending. Candidate only; no stable
+or board-pass claim. No new production service or live AI deployment.
 
-Retain v0.2 and its matching progress/bank backup for rollback. Android blocks
-lower-version installs; uninstalling deletes local data. Do not import a new-bank
-backup into an old APK. Preserve server SQLite bank_versions archives.
+Retain old APK and matching bank/progress backups for rollback. Android blocks
+lower-version installs; uninstalling erases local data. Old APKs do not support
+new three-choice private banks or IndexedDB bank storage. Do not downgrade
+without exporting the correct backup pair first.

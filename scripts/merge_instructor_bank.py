@@ -15,14 +15,14 @@ args = parser.parse_args()
 base = load_bank(args.base)
 merged = base
 for i, path in enumerate(args.files):
-    if path.stat().st_size > 2_000_000:
-        raise SystemExit('Upload exceeds 2 MB: ' + path.name)
+    if path.stat().st_size > 8_000_000:
+        raise SystemExit('Upload exceeds 8 MB: ' + path.name)
     merged = merge_instructor_upload(merged, json.loads(path.read_text()), args.version + '-part' + str(i+1))
 merged.update(version=args.version, extends=base['version'])
 compatible_refresh(base, merged)
 encoded = json.dumps(merged, ensure_ascii=False, indent=2) + '\n'
-if len(encoded.encode()) > 2_000_000:
-    raise SystemExit('Merged bank exceeds the Android 2 MB import limit')
+if len(encoded.encode()) > 8_000_000:
+    raise SystemExit('Merged bank exceeds the Android 8 MB import limit')
 if args.output.exists():
     raise SystemExit('Output already exists; choose a new filename')
 args.output.write_text(encoded)

@@ -26,8 +26,8 @@ def compatible_refresh(old, new):
         if q['id'] not in index or question_content(old, q) != question_content(new, index[q['id']]):
             raise ValueError('Existing questions and citations must remain unchanged: ' + q['id'])
     validate_bank(new, imported=True, trusted=old)
-    if len(json.dumps(new, ensure_ascii=False, indent=2).encode()) > 2_000_000:
-        raise ValueError('Bank exceeds the Android 2 MB import limit')
+    if len(json.dumps(new, ensure_ascii=False, indent=2).encode()) > 8_000_000:
+        raise ValueError('Bank exceeds the Android 8 MB import limit')
     return new
 
 
