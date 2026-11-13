@@ -28,6 +28,11 @@ const server=http.createServer((req,res)=>{const file=path.join(root,req.url==='
  await page.getByRole('button',{name:'Settings',exact:true}).click();const tampered=structuredClone(bank);tampered.version='tampered';tampered.extends=bank.version;tampered.questions[0].answer=2;tampered.questions[0].review='approved';
  await page.evaluate(bank=>window.receiveImport(JSON.stringify(bank)),tampered);await page.getByText('Refresh changes an existing question',{exact:false}).waitFor();assert.equal(await page.evaluate(()=>bank.version),bank.version);
  await page.setViewportSize({width:320,height:640});await page.locator('nav [data-tab=home]').click();assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
- assert.deepEqual(errors,[]);console.log('PASS mobile source/refresh: no-source/empty-IN blocks, cancel/confirm, ongoing old-key resume, 50/50 historical score, exact Hybrid quota, tamper rejection and 320px layout.');
+ // A new device can install a later full snapshot even without intermediate refreshes.
+ const later=structuredClone(bank);later.extends='intermediate-not-on-this-device';later.version='synthetic-later';
+ const second=await browser.newPage();await second.goto('http://127.0.0.1:8082');await second.getByRole('heading',{name:'Choose a subject'}).waitFor();
+ await second.evaluate(bank=>{void window.receiveImport(JSON.stringify(bank));},later);await second.locator('#confirm').click();await second.getByText('Approved question bank imported for this profile.',{exact:true}).waitFor();assert.equal(await second.evaluate(()=>bank.version),later.version);
+ await second.evaluate(bank=>window.receiveImport(JSON.stringify(bank)),later);await second.getByText('Use a new bank version',{exact:false}).waitFor();
+ assert.deepEqual(errors,[]);console.log('PASS mobile source/refresh: no-source/empty-IN blocks, cancel/confirm, ongoing old-key resume, 50/50 historical score, exact Hybrid quota, tamper/reused-version rejection, new-device full snapshot and 320px layout.');
  }finally{if(browser)await browser.close();server.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

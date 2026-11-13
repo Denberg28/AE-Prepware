@@ -23,7 +23,7 @@ admin sign-in. No default password or embedded Android admin secret exists.
 6. Import a compatible refresh in Android Settings. All previous IDs, wording,
    choices, keys, explanations, citations and review metadata must remain intact.
    Progress, queued results, bookmarks and any ongoing session stay intact.
-   A new active revision applies to future sessions. An unrelated full bank
+   A new active revision applies to future sessions. A fresh phone can import the latest complete snapshot without intermediate updates; this uses the explicit full-replacement path. An unrelated full bank
    replacement is a separate explicit action that resets profile progress and
    is blocked with pending results; export before using it.
 

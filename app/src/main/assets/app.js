@@ -160,13 +160,14 @@ window.receiveImport=async function(text){try{
   if(!await ask('Replace current profile progress?','Export your current backup first. This changes only the signed-in profile.','Replace progress'))return;
   state=data.state;state.pending=state.pending||[];state.selection=state.selection||'random';state.cohort=null;storageBlocked=false;save();setTab('home');notice('Backup restored.');
  }else{
+  if(data.version===bank.version)throw Error('Use a new bank version for a question bank change.');
   if(data.extends===bank.version){
    AE.validateRefresh(bank,data);AE.validateState(state,data);
    if(!await ask('Refresh question bank?','Reviewed updates apply to future sessions. Saved results, queued answers and the current session keep their original questions.','Refresh bank'))return;
    localStorage.setItem(bankKey(),JSON.stringify(data));bank=data;render();notice('Question bank refreshed. Your progress and queued results are preserved.');return;
   }
-  AE.validateBank(data,true);if(state.pending?.length)throw Error('Sync pending results before changing the question bank. Export a backup if the service is unavailable.');
-  if(!await ask('Replace current profile bank?','All questions must be faculty approved. This resets this profile’s progress. Export a backup first.','Use approved bank'))return;
+  AE.validateBank(data,true,bundled);if(state.pending?.length)throw Error('Sync pending results before changing the question bank. Export a backup if the service is unavailable.');
+  if(!await ask('Replace current profile bank?','New and revised questions must be faculty approved. This resets this profile’s progress. Export a backup first.','Use approved bank'))return;
   const next=AE.fresh();next.name=state.name;next.accountNumber=account;localStorage.setItem(bankKey(),JSON.stringify(data));bank=data;state=next;storageBlocked=false;save();setTab('home');notice('Approved question bank imported for this profile.');
  }
  }catch(e){notice('Import stopped: '+e.message);}};

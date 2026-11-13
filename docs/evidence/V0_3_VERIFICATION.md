@@ -19,7 +19,7 @@ Self-reviewed software evidence (not independent faculty or physical validation)
 | A/B/C JS core/account/source | PASS | 21 Node tests; original keys, locks, queues, provenance, exact quotas, immutable refresh |
 | A/B/D Python | PASS | 25 pytest tests; actual Streamlit admin sign-in/edit/signout, IN sanitation, real SQLite archived-key restart/grading and source selection |
 | B/C browser study | PASS | Existing 50-question score/feedback, recovery/isolation, saved order, backup/corruption/legacy workflow |
-| B/C browser source refresh | PASS | Empty/no-source blocks, refresh cancel/confirm, original-key ongoing session, historical 50/50 score, 25+25 quota, tamper rejection, 320 px layout |
+| B/C browser source refresh | PASS | Empty/no-source blocks, refresh cancel/confirm, original-key ongoing session, historical 50/50 score, 25+25 quota, tamper rejection, later full snapshot on a new device, reused-version rejection, 320 px layout |
 | D account integration | PASS | Actual local API/SQLite, dropped-ack retry, grade/ranking, cloud recovery; HTTPS origin simulated |
 | A dependency audits | PASS | pip-audit locked backend and npm audit: no reported vulnerabilities |
 | A Android | PASS | Debug/release assemble and lint, SDK 35/build-tools 35.0.0, Gradle 8.10.2, JDK 21.0.13 |
