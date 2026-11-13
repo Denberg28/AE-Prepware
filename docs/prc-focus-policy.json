@@ -1,0 +1,623 @@
+{
+  "focus": {
+    "schema": 1,
+    "title": "PRC foundations",
+    "sessionSize": 20,
+    "reviewedAt": "2026-11-13",
+    "source": "https://www.prc.gov.ph/sites/default/files/TOS%20AERO%202010-01.pdf",
+    "areas": {
+      "math-1": {
+        "subject": "math",
+        "name": "Algebra and trigonometry",
+        "examItems": 15
+      },
+      "math-2": {
+        "subject": "math",
+        "name": "Analytic geometry",
+        "examItems": 15
+      },
+      "math-3": {
+        "subject": "math",
+        "name": "Calculus and differential equations",
+        "examItems": 20
+      },
+      "aero-1": {
+        "subject": "aero",
+        "name": "Low-speed and high-speed fundamentals",
+        "examItems": 14
+      },
+      "aero-2": {
+        "subject": "aero",
+        "name": "Fixed and rotary wing principles",
+        "examItems": 10
+      },
+      "aero-3": {
+        "subject": "aero",
+        "name": "Configuration, performance, stability and control",
+        "examItems": 20
+      },
+      "aero-4": {
+        "subject": "aero",
+        "name": "Wind tunnels",
+        "examItems": 6
+      },
+      "structures-1": {
+        "subject": "structures",
+        "name": "Design fundamentals and CG",
+        "examItems": 18
+      },
+      "structures-2": {
+        "subject": "structures",
+        "name": "Structural loading",
+        "examItems": 18
+      },
+      "structures-3": {
+        "subject": "structures",
+        "name": "Structural and non-structural component design",
+        "examItems": 14
+      },
+      "construction-1": {
+        "subject": "construction",
+        "name": "Materials and processes",
+        "examItems": 17
+      },
+      "construction-2": {
+        "subject": "construction",
+        "name": "Repair and modification",
+        "examItems": 23
+      },
+      "construction-3": {
+        "subject": "construction",
+        "name": "Production and quality assurance",
+        "examItems": 10
+      },
+      "powerplant-1": {
+        "subject": "powerplant",
+        "name": "Thermodynamics",
+        "examItems": 10
+      },
+      "powerplant-2": {
+        "subject": "powerplant",
+        "name": "Internal combustion engines",
+        "examItems": 17
+      },
+      "powerplant-3": {
+        "subject": "powerplant",
+        "name": "Reciprocating and gas turbine engines",
+        "examItems": 14
+      },
+      "powerplant-4": {
+        "subject": "powerplant",
+        "name": "Duct and rocket propulsion",
+        "examItems": 9
+      },
+      "ethics-1": {
+        "subject": "ethics",
+        "name": "Philippine aviation law and ethics",
+        "examItems": 20
+      },
+      "ethics-2": {
+        "subject": "ethics",
+        "name": "Air transport economics",
+        "examItems": 15
+      },
+      "ethics-3": {
+        "subject": "ethics",
+        "name": "Aviation industrial organizations",
+        "examItems": 15
+      }
+    },
+    "gaps": [
+      {
+        "subject": "math",
+        "topics": "Spherical trigonometry and bearings; conics and coordinate transformations; advanced ODE/PDE and aeronautical applications."
+      },
+      {
+        "subject": "aero",
+        "topics": "Atmosphere profiles; shocks and expansions; buoyancy; flight performance calculations and gust loads; wind tunnel similarity and operation."
+      },
+      {
+        "subject": "structures",
+        "topics": "Design categories and configuration tradeoffs; indeterminate beams and trusses; gust and maneuver load analysis; detailed wing, fuselage, landing gear and engine mount design."
+      },
+      {
+        "subject": "construction",
+        "topics": "Manufacturing processes and hardness testing; current Philippine repair authorization; aircraft weighing and extreme-CG computations."
+      },
+      {
+        "subject": "powerplant",
+        "topics": "Flow and non-flow thermodynamics; engine performance analysis beyond single-step arithmetic; pulsejet, ramjet and rocket systems and calculations."
+      },
+      {
+        "subject": "ethics",
+        "topics": "PD 1570 IRR and professional ethics cases; RA 9497, ICAO annexes and current rules; airline load factor; management, R&D and manufacturing organizations."
+      }
+    ]
+  },
+  "selection": [
+    {
+      "id": "MA001",
+      "area": "math-3"
+    },
+    {
+      "id": "MA002",
+      "area": "math-3"
+    },
+    {
+      "id": "MA003",
+      "area": "math-1"
+    },
+    {
+      "id": "MA004",
+      "area": "math-1"
+    },
+    {
+      "id": "MA005",
+      "area": "math-2"
+    },
+    {
+      "id": "MA006",
+      "area": "math-1"
+    },
+    {
+      "id": "MA007",
+      "area": "math-3"
+    },
+    {
+      "id": "MA008",
+      "area": "math-3"
+    },
+    {
+      "id": "MA009",
+      "area": "math-3"
+    },
+    {
+      "id": "MA010",
+      "area": "math-2"
+    },
+    {
+      "id": "MA011",
+      "area": "math-1"
+    },
+    {
+      "id": "MA012",
+      "area": "math-1"
+    },
+    {
+      "id": "MA013",
+      "area": "math-3"
+    },
+    {
+      "id": "MA014",
+      "area": "math-3"
+    },
+    {
+      "id": "MA015",
+      "area": "math-1"
+    },
+    {
+      "id": "MA016",
+      "area": "math-2"
+    },
+    {
+      "id": "MA017",
+      "area": "math-1"
+    },
+    {
+      "id": "MA018",
+      "area": "math-3"
+    },
+    {
+      "id": "MA019",
+      "area": "math-1"
+    },
+    {
+      "id": "MA028",
+      "area": "math-3"
+    },
+    {
+      "id": "AD001",
+      "area": "aero-1"
+    },
+    {
+      "id": "AD002",
+      "area": "aero-2"
+    },
+    {
+      "id": "AD003",
+      "area": "aero-2"
+    },
+    {
+      "id": "AD004",
+      "area": "aero-1"
+    },
+    {
+      "id": "AD005",
+      "area": "aero-3"
+    },
+    {
+      "id": "AD006",
+      "area": "aero-1"
+    },
+    {
+      "id": "AD007",
+      "area": "aero-3"
+    },
+    {
+      "id": "AD008",
+      "area": "aero-3"
+    },
+    {
+      "id": "AD009",
+      "area": "aero-3"
+    },
+    {
+      "id": "AD010",
+      "area": "aero-1"
+    },
+    {
+      "id": "AD011",
+      "area": "aero-3"
+    },
+    {
+      "id": "AD012",
+      "area": "aero-3"
+    },
+    {
+      "id": "AD013",
+      "area": "aero-1"
+    },
+    {
+      "id": "AD014",
+      "area": "aero-2"
+    },
+    {
+      "id": "AD015",
+      "area": "aero-2"
+    },
+    {
+      "id": "AD016",
+      "area": "aero-1"
+    },
+    {
+      "id": "AD017",
+      "area": "aero-1"
+    },
+    {
+      "id": "AD018",
+      "area": "aero-2"
+    },
+    {
+      "id": "AD019",
+      "area": "aero-3"
+    },
+    {
+      "id": "AD020",
+      "area": "aero-1"
+    },
+    {
+      "id": "ST001",
+      "area": "structures-2"
+    },
+    {
+      "id": "ST002",
+      "area": "structures-2"
+    },
+    {
+      "id": "ST003",
+      "area": "structures-2"
+    },
+    {
+      "id": "ST004",
+      "area": "structures-2"
+    },
+    {
+      "id": "ST006",
+      "area": "structures-2"
+    },
+    {
+      "id": "ST007",
+      "area": "structures-2"
+    },
+    {
+      "id": "ST008",
+      "area": "structures-1"
+    },
+    {
+      "id": "ST009",
+      "area": "structures-2"
+    },
+    {
+      "id": "ST010",
+      "area": "structures-1"
+    },
+    {
+      "id": "ST011",
+      "area": "structures-2"
+    },
+    {
+      "id": "ST012",
+      "area": "structures-2"
+    },
+    {
+      "id": "ST013",
+      "area": "structures-2"
+    },
+    {
+      "id": "ST014",
+      "area": "structures-2"
+    },
+    {
+      "id": "ST015",
+      "area": "structures-2"
+    },
+    {
+      "id": "ST016",
+      "area": "structures-2"
+    },
+    {
+      "id": "ST017",
+      "area": "structures-2"
+    },
+    {
+      "id": "ST018",
+      "area": "structures-1"
+    },
+    {
+      "id": "ST019",
+      "area": "structures-2"
+    },
+    {
+      "id": "ST020",
+      "area": "structures-2"
+    },
+    {
+      "id": "ST021",
+      "area": "structures-2"
+    },
+    {
+      "id": "CR001",
+      "area": "construction-3"
+    },
+    {
+      "id": "CR002",
+      "area": "construction-3"
+    },
+    {
+      "id": "CR003",
+      "area": "construction-3"
+    },
+    {
+      "id": "CR004",
+      "area": "construction-2"
+    },
+    {
+      "id": "CR005",
+      "area": "construction-1"
+    },
+    {
+      "id": "CR006",
+      "area": "construction-1"
+    },
+    {
+      "id": "CR015",
+      "area": "construction-1"
+    },
+    {
+      "id": "CR016",
+      "area": "construction-2"
+    },
+    {
+      "id": "CR010",
+      "area": "construction-2"
+    },
+    {
+      "id": "CR011",
+      "area": "construction-3"
+    },
+    {
+      "id": "CR013",
+      "area": "construction-2"
+    },
+    {
+      "id": "CR014",
+      "area": "construction-2"
+    },
+    {
+      "id": "CR037",
+      "area": "construction-1"
+    },
+    {
+      "id": "CR038",
+      "area": "construction-1"
+    },
+    {
+      "id": "CR039",
+      "area": "construction-1"
+    },
+    {
+      "id": "CR040",
+      "area": "construction-1"
+    },
+    {
+      "id": "CR041",
+      "area": "construction-1"
+    },
+    {
+      "id": "CR044",
+      "area": "construction-3"
+    },
+    {
+      "id": "CR045",
+      "area": "construction-3"
+    },
+    {
+      "id": "CR053",
+      "area": "construction-2"
+    },
+    {
+      "id": "PP001",
+      "area": "powerplant-2"
+    },
+    {
+      "id": "PP002",
+      "area": "powerplant-2"
+    },
+    {
+      "id": "PP003",
+      "area": "powerplant-2"
+    },
+    {
+      "id": "PP004",
+      "area": "powerplant-3"
+    },
+    {
+      "id": "PP005",
+      "area": "powerplant-3"
+    },
+    {
+      "id": "PP006",
+      "area": "powerplant-1"
+    },
+    {
+      "id": "PP007",
+      "area": "powerplant-1"
+    },
+    {
+      "id": "PP008",
+      "area": "powerplant-3"
+    },
+    {
+      "id": "PP009",
+      "area": "powerplant-3"
+    },
+    {
+      "id": "PP010",
+      "area": "powerplant-2"
+    },
+    {
+      "id": "PP011",
+      "area": "powerplant-3"
+    },
+    {
+      "id": "PP012",
+      "area": "powerplant-2"
+    },
+    {
+      "id": "PP013",
+      "area": "powerplant-3"
+    },
+    {
+      "id": "PP014",
+      "area": "powerplant-2"
+    },
+    {
+      "id": "PP015",
+      "area": "powerplant-1"
+    },
+    {
+      "id": "PP016",
+      "area": "powerplant-3"
+    },
+    {
+      "id": "PP017",
+      "area": "powerplant-1"
+    },
+    {
+      "id": "PP018",
+      "area": "powerplant-2"
+    },
+    {
+      "id": "PP019",
+      "area": "powerplant-2"
+    },
+    {
+      "id": "PP020",
+      "area": "powerplant-1"
+    },
+    {
+      "id": "EE001",
+      "area": "ethics-1"
+    },
+    {
+      "id": "EE002",
+      "area": "ethics-1"
+    },
+    {
+      "id": "EE003",
+      "area": "ethics-1"
+    },
+    {
+      "id": "EE004",
+      "area": "ethics-1"
+    },
+    {
+      "id": "EE005",
+      "area": "ethics-2"
+    },
+    {
+      "id": "EE006",
+      "area": "ethics-2"
+    },
+    {
+      "id": "EE007",
+      "area": "ethics-2"
+    },
+    {
+      "id": "EE008",
+      "area": "ethics-2"
+    },
+    {
+      "id": "EE009",
+      "area": "ethics-2"
+    },
+    {
+      "id": "EE010",
+      "area": "ethics-2"
+    },
+    {
+      "id": "EE011",
+      "area": "ethics-1"
+    },
+    {
+      "id": "EE012",
+      "area": "ethics-1"
+    },
+    {
+      "id": "EE013",
+      "area": "ethics-2"
+    },
+    {
+      "id": "EE014",
+      "area": "ethics-2"
+    },
+    {
+      "id": "EE015",
+      "area": "ethics-2"
+    },
+    {
+      "id": "EE016",
+      "area": "ethics-2"
+    },
+    {
+      "id": "EE017",
+      "area": "ethics-2"
+    },
+    {
+      "id": "EE018",
+      "area": "ethics-2"
+    },
+    {
+      "id": "EE019",
+      "area": "ethics-2"
+    },
+    {
+      "id": "EE020",
+      "area": "ethics-2"
+    }
+  ],
+  "retire": [
+    "ST005"
+  ],
+  "notice": "PRC foundations: selected existing source-checked items, not actual PRC past papers. Coverage is incomplete; consult the coverage gaps in Settings. Full bank retains extra practice. No faculty approval or pass guarantee."
+}

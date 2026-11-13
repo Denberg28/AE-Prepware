@@ -11,7 +11,7 @@ test('source selection enforces exact 50/25 quotas, excludes reports and retired
 });
 test('append-only refresh preserves unfinished sessions, old scores and pending queue',()=>{
  const s=AE.fresh();s.accountNumber='AE-1234567890123456';AE.start(s,original.questions.filter(q=>q.subject==='math').slice(0,50),'subject');for(let i=0;i<50;i++){s.session.index=i;AE.answer(s,original,0);}AE.finish(s,original);AE.start(s,original.questions.slice(0,2),'subject');AE.answer(s,original,0);
- const bank=merged();const old=bank.questions[0];old.active=false;bank.questions.push({...structuredClone(old),id:'TEST-REVISION',active:true,answer:1,review:'approved',reviewer:'Automated TEST FIXTURE',supersedes:old.id});AE.validateRefresh(original,bank);
+ const bank=merged();const old=bank.questions[0];old.active=false;delete bank.focus.questions[old.id];bank.questions.push({...structuredClone(old),id:'TEST-REVISION',active:true,answer:1,review:'approved',reviewer:'Automated TEST FIXTURE',supersedes:old.id});AE.validateRefresh(original,bank);
  const restored=AE.validateState(structuredClone(s),bank);assert.equal(restored.history[0].correct,50);assert.equal(restored.pending[0].bankVersion,original.version);assert.equal(restored.session.answers[0],0);assert.ok(!AE.pickSources(s,bank,'subject','math','AI').some(q=>q.id===old.id));
  bank.questions[0].answer=2;bank.questions[0].review='approved';assert.throws(()=>AE.validateRefresh(original,bank),/existing question/);
 });

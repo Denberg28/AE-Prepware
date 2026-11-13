@@ -6,14 +6,14 @@ const server=http.createServer((req,res)=>{const file=path.join(root,req.url==='
  await new Promise(r=>server.listen(8082,'127.0.0.1',r));
  browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}),args:['--no-sandbox']});
  const page=await browser.newPage({viewport:{width:393,height:851}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto('http://127.0.0.1:8082');await page.locator('[data-screen=subjects]').waitFor();
+ await page.goto('http://127.0.0.1:8082');await page.locator('[data-screen=subjects]').waitFor();await page.locator('#study-scope').selectOption('full');
  await page.locator('[data-source=AI]').uncheck();assert.equal(await page.locator('[data-subject]:disabled').count(),6);
  await page.locator('[data-source=IN]').check();assert.equal(await page.locator('[data-subject]:disabled').count(),6);
  await page.locator('[data-source=IN]').uncheck();await page.locator('[data-source=AI]').check();
  await page.locator('[data-subject=math]').click();await page.locator('[data-choice="0"]').click();
  const before=await page.evaluate(()=>structuredClone(state)),currentId=before.session.ids[0];
  const bank=structuredClone(original);bank.version='synthetic-refresh';bank.extends=original.version;
- const old=bank.questions.find(q=>q.id===currentId);old.active=false;
+ const old=bank.questions.find(q=>q.id===currentId);old.active=false;delete bank.focus.questions[old.id];
  bank.questions.push({...structuredClone(old),id:'TEST-REVISION',active:true,answer:1,review:'approved',reviewer:'Automated TEST FIXTURE',supersedes:old.id});
  for(const [i,q]of original.questions.filter(q=>q.subject==='aero').slice(0,50).entries())bank.questions.push({...structuredClone(q),id:'TEST-IN-'+i,prompt:'Synthetic fixture: '+q.prompt,origin:'IN',review:'approved',reviewer:'Automated TEST FIXTURE',upload:{file:'synthetic.json',locator:'Test '+i,rights:'instructor-original'}});
  await page.getByRole('button',{name:'Settings',exact:true}).click();

@@ -46,6 +46,8 @@ def revise_question(bank, question_id, *, prompt, choices, answer, explanation, 
                'reviewedAt': date.today().isoformat()}
     old['active'] = False
     candidate['questions'].append(updated)
+    if old['id'] in candidate.get('focus', {}).get('questions', {}):
+        candidate['focus']['questions'][updated['id']] = candidate['focus']['questions'].pop(old['id'])
     candidate.update(version=version.strip(), extends=bank['version'])
     return compatible_refresh(bank, candidate)
 

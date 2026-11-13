@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "version": "2026.11-foundations.2",
+  "version": "2026.11-prc-foundations.1",
   "title": "AE Foundations",
-  "notice": "360 original foundation items, including parameterized calculation variants; not official PRC questions. Source-checked by author; independent faculty review pending. Not complete syllabus coverage.",
+  "notice": "PRC foundations: selected existing source-checked items, not actual PRC past papers. Coverage is incomplete; consult the coverage gaps in Settings. Full bank retains extra practice. No faculty approval or pass guarantee.",
   "blueprintSource": "https://www.prc.gov.ph/sites/default/files/exam%20program%20nov%202026%20%28aero%29.pdf",
   "subjects": [
     {
@@ -2478,7 +2478,8 @@
       "source": "physics",
       "review": "source-checked",
       "reviewer": "AE Prepware initial author self-review; faculty review pending",
-      "reviewedAt": "2026-11-13"
+      "reviewedAt": "2026-11-13",
+      "active": false
     },
     {
       "origin": "AI",
@@ -6945,5 +6946,503 @@
       "reviewer": "AE Prepware initial author self-review; faculty review pending",
       "reviewedAt": "2026-11-13"
     }
-  ]
+  ],
+  "extends": "2026.11-foundations.2",
+  "focus": {
+    "schema": 1,
+    "title": "PRC foundations",
+    "sessionSize": 20,
+    "reviewedAt": "2026-11-13",
+    "source": "https://www.prc.gov.ph/sites/default/files/TOS%20AERO%202010-01.pdf",
+    "areas": {
+      "math-1": {
+        "subject": "math",
+        "name": "Algebra and trigonometry",
+        "examItems": 15
+      },
+      "math-2": {
+        "subject": "math",
+        "name": "Analytic geometry",
+        "examItems": 15
+      },
+      "math-3": {
+        "subject": "math",
+        "name": "Calculus and differential equations",
+        "examItems": 20
+      },
+      "aero-1": {
+        "subject": "aero",
+        "name": "Low-speed and high-speed fundamentals",
+        "examItems": 14
+      },
+      "aero-2": {
+        "subject": "aero",
+        "name": "Fixed and rotary wing principles",
+        "examItems": 10
+      },
+      "aero-3": {
+        "subject": "aero",
+        "name": "Configuration, performance, stability and control",
+        "examItems": 20
+      },
+      "aero-4": {
+        "subject": "aero",
+        "name": "Wind tunnels",
+        "examItems": 6
+      },
+      "structures-1": {
+        "subject": "structures",
+        "name": "Design fundamentals and CG",
+        "examItems": 18
+      },
+      "structures-2": {
+        "subject": "structures",
+        "name": "Structural loading",
+        "examItems": 18
+      },
+      "structures-3": {
+        "subject": "structures",
+        "name": "Structural and non-structural component design",
+        "examItems": 14
+      },
+      "construction-1": {
+        "subject": "construction",
+        "name": "Materials and processes",
+        "examItems": 17
+      },
+      "construction-2": {
+        "subject": "construction",
+        "name": "Repair and modification",
+        "examItems": 23
+      },
+      "construction-3": {
+        "subject": "construction",
+        "name": "Production and quality assurance",
+        "examItems": 10
+      },
+      "powerplant-1": {
+        "subject": "powerplant",
+        "name": "Thermodynamics",
+        "examItems": 10
+      },
+      "powerplant-2": {
+        "subject": "powerplant",
+        "name": "Internal combustion engines",
+        "examItems": 17
+      },
+      "powerplant-3": {
+        "subject": "powerplant",
+        "name": "Reciprocating and gas turbine engines",
+        "examItems": 14
+      },
+      "powerplant-4": {
+        "subject": "powerplant",
+        "name": "Duct and rocket propulsion",
+        "examItems": 9
+      },
+      "ethics-1": {
+        "subject": "ethics",
+        "name": "Philippine aviation law and ethics",
+        "examItems": 20
+      },
+      "ethics-2": {
+        "subject": "ethics",
+        "name": "Air transport economics",
+        "examItems": 15
+      },
+      "ethics-3": {
+        "subject": "ethics",
+        "name": "Aviation industrial organizations",
+        "examItems": 15
+      }
+    },
+    "gaps": [
+      {
+        "subject": "math",
+        "topics": "Spherical trigonometry and bearings; conics and coordinate transformations; advanced ODE/PDE and aeronautical applications."
+      },
+      {
+        "subject": "aero",
+        "topics": "Atmosphere profiles; shocks and expansions; buoyancy; flight performance calculations and gust loads; wind tunnel similarity and operation."
+      },
+      {
+        "subject": "structures",
+        "topics": "Design categories and configuration tradeoffs; indeterminate beams and trusses; gust and maneuver load analysis; detailed wing, fuselage, landing gear and engine mount design."
+      },
+      {
+        "subject": "construction",
+        "topics": "Manufacturing processes and hardness testing; current Philippine repair authorization; aircraft weighing and extreme-CG computations."
+      },
+      {
+        "subject": "powerplant",
+        "topics": "Flow and non-flow thermodynamics; engine performance analysis beyond single-step arithmetic; pulsejet, ramjet and rocket systems and calculations."
+      },
+      {
+        "subject": "ethics",
+        "topics": "PD 1570 IRR and professional ethics cases; RA 9497, ICAO annexes and current rules; airline load factor; management, R&D and manufacturing organizations."
+      }
+    ],
+    "questions": {
+      "MA001": {
+        "area": "math-3"
+      },
+      "MA002": {
+        "area": "math-3"
+      },
+      "MA003": {
+        "area": "math-1"
+      },
+      "MA004": {
+        "area": "math-1"
+      },
+      "MA005": {
+        "area": "math-2"
+      },
+      "MA006": {
+        "area": "math-1"
+      },
+      "MA007": {
+        "area": "math-3"
+      },
+      "MA008": {
+        "area": "math-3"
+      },
+      "MA009": {
+        "area": "math-3"
+      },
+      "MA010": {
+        "area": "math-2"
+      },
+      "MA011": {
+        "area": "math-1"
+      },
+      "MA012": {
+        "area": "math-1"
+      },
+      "MA013": {
+        "area": "math-3"
+      },
+      "MA014": {
+        "area": "math-3"
+      },
+      "MA015": {
+        "area": "math-1"
+      },
+      "MA016": {
+        "area": "math-2"
+      },
+      "MA017": {
+        "area": "math-1"
+      },
+      "MA018": {
+        "area": "math-3"
+      },
+      "MA019": {
+        "area": "math-1"
+      },
+      "MA028": {
+        "area": "math-3"
+      },
+      "AD001": {
+        "area": "aero-1"
+      },
+      "AD002": {
+        "area": "aero-2"
+      },
+      "AD003": {
+        "area": "aero-2"
+      },
+      "AD004": {
+        "area": "aero-1"
+      },
+      "AD005": {
+        "area": "aero-3"
+      },
+      "AD006": {
+        "area": "aero-1"
+      },
+      "AD007": {
+        "area": "aero-3"
+      },
+      "AD008": {
+        "area": "aero-3"
+      },
+      "AD009": {
+        "area": "aero-3"
+      },
+      "AD010": {
+        "area": "aero-1"
+      },
+      "AD011": {
+        "area": "aero-3"
+      },
+      "AD012": {
+        "area": "aero-3"
+      },
+      "AD013": {
+        "area": "aero-1"
+      },
+      "AD014": {
+        "area": "aero-2"
+      },
+      "AD015": {
+        "area": "aero-2"
+      },
+      "AD016": {
+        "area": "aero-1"
+      },
+      "AD017": {
+        "area": "aero-1"
+      },
+      "AD018": {
+        "area": "aero-2"
+      },
+      "AD019": {
+        "area": "aero-3"
+      },
+      "AD020": {
+        "area": "aero-1"
+      },
+      "ST001": {
+        "area": "structures-2"
+      },
+      "ST002": {
+        "area": "structures-2"
+      },
+      "ST003": {
+        "area": "structures-2"
+      },
+      "ST004": {
+        "area": "structures-2"
+      },
+      "ST006": {
+        "area": "structures-2"
+      },
+      "ST007": {
+        "area": "structures-2"
+      },
+      "ST008": {
+        "area": "structures-1"
+      },
+      "ST009": {
+        "area": "structures-2"
+      },
+      "ST010": {
+        "area": "structures-1"
+      },
+      "ST011": {
+        "area": "structures-2"
+      },
+      "ST012": {
+        "area": "structures-2"
+      },
+      "ST013": {
+        "area": "structures-2"
+      },
+      "ST014": {
+        "area": "structures-2"
+      },
+      "ST015": {
+        "area": "structures-2"
+      },
+      "ST016": {
+        "area": "structures-2"
+      },
+      "ST017": {
+        "area": "structures-2"
+      },
+      "ST018": {
+        "area": "structures-1"
+      },
+      "ST019": {
+        "area": "structures-2"
+      },
+      "ST020": {
+        "area": "structures-2"
+      },
+      "ST021": {
+        "area": "structures-2"
+      },
+      "CR001": {
+        "area": "construction-3"
+      },
+      "CR002": {
+        "area": "construction-3"
+      },
+      "CR003": {
+        "area": "construction-3"
+      },
+      "CR004": {
+        "area": "construction-2"
+      },
+      "CR005": {
+        "area": "construction-1"
+      },
+      "CR006": {
+        "area": "construction-1"
+      },
+      "CR015": {
+        "area": "construction-1"
+      },
+      "CR016": {
+        "area": "construction-2"
+      },
+      "CR010": {
+        "area": "construction-2"
+      },
+      "CR011": {
+        "area": "construction-3"
+      },
+      "CR013": {
+        "area": "construction-2"
+      },
+      "CR014": {
+        "area": "construction-2"
+      },
+      "CR037": {
+        "area": "construction-1"
+      },
+      "CR038": {
+        "area": "construction-1"
+      },
+      "CR039": {
+        "area": "construction-1"
+      },
+      "CR040": {
+        "area": "construction-1"
+      },
+      "CR041": {
+        "area": "construction-1"
+      },
+      "CR044": {
+        "area": "construction-3"
+      },
+      "CR045": {
+        "area": "construction-3"
+      },
+      "CR053": {
+        "area": "construction-2"
+      },
+      "PP001": {
+        "area": "powerplant-2"
+      },
+      "PP002": {
+        "area": "powerplant-2"
+      },
+      "PP003": {
+        "area": "powerplant-2"
+      },
+      "PP004": {
+        "area": "powerplant-3"
+      },
+      "PP005": {
+        "area": "powerplant-3"
+      },
+      "PP006": {
+        "area": "powerplant-1"
+      },
+      "PP007": {
+        "area": "powerplant-1"
+      },
+      "PP008": {
+        "area": "powerplant-3"
+      },
+      "PP009": {
+        "area": "powerplant-3"
+      },
+      "PP010": {
+        "area": "powerplant-2"
+      },
+      "PP011": {
+        "area": "powerplant-3"
+      },
+      "PP012": {
+        "area": "powerplant-2"
+      },
+      "PP013": {
+        "area": "powerplant-3"
+      },
+      "PP014": {
+        "area": "powerplant-2"
+      },
+      "PP015": {
+        "area": "powerplant-1"
+      },
+      "PP016": {
+        "area": "powerplant-3"
+      },
+      "PP017": {
+        "area": "powerplant-1"
+      },
+      "PP018": {
+        "area": "powerplant-2"
+      },
+      "PP019": {
+        "area": "powerplant-2"
+      },
+      "PP020": {
+        "area": "powerplant-1"
+      },
+      "EE001": {
+        "area": "ethics-1"
+      },
+      "EE002": {
+        "area": "ethics-1"
+      },
+      "EE003": {
+        "area": "ethics-1"
+      },
+      "EE004": {
+        "area": "ethics-1"
+      },
+      "EE005": {
+        "area": "ethics-2"
+      },
+      "EE006": {
+        "area": "ethics-2"
+      },
+      "EE007": {
+        "area": "ethics-2"
+      },
+      "EE008": {
+        "area": "ethics-2"
+      },
+      "EE009": {
+        "area": "ethics-2"
+      },
+      "EE010": {
+        "area": "ethics-2"
+      },
+      "EE011": {
+        "area": "ethics-1"
+      },
+      "EE012": {
+        "area": "ethics-1"
+      },
+      "EE013": {
+        "area": "ethics-2"
+      },
+      "EE014": {
+        "area": "ethics-2"
+      },
+      "EE015": {
+        "area": "ethics-2"
+      },
+      "EE016": {
+        "area": "ethics-2"
+      },
+      "EE017": {
+        "area": "ethics-2"
+      },
+      "EE018": {
+        "area": "ethics-2"
+      },
+      "EE019": {
+        "area": "ethics-2"
+      },
+      "EE020": {
+        "area": "ethics-2"
+      }
+    }
+  }
 }

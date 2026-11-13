@@ -1,4 +1,4 @@
-# Known limitations — v0.5.0-rc.1
+# Known limitations — v0.6.0-rc.1
 
 - **Test candidate:** physical Android installation, Storage Access Framework, lifecycle, accessibility, and in-place same-signer update have no device evidence. Stable promotion remains blocked.
 - **Foundation bank:** 360 items/60 per subject includes parameter variants, not 360 independently reviewed competencies. Independent faculty review is pending; advanced TOS coverage remains incomplete. Source/structure/arithmetic checks do not substitute for faculty validation.
@@ -7,10 +7,14 @@
 - **Live AI:** no real provider key was supplied. Successful, malformed and quota-failure paths are mocked; real model access, quotas and educational usefulness remain unvalidated. Without AI, adaptive/random study works.
 - **Practice ranking:** offline answer keys and self-selected names mean scores are not secure exam results. Server grading prevents accidental client score submission, not deliberate answer lookup.
 - **Account recovery:** no email or reset service. Keep the private recovery file and a separate progress backup. Code is shown at creation and cannot later be recovered from its local verifier. App profiles do not encrypt data against an unlocked-device user.
-- **Sync scope:** only completed account-bound 50-item sessions sync. Historical guest sessions and older 10/20-item work remain local. Flags, bookmarks and unfinished sessions require device backup. Last 200 results displayed; pending queue 200, local profiles 10. Token lifetime 30 days; reconnect with recovery code. New device can recover only data already synced.
+- **Sync scope:** completed account-bound 20- and 50-item subject sessions sync. Historical guest sessions and older mixed-subject work remain local. Flags, bookmarks and unfinished sessions require device backup. Last 200 results displayed; pending queue 200, local profiles 10. Token lifetime 30 days; reconnect with recovery code. New device can recover only data already synced.
 - **Bank changes:** compatible append-only refreshes preserve progress and queued results. API `bank_versions` archives are required to grade older queued sessions; unknown versions return a recoverable 409. Back up the SQLite database and export banks before updating. Unrelated full replacements still reset profile progress and are blocked with pending results. No downgrade conversion.
 - **IN content:** the public APK has no book contents. A separately delivered private build includes 2,003 source-key-matched guide questions; 67 items are held. These historical FAA guides are not independent faculty approval, current Philippine law validation or complete PRC TOS coverage. Mathematics and Laws/Ethics have no IN pool. Original PDFs remain private.
 - **Admin setup:** editing is disabled until separate server-side admin credentials are configured. Five-attempt throttling is per browser session, so privately share the dashboard or use authenticated hosting. Edits survive only after bank export; unexported dashboard session memory is temporary.
 - **Server scaling:** SQLite single-worker cohort service with request limits, not a public large-scale identity platform. Host behind TLS and proxy limits and back up the database privately.
 
 - **Theme device check:** browser contrast/persistence and Android builds pass; real system-bar/keyboard/cold-start appearance still needs phone validation. Theme is a device preference, not included in student progress backups.
+
+- **PRC core:** 120 AI / 240 private AI+IN selected items provide foundations only. Four broad TOS areas are empty; other areas also lack advanced competency coverage. The core count is not a validated minimum, and its inventory is not proportional to subject weights. See the detailed review.
+- **Private review holds:** 5 imported records are retired pending semantic review, in addition to the 67 unimported holds. 34 corrected-subject copies preserve original content and keys. ST005 is retired for a context-dependent stem.
+- **Core source availability:** Structures has only 3 IN core records, and Mathematics/Laws have none. Core IN/Hybrid requires 20/10 IN items respectively. Use AI core or Full bank where necessary.

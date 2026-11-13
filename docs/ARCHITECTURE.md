@@ -65,3 +65,9 @@ versions with different content or mutation/removal of archived IDs. Queued
 results use their archived version, not the current key. Server bank activation
 is an explicit single-worker restart with the exported file; there is no live
 mutable scoring endpoint. Restricted source documents stay outside public git.
+
+## v0.6 bank focus and compatibility
+
+Optional `focus` metadata selects immutable question IDs and maps each to a PRC area. Each area records the printed 2010 TOS item count; this does not claim complete competency coverage. Validators reject unknown/retired IDs and subject mismatches. Default core sessions contain 20 items (Hybrid 10 each); full-bank sessions remain 50 (Hybrid 25 each). Topic diversity follows local/server priority ranking. API plans default to full for older clients and accept an explicit `scope`. Results accept exactly 20 or 50 distinct, same-subject answers; historical archives and retry identity remain authoritative.
+
+`profileBank` upgrades a stored snapshot only when the bundled version directly extends it, every old question/citation is unchanged, and saved progress validates against the new snapshot. Persistence precedes replacement in memory. Other stored banks survive. Private classification corrections retire old IDs and append source-key-verified copies; no historical subject or answer is rewritten. Admin revisions transfer core membership to the approved revision.

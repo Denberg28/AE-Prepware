@@ -1,6 +1,8 @@
 # AE Prepware
 
-Minimal Android practice for Philippine Aeronautical Engineers Licensure Examination subjects. **v0.5.0-rc.1 is a test candidate**, pending physical Android testing and independent faculty content review.
+**PRC-focused study update:** default 20-question PRC foundations drills use a curated 120-item AI set (240 AI/IN items in the private build). Full bank retains 50-question practice. This is an incomplete starter core, with advanced coverage gaps shown in Settings. Read the [2022–2026 evidence and bank review](docs/PRC_2022_2026_REVIEW.md) before interpreting coverage.
+
+Minimal Android practice for Philippine Aeronautical Engineers Licensure Examination subjects. **v0.6.0-rc.1 is a test candidate**, pending physical Android testing and independent faculty content review.
 
 ## Appearance and subject weights
 
@@ -12,23 +14,23 @@ remain stationary, and only the center pane scrolls.
 
 ## Study
 
-1. Tick **AI**, **IN**, or both on **Subjects**, then choose a subject. AI labels AI-produced questions; IN labels instructor-uploaded questions. A single source needs 50 active questions; Hybrid needs 25 from each. The app draws 50 distinct questions and shuffles A–D. Insufficient pools are disabled.
+1. Choose **PRC foundations** (20 questions) or **Full bank** (50), tick **AI**, **IN**, or both, then choose a subject. Hybrid draws 10 or 25 from each source respectively. Questions and their original three/four choices are shuffled; insufficient pools are disabled. AI labels AI-produced questions; IN labels instructor uploads.
 2. Select a letter. The answer locks, shows **Correct** or the correct letter/text, and offers a collapsed **Explanation** pane.
-3. Finish all 50 to see your score. **Results** records sessions and subject progress. Save & exit/reopening resumes exactly.
+3. Finish the selected 20 or 50 to see your score. **Results** records sessions and subject progress. Save & exit/reopening resumes exactly.
 
-The bundled bank contains 360 original foundation items (60 per subject), including parameterized calculation variants. This is not comprehensive TOS coverage, official PRC content or a pass guarantee. Answer keys and source explanations are fixed; live AI cannot change them. Imported banks must have independent approval metadata. A subject needs 50 active items: insufficient items show an error rather than repeat questions.
+The public snapshot preserves 360 original AI foundation records (60 per subject), including parameter variants. Its default core selects 120; context-dependent ST005 is retired. Advanced TOS coverage is incomplete. Answer keys and source explanations are fixed; live AI cannot change them. Imported banks need approval metadata or the documented private source-key-verification provenance. Quotas require distinct, active, non-set-aside items.
 
 The 360 bundled items are explicitly labeled **AI**. No recovered IN corpus is included: IN-only and Hybrid become available per subject after reviewed instructor JSON is imported. The attached guides were subsequently processed for a separate private study build: 2,003 text-only IN questions were matched to printed keys; 67 figure/ambiguous items were held. Those book contents are not in the public repository/APK. [Private guide workflow](docs/PRIVATE_GUIDES.md). See [instructor uploads](instructor_uploads/README.md).
 
 Faculty admins can correct text, choices, keys and explanations after a separate server-side sign-in. Corrections append reviewed revisions and retain old questions for saved scores and pending results. Compatible bank refreshes preserve Android progress and unfinished sessions; the API archives original keys across restarts. [Admin setup and editing](docs/ADMIN.md) describes configuration, exports and recovery. Keep server Secrets private; there is no default admin password.
 
-Offline use needs no server, AI key or payment. Random selection is the default. Adaptive selection favors unseen/missed questions. **AI assisted** uses a connected account's synced performance to request topic priorities; without a provider or service it falls back to adaptive selection, labeled in the UI.
+Offline use needs no server, AI key or payment. Adaptive selection is the new-profile default and favors unseen/missed/due questions. Core selection spreads questions across available topics. Existing selection preferences are preserved. **AI assisted** uses a connected account's synced performance to request topic priorities; without a provider or service it falls back to adaptive selection, labeled in the UI.
 
 ## Accounts, saved results and ranking
 
 Create an account in **Account**. The app issues an **AE- account number** and a private recovery code. Save the recovery file and a separate progress backup. Account number alone cannot sign in. Guest progress can be bound to the first new account; different profiles have separate storage. Up to ten local profiles are supported. Recovery codes are verified by digest locally and salted scrypt on the service; the app does not retain their plaintext after creation. Anyone using an unlocked, signed-in phone can view that profile; profiles are not a device encryption boundary.
 
-An account works offline first. For online backup/ranking, use the instructor's **HTTPS API root URL**, enter the recovery code and select **Connect account**. Completed 50-item sessions queue locally and are graded again by the server. Lost responses and retries do not double-count results or points. Sync retains queued sessions on failures. The pending queue caps at 200; sync/export before more sessions. Latest 200 summaries are shown locally and in cloud recovery; server aggregate progress retains all synced attempts.
+An account works offline first. For online backup/ranking, use the instructor's **HTTPS API root URL**, enter the recovery code and select **Connect account**. Completed 20- or 50-item sessions queue locally and are graded again by the server. Lost responses and retries do not double-count results or points. Sync retains queued sessions on failures. The pending queue caps at 200; sync/export before more sessions. Latest 200 summaries are shown locally and in cloud recovery; server aggregate progress retains all synced attempts.
 
 Shared ranking awards one point per distinct correct question per server day (Asia/Manila). Public ranking shows a display name and masked account suffix. These are self-paced practice standings, not verified identities or proctored exam scores: offline answer keys are inspectable. The service is not deployed by this repository. New-device sign-in restores synced results/progress; unsynced results, flags and bookmarks need a progress backup. Lost recovery codes cannot be reset by account number. Server login tokens expire after 30 days; reconnect with the code. Device signout clears its token; online deletion permanently removes server records, while local scores remain.
 
@@ -62,7 +64,7 @@ node tests/shell-browser.cjs
 node tests/theme-browser.cjs
 ```
 
-The integration browser test uses real local API/SQLite, simulated HTTPS origin and separate storage contexts; it is not a physical-phone or live TLS test. `CHROMIUM_PATH` selects a system Chromium. See [test gates](docs/TESTING.md) and [v0.5 evidence](docs/evidence/V0_5_VERIFICATION.md).
+The integration browser test uses real local API/SQLite, simulated HTTPS origin and separate storage contexts; it is not a physical-phone or live TLS test. `CHROMIUM_PATH` selects a system Chromium. See [test gates](docs/TESTING.md) and [v0.6 evidence](docs/evidence/V0_6_VERIFICATION.md).
 
 ## Hosted account API
 

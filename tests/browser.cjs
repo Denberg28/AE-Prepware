@@ -6,7 +6,7 @@ const stored=()=>{const number=localStorage.getItem('ae-active-account-v1');retu
  fs.mkdirSync('artifacts',{recursive:true});await new Promise(r=>server.listen(8080,'127.0.0.1',r));
  browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}),args:['--no-sandbox']});
  const page=await browser.newPage({viewport:{width:393,height:851}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto('http://127.0.0.1:8080');await page.locator('[data-screen=subjects]').waitFor();assert.equal(await page.locator('[data-subject]').count(),6);
+ await page.goto('http://127.0.0.1:8080');await page.locator('[data-screen=subjects]').waitFor();await page.locator('#study-scope').selectOption('full');assert.equal(await page.locator('[data-subject]').count(),6);
  await page.screenshot({path:'artifacts/01-subjects.png',fullPage:true});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
  await page.locator('[data-subject="math"]').click();let s=await page.evaluate(stored);assert.equal(s.session.ids.length,50);assert.equal(new Set(s.session.ids).size,50);
  await page.locator('[data-choice="1"]').click();await page.getByText('Incorrect',{exact:true}).waitFor();

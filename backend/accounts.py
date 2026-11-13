@@ -8,7 +8,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 import httpx
 from fastapi import Depends, Header, HTTPException, Request
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, field_validator
 from .bank import SUBJECTS
 
 class Credentials(BaseModel):
@@ -29,13 +29,21 @@ class StudyResult(BaseModel):
     id: str = Field(pattern=r'^[A-Za-z0-9_-]{1,64}$')
     bankVersion: str = Field(min_length=1, max_length=100)
     subject: str = Field(min_length=1, max_length=30)
-    answers: list[StudyAnswer] = Field(min_length=50, max_length=50)
+    answers: list[StudyAnswer] = Field(min_length=20, max_length=50)
+
+    @field_validator('answers')
+    @classmethod
+    def supported_length(cls, value):
+        if len(value) not in (20,50):
+            raise ValueError('A study result must contain 20 or 50 answers')
+        return value
 
 class Selection(BaseModel):
     model_config = ConfigDict(extra='forbid', strict=True)
     subject: str = Field(min_length=1, max_length=30)
     ai: bool = False
     sourceMode: str = Field(default='AI', pattern=r'^(AI|IN|hybrid)$')
+    scope: str = Field(default='full', pattern=r'^(focus|full)$')
 
 
 def recovery_hash(code, salt):
@@ -160,8 +168,8 @@ def attach_accounts(app, db, rate, clock, bank):
             if grading is None:
                 raise HTTPException(409, 'Question bank versions differ. Preserve the queued result and use the matching API bank.')
             ids=[a.id for a in body.answers]
-            if body.subject not in SUBJECTS or len(set(ids))!=50 or any(i not in grading or grading[i]['subject']!=body.subject for i in ids):
-                raise HTTPException(422, 'Provide 50 distinct bank questions from the selected subject.')
+            if body.subject not in SUBJECTS or len(set(ids))!=len(ids) or any(i not in grading or grading[i]['subject']!=body.subject for i in ids):
+                raise HTTPException(422, 'Provide 20 or 50 distinct bank questions from the selected subject.')
             if any(a.choice >= len(grading[a.id]['choices']) for a in body.answers):
                 raise HTTPException(422, 'Answer choice does not exist in this source question.')
             now=clock(); day=datetime.fromtimestamp(now,ZoneInfo('Asia/Manila')).strftime('%Y-%m-%d')
@@ -175,7 +183,7 @@ def attach_accounts(app, db, rate, clock, bank):
                 c.execute('INSERT OR REPLACE INTO account_progress VALUES(?,?,?,?,?,?)', (who['number'],a.id,seen,successes,streak,now))
                 if ok:
                     credited+=c.execute('INSERT OR IGNORE INTO account_credits VALUES(?,?,?)',(who['number'],day,a.id)).rowcount
-            result={'id':body.id,'accountNumber':who['number'],'subject':body.subject,'bankVersion':body.bankVersion,'mode':'subject','total':50,'correct':correct,'date':int(now*1000),'ids':ids,'answers':[a.choice for a in body.answers],'credited':credited,'synced':True}
+            result={'id':body.id,'accountNumber':who['number'],'subject':body.subject,'bankVersion':body.bankVersion,'mode':'subject','total':len(ids),'correct':correct,'date':int(now*1000),'ids':ids,'answers':[a.choice for a in body.answers],'credited':credited,'synced':True}
             c.execute('INSERT INTO study_results VALUES(?,?,?,?,?)', (who['number'],body.id,canonical,json.dumps(result),now))
             return result
 
@@ -192,10 +200,13 @@ def attach_accounts(app, db, rate, clock, bank):
     @app.post('/accounts/plan')
     def plan(body: Selection, who=Depends(identity)):
         rate('account-plan:'+who['number'], 20, 3600)
-        needs = {'AI': 25, 'IN': 25} if body.sourceMode == 'hybrid' else {body.sourceMode: 50}
-        pool=[q for q in bank['questions'] if q['subject']==body.subject and q.get('active', True) and q.get('origin', 'AI') in needs]
+        size=20 if body.scope=='focus' else 50
+        if body.scope=='focus' and not bank.get('focus'):
+            raise HTTPException(409, 'This bank has no reviewed core selection.')
+        needs = {'AI': size//2, 'IN': size//2} if body.sourceMode == 'hybrid' else {body.sourceMode: size}
+        pool=[q for q in bank['questions'] if q['subject']==body.subject and q.get('active', True) and q.get('origin', 'AI') in needs and (body.scope=='full' or q['id'] in bank['focus']['questions'])]
         if any(sum(q.get('origin', 'AI') == source for q in pool) < count for source, count in needs.items()):
-            raise HTTPException(409, 'Not enough active questions for the selected AI/IN source. Hybrid needs 25 of each; a single source needs 50.')
+            raise HTTPException(409, f'Not enough active questions for the selected source. Hybrid needs {size//2} of each; a single source needs {size}.')
         with db() as c:
             progress={r['question']:dict(r) for r in c.execute('SELECT * FROM account_progress WHERE account=?', (who['number'],))}
         topics=sorted({q['topic'] for q in pool}); focus=[]; selection='adaptive'
@@ -225,6 +236,14 @@ def attach_accounts(app, db, rate, clock, bank):
             return (5 if q['topic'] in focus else 0)+(6 if p and p['streak']==0 else 3 if not p else 1)+rng.random()*4
         chosen=[]
         for source, count in needs.items():
-            chosen.extend(sorted((q for q in pool if q.get('origin', 'AI') == source), key=priority, reverse=True)[:count])
+            ranked=sorted((q for q in pool if q.get('origin', 'AI') == source), key=priority, reverse=True)
+            if body.scope=='focus':
+                buckets={}
+                for q in ranked:buckets.setdefault(q['topic'],[]).append(q)
+                ranked=[]
+                while len(ranked)<count:
+                    for items in buckets.values():
+                        if items and len(ranked)<count:ranked.append(items.pop(0))
+            chosen.extend(ranked[:count])
         rng.shuffle(chosen)
         return {'bankVersion':bank['version'],'ids':[q['id'] for q in chosen],'selection':selection,'topics':focus}

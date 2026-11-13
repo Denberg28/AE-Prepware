@@ -20,6 +20,7 @@ def instructor_upload(count=50):
                  review='approved', reviewer='Automated TEST FIXTURE',
                  upload={'file': 'synthetic-test.json', 'locator': f'Test item {i+1}', 'rights': 'instructor-original'})
     bank.update(version='test-upload', questions=pool)
+    bank.pop('focus',None)
     return bank
 
 

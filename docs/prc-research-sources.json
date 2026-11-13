@@ -1,0 +1,51 @@
+[
+  {
+    "id": "2022-program",
+    "url": "https://www.prc.gov.ph/sites/default/files/120122%20revised%20exam%20program%20dec%202022%20aele%20%28aero%20engg%29.pdf",
+    "sha256": "890ada7c3f7b4bb498bfda8b64be08bc2cc00acd9fd31f884da86793a6ce3007",
+    "bytes": 217704,
+    "retrieved": "2026-11-13 UTC"
+  },
+  {
+    "id": "2023-program",
+    "url": "https://www.prc.gov.ph/sites/default/files/revised%20exam%20program%20dec%202023%20%28aero%20engg%29.pdf",
+    "sha256": "b85f4c7eeb397f61e1b7d4dd66ba8e469ee5edc33a400f249bc97c30e0d104d5",
+    "bytes": 314974,
+    "retrieved": "2026-11-13 UTC"
+  },
+  {
+    "id": "2024-program",
+    "url": "https://www.prc.gov.ph/sites/default/files/exam%20program%20DEC%202024%20%28aero%291.pdf",
+    "sha256": "aa0f9e92d1faa19ccd0c6c8a0cb43078cda52b9f68a0c76ae1f5f06891316913",
+    "bytes": 211493,
+    "retrieved": "2026-11-13 UTC"
+  },
+  {
+    "id": "2025-program",
+    "url": "https://www.prc.gov.ph/sites/default/files/revised%20ra%20aero%2012-2025%20ro7%20cebu.pdf",
+    "sha256": "e86e2f7eee79362b946680bb4893bb0a920bf76ce3023627deb383e17346e528",
+    "bytes": 7300044,
+    "retrieved": "2026-11-13 UTC"
+  },
+  {
+    "id": "2026-program",
+    "url": "https://www.prc.gov.ph/sites/default/files/exam%20program%20nov%202026%20%28aero%29.pdf",
+    "sha256": "022b5b10734d593fb0d16458c57f9b41bbe171f07cca8e40eab47c5a1047fd99",
+    "bytes": 2143678,
+    "retrieved": "2026-11-13 UTC"
+  },
+  {
+    "id": "2026-resolution",
+    "url": "https://www.prc.gov.ph/sites/default/files/PRB-AeronauticalEngineer-BoardReso-2026-04.pdf",
+    "sha256": "39ea2ddabda1a6ebd5a116d53d5bfaa0e185032a5e5e8213a9657ebf1551d8ce",
+    "bytes": 1357776,
+    "retrieved": "2026-11-13 UTC"
+  },
+  {
+    "id": "TOS-2010",
+    "url": "https://www.prc.gov.ph/sites/default/files/TOS%20AERO%202010-01.pdf",
+    "sha256": "581596cf8b5ca86912bd44fd6255227cad6b6fcfc48d3a33eb787886ae86d859",
+    "bytes": 1077527,
+    "retrieved": "2026-11-13 UTC"
+  }
+]

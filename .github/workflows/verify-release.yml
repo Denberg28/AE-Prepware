@@ -47,6 +47,7 @@ jobs:
       - run: node tests/private-bank-browser.cjs | tee artifacts/private-bank-browser.txt
       - run: node tests/shell-browser.cjs | tee artifacts/shell-browser.txt
       - run: node tests/theme-browser.cjs | tee artifacts/theme-browser.txt
+      - run: node tests/focus-browser.cjs | tee artifacts/focus-browser.txt
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'

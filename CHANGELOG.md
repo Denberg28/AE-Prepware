@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.6.0-rc.1 — 2026-11-14
+
+- Review official 2022–2026 programs and the detailed PRC TOS; record sources, selection policy and coverage gaps.
+- Add a 120-item public AI foundation core and a separately distributed 240-item private AI/IN core; retain the complete reference bank and immutable historical keys.
+- Add 20-question topic-diverse core drills and matching 10+10 Hybrid, alongside full-bank 50/25+25 practice.
+- Support server grading, recovery and idempotent sync for both 20- and 50-item account results.
+- Refresh directly compatible stored banks after question and saved-state validation.
+- Correct selected private subject assignments through 34 append-only copies; retire five questionable IN items and context-dependent ST005 without changing old keys.
+- Show explicit coverage gaps; independently recalculate 264 parameterized AI exercises and 77 selected numeric exercises. Faculty and device validation remain pending.
+
 ## 0.5.0-rc.1 — 2026-11-13
 
 - Restore PRC subject-weight badges and the linked Settings breakdown, verified against the official November 2026 PRC program.

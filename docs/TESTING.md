@@ -85,3 +85,7 @@ state/order, fixed chrome across widths, and recoverable theme-storage failure.
 The browser mock proves bridge messages, not real system-bar pixels. Check the
 actual Android light/dark icons, keyboard, cold start and app return on a phone.
 Official weight source: https://www.prc.gov.ph/sites/default/files/exam%20program%20nov%202026%20%28aero%29.pdf
+
+## v0.6 PRC focus gates
+
+Run `node tests/focus-browser.cjs` with the other browser workflows. It checks automatic stored-bank migration, an unfinished 50-item session and queued history, 20-item core completion, full-bank fallback, gap visibility and 320px layout. New Node/Python tests cover core integrity, topic diversity, exact source quotas, 20-item server grading/retries, three-choice Hybrid and legacy 50-item behavior. `PYTHONPATH=. python scripts/audit_prc_focus.py --bank app/src/main/assets/bank.json --output docs/prc-focus-audit.json` checks all 264 generated numeric exercises and 77 separately worked core numeric exercises. Private curation/audit is run separately without public corpus publication.

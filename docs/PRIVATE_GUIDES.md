@@ -60,3 +60,9 @@ by this change. Offline IN/Hybrid study requires no service.
 VersionCode 4 and the existing certificate allow an in-place update from v0.2/
 v0.3. Physical installation, system-bar/keyboard behavior, lifecycle and upgrade
 need device confirmation; browser/layout/build evidence does not replace it.
+
+## v0.6 focused snapshot
+
+`2026.11-private-prc.1` directly extends `2026.11-private-guides.1`. It preserves all 2,363 original records and adds 34 corrected-subject copies, for 2,397 total records. Old IDs keep their original content/keys. Five questionable IN records and public ST005 are retired. The 240-item core contains 120 AI and 120 IN records; the full bank remains available. The private review queue contains the original 67 unimported holds plus five retired semantic-review cases. See `PRC_2022_2026_REVIEW.md` in the private delivery for coverage and evidence.
+
+Reproduce curation from the matching previous snapshot using `scripts/curate_prc_bank.py`, the private policy, and the new bank version. Never rerun the historical generator over a curated bank. Run `scripts/audit_prc_focus.py` for both distributions. Private packaging now requires `--focus-audit` and `--focus-policy`; it verifies the bank hash before copying these into delivery. Original source-key agreement remains inherited, not faculty approval.

@@ -1,0 +1,930 @@
+{
+  "bankVersion": "2026.11-prc-foundations.1",
+  "bankSha256": "4234a54f0e53cbca5e62509ae9c0826733e848633ff104ccd499cdad7cbd4627",
+  "records": 360,
+  "coreItems": 120,
+  "coreBySubject": {
+    "math": {
+      "AI": 20,
+      "IN": 0
+    },
+    "aero": {
+      "AI": 20,
+      "IN": 0
+    },
+    "structures": {
+      "AI": 20,
+      "IN": 0
+    },
+    "construction": {
+      "AI": 20,
+      "IN": 0
+    },
+    "powerplant": {
+      "AI": 20,
+      "IN": 0
+    },
+    "ethics": {
+      "AI": 20,
+      "IN": 0
+    }
+  },
+  "coverage": [
+    {
+      "id": "math-1",
+      "subject": "math",
+      "name": "Algebra and trigonometry",
+      "examItems": 15,
+      "coreItems": 8,
+      "status": "foundation-only"
+    },
+    {
+      "id": "math-2",
+      "subject": "math",
+      "name": "Analytic geometry",
+      "examItems": 15,
+      "coreItems": 3,
+      "status": "foundation-only"
+    },
+    {
+      "id": "math-3",
+      "subject": "math",
+      "name": "Calculus and differential equations",
+      "examItems": 20,
+      "coreItems": 9,
+      "status": "foundation-only"
+    },
+    {
+      "id": "aero-1",
+      "subject": "aero",
+      "name": "Low-speed and high-speed fundamentals",
+      "examItems": 14,
+      "coreItems": 8,
+      "status": "foundation-only"
+    },
+    {
+      "id": "aero-2",
+      "subject": "aero",
+      "name": "Fixed and rotary wing principles",
+      "examItems": 10,
+      "coreItems": 5,
+      "status": "foundation-only"
+    },
+    {
+      "id": "aero-3",
+      "subject": "aero",
+      "name": "Configuration, performance, stability and control",
+      "examItems": 20,
+      "coreItems": 7,
+      "status": "foundation-only"
+    },
+    {
+      "id": "aero-4",
+      "subject": "aero",
+      "name": "Wind tunnels",
+      "examItems": 6,
+      "coreItems": 0,
+      "status": "missing"
+    },
+    {
+      "id": "structures-1",
+      "subject": "structures",
+      "name": "Design fundamentals and CG",
+      "examItems": 18,
+      "coreItems": 3,
+      "status": "foundation-only"
+    },
+    {
+      "id": "structures-2",
+      "subject": "structures",
+      "name": "Structural loading",
+      "examItems": 18,
+      "coreItems": 17,
+      "status": "foundation-only"
+    },
+    {
+      "id": "structures-3",
+      "subject": "structures",
+      "name": "Structural and non-structural component design",
+      "examItems": 14,
+      "coreItems": 0,
+      "status": "missing"
+    },
+    {
+      "id": "construction-1",
+      "subject": "construction",
+      "name": "Materials and processes",
+      "examItems": 17,
+      "coreItems": 8,
+      "status": "foundation-only"
+    },
+    {
+      "id": "construction-2",
+      "subject": "construction",
+      "name": "Repair and modification",
+      "examItems": 23,
+      "coreItems": 6,
+      "status": "foundation-only"
+    },
+    {
+      "id": "construction-3",
+      "subject": "construction",
+      "name": "Production and quality assurance",
+      "examItems": 10,
+      "coreItems": 6,
+      "status": "foundation-only"
+    },
+    {
+      "id": "powerplant-1",
+      "subject": "powerplant",
+      "name": "Thermodynamics",
+      "examItems": 10,
+      "coreItems": 5,
+      "status": "foundation-only"
+    },
+    {
+      "id": "powerplant-2",
+      "subject": "powerplant",
+      "name": "Internal combustion engines",
+      "examItems": 17,
+      "coreItems": 8,
+      "status": "foundation-only"
+    },
+    {
+      "id": "powerplant-3",
+      "subject": "powerplant",
+      "name": "Reciprocating and gas turbine engines",
+      "examItems": 14,
+      "coreItems": 7,
+      "status": "foundation-only"
+    },
+    {
+      "id": "powerplant-4",
+      "subject": "powerplant",
+      "name": "Duct and rocket propulsion",
+      "examItems": 9,
+      "coreItems": 0,
+      "status": "missing"
+    },
+    {
+      "id": "ethics-1",
+      "subject": "ethics",
+      "name": "Philippine aviation law and ethics",
+      "examItems": 20,
+      "coreItems": 6,
+      "status": "foundation-only"
+    },
+    {
+      "id": "ethics-2",
+      "subject": "ethics",
+      "name": "Air transport economics",
+      "examItems": 15,
+      "coreItems": 14,
+      "status": "foundation-only"
+    },
+    {
+      "id": "ethics-3",
+      "subject": "ethics",
+      "name": "Aviation industrial organizations",
+      "examItems": 15,
+      "coreItems": 0,
+      "status": "missing"
+    }
+  ],
+  "numericChecks": [
+    {
+      "id": "MA001",
+      "expected": 14,
+      "answer": "14",
+      "result": "matched"
+    },
+    {
+      "id": "MA002",
+      "expected": 9,
+      "answer": "9",
+      "result": "matched"
+    },
+    {
+      "id": "MA003",
+      "expected": 0.6,
+      "answer": "0.6",
+      "result": "matched"
+    },
+    {
+      "id": "MA004",
+      "expected": 6,
+      "answer": "6",
+      "result": "matched"
+    },
+    {
+      "id": "MA005",
+      "expected": 2,
+      "answer": "2",
+      "result": "matched"
+    },
+    {
+      "id": "MA009",
+      "expected": 12,
+      "answer": "12 m/s²",
+      "result": "matched"
+    },
+    {
+      "id": "MA010",
+      "expected": 5,
+      "answer": "5",
+      "result": "matched"
+    },
+    {
+      "id": "MA011",
+      "expected": 5,
+      "answer": "5",
+      "result": "matched"
+    },
+    {
+      "id": "MA013",
+      "expected": 17,
+      "answer": "17",
+      "result": "matched"
+    },
+    {
+      "id": "MA014",
+      "expected": 6,
+      "answer": "6",
+      "result": "matched"
+    },
+    {
+      "id": "MA015",
+      "expected": 5,
+      "answer": "5",
+      "result": "matched"
+    },
+    {
+      "id": "MA016",
+      "expected": 2,
+      "answer": "2",
+      "result": "matched"
+    },
+    {
+      "id": "MA017",
+      "expected": 5,
+      "answer": "5",
+      "result": "matched"
+    },
+    {
+      "id": "MA018",
+      "expected": 8,
+      "answer": "8",
+      "result": "matched"
+    },
+    {
+      "id": "MA019",
+      "expected": 10,
+      "answer": "10 m",
+      "result": "matched"
+    },
+    {
+      "id": "MA028",
+      "expected": 24,
+      "answer": "24 m/s²",
+      "result": "matched"
+    },
+    {
+      "id": "AD001",
+      "expected": 1500,
+      "answer": "1,500 Pa",
+      "result": "matched"
+    },
+    {
+      "id": "AD002",
+      "expected": 4000,
+      "answer": "4,000 N",
+      "result": "matched"
+    },
+    {
+      "id": "AD003",
+      "expected": 4,
+      "answer": "4",
+      "result": "matched"
+    },
+    {
+      "id": "AD004",
+      "expected": 360,
+      "answer": "360 N",
+      "result": "matched"
+    },
+    {
+      "id": "AD008",
+      "expected": 2,
+      "answer": "2",
+      "result": "matched"
+    },
+    {
+      "id": "AD009",
+      "expected": 2,
+      "answer": "2",
+      "result": "matched"
+    },
+    {
+      "id": "AD013",
+      "expected": 960,
+      "answer": "960 Pa",
+      "result": "matched"
+    },
+    {
+      "id": "AD014",
+      "expected": 1200,
+      "answer": "1,200 N",
+      "result": "matched"
+    },
+    {
+      "id": "AD015",
+      "expected": 0.4,
+      "answer": "0.4",
+      "result": "matched"
+    },
+    {
+      "id": "AD016",
+      "expected": 96,
+      "answer": "96 N",
+      "result": "matched"
+    },
+    {
+      "id": "AD017",
+      "expected": 0.2,
+      "answer": "0.2",
+      "result": "matched"
+    },
+    {
+      "id": "AD018",
+      "expected": 2,
+      "answer": "2",
+      "result": "matched"
+    },
+    {
+      "id": "AD019",
+      "expected": 200,
+      "answer": "200 N/m²",
+      "result": "matched"
+    },
+    {
+      "id": "AD020",
+      "expected": 40,
+      "answer": "40 m/s",
+      "result": "matched"
+    },
+    {
+      "id": "ST001",
+      "expected": 100,
+      "answer": "100 MPa",
+      "result": "matched"
+    },
+    {
+      "id": "ST002",
+      "expected": 0.0005,
+      "answer": "0.0005",
+      "result": "matched"
+    },
+    {
+      "id": "ST003",
+      "expected": 70,
+      "answer": "70 MPa",
+      "result": "matched"
+    },
+    {
+      "id": "ST004",
+      "expected": 500,
+      "answer": "500 N",
+      "result": "matched"
+    },
+    {
+      "id": "ST007",
+      "expected": 10,
+      "answer": "10 N·m",
+      "result": "matched"
+    },
+    {
+      "id": "ST010",
+      "expected": 2.5,
+      "answer": "2.5 m",
+      "result": "matched"
+    },
+    {
+      "id": "ST011",
+      "expected": 0.5,
+      "answer": "0.5",
+      "result": "matched"
+    },
+    {
+      "id": "ST013",
+      "expected": 40,
+      "answer": "40 MPa",
+      "result": "matched"
+    },
+    {
+      "id": "ST014",
+      "expected": 0.002,
+      "answer": "0.002",
+      "result": "matched"
+    },
+    {
+      "id": "ST015",
+      "expected": 0.2,
+      "answer": "0.2 mm",
+      "result": "matched"
+    },
+    {
+      "id": "ST016",
+      "expected": 1000,
+      "answer": "1,000 N",
+      "result": "matched"
+    },
+    {
+      "id": "ST017",
+      "expected": 2000,
+      "answer": "2,000 N·m",
+      "result": "matched"
+    },
+    {
+      "id": "ST018",
+      "expected": 4,
+      "answer": "4 m",
+      "result": "matched"
+    },
+    {
+      "id": "ST019",
+      "expected": 20,
+      "answer": "20 N·m",
+      "result": "matched"
+    },
+    {
+      "id": "ST020",
+      "expected": 2,
+      "answer": "2",
+      "result": "matched"
+    },
+    {
+      "id": "ST021",
+      "expected": 60,
+      "answer": "60 MPa",
+      "result": "matched"
+    },
+    {
+      "id": "CR013",
+      "expected": 60,
+      "answer": "60 mm",
+      "result": "matched"
+    },
+    {
+      "id": "CR014",
+      "expected": 8,
+      "answer": "8 mm",
+      "result": "matched"
+    },
+    {
+      "id": "CR015",
+      "expected": 5.4,
+      "answer": "5.4 kg",
+      "result": "matched"
+    },
+    {
+      "id": "CR016",
+      "expected": 500,
+      "answer": "500 N",
+      "result": "matched"
+    },
+    {
+      "id": "PP002",
+      "expected": 2,
+      "answer": "2",
+      "result": "matched"
+    },
+    {
+      "id": "PP003",
+      "expected": 10,
+      "answer": "10:1",
+      "result": "matched"
+    },
+    {
+      "id": "PP007",
+      "expected": 30,
+      "answer": "30%",
+      "result": "matched"
+    },
+    {
+      "id": "PP008",
+      "expected": 10,
+      "answer": "10 kW",
+      "result": "matched"
+    },
+    {
+      "id": "PP011",
+      "expected": 4000,
+      "answer": "4,000 N",
+      "result": "matched"
+    },
+    {
+      "id": "PP013",
+      "expected": 4.8,
+      "answer": "4.8 kW",
+      "result": "matched"
+    },
+    {
+      "id": "PP014",
+      "expected": 3,
+      "answer": "3 :1",
+      "result": "matched"
+    },
+    {
+      "id": "PP015",
+      "expected": 20,
+      "answer": "20 %",
+      "result": "matched"
+    },
+    {
+      "id": "PP016",
+      "expected": 400,
+      "answer": "400 N",
+      "result": "matched"
+    },
+    {
+      "id": "PP017",
+      "expected": 800,
+      "answer": "800 J",
+      "result": "matched"
+    },
+    {
+      "id": "PP018",
+      "expected": 0.2,
+      "answer": "0.2 kg/(kW·h)",
+      "result": "matched"
+    },
+    {
+      "id": "PP019",
+      "expected": 1000,
+      "answer": "1,000 strokes/min",
+      "result": "matched"
+    },
+    {
+      "id": "PP020",
+      "expected": 80,
+      "answer": "80 MW",
+      "result": "matched"
+    },
+    {
+      "id": "EE005",
+      "expected": 2000,
+      "answer": "₱2,000",
+      "result": "matched"
+    },
+    {
+      "id": "EE006",
+      "expected": 12100,
+      "answer": "₱12,100",
+      "result": "matched"
+    },
+    {
+      "id": "EE007",
+      "expected": 10000,
+      "answer": "₱10,000",
+      "result": "matched"
+    },
+    {
+      "id": "EE008",
+      "expected": 20000,
+      "answer": "₱20,000",
+      "result": "matched"
+    },
+    {
+      "id": "EE009",
+      "expected": 0,
+      "answer": "₱0",
+      "result": "matched"
+    },
+    {
+      "id": "EE010",
+      "expected": 100,
+      "answer": "100 units",
+      "result": "matched"
+    },
+    {
+      "id": "EE013",
+      "expected": 200,
+      "answer": "200 pesos",
+      "result": "matched"
+    },
+    {
+      "id": "EE014",
+      "expected": 2420,
+      "answer": "2,420 pesos",
+      "result": "matched"
+    },
+    {
+      "id": "EE015",
+      "expected": 2000,
+      "answer": "2,000 pesos",
+      "result": "matched"
+    },
+    {
+      "id": "EE016",
+      "expected": 4000,
+      "answer": "4,000 pesos/year",
+      "result": "matched"
+    },
+    {
+      "id": "EE017",
+      "expected": 200,
+      "answer": "200 units",
+      "result": "matched"
+    },
+    {
+      "id": "EE018",
+      "expected": 19000,
+      "answer": "19,000 pesos",
+      "result": "matched"
+    },
+    {
+      "id": "EE019",
+      "expected": 2,
+      "answer": "2 years",
+      "result": "matched"
+    },
+    {
+      "id": "EE020",
+      "expected": 420,
+      "answer": "420 pesos",
+      "result": "matched"
+    }
+  ],
+  "numericCheckCount": 77,
+  "expandedNumericChecks": [
+    "MA013",
+    "MA014",
+    "MA015",
+    "MA016",
+    "MA017",
+    "MA018",
+    "MA019",
+    "MA020",
+    "MA021",
+    "MA022",
+    "MA023",
+    "MA024",
+    "MA025",
+    "MA026",
+    "MA027",
+    "MA028",
+    "MA029",
+    "MA030",
+    "MA031",
+    "MA032",
+    "MA033",
+    "MA034",
+    "MA035",
+    "MA036",
+    "MA037",
+    "MA038",
+    "MA039",
+    "MA040",
+    "MA041",
+    "MA042",
+    "MA043",
+    "MA044",
+    "MA045",
+    "MA046",
+    "MA047",
+    "MA048",
+    "MA049",
+    "MA050",
+    "MA051",
+    "MA052",
+    "MA053",
+    "MA054",
+    "MA055",
+    "MA056",
+    "MA057",
+    "MA058",
+    "MA059",
+    "MA060",
+    "AD013",
+    "AD014",
+    "AD015",
+    "AD016",
+    "AD017",
+    "AD018",
+    "AD019",
+    "AD020",
+    "AD021",
+    "AD022",
+    "AD023",
+    "AD024",
+    "AD025",
+    "AD026",
+    "AD027",
+    "AD028",
+    "AD029",
+    "AD030",
+    "AD031",
+    "AD032",
+    "AD033",
+    "AD034",
+    "AD035",
+    "AD036",
+    "AD037",
+    "AD038",
+    "AD039",
+    "AD040",
+    "AD041",
+    "AD042",
+    "AD043",
+    "AD044",
+    "AD045",
+    "AD046",
+    "AD047",
+    "AD048",
+    "AD049",
+    "AD050",
+    "AD051",
+    "AD052",
+    "AD053",
+    "AD054",
+    "AD055",
+    "AD056",
+    "AD057",
+    "AD058",
+    "AD059",
+    "AD060",
+    "ST013",
+    "ST014",
+    "ST015",
+    "ST016",
+    "ST017",
+    "ST018",
+    "ST019",
+    "ST020",
+    "ST021",
+    "ST022",
+    "ST023",
+    "ST024",
+    "ST025",
+    "ST026",
+    "ST027",
+    "ST028",
+    "ST029",
+    "ST030",
+    "ST031",
+    "ST032",
+    "ST033",
+    "ST034",
+    "ST035",
+    "ST036",
+    "ST037",
+    "ST038",
+    "ST039",
+    "ST040",
+    "ST041",
+    "ST042",
+    "ST043",
+    "ST044",
+    "ST045",
+    "ST046",
+    "ST047",
+    "ST048",
+    "ST049",
+    "ST050",
+    "ST051",
+    "ST052",
+    "ST053",
+    "ST054",
+    "ST055",
+    "ST056",
+    "ST057",
+    "ST058",
+    "ST059",
+    "ST060",
+    "CR013",
+    "CR014",
+    "CR015",
+    "CR016",
+    "CR017",
+    "CR018",
+    "CR019",
+    "CR020",
+    "CR021",
+    "CR022",
+    "CR023",
+    "CR024",
+    "CR025",
+    "CR026",
+    "CR027",
+    "CR028",
+    "CR029",
+    "CR030",
+    "CR031",
+    "CR032",
+    "CR033",
+    "CR034",
+    "CR035",
+    "CR036",
+    "PP013",
+    "PP014",
+    "PP015",
+    "PP016",
+    "PP017",
+    "PP018",
+    "PP019",
+    "PP020",
+    "PP021",
+    "PP022",
+    "PP023",
+    "PP024",
+    "PP025",
+    "PP026",
+    "PP027",
+    "PP028",
+    "PP029",
+    "PP030",
+    "PP031",
+    "PP032",
+    "PP033",
+    "PP034",
+    "PP035",
+    "PP036",
+    "PP037",
+    "PP038",
+    "PP039",
+    "PP040",
+    "PP041",
+    "PP042",
+    "PP043",
+    "PP044",
+    "PP045",
+    "PP046",
+    "PP047",
+    "PP048",
+    "PP049",
+    "PP050",
+    "PP051",
+    "PP052",
+    "PP053",
+    "PP054",
+    "PP055",
+    "PP056",
+    "PP057",
+    "PP058",
+    "PP059",
+    "PP060",
+    "EE013",
+    "EE014",
+    "EE015",
+    "EE016",
+    "EE017",
+    "EE018",
+    "EE019",
+    "EE020",
+    "EE021",
+    "EE022",
+    "EE023",
+    "EE024",
+    "EE025",
+    "EE026",
+    "EE027",
+    "EE028",
+    "EE029",
+    "EE030",
+    "EE031",
+    "EE032",
+    "EE033",
+    "EE034",
+    "EE035",
+    "EE036",
+    "EE037",
+    "EE038",
+    "EE039",
+    "EE040",
+    "EE041",
+    "EE042",
+    "EE043",
+    "EE044",
+    "EE045",
+    "EE046",
+    "EE047",
+    "EE048",
+    "EE049",
+    "EE050",
+    "EE051",
+    "EE052",
+    "EE053",
+    "EE054",
+    "EE055",
+    "EE056",
+    "EE057",
+    "EE058",
+    "EE059",
+    "EE060"
+  ],
+  "expandedNumericCheckCount": 264,
+  "aiRepeatedNumericStemGroups": 44,
+  "auditScope": "All records schema/provenance/duplicate-active validation; all core records selected for relevance; selected AI numeric answers recalculated. IN source-key matching is inherited, not independent faculty review. Nonzero area counts do not demonstrate complete competency coverage.",
+  "facultyApproved": false,
+  "authenticPrcPastPapers": false
+}

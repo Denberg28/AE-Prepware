@@ -57,6 +57,20 @@ def validate_bank(bank, imported=False, trusted=None, partial=False):
             raise ValueError('Invalid review metadata')
     if not partial and {q['subject'] for q in questions}!=set(SUBJECTS):
         raise ValueError('Each subject requires at least one question')
+    if 'focus' in bank:
+        f=bank['focus']; index={q['id']:q for q in questions}
+        if not isinstance(f,dict) or f.get('schema')!=1 or f.get('sessionSize')!=20 or not isinstance(f.get('title'),str) or not 1<=len(f['title'].strip())<=100 or not isinstance(f.get('source'),str) or not f['source'].startswith('https://') or not isinstance(f.get('areas'),dict) or not isinstance(f.get('questions'),dict) or not f['questions'] or not isinstance(f.get('gaps'),list) or len(f['gaps'])>30:
+            raise ValueError('Invalid core selection metadata')
+        for a in f['areas'].values():
+            if not isinstance(a,dict) or not isinstance(a.get('subject'),str) or a['subject'] not in SUBJECTS or not isinstance(a.get('name'),str) or not 1<=len(a['name'])<=200 or type(a.get('examItems')) is not int or not 1<=a['examItems']<=50:
+                raise ValueError('Invalid core coverage area')
+        for qid,entry in f['questions'].items():
+            q=index.get(qid); area=f['areas'].get(entry['area']) if isinstance(entry,dict) and isinstance(entry.get('area'),str) else None
+            if not q or q.get('active',True) is False or not area or q['subject']!=area['subject']:
+                raise ValueError('Core selection refers to an unknown, retired or mismatched question')
+        for g in f['gaps']:
+            if not isinstance(g,dict) or g.get('subject') not in SUBJECTS or not isinstance(g.get('topics'),str) or not 1<=len(g['topics'])<=2000:
+                raise ValueError('Invalid core coverage gap')
     return bank
 
 def load_bank(path=None):

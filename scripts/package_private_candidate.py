@@ -22,6 +22,8 @@ parser.add_argument('--unsigned',type=Path,required=True)
 parser.add_argument('--bank',type=Path,required=True)
 parser.add_argument('--audit',type=Path,required=True)
 parser.add_argument('--queue',type=Path,required=True)
+parser.add_argument('--focus-audit',type=Path)
+parser.add_argument('--focus-policy',type=Path)
 parser.add_argument('--output-dir',type=Path,required=True)
 args=parser.parse_args()
 if 'release-candidates' in args.output_dir.resolve().parts:
@@ -54,30 +56,46 @@ apk_name=f'AE-Prepware-{config["version"]}-IN-Private.apk'
 output=args.output_dir/apk_name
 shutil.copy2(args.apk,output)
 for p in [args.bank,args.audit,args.queue]:shutil.copy2(p,args.output_dir/p.name)
+if bank.get('focus'):
+    if not args.focus_audit or not args.focus_policy:raise SystemExit('Focused candidates require their audit and selection policy')
+    focus_audit=json.loads(args.focus_audit.read_text())
+    if focus_audit['bankSha256']!=hashlib.sha256(args.bank.read_bytes()).hexdigest() or focus_audit['coreItems']!=len(bank['focus']['questions']):raise SystemExit('Focus audit does not match the candidate bank')
+    for p in [args.focus_audit,args.focus_policy,ROOT/'docs/PRC_2022_2026_REVIEW.md',ROOT/'docs/prc-research-sources.json']:shutil.copy2(p,args.output_dir/p.name)
 sha=hashlib.sha256(output.read_bytes()).hexdigest()
 metadata={**config,'artifact':apk_name,'sha256':sha,'bytes':output.stat().st_size,'distribution':'private-study','sourceCommit':source,
           'androidSourceDigest':source_digest(),'bankVersion':bank['version'],'bankSha256':hashlib.sha256(args.bank.read_bytes()).hexdigest(),
           'questions':len(bank['questions']),'aiQuestions':len(bank['questions'])-len(imported),'inQuestions':len(imported),'held':audit['held'],
-          'androidDeviceTested':False,'facultyApproved':False,'hostedServiceDeployed':False,'sourceKeyAgreement':True}
+          'androidDeviceTested':False,'facultyApproved':False,'hostedServiceDeployed':False,'sourceKeyAgreement':True,
+          'coreQuestions':len(bank.get('focus',{}).get('questions',{})),
+          'uniqueInSourceQuestions':audit.get('uniqueSourceQuestions',len(imported)),
+          'subjectCorrectionCopies':audit.get('subjectCorrectionCopies',0),
+          'retiredForReview':len(audit.get('additionalRetiredReview',[]))}
 (args.output_dir/'private-release-manifest.json').write_text(json.dumps(metadata,indent=2)+'\n')
 (args.output_dir/'APK-VERIFICATION.txt').write_text('Private study candidate. Source: '+source+'\n\n'+signature+'\n'+manifest)
 (args.output_dir/'README.txt').write_text(f'''AE Prepware {config["version"]} - private IN study candidate
 
-Install {apk_name} over the permanently signed v0.2/v0.3/v0.4 app, without uninstalling.
+Install {apk_name} over the permanently signed v0.2 through v0.5 app, without uninstalling.
 Export progress and the current question bank first. Package identity and signer
 are unchanged; versionCode {config["versionCode"]}. Physical phone validation is pending.
 
-Includes {len(imported)} IN questions from your two uploaded guides and 360 AI
-foundation questions. IN preserves the original A-C choices, source explanations
-and printed keys. {audit["held"]} figure/ambiguous questions are held in the review queue.
-Subjects: {json.dumps(audit["bySubject"])}
+The default PRC foundations set contains {len(bank.get('focus',{}).get('questions',{}))} selected items.
+The full snapshot retains 360 AI records and {audit.get('uniqueSourceQuestions',len(imported))} unique
+IN source records, plus {audit.get('subjectCorrectionCopies',0)} copies with corrected subject assignments.
+Old IDs, original A-C choices, source explanations and printed keys are preserved.
+{audit["held"]} original figure/ambiguous imports remain held; {len(audit.get('additionalRetiredReview',[]))}
+additional imported records were retired for content/wording review. ST005 is
+retired because its stem depends on a preceding question. No historical key changed.
 
-Tick IN or both banks before choosing a subject. IN-only: 50. Hybrid: 25 each.
+Core drills: 20 from one source, or 10 AI + 10 IN. Full bank: 50, or 25 each.
+Insufficient source pools are disabled; Full bank may have additional material.
 No Mathematics or Philippine Laws/Ethics IN pool is supplied by these books.
 Keys were matched against the PDFs; this is NOT independent faculty approval,
 current Philippine regulatory validation, official PRC content or a pass guarantee.
 
-The private bank is persisted in bank storage to survive later app updates. Keep
+The immediately preceding private bank auto-refreshes after compatibility and
+saved-progress validation. Other/custom versions are preserved; import this JSON
+in Settings if an automatic compatible refresh is not offered. The private bank
+is persisted in bank storage to survive later app updates. Keep
 AE-IN-private-bank.json together with a progress backup before reinstalling or
 changing phones. Settings can export both. Use the same private bank in a hosted
 API (AE_BANK) for account synchronization; no matching server is deployed here.
