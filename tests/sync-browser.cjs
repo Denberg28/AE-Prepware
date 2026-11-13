@@ -19,7 +19,7 @@ const {chromium}=require('playwright'),assert=require('node:assert/strict'),http
   await page.goto('http://127.0.0.1:18082');await page.locator('[data-screen=subjects]').waitFor();
   await page.locator('#sync-toggle').click();await page.locator('#account-name').waitFor();assert.equal(await page.evaluate(()=>state.history.length),0);
   await page.locator('#account-name').fill('Sync Cadet');await page.getByRole('button',{name:'Create account',exact:true}).click();await page.getByRole('heading',{name:'Save your account'}).waitFor();const credentials=await page.evaluate(()=>({number:newRecovery.number,recovery:newRecovery.recovery}));await page.getByRole('button',{name:'I have saved my code'}).click();
-  await page.locator('[data-action=feedback-practice]').click();assert.equal(await page.evaluate(()=>state.session.ids.every(id=>id.startsWith('FB-'))),true);
+  await page.locator('[data-subject=aero]').click();assert.equal(await page.evaluate(()=>state.session.ids.every(id=>bank.questions.find(q=>q.id===id).subject==='aero')),true);assert.equal(await page.evaluate(()=>Object.keys(bank.focus.questions).filter(id=>id.startsWith('FB-')).length),20);
   for(let i=0;i<20;i++){await page.locator('[data-choice="0"]').click();await page.locator('[data-action=next]').click();}
   assert.equal(await page.evaluate(()=>state.pending.length),1);
   await page.locator('nav [data-tab=account]').click();await page.locator('#account-url').fill('https://cohort.test/');await page.locator('#connect-code').fill(credentials.recovery);await page.getByRole('button',{name:'Connect account',exact:true}).click();await page.getByRole('button',{name:'Sync all data'}).waitFor();

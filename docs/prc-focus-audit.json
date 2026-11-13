@@ -1,15 +1,15 @@
 {
-  "bankVersion": "2026.11-prc-foundations.1-feedback1",
-  "bankSha256": "c033358df787bb804e5d576f06e83d12420298f1b50b77a1f9b15ebebc826fdf",
+  "bankVersion": "2026.11-prc-foundations.1-feedback1-subjects1",
+  "bankSha256": "905aec1a0e9e6cb758fef06add7f27236d24090ba2521cbdcdd6039149b5f840",
   "records": 380,
-  "coreItems": 120,
+  "coreItems": 140,
   "coreBySubject": {
     "math": {
       "AI": 20,
       "IN": 0
     },
     "aero": {
-      "AI": 20,
+      "AI": 40,
       "IN": 0
     },
     "structures": {
@@ -59,7 +59,7 @@
       "subject": "aero",
       "name": "Low-speed and high-speed fundamentals",
       "examItems": 14,
-      "coreItems": 8,
+      "coreItems": 16,
       "status": "foundation-only"
     },
     {
@@ -75,7 +75,7 @@
       "subject": "aero",
       "name": "Configuration, performance, stability and control",
       "examItems": 20,
-      "coreItems": 7,
+      "coreItems": 19,
       "status": "foundation-only"
     },
     {

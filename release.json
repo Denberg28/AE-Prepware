@@ -1,6 +1,6 @@
 {
-  "version": "0.8.1-rc.1",
-  "versionCode": 10,
+  "version": "0.8.2-rc.1",
+  "versionCode": 11,
   "tier": "test-candidate",
   "certificateSha256": "e1bd22bfbfca24168a53bccddf887e70ff5e5f11ea9320d2597f2b4939b1f11f"
 }

@@ -5,6 +5,7 @@ const bounds=page=>page.evaluate(()=>{const rect=s=>{const r=document.querySelec
 (async()=>{let browser;try{
  fs.mkdirSync('artifacts',{recursive:true});await new Promise(r=>server.listen(8084,'127.0.0.1',r));browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}),args:['--no-sandbox']});
  const page=await browser.newPage({viewport:{width:393,height:760}}),errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('http://127.0.0.1:8084');await page.locator('[data-screen=subjects]').waitFor();
+ assert.equal(await page.locator('.principles,[data-action=feedback-practice]').count(),0);assert.equal(await page.locator('[data-screen=subjects]').getByText('Commitment · Competence · Readiness',{exact:true}).count(),0);
  assert.equal(await page.getByText('Choose a subject',{exact:true}).count(),0);assert.equal(await page.getByText('50 questions. One answer at a time.',{exact:true}).count(),0);assert.equal(await page.getByText('Tick both for Hybrid:',{exact:false}).count(),0);
  for(const [width,height]of [[320,480],[393,760],[720,480]]){
   await page.setViewportSize({width,height});await page.locator('nav [data-tab=home]').click();

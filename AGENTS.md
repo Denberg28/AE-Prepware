@@ -130,3 +130,5 @@ Report concisely: what changed/why; version/commit/artifact; checks/results; unt
 - Never promise a board pass or label practice accuracy a passing probability.
 - Offline study must work without a service. Cohort ranking is opt-in, uses pseudonyms and server scoring, and is not an official exam result.
 - Run `node --test tests/*.test.cjs`, `python -m pytest`, and Android assemble/lint before candidate delivery.
+
+- Latest UI preference: keep the previous uncluttered Subjects layout. Do not add commitment/competence/readiness banners or dedicated bearing/heading/throat shortcuts. Put added practice content inside the existing Aerodynamics subject.

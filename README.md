@@ -1,10 +1,10 @@
 # AE Prepware
 
-**PRC-focused study update:** default 20-question PRC foundations drills use a curated 120-item AI set (240 AI/IN items in the private build). Full bank retains 50-question practice. This is an incomplete starter core, with advanced coverage gaps shown in Settings. Read the [2022–2026 evidence and bank review](docs/PRC_2022_2026_REVIEW.md) before interpreting coverage.
+**PRC-focused study update:** default 20-question PRC foundations drills use a curated 140-item AI set (260 AI/IN items in the private build). Full bank retains 50-question practice. This is an incomplete starter core, with advanced coverage gaps shown in Settings. Read the [2022–2026 evidence and bank review](docs/PRC_2022_2026_REVIEW.md) before interpreting coverage.
 
 Core development principle: **commitment, competence, readiness**. Every feature should build a sustainable study habit, improve demonstrated understanding, or make remaining subject gaps visible. Recorded app use is a participation measure, not proof of motivation.
 
-Minimal Android practice for Philippine Aeronautical Engineers Licensure Examination subjects. **v0.8.1-rc.1 is a test candidate**, pending physical Android testing and independent faculty content review.
+Minimal Android practice for Philippine Aeronautical Engineers Licensure Examination subjects. **v0.8.2-rc.1 is a test candidate**, pending physical Android testing and independent faculty content review.
 
 ## Commitment · Competence · Readiness
 
@@ -14,7 +14,7 @@ Open **Results** to track recorded participation, first-attempt and diagnostic e
 
 The **upper-right circular-arrow button** uploads server-graded results and a private profile backup, refreshes practice ranking and checks the compatible question database. Offline work remains available. Account settings separately opt in to ranking and facilitator summaries. Interrupted uploads retry without duplicate scores; a newer backup on another device produces a recoverable conflict.
 
-A one-tap **Bearing · Heading · Throat** drill supplies 20 original AI-labeled, source/formula/arithmetic self-checked exercises, with worked explanations: six bearing, six heading and eight nozzle/throat calculations. Independent faculty review remains pending. The 120-item public / 240-item private foundations core stays compact; the full AI bank now has 380 records. Old questions and keys are retained.
+Aerodynamics includes 20 original AI-labeled, source/formula/arithmetic self-checked calculation exercises: six bearing, six heading and eight throat/nozzle problems. They now participate in ordinary 20-question Aerodynamics foundations sessions as well as the full bank, without a separate topic button. The public/private core pools contain 140/260 records; sessions stay 20 questions. All old questions and keys remain intact; independent faculty review is pending. The Subjects screen uses the previous simple layout, with no principle banner or topic shortcut.
 
 See [online setup](docs/ONLINE_SYNC.md) for the persistent API plus Streamlit dashboard, including a single-host runner and Dockerfile. Streamlit Community Cloud alone is still not the durable sync database. No production host has been provisioned.
 
@@ -78,7 +78,7 @@ node tests/shell-browser.cjs
 node tests/theme-browser.cjs
 ```
 
-The integration browser test uses real local API/SQLite, simulated HTTPS origin and separate storage contexts; it is not a physical-phone or live TLS test. `CHROMIUM_PATH` selects a system Chromium. See [test gates](docs/TESTING.md) and [v0.8 evidence](docs/evidence/V0_8_VERIFICATION.md).
+The integration browser test uses real local API/SQLite, simulated HTTPS origin and separate storage contexts; it is not a physical-phone or live TLS test. `CHROMIUM_PATH` selects a system Chromium. See [test gates](docs/TESTING.md) and [v0.8.2 evidence](docs/evidence/V0_8_2_VERIFICATION.md).
 
 ## Hosted account API
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.2-rc.1 — 2026-11-14
+
+- Restore the previous simple Subjects screen by removing the commitment/competence/readiness banner and separate bearing/heading/throat shortcut. Retain Sync, theme, fixed app bars and subject weight badges.
+- Integrate all 20 calculation exercises into the normal Aerodynamics foundations pool. Existing foundation questions remain available; 20-question sessions draw from a 40-item AI Aerodynamics core. Full-bank question IDs and keys are unchanged.
+
 ## 0.8.1-rc.1 — 2026-11-14
 
 - Fix automatic upgrade of a stored v0.6 bank when the new bundled bank adds source-checked exercises. Trust only exact shipped content while retaining immutable old keys and requiring approval for unknown imports.

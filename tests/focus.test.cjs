@@ -1,7 +1,7 @@
 const {test}=require('node:test'),assert=require('node:assert/strict');
 const AE=require('../app/src/main/assets/core'),bank=require('../app/src/main/assets/bank.json');
 test('core selection restricts all six subjects and retains the full reference bank',()=>{
- assert.equal(Object.keys(bank.focus.questions).length,120);
+ assert.equal(Object.keys(bank.focus.questions).length,140);
  for(const s of bank.subjects){
   const state=AE.fresh(),items=AE.pickSources(state,bank,'adaptive-subject',s.id,'AI',()=>.4,'focus');
   assert.equal(items.length,20);assert.equal(new Set(items.map(q=>q.id)).size,20);
@@ -9,6 +9,8 @@ test('core selection restricts all six subjects and retains the full reference b
   assert.equal(AE.pickSources(state,bank,'subject',s.id).length,50);
  }
  assert.equal(bank.questions.find(q=>q.id==='ST005').active,false);
+ const aero=AE.pickSources(AE.fresh(),bank,'adaptive-subject','aero','AI',()=>.4,'focus');
+ for(const topic of ['Bearing computation','Heading computation','Throat computation'])assert.ok(aero.some(q=>q.topic===topic));
  const state=AE.fresh();state.flags=['MA001'];
  assert.throws(()=>AE.pickSources(state,bank,'subject','math','AI',()=>.4,'focus'),/AI has 19/);
  assert.throws(()=>AE.scopeBank(bank,'typo'),/Invalid study scope/);

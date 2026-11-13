@@ -1,4 +1,4 @@
-# Known limitations — v0.8.1-rc.1
+# Known limitations — v0.8.2-rc.1
 
 - **Test candidate:** physical Android installation, Storage Access Framework, lifecycle, accessibility, and in-place same-signer update have no device evidence. Stable promotion remains blocked.
 - **Foundation bank:** 380 AI items (80 aero, 60 per other subject) includes parameter variants, not 360 independently reviewed competencies. Independent faculty review is pending; advanced TOS coverage remains incomplete. Source/structure/arithmetic checks do not substitute for faculty validation.
@@ -15,7 +15,7 @@
 
 - **Theme device check:** browser contrast/persistence and Android builds pass; real system-bar/keyboard/cold-start appearance still needs phone validation. Theme is a device preference, not included in student progress backups.
 
-- **PRC core:** 120 AI / 240 private AI+IN selected items provide foundations only. Four broad TOS areas are empty; other areas also lack advanced competency coverage. The core count is not a validated minimum, and its inventory is not proportional to subject weights. See the detailed review.
+- **PRC core:** 140 AI / 260 private AI+IN selected items provide foundations only. Four broad TOS areas are empty; other areas also lack advanced competency coverage. The core count is not a validated minimum, and its inventory is not proportional to subject weights. See the detailed review.
 - **Private review holds:** 5 imported records are retired pending semantic review, in addition to the 67 unimported holds. 34 corrected-subject copies preserve original content and keys. ST005 is retired for a context-dependent stem.
 - **Core source availability:** Structures has only 3 IN core records, and Mathematics/Laws have none. Core IN/Hybrid requires 20/10 IN items respectively. Use AI core or Full bank where necessary.
 

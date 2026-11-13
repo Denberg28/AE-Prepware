@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "version": "2026.11-prc-foundations.1-feedback1",
+  "version": "2026.11-prc-foundations.1-feedback1-subjects1",
   "title": "AE Foundations",
   "notice": "PRC foundations: selected existing source-checked items, not actual PRC past papers. Coverage is incomplete; consult the coverage gaps in Settings. Full bank retains extra practice. No faculty approval or pass guarantee.",
   "blueprintSource": "https://www.prc.gov.ph/sites/default/files/exam%20program%20nov%202026%20%28aero%29.pdf",
@@ -7337,7 +7337,7 @@
       "reviewedAt": "2026-11-14"
     }
   ],
-  "extends": "2026.11-prc-foundations.1",
+  "extends": "2026.11-prc-foundations.1-feedback1",
   "focus": {
     "schema": 1,
     "title": "PRC foundations",
@@ -7832,6 +7832,66 @@
       },
       "EE020": {
         "area": "ethics-2"
+      },
+      "FB-B01": {
+        "area": "aero-3"
+      },
+      "FB-B02": {
+        "area": "aero-3"
+      },
+      "FB-B03": {
+        "area": "aero-3"
+      },
+      "FB-B04": {
+        "area": "aero-3"
+      },
+      "FB-B05": {
+        "area": "aero-3"
+      },
+      "FB-B06": {
+        "area": "aero-3"
+      },
+      "FB-H01": {
+        "area": "aero-3"
+      },
+      "FB-H02": {
+        "area": "aero-3"
+      },
+      "FB-H03": {
+        "area": "aero-3"
+      },
+      "FB-H04": {
+        "area": "aero-3"
+      },
+      "FB-H05": {
+        "area": "aero-3"
+      },
+      "FB-H06": {
+        "area": "aero-3"
+      },
+      "FB-T01": {
+        "area": "aero-1"
+      },
+      "FB-T02": {
+        "area": "aero-1"
+      },
+      "FB-T03": {
+        "area": "aero-1"
+      },
+      "FB-T04": {
+        "area": "aero-1"
+      },
+      "FB-T05": {
+        "area": "aero-1"
+      },
+      "FB-T06": {
+        "area": "aero-1"
+      },
+      "FB-T07": {
+        "area": "aero-1"
+      },
+      "FB-T08": {
+        "area": "aero-1"
       }
     }
   }

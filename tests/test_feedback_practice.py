@@ -51,9 +51,12 @@ def test_append_only_pack_does_not_change_previous_questions_or_small_core():
     bank=load_bank();old=copy.deepcopy(bank)
     old['questions']=[q for q in old['questions'] if not q['id'].startswith('FB-')]
     old['sources']={k:v for k,v in old['sources'].items() if not k.startswith('feedback-')}
-    old['version']=bank['extends'];old.pop('extends',None)
-    assert extend(old)==bank
-    assert len(bank['focus']['questions'])==120
+    old['version']=bank['extends'].removesuffix('-feedback1');old.pop('extends',None)
+    old['focus']['questions']={k:v for k,v in old['focus']['questions'].items() if not k.startswith('FB-')}
+    generated=extend(old)
+    assert generated['questions']==bank['questions']
+    assert all(q['id'] in bank['focus']['questions'] for q in bank['questions'] if q['id'].startswith('FB-'))
+    assert len(bank['focus']['questions'])==140
     index={q['id']:q for q in bank['questions']}
     for q in old['questions']:assert question_content(old,q)==question_content(bank,index[q['id']])
     validate_bank(bank)
