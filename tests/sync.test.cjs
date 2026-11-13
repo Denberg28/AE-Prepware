@@ -14,3 +14,13 @@ test('restore merges grades received after last backup while preserving first-at
  assert.deepEqual(r.history.map(h=>h.id),['new','old']);assert.equal(r.stats.q.seen,3);assert.deepEqual(r.monitoring,state.monitoring);assert.deepEqual(r.session,state.session);assert.equal(r.rankOptIn,false);
  assert.throws(()=>S.restore({state},{number:'AE-2'},'AE-2'),/different account/);
 });
+test('upgrade trusts exact bundled additions while rejecting unknown source-checked imports',()=>{
+ const AE=require('../app/src/main/assets/core'),bundled=require('../app/src/main/assets/bank.json');
+ const old=structuredClone(bundled);old.version=bundled.extends;delete old.extends;old.questions=old.questions.filter(q=>!q.id.startsWith('FB-'));
+ assert.throws(()=>AE.validateRefresh(old,bundled),/unapproved/);
+ assert.equal(AE.validateRefresh(old,bundled,bundled),bundled);
+ const altered=structuredClone(bundled);altered.questions.find(q=>q.id==='FB-B01').prompt='Unreviewed altered question from another service';
+ assert.throws(()=>AE.validateRefresh(old,altered,bundled),/unapproved/);
+ const mutated=structuredClone(bundled);mutated.questions[0].answer=1;
+ assert.throws(()=>AE.validateRefresh(old,mutated,bundled),/unapproved|changes an existing/);
+});

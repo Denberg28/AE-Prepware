@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.1-rc.1 — 2026-11-14
+
+- Fix automatic upgrade of a stored v0.6 bank when the new bundled bank adds source-checked exercises. Trust only exact shipped content while retaining immutable old keys and requiring approval for unknown imports.
+- Strengthen the migration browser test with genuinely new bundled records; preserve saved scores, queued results and an unfinished session.
+- Supersede v0.8.0-rc.1 for stored-bank upgrades; blocked old data remains recoverable and is not erased.
+
 ## 0.8.0-rc.1 — 2026-11-14
 
 - Establish commitment, competence and readiness as the product principle and home entry point.

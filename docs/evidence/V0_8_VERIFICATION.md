@@ -1,11 +1,11 @@
-# v0.8.0-rc.1 verification
+# v0.8.1-rc.1 verification
 
-Baseline: public v0.6.0-rc.1, commit c384c6fcd2b18e527e077f0e90b20cac6dbf32d0. The local monitoring continuation was preserved in a separate checkout; this candidate integrates it with full synchronization and feedback calculations. Version code 9 reserves the intervening continuation version. Candidate only.
+Baseline: public v0.6.0-rc.1, commit c384c6fcd2b18e527e077f0e90b20cac6dbf32d0. The local monitoring continuation was preserved in a separate checkout; this candidate integrates it with full synchronization and feedback calculations. Version code 10 supersedes the intervening continuation candidates. Candidate only.
 
 | Gate | Result | Evidence |
 | --- | --- | --- |
 | Product principle | PASS / reviewed | Commitment, competence and readiness documented in AGENTS/README, shown on Home and separated under Results. Participation is not a motivation classification; scores do not become pass probabilities. |
-| Unit and API behavior | PASS / simulator tested | 40 Node and 44 Python checks: grade locking, first-attempt protection, retention/recency rules, all-six weighting, history compatibility, upload replay/conflicts, owner isolation, consent, deletion, enrollment and private-route protection. |
+| Unit and API behavior | PASS / simulator tested | 41 Node and 44 Python checks: grade locking, first-attempt protection, retention/recency rules, all-six weighting, history compatibility, upload replay/conflicts, owner isolation, consent, deletion, enrollment and private-route protection. |
 | Browser regression | PASS / simulator tested | Ten workflows: baseline study, accounts, source refresh, synthetic private bank, steady shell, themes/contrast, compact core, readiness, full sync and combined online host. Real SQLite/API, browser storage contexts and simulated HTTPS routing; no physical-phone claim. |
 | Full sync | PASS / simulator tested | Lost-ack retries produce no duplicate scores; in-flight backup is durable; second-device recovery retains journal and unfinished check; stale revision, offline failure and bank tampering preserve local state. Ranking and facilitator sharing are separate opt-ins. |
 | Streamlit integration | PASS / simulator tested | Combined ASGI service renders all four tabs with live WebSocket under /dashboard; root API and authenticated owner endpoints work. Admin-gated shared-summary retrieval and server-only key flow covered by Streamlit test. |
@@ -17,6 +17,8 @@ Baseline: public v0.6.0-rc.1, commit c384c6fcd2b18e527e077f0e90b20cac6dbf32d0. T
 | Physical phone | NOT TESTED | Actual install/update, WebView lifecycle/storage, Android system bars, keyboard and accessibility require device confirmation. |
 | Production service | NOT DEPLOYED | Persistent SQLite and HTTPS configuration is supplied. Live production TLS, reverse proxy, backup restoration, capacity and classroom load remain untested. Community Cloud alone is not the durable data service. |
 | Faculty readiness interpretation | NOT ESTABLISHED | Independent content review, complete PRC coverage and predictive validation remain pending. No score certifies board readiness. |
+
+A follow-up upgrade regression reproduced v0.8.0 rejecting a stored older bank when 20 genuinely new shipped items were added. v0.8.1 passes exact bundled content as the trust baseline while retaining all old grading content and rejecting unknown unapproved imports. Public and actual private migration checks preserve history, a 50-item queue and an unfinished session. The old data was never erased. Use v0.8.1 for updates.
 
 Snapshots are private owner backups, separate from server grading. Voluntary faculty reports are device-recorded summaries, not audit/proctoring evidence. Conflict recovery is explicit; no automatic overwrite is attempted across devices. No application feature can establish the cause of an examination failure from usage or score data alone.
 

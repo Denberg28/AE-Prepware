@@ -8,9 +8,9 @@ function origin(q){return q.origin||'AI';}
 function canonical(value){return Array.isArray(value)?value.map(canonical):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(k=>[k,canonical(value[k])])):value;}
 function questionContent(bank,q){return JSON.stringify(canonical([q.subject,q.topic,q.prompt,q.choices,q.answer,q.explanation,q.source,q.review,q.reviewer,q.reviewedAt,origin(q),q.upload||null,q.supersedes||null,bank.sources[q.source]]));}
 function unchangedQuestion(old,bank,q){const before=old?.questions.find(x=>x.id===q.id);return !!before&&questionContent(old,before)===questionContent(bank,q);}
-function validateRefresh(old,next){
+function validateRefresh(old,next,trusted=old){
  if(next.extends!==old.version||next.version===old.version)throw Error('Refresh must extend the current bank with a new version.');
- validateBank(next,true,old);
+ validateBank(next,true,trusted);
  const index=new Map(next.questions.map(q=>[q.id,q]));
  for(const q of old.questions)if(!index.has(q.id)||questionContent(old,q)!==questionContent(next,index.get(q.id)))throw Error('Refresh changes an existing question or citation: '+q.id);
  return next;

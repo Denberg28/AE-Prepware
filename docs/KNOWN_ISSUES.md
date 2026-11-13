@@ -1,4 +1,4 @@
-# Known limitations — v0.8.0-rc.1
+# Known limitations — v0.8.1-rc.1
 
 - **Test candidate:** physical Android installation, Storage Access Framework, lifecycle, accessibility, and in-place same-signer update have no device evidence. Stable promotion remains blocked.
 - **Foundation bank:** 380 AI items (80 aero, 60 per other subject) includes parameter variants, not 360 independently reviewed competencies. Independent faculty review is pending; advanced TOS coverage remains incomplete. Source/structure/arithmetic checks do not substitute for faculty validation.
@@ -21,3 +21,5 @@
 
 - **Monitoring scope:** device-recorded participation is not motivation, outside study or proctored evidence. Goals/80% targets are descriptive product rules, not validated PRC predictors. Different random forms are not equated. Board readiness remains unestablished for this incomplete bank.
 - **Monitoring recovery:** journal/goals/baselines need progress backup. Cloud recovery remains score-only and does not invent prior first attempts or diagnostics. Daily IDs retain 28 days; check evidence uses the latest 200 saved sessions; the initial diagnostic persists separately. Manual reports are not a live class telemetry service.
+
+- **Superseded 0.8.0 candidate:** a stored v0.6 bank could be rejected during refresh because newly shipped source-checked items were treated as an unknown import. v0.8.1 fixes the trust boundary and preserves the original data. Use v0.8.1 for updates.

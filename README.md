@@ -4,7 +4,7 @@
 
 Core development principle: **commitment, competence, readiness**. Every feature should build a sustainable study habit, improve demonstrated understanding, or make remaining subject gaps visible. Recorded app use is a participation measure, not proof of motivation.
 
-Minimal Android practice for Philippine Aeronautical Engineers Licensure Examination subjects. **v0.8.0-rc.1 is a test candidate**, pending physical Android testing and independent faculty content review.
+Minimal Android practice for Philippine Aeronautical Engineers Licensure Examination subjects. **v0.8.1-rc.1 is a test candidate**, pending physical Android testing and independent faculty content review.
 
 ## Commitment · Competence · Readiness
 

@@ -1,6 +1,6 @@
 'use strict';
 const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const KEY='ae-prepware-v1',BANKKEY='ae-prepware-custom-bank',VERSION='0.8.0-rc.1';
+const KEY='ae-prepware-v1',BANKKEY='ae-prepware-custom-bank',VERSION='0.8.1-rc.1';
 const shortNames={math:'Mathematics',aero:'Aerodynamics',structures:'Structures & design',construction:'Construction & repair',powerplant:'Power plant',ethics:'Economics, laws & ethics'};
 let bank,bundled,state,account=null,tab='home',result=null,ranking=null,storageBlocked=false,busy=false,newRecovery=null;
 const stateKey=()=>Accounts.key(account),bankKey=()=>account?'ae-bank-'+account:BANKKEY;
@@ -11,7 +11,7 @@ const poolReady=(subject,mode)=>{const c=AE.sourceCounts(state,bank,subject,stud
 async function profileBank(){
  const raw=await BankStore.read(bankKey());if(!raw){if(bundled.distribution==='private-study')await BankStore.write(bankKey(),JSON.stringify(bundled));return structuredClone(bundled);}
  const stored=AE.validateBank(JSON.parse(raw),true,bundled);
- if(bundled.extends===stored.version){AE.validateRefresh(stored,bundled);const progress=localStorage.getItem(stateKey());if(progress)AE.validateState(JSON.parse(progress),bundled);await BankStore.write(bankKey(),JSON.stringify(bundled));return structuredClone(bundled);}
+ if(bundled.extends===stored.version){AE.validateRefresh(stored,bundled,bundled);const progress=localStorage.getItem(stateKey());if(progress)AE.validateState(JSON.parse(progress),bundled);await BankStore.write(bankKey(),JSON.stringify(bundled));return structuredClone(bundled);}
  return stored;
 }
 const subjectName=id=>id==='mixed'?'Mixed subjects':shortNames[id]||id||'Practice';
@@ -221,7 +221,7 @@ window.receiveImport=async function(text){try{
  }else{
   if(data.version===bank.version)throw Error('Use a new bank version for a question bank change.');
   if(data.extends===bank.version){
-   AE.validateRefresh(bank,data);AE.validateState(state,data);
+   AE.validateRefresh(bank,data,bundled);AE.validateState(state,data);
    if(!await ask('Refresh question bank?',(data.distribution==='private-study'?'Private guide keys were checked against the PDFs; faculty review is pending. ':'')+'Updates apply to future sessions. Saved results and the current session keep their original questions.','Refresh bank'))return;
    await BankStore.write(bankKey(),JSON.stringify(data));bank=data;render();notice('Question bank refreshed. Your progress and queued results are preserved.');return;
   }

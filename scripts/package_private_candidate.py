@@ -74,7 +74,7 @@ metadata={**config,'artifact':apk_name,'sha256':sha,'bytes':output.stat().st_siz
 (args.output_dir/'APK-VERIFICATION.txt').write_text('Private study candidate. Source: '+source+'\n\n'+signature+'\n'+manifest)
 (args.output_dir/'README.txt').write_text(f'''AE Prepware {config["version"]} - private IN study candidate
 
-Install {apk_name} over the permanently signed v0.2 through v0.6 app, without uninstalling.
+Install {apk_name} over the permanently signed prior candidate, without uninstalling.
 Export progress and the current question bank first. Package identity and signer
 are unchanged; versionCode {config["versionCode"]}. Physical phone validation is pending.
 

@@ -1,7 +1,7 @@
 // Public synthetic records exercise scope, migrations and both result lengths.
 const {chromium}=require('playwright'),http=require('node:http'),fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
-const current=require('../app/src/main/assets/bank.json'),root=path.resolve('app/src/main/assets');
-const old=structuredClone(current);delete old.focus;delete old.extends;old.version='test-before-focus';
+const current=process.env.AE_PRIVATE_BANK?JSON.parse(fs.readFileSync(process.env.AE_PRIVATE_BANK)):require('../app/src/main/assets/bank.json'),root=path.resolve('app/src/main/assets');
+const old=structuredClone(current);old.questions=old.questions.filter(q=>!q.id.startsWith('FB-'));for(const key of Object.keys(old.sources))if(key.startsWith('feedback-'))delete old.sources[key];delete old.focus;delete old.extends;old.version='test-before-focus';
 const next=structuredClone(current);next.version='test-focus-update';next.extends=old.version;
 let updated=false;
 const server=http.createServer((req,res)=>{if(req.url==='/bank.json'){res.setHeader('Content-Type','application/json');res.end(JSON.stringify(updated?next:old));return;}const file=path.join(root,req.url==='/'?'index.html':req.url);try{res.setHeader('Content-Type',file.endsWith('.js')?'application/javascript':file.endsWith('.css')?'text/css':'text/html');res.end(fs.readFileSync(file));}catch{res.writeHead(404);res.end();}});

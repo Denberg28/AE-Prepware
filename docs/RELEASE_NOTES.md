@@ -1,4 +1,4 @@
-# AE Prepware v0.8.0-rc.1 · Signed test candidate
+# AE Prepware v0.8.1-rc.1 · Signed test candidate
 
 Commitment, competence and readiness now guide the application. Results includes study-day goals, first-attempt evidence, new-item diagnostics, seven-day retention checks and subject support priorities. Missing evidence stays visible; practice results do not become pass probabilities.
 
@@ -6,6 +6,6 @@ The upper-right Sync icon uploads server-graded scores and a private profile sna
 
 A one-tap Bearing · Heading · Throat drill adds 20 original AI-labeled calculation exercises: six bearing, six heading and eight throat/nozzle questions. Formula and source self-review plus independent printed-givens arithmetic checks are complete; faculty review is pending. Existing question IDs, wording and keys remain intact. The compact public 120-item and private 240-item foundation cores stay unchanged. The full public bank has 380 AI records; the private build additionally retains the original 2,003 IN source items and 34 subject-correction copies.
 
-Package identity ph.diversify.aeprepware and permanent release certificate are preserved. Version code 9. Export progress and your current bank before updating over a permanently signed prior candidate; do not uninstall first. Keep the prior APK and matching backups for rollback; Android normally blocks a lower version code.
+Package identity ph.diversify.aeprepware and permanent release certificate are preserved. Version code 10. Export progress and your current bank before updating over a permanently signed prior candidate; do not uninstall first. Keep the prior APK and matching backups for rollback; Android normally blocks a lower version code.
 
 Automated unit/API, browser, local combined-host, Android assemble/lint and packaging evidence accompany this candidate. Real phone installation/upgrade, WebView lifecycle/storage/native UI and production TLS/concurrency remain untested. Current PRC coverage and independent faculty validation remain incomplete. This is a test candidate, not a stable classroom deployment or official readiness certification.
