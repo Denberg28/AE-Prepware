@@ -67,7 +67,7 @@ Backups require the same bank version. Changing banks resets progress after conf
 
 ## Delivery and rollback
 
-GitHub CI runs bank/core/API tests, browser regression, dependency audit, Android assemble/lint and APK packaging checks. Version tags publish a **prerelease** only after required CI checks. CI uploads the tested candidate APK, checksums, source identity and reports. No stable promotion is automatic. Candidate signer changes between clean CI builds; use backup/uninstall/reinstall if Android rejects an upgrade. This is deliberate candidate-only signing, not production continuity.
+GitHub CI runs bank/core/API tests, browser regression, dependency audit, Android assemble/lint and APK packaging checks. The initial main build (or its matching version tag) publishes a **prerelease** only after required CI checks. Bump the version before publishing another artifact; existing releases are never overwritten. CI uploads the tested candidate APK, checksums, source identity and reports. No stable promotion is automatic. Candidate signer changes between clean CI builds; use backup/uninstall/reinstall if Android rejects an upgrade. This is deliberate candidate-only signing, not production continuity.
 
 There is no earlier baseline release. To roll back after later updates, keep a matching bank/progress backup, uninstall only after export, reinstall the earlier compatible APK and restore that backup. Schema downgrade across incompatible banks is unsupported.
 

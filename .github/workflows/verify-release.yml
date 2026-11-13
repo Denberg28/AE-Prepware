@@ -50,7 +50,7 @@ jobs:
             app/build/reports/lint-results-debug.*
           if-no-files-found: error
   prerelease:
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v'))
     needs: verify
     permissions:
       contents: write
@@ -65,4 +65,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "${GITHUB_REF_NAME}" --verify-tag --prerelease --title "AE Prepware ${GITHUB_REF_NAME} · Test candidate" --notes-file docs/RELEASE_NOTES.md release-artifacts/artifacts/*.apk release-artifacts/artifacts/SHA256SUMS.txt release-artifacts/artifacts/APK-VERIFICATION.txt release-artifacts/artifacts/release-manifest.json
+          gh release create v0.1.0-rc.1 --target "$GITHUB_SHA" --prerelease --title "AE Prepware v0.1.0-rc.1 · Test candidate" --notes-file docs/RELEASE_NOTES.md release-artifacts/artifacts/*.apk release-artifacts/artifacts/SHA256SUMS.txt release-artifacts/artifacts/APK-VERIFICATION.txt release-artifacts/artifacts/release-manifest.json
