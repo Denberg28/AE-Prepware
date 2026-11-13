@@ -79,6 +79,7 @@ jobs:
           name: AE-Prepware-${{ steps.version.outputs.version }}-Verification
           path: |
             artifacts/
+            app/build/outputs/apk/release/app-release-unsigned.apk
             release-candidates/${{ steps.version.outputs.version }}/
             app/build/reports/lint-results-debug.*
           if-no-files-found: error
