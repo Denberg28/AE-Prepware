@@ -1,0 +1,40 @@
+Candidate: 0.2.0-rc.1
+Source commit: dbebef9ef7efbb2bd8952cfa96ee77ed379a1c06
+Android source digest: 818f8ba76ea263ab671f5a75913c6a67efcbf817a8f8abe69dc0a344e6cec160
+SHA256: cf09e92086d5048774b5e453060adfb8988fe4a236f506ee663aad99420a0119
+Signer: permanent AE Prepware release certificate (not debug)
+
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): true
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: CN=AE Prepware, OU=Android Applications, O=Diversify Applied Technologies, C=PH
+Signer #1 certificate SHA-256 digest: e1bd22bfbfca24168a53bccddf887e70ff5e5f11ea9320d2597f2b4939b1f11f
+Signer #1 certificate SHA-1 digest: fedaf3e09ac46e65e1fb90043edfce548500a9b6
+Signer #1 certificate MD5 digest: 5edb7c6fa55bf007fd9976561bfc5a66
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 3072
+Signer #1 public key SHA-256 digest: 01e4fe6b618acfbbaa20183b7c834a5dad83ec8cd74da9440ae3491706e3fbfc
+Signer #1 public key SHA-1 digest: 1eda6924e6961029147daa1ca3e8712df6d8e50b
+Signer #1 public key MD5 digest: 8d73a5429442a8e4da22013dc58ebe82
+
+package: name='ph.diversify.aeprepware' versionCode='2' versionName='0.2.0-rc.1' platformBuildVersionName='15' platformBuildVersionCode='35' compileSdkVersion='35' compileSdkVersionCodename='15'
+sdkVersion:'26'
+targetSdkVersion:'35'
+uses-permission: name='android.permission.INTERNET'
+application-label:'AE Prepware'
+application-icon-160:'res/r2.xml'
+application: label='AE Prepware' icon='res/r2.xml'
+launchable-activity: name='ph.diversify.aeprepware.MainActivity'  label='' icon=''
+feature-group: label=''
+  uses-feature: name='android.hardware.faketouch'
+  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'
+main
+supports-screens: 'small' 'normal' 'large' 'xlarge'
+supports-any-density: 'true'
+locales: '--_--'
+densities: '160'

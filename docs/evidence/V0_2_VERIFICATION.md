@@ -14,7 +14,7 @@ Environment: Linux x86_64, Python 3.12 venv, Node 24, Playwright 1.58.2 with loc
 | A: dependency review | PASS | pip-audit: no known vulnerabilities; npm audit: zero. No new third-party runtime dependency. |
 | A: content/source self-review | PASS | Original parameterized exercises with explicit assumptions/sources; duplicate generated shaft-power stem caught and corrected. Faculty review still required. No private key/recovery/password/API key tracked. |
 | F: permanent certificate backup | PASS | Private 3072-bit RSA signer generated and private recovery archive saved. Public certificate SHA-256 pinned in release.json; previous CI debug certificate is different/unavailable. |
-| F: final signed payload/package | NOT TESTED | Prepared APK verification report and release manifest will record actual signature/checksum/source-payload result before publication. |
+| F: final signed payload/package | PASS | Non-debuggable versionCode2 APK, 62,314 bytes; v2/v3 signature and pinned public certificate verify. package_candidate.py --verify passed exact rebuilt ZIP payload, assets, source digest, checksum and manifest. Source dbebef9; SHA-256 cf09e92086d5048774b5e453060adfb8988fe4a236f506ee663aad99420a0119. |
 | F: higher-version same-key build | PASS | Built temporary versionCode3 release and signed with the permanent 3072-bit key; v2/v3 signatures verify and fingerprint matches release.json. Final candidate retains versionCode2. Build/static evidence only; no on-phone upgrade claim. |
 | E: custom hardware control | N/A | Educational app; no motor/aircraft/custom control outputs. |
 | E: Android physical install/lifecycle/update | BLOCKED | No Android phone attached. Run docs/TESTING.md. |
