@@ -12,3 +12,9 @@ node_modules
 *.p12
 *.jks
 *.keystore
+.env
+**/.env
+signing-recovery.json
+**/signing-recovery.json
+**/*Private-Signing-Recovery*
+**/.streamlit/secrets.toml
