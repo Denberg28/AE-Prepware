@@ -1,7 +1,15 @@
-# AE Prepware v0.8.2-rc.1 · Signed test candidate
+# AE Prepware v0.8.3-rc.1 · UI update
 
-Restores the previous simple Subjects screen. The commitment/competence/readiness banner and separate bearing/heading/throat button are removed. Subject cards, AI/IN selection, study set, Sync, sun/moon theme, percentage weights and fixed header/navigation remain.
+Cleaner subject cards with local icons and clearer PRC weight badges, labeled navigation icons, more readable question spacing and larger answer targets. Refined light/dark surfaces support small screens and enlarged text while the header and navigation remain fixed.
 
-All 20 existing bearing, heading and throat calculation exercises now belong to the normal Aerodynamics foundations pool as well as the full bank. Aerodynamics offers 40 AI core items, with 20-question sessions; other AI subject pools remain 20 each. Public/private core inventories are 140/260 records. No question wording, explanation, grading key or historical result changes.
+Selected answers show “Your answer,” including diagnostics and spaced rechecks without revealing correctness before submission. Keyboard focus follows questions and answer feedback. Confirmation dialogs have accessible names, and unavailable question pools explain how to continue.
 
-Existing accounts, scores, monitoring data and queued results are preserved. Package ph.diversify.aeprepware and the permanent release certificate remain unchanged; version code 11. Export progress and bank before updating over the prior signed candidate without uninstalling. Real phone upgrade validation, production hosting and independent faculty content review remain pending.
+Question content, grading keys, source quotas, accounts, saved progress, unfinished sessions and sync formats are preserved. Aerodynamics retains its existing bearing, heading and throat exercises within the normal subject. No new runtime dependencies.
+
+## Build and publication status
+
+Version: 0.8.3-rc.1; versionCode: 12; package: ph.diversify.aeprepware. The UI commit b1cb4dd53cdf4a14912d27602895ec5a6ea956d0 passed Node/Python tests, all 11 browser workflows, dependency audits, Android debug/release assembly and lint in workflow run 43963405907. PR #1 is merged; main builds retain the same required gates.
+
+The release build is unsigned until the permanent signer is applied and scripts/package_candidate.py --verify passes. No new installable APK or GitHub prerelease has been published. The existing private signing recovery archive remains available, but the editing session has no local execution environment to extract it or sign the build. The publication guard stays enabled.
+
+The previous signed v0.8.2 candidate is retained. Before installing a future signed update, export progress and the matching bank; install the new same-signer APK without uninstalling. Physical Android installation/update, TalkBack, native font scaling and system-bar checks remain pending. Independent faculty review and production hosting remain pending. This is not a stable release.
