@@ -93,3 +93,14 @@ def test_success_and_failure_clean_private_files(monkeypatch, tmp_path):
     with pytest.raises(RuntimeError):
         ci.main()
     assert not list(tmp_path.glob("ae-signer-*"))
+
+
+def test_pending_signer_reset_cannot_use_retired_secret(monkeypatch, tmp_path):
+    (tmp_path / "release.json").write_text('{"version":"test","signerResetPending":true}')
+    monkeypatch.setattr(ci, "ROOT", tmp_path)
+    monkeypatch.setenv("GITHUB_REF", "refs/heads/main")
+    monkeypatch.setenv("GITHUB_EVENT_NAME", "push")
+    monkeypatch.setenv(ci.SECRET, recovery())
+    monkeypatch.setattr(ci.subprocess, "run", lambda *a, **k: pytest.fail("Retired signer used"))
+    with pytest.raises(ValueError, match="Fresh signer activation"):
+        ci.main()

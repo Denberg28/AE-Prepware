@@ -10,10 +10,10 @@ Build or improve AE Prepware.
 Idea / problem: Offline-first Philippine Aeronautical Engineers board-exam practice with instructor-managed content and optional recoverable account sync.
 Platform: Android 8+ (API 26+), current System WebView; Python FastAPI/SQLite service and Streamlit faculty dashboard.
 MVP essentials: Subject-based 20/50-question practice; AI/IN source selection; locked answer feedback and optional explanations; durable offline progress; explicit authenticated sync.
-Existing baseline: Published signed v0.8.2-rc.1 retained; v0.8.3-rc.1 source (versionCode 12) passes automated CI but signed publication is blocked. See docs/STATUS.md.
+Existing baseline: v0.8.3-rc.1 source (versionCode 12) has passed baseline automated CI; the user authorized a fresh permanent signer on 17 November 2026. New production-key activation and signed publication are pending. See docs/STATUS.md.
 Hardware / integrations: Android WebView/SAF, optional HTTPS cohort API and server-side Gemini topic selection. Physical phone testing and production hosting remain pending.
 Data / storage: Preserve local profiles, scores, unfinished sessions, bank IDs/keys and pending uploads. Ranking/facilitator sharing are separate opt-ins. Private IN guide content and all credentials stay out of public builds.
-Constraints: Free-first, lightweight existing Java/WebView/Python stack; uncluttered Subjects layout with fixed app bars and center-only scroll; preserve package/signing identity and current storage contracts.
+Constraints: Free-first, lightweight existing Java/WebView/Python stack; uncluttered Subjects layout with fixed app bars and center-only scroll; preserve package identity and storage contracts; complete the authorized one-time signer reset, then preserve its new identity.
 GitHub: Denberg28/AE-Prepware; existing; public; main.
 Authorized delivery: Reviewed commits/pushes and eligible GitHub prereleases. Stable promotion requires all applicable gates. Private signing material and private guide banks must never be published.
 
