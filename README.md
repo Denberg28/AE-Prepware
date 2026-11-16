@@ -63,6 +63,10 @@ Download the signed candidate from [GitHub Releases](https://github.com/Denberg2
 
 The public certificate, fingerprint, SHA-256 checksums and verification report accompany the APK. See [signing and release procedure](signing/README.md). Private signing recovery material is never public. To roll back, export a matching progress/bank backup first; Android blocks lower-version installs without uninstall, and backups tied to expanded banks may not load in older apps. Keep the older APK and its matching backup.
 
+## Development instructions
+
+Use the [project kickoff](Project_Kickoff_Template.md), [agent rules](AGENTS.md), and [constitution](Marlou_Prompt_Constitution_v3.md). The [targeted edit guide](docs/CODE_EDIT_GUIDE.md) maps common changes to their controlling symbols. [Current status](docs/STATUS.md) records verified baseline evidence and the signing blocker.
+
 ## Build and test
 
 Android: JDK 17/21, Gradle 8.10.2 wrapper, SDK platform 35/build-tools 35.0.0. Minimum API 26, target 35; no Android third-party runtime dependencies. `release.json` controls version/code and pinned certificate. Local debug APKs are for development; publication uses the permanent signed release.

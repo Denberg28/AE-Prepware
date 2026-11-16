@@ -1,0 +1,14 @@
+# Targeted edit guide
+
+Use the controlling source below; locate its usages before editing. Keep normal formatting and paragraph-like sections with short purpose/edit/result comments in newly changed code. Existing unchanged code does not need wholesale reformatting.
+
+| Desired result | File | Stable section / symbol / property | Edit, units and scope | Related settings and check |
+| --- | --- | --- | --- | --- |
+| Set the next candidate version | `release.json` | `version`, `versionCode` | New unpublished version; strictly increase integer Android versionCode for an app update. Current values remain authoritative in this file. | `app/build.gradle` reads these values; update release notes/changelog; run Android assembly/lint and packaging verification. |
+| Preserve Android update identity | `release.json`, `app/build.gradle`, `signing/AE-Prepware-release-certificate.pem` | `certificateSha256`, `applicationId` | Keep the existing certificate and `ph.diversify.aeprepware`. A missing credential is resolved by restoring the existing private recovery archive. | `scripts/sign_release.py` checks the pinned digest; `scripts/package_candidate.py --verify` checks package, signature, payload and metadata. |
+| Enable CI signing | `signing/README.md`, `.github/workflows/verify-release.yml` | `AE_SIGNING_RECOVERY_ZIP_B64`; Prepare candidate with the existing private signer | Configure the existing recovery ZIP as the encrypted repository Actions secret. No key, password or Base64 belongs in source. | `scripts/sign_ci.py:main` permits main push/manual runs only. Missing secret leaves publication blocked. |
+| Adjust recovery archive validation | `scripts/sign_ci.py` | `restore_recovery`, `LIMIT` | Bounded ZIP extraction outside checkout; LIMIT is total uncompressed bytes. Preserve traversal, symlink, credential and keystore checks. | Run `python -m pytest tests/test_sign_ci.py` and complete required candidate gates. Never log private material. |
+| Prepare and verify release assets | `scripts/package_candidate.py` | `--apk`, `--verify` | Package a current committed same-signer APK; verify its exact rebuilt payload, metadata and source identity. | `scripts/source_digest.py:source_digest` defines Android inputs. Full release workflow must pass before publication. |
+| Update development rules | `AGENTS.md`, `Project_Kickoff_Template.md`, `Marlou_Prompt_Constitution_v3.md` | Shared rules; AE Prepware project rules; filled kickoff fields | Apply upstream improvements while preserving project-specific behavior, privacy, UI and signing rules. | Inspect focused diff, links and checkpoint; do not regenerate app code for documentation changes. |
+
+For setup, functional checks and phone validation, use [README](../README.md) and [testing](TESTING.md). For app UI scope, use [UI refinement](UI_REFINEMENT.md); inspect actual selectors before documenting a new tuning point.
