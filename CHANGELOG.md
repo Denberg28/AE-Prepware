@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.8.3-rc.1 — 2026-11-17 (source update)
+
+- Refine subject cards with local vector icons, clearer weight hierarchy and consistent spacing; add icons alongside bottom-navigation labels.
+- Improve question typography, choice targets, light/dark surfaces, low-height layouts and enlarged-text wrapping.
+- Mark the learner's selected answer, including deferred checks without revealing correctness. Move keyboard focus to questions and saved-answer feedback, and name confirmation dialogs.
+- Explain wholly unavailable source pools and retain the uncluttered Subjects layout.
+- Preserve banks, score/account schemas, session order and offline behavior. Signed candidate preparation and physical Android checks remain pending.
+
+
 ## 0.8.2-rc.1 — 2026-11-14
 
 - Restore the previous simple Subjects screen by removing the commitment/competence/readiness banner and separate bearing/heading/throat shortcut. Retain Sync, theme, fixed app bars and subject weight badges.
