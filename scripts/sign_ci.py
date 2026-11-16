@@ -76,6 +76,8 @@ def main():
         print("Signing secret is not configured; signed publication remains blocked.")
         return 0
     config = json.loads((ROOT / "release.json").read_text())
+    if config.get("signerResetPending"):
+        raise ValueError("Fresh signer activation is required before signing")
     name = "AE-Prepware-" + config["version"] + "-Signed-Candidate.apk"
     if (ROOT / "release-candidates" / config["version"] / name).exists():
         print("Existing prepared candidate retained for independent verification.")

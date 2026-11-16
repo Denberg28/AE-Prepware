@@ -14,6 +14,7 @@ parser.add_argument('--input',type=Path,default=ROOT/'app/build/outputs/apk/rele
 parser.add_argument('--output',type=Path)
 args=parser.parse_args()
 config=json.loads((ROOT/'release.json').read_text())
+if config.get('signerResetPending'):raise SystemExit('Activate the fresh signer before signing this release')
 private=json.loads(args.credentials.read_text())
 key=args.credentials.parent/private['keystore']
 sdk=Path(os.environ.get('ANDROID_HOME',os.environ.get('ANDROID_SDK_ROOT','')))

@@ -1,55 +1,44 @@
-# Permanent APK signer — v0.2 onward
+# Fresh release signer
 
-The public certificate in this directory pins the AE Prepware update identity. Its SHA-256 digest is in `release.json`. Package name stays `ph.diversify.aeprepware`. v0.2.0-rc.1 has versionCode 2; future updates must raise versionCode and use the same private key/certificate.
+On 17 November 2026 the user explicitly authorized a new signing identity and a fresh release, superseding the previous continuity requirement. The pending target is v0.8.3-rc.1 (versionCode 12). Package remains `ph.diversify.aeprepware`. The prior key is retired for future builds; no prior recovery archive is needed.
 
-The user explicitly authorized permanent signing on 2026-11-13. Private key and password are in the private **AE-Prepware-Private-Signing-Recovery.zip** recovery archive, not this public repository. Keep that archive private and backed up offline. The public certificate alone cannot sign updates.
+**Status: new production key not yet generated or activated.** `release.json:signerResetPending` blocks CI from using the retired key even if its old secret is configured. The public certificate/digest remain historical until successful activation replaces them. A passing source build is not a signed release.
 
-Restore recovery files to a private directory outside the repository, then:
+## Create and activate once on your computer
 
-```sh
-./gradlew :app:assembleDebug :app:assembleRelease :app:lint
-python scripts/sign_release.py --credentials /private/path/signing-recovery.json
-# Commit final source before packaging; the source tree must be clean.
-python scripts/package_candidate.py --apk artifacts/AE-Prepware-0.8.3-rc.1-Signed-Candidate.apk
-python scripts/package_candidate.py --verify
-```
+Requirements: Python 3.10+, JDK 17+ (`keytool` on PATH), Git and authenticated GitHub CLI with permission to set repository Actions secrets (`gh auth login`). Use a current clean checkout of `Denberg28/AE-Prepware` on main. The Android SDK is unnecessary for key setup; the existing GitHub workflow builds the app.
 
-The APK filename must match the current `release.json` version; the command above targets v0.8.3-rc.1. See [current release status](../docs/STATUS.md) for observed signing/publication evidence. A request to build a signed release uses this permanent identity; generating a replacement key requires a separate migration decision because it changes update compatibility.
-
-Set `ANDROID_HOME` to the SDK with build-tools 35.0.0. Signing reads passwords from private file into process environment; values are not printed or embedded in the APK. Do not pass passwords on the command line, commit recovery files, or upload them to GitHub Releases.
-
-Prepared signed APKs and public verification metadata under `release-candidates/<version>/` are public. CI runs all tests, builds the unsigned release, verifies the permanent certificate, source digest, exact unsigned ZIP payload (apart from Gradle's VCS marker), version, checksum and packaged assets. Only then does it publish the same signed candidate. Keeping prepared signed binaries in source makes this small project releaseable without sending the private key to CI. Bump version and prepare a new signed candidate for every Android source change; stale APKs fail verification.
-
-The earlier v0.1 candidate was signed with a different, disposable CI debug key. That private key is unavailable, so Android cannot install v0.2 over that particular APK. Export v0.1 progress first, uninstall once, install v0.2, restore the backup, then create an account. Original IDs are preserved. Subsequent v0.2+ releases can update in place with this permanent signer. Actual phone upgrade behavior still requires the documented device check.
-
-## Optional GitHub Actions signing
-
-When local signing cannot run, configure the existing recovery archive as one
-repository Actions secret named `AE_SIGNING_RECOVERY_ZIP_B64`. This sends the same
-private signer to GitHub's hosted runner through its encrypted secret store.
-It does not create a new key or change update identity. Never put this value in
-source, an issue, a workflow input, a log or a release attachment.
-
-On Windows, copy the archive's Base64 to your clipboard:
+Run in PowerShell from the checkout root:
 
 ```powershell
-[Convert]::ToBase64String([IO.File]::ReadAllBytes("$env:USERPROFILE\Downloads\AE-Prepware-Private-Signing-Recovery.zip")) | Set-Clipboard
+git pull --ff-only
+python scripts/fresh_signer.py create "$env:USERPROFILE\AE-Prepware-Fresh-Signer"
+python scripts/fresh_signer.py activate "$env:USERPROFILE\AE-Prepware-Fresh-Signer\AE-Prepware-Fresh-Signing-Recovery.zip"
+git add release.json signing/AE-Prepware-release-certificate.pem
+git commit -m "Activate fresh permanent release signer"
+git push origin main
 ```
 
-Open repository Settings → Secrets and variables → Actions → New repository secret,
-use the name above and paste its value. Then run “Verify and publish signed candidate”
-on `main` from Actions, or rerun its verify job. The connected editing tools cannot
-set repository secrets; the account owner must configure this once.
+The create command generates a permanent RSA-3072/PKCS12 key and a random password, then saves the private recovery ZIP outside the repository. Back up that private directory offline. Use a private user-profile directory with appropriate OS permissions; do not use a shared/cloud-public folder. Existing directories are never overwritten. If creation fails, inspect and preserve any generated files before choosing another directory.
 
-Only main pushes and manual runs on main can use the signing secret. Pull requests
-and tag-only runs do not receive it. After all source tests/builds/audits pass, the
-runner restores the bounded archive outside the checkout, masks decoded passwords,
-signs with the pinned permanent certificate, packages it, and checks the entire APK
-payload and metadata before publication. Private files are deleted when signing
-exits, including failure. Only public APKs/certificates/verification output enter artifacts.
-If the secret is absent, source checks still run and publication stays blocked.
-A wrong signer or invalid archive fails the job. Existing prepared candidates and
-published releases remain preserved.
+Activation validates the actual keystore, uploads the recovery ZIP to encrypted Actions secret `AE_SIGNING_RECOVERY_ZIP_B64` via GitHub CLI stdin, replaces only the public certificate/digest, and clears the pending-reset flag. Passwords and private archive contents are never printed or committed. A secret-upload failure leaves the public pin unchanged; retry the activate command with the same ZIP. Do not run create again for routine builds.
 
-The public bank is the only bank eligible for this public release workflow.
-A private IN build still uses the separate private-candidate process.
+The secret and public-pin update span separate systems. If activation or the following push is interrupted, retain the private directory, retry activation with the same ZIP, inspect/commit the two public files and push. A mismatched secret/pin fails signing instead of publishing. The connected repository tools in this chat cannot set repository secrets, and this session has no local build runtime.
+
+## Build and publish
+
+The main push runs the existing required Node/Python/browser tests, dependency audits, Android debug/release assembly and lint. It then restores the new key outside the checkout, signs the APK and verifies the pinned certificate, package/version, source digest, checksums and exact rebuilt APK payload. Only a verified candidate is eligible for GitHub prerelease publication.
+
+For local Android SDK signing after activation, use `scripts/sign_release.py --credentials /private/path/signing-recovery.json`, then `scripts/package_candidate.py --apk /path/to/signed.apk` and `scripts/package_candidate.py --verify`. Source must be committed. Never attach recovery ZIPs, keystores or passwords to public releases, CI artifacts, logs or git.
+
+## Fresh-install migration
+
+1. Export progress, matching question bank and account recovery from the old app. Preserve unsynced work in a backup.
+2. Uninstall the old-signer app only after checking the backups.
+3. Install the new-signer candidate and import compatible backups. Verify accounts, scores and unfinished sessions on a test phone.
+
+Android cannot install the replacement-signer APK over the prior app as an ordinary update. This signer change does not require deleting learner data on the server. Subsequent releases must reuse the new permanent key with higher versionCode. Actual phone migration, accessibility and independent faculty review remain pending, so this remains a test candidate.
+
+Earlier releases are historical until a replacement is verified; they are not inputs to the new signing process. See [current checkpoint](../docs/STATUS.md) for built/published status.
+
+Implementation references: [JDK keytool](https://docs.oracle.com/en/java/javase/21/docs/specs/man/keytool.html), [GitHub CLI secret setup](https://cli.github.com/manual/gh_secret_set).

@@ -2,7 +2,9 @@
 
 ## 0.8.3-rc.1 — 2026-11-17 (source update)
 
-- Adopt shared AGENTS v1.4, kickoff v1.3 and constitution v3.2 while preserving AE Prepware rules; add targeted edit guidance and a signing/publication checkpoint. The existing permanent signer is retained; missing Actions signing credentials still block publication.
+- User authorizes retiring the previous signer and starting a fresh permanent identity. Add local key/recovery setup and encrypted Actions-secret activation, integration checks and pending-reset guards. The new production key and signed release remain pending local activation; backup/uninstall/reinstall is required across identities.
+
+- Adopt shared AGENTS v1.4, kickoff v1.3 and constitution v3.2 while preserving AE Prepware rules; add targeted edit guidance and a signing/publication checkpoint. The later explicit signer-reset instruction supersedes the earlier continuity decision; see signing/README.md.
 
 - Refine subject cards with local vector icons, clearer weight hierarchy and consistent spacing; add icons alongside bottom-navigation labels.
 - Improve question typography, choice targets, light/dark surfaces, low-height layouts and enlarged-text wrapping.

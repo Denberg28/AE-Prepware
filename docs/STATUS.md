@@ -2,26 +2,25 @@
 
 Updated: 17 November 2026 (Asia/Manila).
 
-## Scope and baseline
+## Authorized goal and baseline
 
-User request: adopt the latest kickoff, agent and constitution guidance and prepare signing for the new release. Reviewed commits/pushes and eligible GitHub prereleases are authorized; private signing identity and private IN content remain protected.
+The user explicitly requests a new release with a new signer, discarding the prior signing identity and starting fresh. This supersedes the earlier continuity-only decision. Reviewed commits, pushes and eligible GitHub prerelease publication remain authorized. Package `ph.diversify.aeprepware`, question banks, account/progress formats and server records remain intact; the signer change requires a one-time phone backup/uninstall/reinstall.
 
-Repository: `Denberg28/AE-Prepware`, `main`. Baseline source: `753b149a1cf253ae62d5ef647fcb029821e69e9c`. Latest published signed release: [v0.8.2-rc.1](https://github.com/Denberg28/AE-Prepware/releases/tag/v0.8.2-rc.1). Current release configuration: `release.json` (v0.8.3-rc.1, versionCode 12 at this checkpoint). The prior published version is retained for recovery.
+Repository: `Denberg28/AE-Prepware`, main. Baseline source: `2afa8c1d19b0a1a7ec7a7081db09c562cfc684e5`. Pending release: v0.8.3-rc.1, versionCode 12. Existing historical signed releases are not inputs to new-key setup. AGENTS v1.4, kickoff v1.3 and constitution v3.2 are already adopted with AE Prepware project rules preserved.
 
-## Completed and evidence
+## Implemented
 
-- Adopt AGENTS v1.4, kickoff v1.3 and constitution v3.2 from [shared revision 012797d58ae19c713b7051f233d4023db94afd67](https://github.com/Denberg28/Agents_md/tree/012797d58ae19c713b7051f233d4023db94afd67); retain all existing AE Prepware rules.
-- Add a targeted edit guide and filled project kickoff, reference standing GitHub publication authorization, and retain the existing signer rather than create a second identity.
-- Review current signing scripts and release workflow. The existing pipeline already restores a private archive, signs with the pinned certificate, verifies exact rebuilt APK content, and publishes only eligible prepared candidates.
-- **PASS / build verified:** [baseline workflow 43969274307](https://github.com/Denberg28/AE-Prepware/actions/runs/43969274307), source `753b149a1cf253ae62d5ef647fcb029821e69e9c`: Node/Python tests, browser workflows, dependency audits and Android debug/release assembly/lint. This is baseline evidence; any subsequent run has its own result.
-- **REVIEWED:** this maintenance patch changes documentation only. Android inputs, signing scripts, package identity, version/code and grading/storage contracts are preserved. No local execution environment was available during this maintenance session.
+- `scripts/fresh_signer.py` creates a permanent RSA-3072/PKCS12 key with a random password and private recovery ZIP outside the checkout. It refuses overwrites. Activation validates the actual keystore, configures the encrypted Actions secret via GitHub CLI stdin and replaces only the public pin/certificate.
+- `release.json:signerResetPending` blocks CI and direct signing until new-key activation; activation rejects the retired certificate. No old recovery archive is required.
+- Signing/migration documentation and project rules now reflect the authorized reset. Private key generation/activation is deliberately separate from public source.
+- Integration checks cover a real temporary key, recovery round-trip, secret-upload failure preserving the pin, secret stdin handling, overwrite/checkout protection and pending-reset guards. Temporary test keys are never production keys or release assets.
 
-## Blocker and next executable step
+## Evidence and remaining work
 
-**BLOCKED: signed v0.8.3 publication.** Baseline workflow verify job 133656817993 reports: “Signing secret is not configured; signed publication remains blocked.” The publication job was skipped. No signed v0.8.3 APK or release was produced.
+**PASS / build verified baseline:** [workflow 43972952750](https://github.com/Denberg28/AE-Prepware/actions/runs/43972952750) on baseline source completed successfully. This does not verify the new setup code; consult the maintenance PR/CI for its results.
 
-The private recovery archive is available as `AE-Prepware-Private-Signing-Recovery.zip`; possession of the public certificate alone cannot sign. Connected repository editing cannot configure Actions secrets, and the current session has no local execution environment for private signing.
+**BLOCKED: production key creation, activation and signed release.** This session has no usable local execution environment and cannot configure repository Actions secrets. No new production key, signed APK or GitHub release has been created. The old certificate stays historical in source until activation replaces it; the reset flag prevents its use by the release signer.
 
-Repository owner: follow [signing setup](../signing/README.md#optional-github-actions-signing) to set `AE_SIGNING_RECOVERY_ZIP_B64` from that existing ZIP, then run “Verify and publish signed candidate” on main. Check every required gate, the published APK fingerprint/checksum, version and release assets. Never substitute a new/debug key to bypass this blocker.
+**Next executable step:** run the [fresh signer setup](../signing/README.md#create-and-activate-once-on-your-computer) in a local checkout with Python, JDK and authenticated GitHub CLI. Privately back up the resulting recovery directory. Commit/push only the public certificate and release.json; the existing release workflow then builds, signs, verifies and publishes an eligible prerelease.
 
-**NOT TESTED:** physical Android installation/in-place update, TalkBack/native font/system-bar behavior, independent faculty content approval and production hosting. These continue to block stable promotion. Before a phone update, export progress and matching bank, then install the same-signer candidate without uninstalling; retain the prior APK and matching backups for rollback.
+**NOT TESTED:** physical Android migration/in-place updates within the new signer, TalkBack/native font/system-bar behavior, independent faculty content approval and production hosting. These continue to block stable promotion.
