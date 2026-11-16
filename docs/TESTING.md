@@ -97,3 +97,13 @@ Run `node tests/readiness-browser.cjs` with the eight public/synthetic browser w
 ## v0.8 full sync and feedback gates
 
 Run `node tests/sync-browser.cjs` and `node tests/online-browser.cjs` after installing the backend lockfile. Full sync must survive lost acknowledgements without duplicate grades, restore the journal and unfinished diagnostic on another storage context, reject stale snapshot revisions, preserve work offline, and reject bank tampering. Verify ranking and faculty sharing opt-ins independently and confirm the combined ASGI host renders all four Streamlit tabs over its live WebSocket. The API tests cover private enrollment, unauthorized legacy-route rejection, authenticated bank downloads, snapshot isolation/deletion, malformed/body-size rejection and persistence after restart. Numerical feedback tests solve all 20 printed exercises through separately worked formulas, with a maximum absolute rounding tolerance of 0.0005 in the printed unit. No existing question content or compact-core membership may change. Final Android debug/release assemble and lint remain required before candidate packaging.
+
+## v0.8.3 UI refinement
+
+Run `node tests/ui-browser.cjs`. It checks unavailable-bank recovery, labeled navigation,
+header reachability at 320/393/720px in both themes, keyboard focus after navigation,
+answer and next, accessible dialog naming, and visible selected answers in deferred checks
+without revealing correctness. Reload must preserve the exact selected-answer session.
+At 320px and a 24px root font, Settings/export must remain reachable with no document
+horizontal overflow. Existing contrast, fixed-shell, scoring and sync regressions remain required.
+Physical Android font scaling and TalkBack are still separate device gates.

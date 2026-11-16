@@ -1,4 +1,6 @@
-# Known limitations — v0.8.2-rc.1
+# Known limitations — v0.8.3-rc.1 source update
+
+- **UI update delivery:** this revision requires its own permanently signed APK before installation. The previous signed v0.8.2 artifact is retained. Browser/CI verification is separate from physical Android, TalkBack and native font/system-bar testing.
 
 - **Test candidate:** physical Android installation, Storage Access Framework, lifecycle, accessibility, and in-place same-signer update have no device evidence. Stable promotion remains blocked.
 - **Foundation bank:** 380 AI items (80 aero, 60 per other subject) includes parameter variants, not 360 independently reviewed competencies. Independent faculty review is pending; advanced TOS coverage remains incomplete. Source/structure/arithmetic checks do not substitute for faculty validation.

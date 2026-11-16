@@ -4,7 +4,7 @@
 
 Core development principle: **commitment, competence, readiness**. Every feature should build a sustainable study habit, improve demonstrated understanding, or make remaining subject gaps visible. Recorded app use is a participation measure, not proof of motivation.
 
-Minimal Android practice for Philippine Aeronautical Engineers Licensure Examination subjects. **v0.8.2-rc.1 is a test candidate**, pending physical Android testing and independent faculty content review.
+Minimal Android practice for Philippine Aeronautical Engineers Licensure Examination subjects. **v0.8.3-rc.1 is a source update; a signed APK has not been prepared**, pending physical Android testing and independent faculty content review.
 
 ## Commitment · Competence · Readiness
 
@@ -19,6 +19,13 @@ Aerodynamics includes 20 original AI-labeled, source/formula/arithmetic self-che
 See [online setup](docs/ONLINE_SYNC.md) for the persistent API plus Streamlit dashboard, including a single-host runner and Dockerfile. Streamlit Community Cloud alone is still not the durable sync database. No production host has been provisioned.
 
 ## Appearance and subject weights
+
+Subject cards use clear icons, visible weight badges and consistent spacing. Bottom
+navigation keeps text labels with icons. Answers use larger touch surfaces and show
+“Your answer” after selection, including deferred checks without revealing the key.
+Keyboard focus follows the question and saved-answer feedback. See the
+[UI scope and validation](docs/UI_REFINEMENT.md).
+
 
 Use the moon/sun button at the upper right to switch light/dark. The device-wide
 choice is saved separately from accounts and progress. Android system bars follow
