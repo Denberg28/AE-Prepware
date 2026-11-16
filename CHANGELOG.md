@@ -2,6 +2,8 @@
 
 ## 0.8.3-rc.1 — 2026-11-17 (source update)
 
+- Adopt shared AGENTS v1.4, kickoff v1.3 and constitution v3.2 while preserving AE Prepware rules; add targeted edit guidance and a signing/publication checkpoint. The existing permanent signer is retained; missing Actions signing credentials still block publication.
+
 - Refine subject cards with local vector icons, clearer weight hierarchy and consistent spacing; add icons alongside bottom-navigation labels.
 - Improve question typography, choice targets, light/dark surfaces, low-height layouts and enlarged-text wrapping.
 - Mark the learner's selected answer, including deferred checks without revealing correctness. Move keyboard focus to questions and saved-answer feedback, and name confirmation dialogs.

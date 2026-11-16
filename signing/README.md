@@ -10,9 +10,11 @@ Restore recovery files to a private directory outside the repository, then:
 ./gradlew :app:assembleDebug :app:assembleRelease :app:lint
 python scripts/sign_release.py --credentials /private/path/signing-recovery.json
 # Commit final source before packaging; the source tree must be clean.
-python scripts/package_candidate.py --apk artifacts/AE-Prepware-0.2.0-rc.1-Signed-Candidate.apk
+python scripts/package_candidate.py --apk artifacts/AE-Prepware-0.8.3-rc.1-Signed-Candidate.apk
 python scripts/package_candidate.py --verify
 ```
+
+The APK filename must match the current `release.json` version; the command above targets v0.8.3-rc.1. See [current release status](../docs/STATUS.md) for observed signing/publication evidence. A request to build a signed release uses this permanent identity; generating a replacement key requires a separate migration decision because it changes update compatibility.
 
 Set `ANDROID_HOME` to the SDK with build-tools 35.0.0. Signing reads passwords from private file into process environment; values are not printed or embedded in the APK. Do not pass passwords on the command line, commit recovery files, or upload them to GitHub Releases.
 
