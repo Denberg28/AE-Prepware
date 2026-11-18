@@ -96,7 +96,8 @@ def test_pending_reset_blocks_direct_signing_before_private_read(tmp_path):
     assert "Activate the fresh signer" in result.stderr
 
 
-def test_reset_cannot_reactivate_the_retired_certificate(fresh_key, tmp_path, monkeypatch):
+@pytest.mark.parametrize("local_only", [False, True])
+def test_reset_cannot_reactivate_the_retired_certificate(fresh_key, tmp_path, monkeypatch, local_only):
     directory, archive = fresh_key
     import hashlib
     import ssl
@@ -108,4 +109,25 @@ def test_reset_cannot_reactivate_the_retired_certificate(fresh_key, tmp_path, mo
         {"certificateSha256": digest, "signerResetPending": True}))
     monkeypatch.setattr(signer, "ROOT", repo)
     with pytest.raises(ValueError, match="retired signer"):
-        signer.activate(archive)
+        signer.activate(archive, local_only=local_only)
+
+
+def test_local_activation_pins_real_key_without_secret_upload(fresh_key, tmp_path, monkeypatch):
+    directory, archive = fresh_key
+    repo = tmp_path / "repo"
+    (repo / "signing").mkdir(parents=True)
+    config = {"version": "test", "certificateSha256": "retired", "signerResetPending": True}
+    (repo / "release.json").write_text(json.dumps(config))
+    monkeypatch.setattr(signer, "ROOT", repo)
+    real_which = signer.shutil.which
+
+    def no_github_cli(name):
+        assert name != "gh", "Local activation must not configure or require GitHub credentials"
+        return real_which(name)
+
+    monkeypatch.setattr(signer.shutil, "which", no_github_cli)
+    digest = signer.activate(archive, local_only=True)
+    assert len(digest) == 64
+    assert json.loads((repo / "release.json").read_text()) == {
+        "version": "test", "certificateSha256": digest}
+    assert (repo / "signing" / signer.CERTIFICATE).read_bytes() == (directory / signer.CERTIFICATE).read_bytes()

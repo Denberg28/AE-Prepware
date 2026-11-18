@@ -1,8 +1,9 @@
 # Changelog
 
-## Unreleased — 18 November 2026
+## 0.8.3-rc.1 — 18 November 2026 (review flow and fresh signer)
 
 - Simplified review flow: compact subject cards, Continue first, optional practice setup and monitoring, scores/history first in Results, and missed answers first after submission.
+- Activated a privately backed-up replacement permanent signer; added local activation without GitHub secret access. CI still verifies the signature and rebuilt APK payload before publication.
 - Kept offline progress, 20/50-question sets, AI/IN quotas, diagnostic answer withholding, explanations and sync compatible.
 
 ## 0.8.3-rc.1 — 2026-11-17 (source update)
