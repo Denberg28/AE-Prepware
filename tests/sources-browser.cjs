@@ -22,7 +22,7 @@ const server=http.createServer((req,res)=>{const file=path.join(root,req.url==='
  await page.reload();await page.getByRole('button',{name:'Continue · 1 / 50'}).click();await page.getByText('Correct',{exact:true}).waitFor();assert.equal(await page.evaluate(()=>bank.questions.find(q=>q.id===state.session.ids[0]).answer),0);
  for(let i=0;i<50;i++){if(await page.locator('[data-choice]:not(:disabled)').count())await page.locator('[data-choice="0"]').click();await page.locator('[data-action=next]').click();if(await page.getByRole('heading',{name:'Session complete'}).count())break;}
  assert.equal(await page.evaluate(()=>state.history[0].correct),50);
- await page.locator('nav [data-tab=home]').click();await page.locator('[data-source=IN]').check();assert.equal(await page.locator('[data-subject=math]').isDisabled(),true);assert.equal(await page.locator('[data-subject=aero]').isEnabled(),true);
+ await page.locator('nav [data-tab=home]').click();await page.locator('[data-panel=practice] > summary').click();await page.locator('[data-source=IN]').check();assert.equal(await page.locator('[data-subject=math]').isDisabled(),true);assert.equal(await page.locator('[data-subject=aero]').isEnabled(),true);
  await page.screenshot({path:'artifacts/06-source-selection.png',fullPage:true});
  await page.locator('[data-subject=aero]').click();assert.equal(await page.evaluate(()=>state.session.ids.filter(id=>AE.origin(bank.questions.find(q=>q.id===id))==='IN').length),25);
  await page.getByRole('button',{name:'Settings',exact:true}).click();const tampered=structuredClone(bank);tampered.version='tampered';tampered.extends=bank.version;tampered.questions[0].answer=2;tampered.questions[0].review='approved';
