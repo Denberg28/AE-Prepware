@@ -26,7 +26,7 @@ const {chromium}=require('playwright'),assert=require('node:assert/strict'),http
   assert.equal((await (await fetch('http://127.0.0.1:18081/accounts/leaderboard')).json()).entries.length,0);
   await page.locator('#rank-opt-in').check();await page.locator('#share-readiness').check();
   // Save an unfinished diagnostic: snapshot must retain its answer times/journal.
-  await page.locator('nav [data-tab=progress]').click();await page.locator('[data-check=diagnostic][data-check-subject=math]').click();await page.locator('[data-choice="0"]').click();
+  await page.locator('nav [data-tab=progress]').click();await page.locator('[data-panel=monitoring] > summary').click();await page.locator('[data-check=diagnostic][data-check-subject=math]').click();await page.locator('[data-choice="0"]').click();
   const journal=await page.evaluate(()=>structuredClone(state.monitoring)),session=await page.evaluate(()=>structuredClone(state.session));
   drop=true;await page.locator('#sync-toggle').click();await page.waitForFunction(()=>state.lastSync?.complete===false);assert.equal(await page.evaluate(async()=>!!await BankStore.read(uploadKey())),true);
   await page.locator('#sync-toggle').click();await page.waitForFunction(()=>state.lastSync?.complete===true);assert.equal(await page.evaluate(async()=>await BankStore.read(uploadKey())),null);assert.equal(await page.evaluate(()=>state.cloudRevision),2);
