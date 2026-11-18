@@ -67,9 +67,9 @@ def create(directory):
     return archive_path
 
 
-# Activation — Validate the real key before sending its recovery ZIP via gh stdin.
+# Activation — Validate the real key before local pinning or an optional secret upload.
 # Only the public certificate and digest enter source; no old key is required.
-def activate(archive_path):
+def activate(archive_path, local_only=False):
     archive_path = private_path(archive_path)
     if archive_path.stat().st_size > 49152:
         raise ValueError("Recovery archive exceeds the Actions secret limit")
@@ -86,11 +86,14 @@ def activate(archive_path):
     config = json.loads(config_path.read_text(encoding="utf-8"))
     if config.get("signerResetPending") and digest == config["certificateSha256"]:
         raise ValueError("Reset requires a newly generated certificate, not the retired signer")
-    gh = shutil.which("gh")
-    if not gh:
-        raise ValueError("Install GitHub CLI and run gh auth login")
-    subprocess.run([gh, "secret", "set", SECRET, "--repo", REPOSITORY],
-                   input=encoded, text=True, check=True, capture_output=True)
+    # Activation — Local packaging pins the validated key without uploading credentials.
+    # CI can verify/publish a prepared candidate; unattended rebuild signing still needs the secret.
+    if not local_only:
+        gh = shutil.which("gh")
+        if not gh:
+            raise ValueError("Install GitHub CLI and run gh auth login")
+        subprocess.run([gh, "secret", "set", SECRET, "--repo", REPOSITORY],
+                       input=encoded, text=True, check=True, capture_output=True)
     config["certificateSha256"] = digest
     config.pop("signerResetPending", None)
     (ROOT / "signing" / CERTIFICATE).write_bytes(certificate)
@@ -102,15 +105,21 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("action", choices=("create", "activate"))
     parser.add_argument("path", type=Path, help="New private directory, or existing recovery ZIP")
+    parser.add_argument("--local-only", action="store_true",
+                        help="Activate for local signing without configuring an Actions secret")
     args = parser.parse_args()
+    if args.local_only and args.action != "activate":
+        parser.error("--local-only applies only to activate")
     if os.environ.get("GITHUB_ACTIONS") == "true":
         raise ValueError("Run release-key setup locally so the private backup survives")
     if args.action == "create":
         print("Private recovery archive created: " + str(create(args.path)))
         print("Back up this directory privately before activating the signer.")
     else:
-        print("New signer configured; public certificate SHA-256: " + activate(args.path))
+        print("New signer configured; public certificate SHA-256: " + activate(args.path, args.local_only))
         print("Commit only release.json and the public certificate, then push to run release checks.")
+        if args.local_only:
+            print("Local signing selected. Prepare a signed candidate before publication; CI signing secret is unchanged.")
 
 
 if __name__ == "__main__":

@@ -4,7 +4,7 @@
 
 Core development principle: **commitment, competence, readiness**. Every feature should build a sustainable study habit, improve demonstrated understanding, or make remaining subject gaps visible. Recorded app use is a participation measure, not proof of motivation.
 
-Minimal Android practice for Philippine Aeronautical Engineers Licensure Examination subjects. **v0.8.3-rc.1 is a source update; a signed APK has not been prepared**, pending physical Android testing and independent faculty content review.
+Minimal Android practice for Philippine Aeronautical Engineers Licensure Examination subjects. **v0.8.3-rc.1 is a test candidate using the newly activated permanent signer.** Physical Android testing and independent faculty content review remain pending.
 
 ## Commitment · Competence · Readiness
 
@@ -61,7 +61,7 @@ Shared ranking awards one point per distinct correct question per server day (As
 
 Download the signed candidate from [GitHub Releases](https://github.com/Denberg28/AE-Prepware/releases). Android 8+ and a current Android System WebView are required. Allow APK installation from your browser/file manager.
 
-**Fresh-signer reset authorized for v0.8.3:** the new production key is pending local creation/activation. Export progress, the matching question bank and account recovery before uninstalling the old-signer app. Once the new candidate is published, install it fresh and restore compatible backups. The old signer cannot update this new installation. See [fresh signer setup](signing/README.md); future versions reuse the newly activated key. Historical instructions below describe the earlier v0.1-to-v0.2 migration only.
+**Fresh-signer reset for v0.8.3:** the new permanent key was activated locally on 18 November 2026. Export progress, the matching question bank and account recovery before uninstalling the old-signer app. Once the new candidate is published, install it fresh and restore compatible backups. The old signer cannot update this new installation. See [fresh signer setup](signing/README.md); future versions reuse the newly activated key. Historical instructions below describe the earlier v0.1-to-v0.2 migration only.
 
 **Historical one-time transition from v0.1:** export progress in the old app first. That CI build used a disposable debug certificate whose private key is unavailable. Uninstall it, install v0.2, then import the old guest backup and create your account. Original question IDs and progress/session schema remain compatible. Never uninstall without backup. Versions v0.2 through v0.8.2 used the former permanent certificate. After the authorized reset, normal updates within the new signing identity require its permanent certificate and higher versionCode. A signing certificate does not imply educational validation or a stable release.
 
@@ -69,7 +69,7 @@ The public certificate, fingerprint, SHA-256 checksums and verification report a
 
 ## Development instructions
 
-Use the [project kickoff](Project_Kickoff_Template.md), [agent rules](AGENTS.md), and [constitution](Marlou_Prompt_Constitution_v3.md). The [targeted edit guide](docs/CODE_EDIT_GUIDE.md) maps common changes to their controlling symbols. [Current status](docs/STATUS.md) records verified baseline evidence and the signing blocker.
+Use the [project kickoff](Project_Kickoff_Template.md), [agent rules](AGENTS.md), and [constitution](Marlou_Prompt_Constitution_v3.md). The [targeted edit guide](docs/CODE_EDIT_GUIDE.md) maps common changes to their controlling symbols. [Current status](docs/STATUS.md) records verified evidence and release progress.
 
 ## Build and test
 

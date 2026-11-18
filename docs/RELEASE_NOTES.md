@@ -1,4 +1,6 @@
-# AE Prepware v0.8.3-rc.1 · UI update
+# AE Prepware v0.8.3-rc.1 · Review-focused test candidate
+
+Continue and compact subjects lead the app; optional setup is grouped under Practice options. Results shows scores and history first, with monitoring in an optional panel. Submitted sessions show expanded mistakes first and keep correct answers and explanations accessible. A timing issue that could close practice options during a selection is fixed.
 
 Cleaner subject cards with local icons and clearer PRC weight badges, labeled navigation icons, more readable question spacing and larger answer targets. Refined light/dark surfaces support small screens and enlarged text while the header and navigation remain fixed.
 
@@ -8,12 +10,12 @@ Question content, grading keys, source quotas, accounts, saved progress, unfinis
 
 ## Fresh signing identity
 
-On 17 November 2026 the user authorized retiring the old signer and starting fresh. The new key must be created once and activated using signing/README.md. CI and direct signing reject the old signer while the reset is pending. This is an intentional one-time reinstall migration: export progress, matching bank and account recovery before uninstalling; install the new-signer APK and import compatible backups. Package identity and learning-data schemas remain unchanged. No replacement production key or signed APK has been generated in this session.
+The authorized replacement permanent key was generated, privately backed up and activated for local signing on 18 November 2026. The retired key is not used. Export progress, matching bank and account recovery before uninstalling the old-signer app, then install the new-signer APK and import compatible backups. Android cannot update across signing identities in place. Package identity and learning-data schemas remain unchanged. Keep the new private recovery archive for every future release; never publish it.
 
 ## Build and publication status
 
-Version: 0.8.3-rc.1; versionCode: 12; package: ph.diversify.aeprepware. The UI commit b1cb4dd53cdf4a14912d27602895ec5a6ea956d0 passed Node/Python tests, all 11 browser workflows, dependency audits, Android debug/release assembly and lint in workflow run 43963405907. PR #1 is merged; main builds retain the same required gates.
+Version: 0.8.3-rc.1; versionCode: 12; package: ph.diversify.aeprepware. The review-flow source at 1501b5eb11c9b020f631b0434613254141cd840e passed all required source, browser/service, dependency-audit, Android assembly and lint checks in workflow 44298938071. PR #5 is merged. The activated-source checkout 90017bf7cc8ed485396e609655f047e05485b3d0 passed all gates again in workflow 44332121392 (62 Python tests, 41 Node tests, 11 browser/service workflows, audits and Android assembly/lint). The candidate is signed from that exact reviewed checkout and locally passes packaging verification; CI independently rebuilds/checks it before publication.
 
-Signed publication requires the newly activated permanent certificate and scripts/package_candidate.py --verify. GitHub Actions can prepare the APK after fresh signer activation configures the encrypted AE_SIGNING_RECOVERY_ZIP_B64 repository secret; see signing/README.md. Without that secret or a locally prepared signed candidate, publication stays blocked. Published candidates include their APK, SHA-256 checksum, public certificate and verification metadata. The release workflow never publishes an unsigned APK as an installable candidate.
+The local signing route does not require GitHub login or a repository-secret change. The prepared APK must pass scripts/package_candidate.py --verify, including the pinned certificate and exact rebuilt payload, before the existing workflow publishes it. Published candidates include their APK, SHA-256 checksum, public certificate and verification metadata. Private signing material stays outside git and release assets.
 
 The previous signed v0.8.2 candidate is retained. Before installing a future signed update, export progress and the matching bank; perform the documented backup/uninstall/fresh-install migration for the new signing identity. Physical Android installation/update, TalkBack, native font scaling and system-bar checks remain pending. Independent faculty review and production hosting remain pending. This is not a stable release.
