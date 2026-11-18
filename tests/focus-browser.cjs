@@ -18,7 +18,7 @@ const server=http.createServer((req,res)=>{if(req.url==='/bank.json'){res.setHea
  updated=true;await page.reload();await page.locator('[data-screen=subjects]').waitFor();assert.equal(await page.evaluate(()=>bank.version),next.version);
  assert.equal(await page.evaluate(async()=>JSON.parse(await BankStore.read(bankKey())).version),next.version);assert.deepEqual(await page.evaluate(()=>state),before);
  await page.getByRole('button',{name:'Continue · 1 / 50'}).click();await page.getByText('Correct',{exact:true}).waitFor();
- await page.locator('nav [data-tab=home]').click();assert.equal(await page.locator('#study-scope').inputValue(),'focus');assert.ok((await page.locator('.session-info').innerText()).includes('20 questions'));
+ await page.locator('nav [data-tab=home]').click();await page.locator('[data-panel=practice] > summary').click();assert.equal(await page.locator('#study-scope').inputValue(),'focus');assert.ok((await page.locator('.session-info').innerText()).includes('20 questions'));
  await page.locator('[data-subject=aero]').click();await page.locator('#confirm').click();assert.equal(await page.evaluate(()=>state.session.ids.length),20);
  assert.equal(await page.evaluate(()=>state.session.ids.every(id=>Object.hasOwn(bank.focus.questions,id))),true);
  for(let i=0;i<20;i++){await page.locator('[data-choice="0"]').click();await page.locator('[data-action=next]').click();}
