@@ -7,7 +7,7 @@ const server=http.createServer((req,res)=>{try{const file=path.join(root,req.url
  const page=await browser.newPage({viewport:{width:393,height:760}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('http://127.0.0.1:8091');await page.locator('[data-screen=subjects]').waitFor();assert.equal(await page.locator('[data-panel=practice]').getAttribute('open'),null);assert.equal(await page.locator('#study-scope').isVisible(),false);await page.locator('[data-panel=practice] > summary').click();
  for(const label of ['Subjects','Results','Ranking','Account'])await page.locator('nav').getByRole('button',{name:label,exact:true}).waitFor();
- await page.locator('[data-source=IN]').check();await page.locator('[data-source=AI]').uncheck();
+ await page.locator('#study-scope').selectOption('full');assert.equal(await page.locator('[data-panel=practice]').getAttribute('open'),'');await page.locator('#study-scope').selectOption('focus');await page.locator('[data-source=IN]').check();assert.equal(await page.locator('[data-panel=practice]').getAttribute('open'),'');await page.locator('[data-source=AI]').uncheck();
  await page.locator('.availability-note').waitFor();assert.equal(await page.locator('[data-subject]:not(:disabled)').count(),0);
  await page.locator('[data-source=AI]').check();await page.locator('[data-source=IN]').uncheck();assert.equal(await page.locator('.availability-note').count(),0);await page.locator('[data-panel=practice] > summary').click();
  for(const theme of ['light','dark']){

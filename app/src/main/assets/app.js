@@ -30,6 +30,8 @@ function explanation(q){return `<details class="explanation"><summary>Explanatio
 function focusScreen(){const target=$('#app h1')||$('#content');target.setAttribute('tabindex','-1');target.focus({preventScroll:true});}
 function setTab(value){tab=value;result=null;render();$('#content').scrollTo(0,0);focusScreen();}
 function render(){
+ // Capture live disclosure state before replacing markup; native toggle events are asynchronous.
+ document.querySelectorAll('[data-panel]').forEach(el=>{if(Object.hasOwn(panels,el.dataset.panel))panels[el.dataset.panel]=el.open;});
  document.body.classList.toggle('quiz',tab==='quiz');
  const activeTab=['quiz','result','study'].includes(tab)?'home':tab;
  document.querySelectorAll('nav [data-tab]').forEach(x=>{const active=x.dataset.tab===activeTab;x.classList.toggle('active',active);if(active)x.setAttribute('aria-current','page');else x.removeAttribute('aria-current');});
@@ -243,11 +245,6 @@ window.receiveImport=async function(text){try{
  }
  }catch(e){notice('Import stopped: '+e.message);}};
 window.handleBack=()=>{if($('#modal').open){$('#cancel').click();return;}setTab('home');};
-// UI — Disclosure state survives re-rendering while options and scores are saved.
-document.addEventListener('toggle',e=>{
- const panel=e.target.dataset?.panel;
- if(e.target.isConnected&&Object.hasOwn(panels,panel))panels[panel]=e.target.open;
-},true);
 document.addEventListener('change',e=>{if(e.target.dataset.source){try{state.sourceMode=sourcesSelected();save();render();}catch(err){notice(err.message);}return;}if(e.target.id==='rank-opt-in'){try{state.rankOptIn=e.target.checked;save();notice('Ranking preference saved. Apply it with Sync.');}catch(err){notice(err.message);}return;}if(e.target.id==='share-readiness'){try{state.shareReadiness=e.target.checked;save();notice('Sharing preference saved. Apply it with a successful full sync.');}catch(err){notice(err.message);}return;}if(e.target.id==='study-scope'){try{state.studyScope=e.target.value;save();render();}catch(err){notice(err.message);}return;}if(e.target.id==='selection'){try{state.selection=e.target.value;save();}catch(err){notice(err.message);}}});
 document.addEventListener('click',async e=>{
  const el=e.target.closest('[data-action],[data-tab],[data-choice],[data-subject],[data-result],[data-check]');if(!el||busy||el.disabled)return;
