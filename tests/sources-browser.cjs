@@ -6,7 +6,7 @@ const server=http.createServer((req,res)=>{const file=path.join(root,req.url==='
  await new Promise(r=>server.listen(8082,'127.0.0.1',r));
  browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}),args:['--no-sandbox']});
  const page=await browser.newPage({viewport:{width:393,height:851}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto('http://127.0.0.1:8082');await page.locator('[data-screen=subjects]').waitFor();await page.locator('#study-scope').selectOption('full');
+ await page.goto('http://127.0.0.1:8082');await page.locator('[data-screen=subjects]').waitFor();await page.locator('[data-panel=practice] > summary').click();await page.locator('#study-scope').selectOption('full');
  await page.locator('[data-source=AI]').uncheck();assert.equal(await page.locator('[data-subject]:disabled').count(),6);
  await page.locator('[data-source=IN]').check();assert.equal(await page.locator('[data-subject]:disabled').count(),6);
  await page.locator('[data-source=IN]').uncheck();await page.locator('[data-source=AI]').check();

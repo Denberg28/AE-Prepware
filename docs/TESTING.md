@@ -107,3 +107,7 @@ without revealing correctness. Reload must preserve the exact selected-answer se
 At 320px and a 24px root font, Settings/export must remain reachable with no document
 horizontal overflow. Existing contrast, fixed-shell, scoring and sync regressions remain required.
 Physical Android font scaling and TalkBack are still separate device gates.
+
+## Review-focused layout gates — 18 November 2026
+
+`ui-browser.cjs` verifies Practice options starts collapsed, remains usable after source changes, and retains the existing responsive/focus/resume checks. `readiness-browser.cjs` verifies monitoring starts collapsed, six missed answers appear first in a 14/20 result, all fourteen correct answers remain accessible with explanations, and 20/20 shows no mistakes. Retain the full existing Node/Python/browser and Android build/lint gates. No state schema, question key, bank or signing changes are part of this update.

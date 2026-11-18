@@ -1,26 +1,26 @@
 # AE Prepware checkpoint
 
-Updated: 17 November 2026 (Asia/Manila).
+Updated: 18 November 2026 (Asia/Manila).
 
-## Authorized goal and baseline
+## Current goal and baseline
 
-The user explicitly requests a new release with a new signer, discarding the prior signing identity and starting fresh. This supersedes the earlier continuity-only decision. Reviewed commits, pushes and eligible GitHub prerelease publication remain authorized. Package `ph.diversify.aeprepware`, question banks, account/progress formats and server records remain intact; the signer change requires a one-time phone backup/uninstall/reinstall.
-
-Repository: `Denberg28/AE-Prepware`, main. Baseline source: `2afa8c1d19b0a1a7ec7a7081db09c562cfc684e5`. Pending release: v0.8.3-rc.1, versionCode 12. Existing historical signed releases are not inputs to new-key setup. AGENTS v1.4, kickoff v1.3 and constitution v3.2 are already adopted with AE Prepware project rules preserved.
+Simplify AE Prepware into a focused review tool. Repository `Denberg28/AE-Prepware`, source baseline `92e9605` on main. Authorized scope includes reviewed source commits/pushes and eligible prereleases. The existing unpublished version remains 0.8.3-rc.1 / code 12. Preserve the current signing reset guard, banks, scores, local profiles, unfinished sessions and sync contracts.
 
 ## Implemented
 
-- `scripts/fresh_signer.py` creates a permanent RSA-3072/PKCS12 key with a random password and private recovery ZIP outside the checkout. It refuses overwrites. Activation validates the actual keystore, configures the encrypted Actions secret via GitHub CLI stdin and replaces only the public pin/certificate.
-- `release.json:signerResetPending` blocks CI and direct signing until new-key activation; activation rejects the retired certificate. No old recovery archive is required.
-- Signing/migration documentation and project rules now reflect the authorized reset. Private key generation/activation is deliberately separate from public source.
-- Integration checks cover a real temporary key, recovery round-trip, secret-upload failure preserving the pin, secret stdin handling, overwrite/checkout protection and pending-reset guards. Temporary test keys are never production keys or release assets.
+- Continue and compact subjects lead the study flow; Practice options groups scope, AI/IN sources and selection. Optional panels start collapsed and keep their open state through in-page re-renders.
+- Results leads with scores and session history; existing checks and monitoring remain in an optional disclosure.
+- Submitted session review expands mistakes first and keeps correct answers in a separate disclosure. Explanations remain optional; deferred checks still withhold keys until submission.
+- Updated existing browser journeys for explicit disclosure opening; added mixed-score/all-correct review assertions. See UI_REFINEMENT.md and CODE_EDIT_GUIDE.md.
 
-## Evidence and remaining work
+## Verification
 
-**PASS / build verified baseline:** [workflow 43972952750](https://github.com/Denberg28/AE-Prepware/actions/runs/43972952750) on baseline source completed successfully. This does not verify the new setup code; consult the maintenance PR/CI for its results.
+**PASS:** `node --test tests/*.test.cjs` — 41 tests; `python -m pytest -q` — 60 tests; JS syntax and `git diff --check`. npm audit reports zero vulnerabilities. These are local source checks, not device evidence.
 
-**BLOCKED: production key creation, activation and signed release.** This session has no usable local execution environment and cannot configure repository Actions secrets. No new production key, signed APK or GitHub release has been created. The old certificate stays historical in source until activation replaces it; the reset flag prevents its use by the release signer.
+**BLOCKED locally:** Chromium exits before launch because a required socket operation is denied; downloaded Playwright Headless Shell archives could not be retrieved intact. Gradle bootstrap fails with `Network is unreachable`; no local Android build/lint evidence. Full browser and Android checks must run in the existing PR CI before promotion. CI results belong to their actual source SHA.
 
-**Next executable step:** run the [fresh signer setup](../signing/README.md#create-and-activate-once-on-your-computer) in a local checkout with Python, JDK and authenticated GitHub CLI. Privately back up the resulting recovery directory. Commit/push only the public certificate and release.json; the existing release workflow then builds, signs, verifies and publishes an eligible prerelease.
+**Existing release blocker:** `release.json:signerResetPending` is true. Fresh permanent signing was authorized on 17 November; production key activation/Actions secret configuration and signed publication are not completed. This layout change does not generate or rotate a key. Use signing/README.md for the existing activation procedure.
 
-**NOT TESTED:** physical Android migration/in-place updates within the new signer, TalkBack/native font/system-bar behavior, independent faculty content approval and production hosting. These continue to block stable promotion.
+**NOT TESTED:** physical Android layout, TalkBack, native font/system bars/lifecycle, migration/in-place update under the new signer, independent faculty content review and live hosting. Stable promotion remains blocked. Rollback is a focused revert to baseline; no data migration is introduced.
+
+Next step: complete the review branch CI, resolve observed failures, and keep signed publication gated until the existing permanent-key setup is activated.

@@ -5,15 +5,20 @@ const server=http.createServer((req,res)=>{try{const file=path.join(root,req.url
  await new Promise(r=>server.listen(8087,'127.0.0.1',r));browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}),args:['--no-sandbox']});
  const page=await browser.newPage({viewport:{width:393,height:800}}),errors=[];page.on('pageerror',e=>errors.push(e.message));const now=Date.UTC(2026,10,14,4),DAY=86400000;
  await page.addInitScript(now=>{Date.now=()=>now;},now);await page.goto('http://127.0.0.1:8087');await page.locator('[data-screen=subjects]').waitFor();await page.locator('nav [data-tab=progress]').click();
- await page.getByRole('heading',{name:'Board readiness',exact:true}).waitFor();await page.getByText('Tracking starts with your next answer.',{exact:false}).waitFor();
+ await page.getByRole('heading',{name:'Your results',exact:true}).waitFor();assert.equal(await page.locator('[data-panel=monitoring]').getAttribute('open'),null);await page.locator('[data-panel=monitoring] > summary').click();await page.getByText('Tracking starts with your next answer.',{exact:false}).waitFor();
  const math=page.locator('.readiness-subject').filter({has:page.getByRole('heading',{name:'Mathematics',exact:true})});
  await math.getByRole('button',{name:'New-item check',exact:true}).click();await page.locator('[data-choice="1"]').click();assert.equal(await page.locator('.feedback,details.explanation').count(),0);assert.equal(await page.evaluate(()=>Object.keys(state.stats).length),0);
  await page.reload();await page.getByRole('button',{name:'Continue · 1 / 20'}).click();assert.equal(await page.locator('[data-choice]:disabled').count(),4);
  for(let i=0;i<20;i++){if(await page.locator('[data-choice]:not(:disabled)').count())await page.locator(`[data-choice="${i<6?1:0}"]`).click();await page.locator('[data-action=next]').click();}
- assert.equal(await page.evaluate(()=>state.history[0].correct),14);await page.locator('nav [data-tab=progress]').click();await math.getByText('Support needed',{exact:true}).waitFor();assert.equal(await math.getByRole('button',{name:'Spaced recheck',exact:true}).isDisabled(),true);
+ assert.equal(await page.evaluate(()=>state.history[0].correct),14);
+ // A submitted check reveals exactly six mistakes first; the other fourteen remain optional.
+ await page.getByRole('heading',{name:'Review mistakes · 6',exact:true}).waitFor();assert.equal(await page.locator('#app > .review-item[open]').count(),6);assert.equal(await page.locator('.correct-review .review-item').count(),14);assert.equal(await page.locator('.correct-review').getAttribute('open'),null);assert.equal(await page.locator('details.explanation[open]').count(),0);
+ const review=await page.locator('#app > .review-item').first().innerText();assert.ok(review.includes('Your answer:')&&review.includes('Correct answer:'));
+ await page.locator('.correct-review > summary').click();await page.locator('.correct-review .review-item > summary').first().click();await page.locator('.correct-review .review-item details.explanation > summary').first().click();await page.locator('.correct-review .explanation[open]').waitFor();
+ await page.locator('nav [data-tab=progress]').click();await page.locator('[data-panel=monitoring] > summary').click();await math.getByText('Support needed',{exact:true}).waitFor();assert.equal(await math.getByRole('button',{name:'Spaced recheck',exact:true}).isDisabled(),true);
  for(const offset of [8,16]){
   await page.evaluate(t=>{Date.now=()=>t;},now+offset*DAY);await page.locator('nav [data-tab=progress]').click();await math.getByRole('button',{name:'Spaced recheck',exact:true}).click();
-  for(let i=0;i<20;i++){await page.locator('[data-choice="0"]').click();await page.locator('[data-action=next]').click();}await page.locator('nav [data-tab=progress]').click();
+  for(let i=0;i<20;i++){await page.locator('[data-choice="0"]').click();await page.locator('[data-action=next]').click();}await page.getByText('All answers correct in this session.',{exact:true}).waitFor();assert.equal(await page.locator('#app > .review-item').count(),0);await page.locator('nav [data-tab=progress]').click();
  }
  await math.getByText('Foundation target met',{exact:true}).waitFor();assert.equal(await page.evaluate(()=>Readiness.report(state,bank).competence.subjects[0].first.correct),14);
  await page.getByText('Facilitator report',{exact:true}).click();await page.locator('#report-alias').fill('Student A');

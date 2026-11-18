@@ -5,11 +5,11 @@ const server=http.createServer((req,res)=>{try{const file=path.join(root,req.url
  fs.mkdirSync('artifacts',{recursive:true});await new Promise(r=>server.listen(8091,'127.0.0.1',r));
  browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}),args:['--no-sandbox']});
  const page=await browser.newPage({viewport:{width:393,height:760}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto('http://127.0.0.1:8091');await page.locator('[data-screen=subjects]').waitFor();
+ await page.goto('http://127.0.0.1:8091');await page.locator('[data-screen=subjects]').waitFor();assert.equal(await page.locator('[data-panel=practice]').getAttribute('open'),null);assert.equal(await page.locator('#study-scope').isVisible(),false);await page.locator('[data-panel=practice] > summary').click();
  for(const label of ['Subjects','Results','Ranking','Account'])await page.locator('nav').getByRole('button',{name:label,exact:true}).waitFor();
  await page.locator('[data-source=IN]').check();await page.locator('[data-source=AI]').uncheck();
  await page.locator('.availability-note').waitFor();assert.equal(await page.locator('[data-subject]:not(:disabled)').count(),0);
- await page.locator('[data-source=AI]').check();await page.locator('[data-source=IN]').uncheck();assert.equal(await page.locator('.availability-note').count(),0);
+ await page.locator('[data-source=AI]').check();await page.locator('[data-source=IN]').uncheck();assert.equal(await page.locator('.availability-note').count(),0);await page.locator('[data-panel=practice] > summary').click();
  for(const theme of ['light','dark']){
   if(await page.locator('html').getAttribute('data-theme')!==theme)await page.locator('#theme-toggle').click();
   for(const [width,height]of [[320,480],[393,760],[720,480]]){
@@ -29,7 +29,7 @@ const server=http.createServer((req,res)=>{try{const file=path.join(root,req.url
  await page.locator('[data-action=next]').click();assert.equal(await page.evaluate(()=>document.activeElement.className),'question');
  await page.locator('nav [data-tab=home]').click();await page.locator('[data-subject=aero]').click();await page.locator('#modal').waitFor();
  assert.equal(await page.locator('#modal').getAttribute('aria-labelledby'),'modal-title');await page.locator('#cancel').click();
- await page.locator('nav [data-tab=progress]').click();
+ await page.locator('nav [data-tab=progress]').click();await page.locator('[data-panel=monitoring] > summary').click();
  const math=page.locator('.readiness-subject').filter({has:page.getByRole('heading',{name:'Mathematics',exact:true})});
  await math.getByRole('button',{name:'New-item check',exact:true}).click();await page.locator('#confirm').click();
  await page.locator('[data-choice="1"]').click();

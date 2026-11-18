@@ -8,7 +8,7 @@ Minimal Android practice for Philippine Aeronautical Engineers Licensure Examina
 
 ## Commitment · Competence · Readiness
 
-Open **Results** to track recorded participation, first-attempt and diagnostic evidence, and subject support priorities. New-item diagnostics and seven-day spaced rechecks reveal results after submission. Readiness stays unestablished while PRC coverage and validation are incomplete. Export a voluntary alias-based report for the private faculty dashboard's **Board readiness** tab. Goals, first observations and initial diagnostics are included in progress backups; full Sync now backs up this journal and unfinished checks. See [workflow and interpretation rules](docs/BOARD_READINESS.md).
+Open **Results → Study checks & monitoring** to track recorded participation, first-attempt and diagnostic evidence, and subject support priorities. New-item diagnostics and seven-day spaced rechecks reveal results after submission. Readiness stays unestablished while PRC coverage and validation are incomplete. Export a voluntary alias-based report for the private faculty dashboard's **Board readiness** tab. Goals, first observations and initial diagnostics are included in progress backups; full Sync now backs up this journal and unfinished checks. See [workflow and interpretation rules](docs/BOARD_READINESS.md).
 
 ## Sync and feedback practice
 
@@ -19,6 +19,8 @@ Aerodynamics includes 20 original AI-labeled, source/formula/arithmetic self-che
 See [online setup](docs/ONLINE_SYNC.md) for the persistent API plus Streamlit dashboard, including a single-host runner and Dockerfile. Streamlit Community Cloud alone is still not the durable sync database. No production host has been provisioned.
 
 ## Appearance and subject weights
+
+Subjects and unfinished practice lead the study screen. **Practice options** holds the saved 20/50-question set, AI/IN sources and selection mode. Results opens with scores and recent sessions; optional study monitoring stays collapsed on launch. Session review shows missed answers first, with correct answers in a separate expandable section.
 
 Subject cards use clear icons, visible weight badges and consistent spacing. Bottom
 navigation keeps text labels with icons. Answers use larger touch surfaces and show

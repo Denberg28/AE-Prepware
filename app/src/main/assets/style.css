@@ -1,4 +1,5 @@
-/* Shared design tokens keep every surface and state legible in both themes. */
+/* UI — Theme colors
+   Edit these shared tokens to tune colors; check text contrast in both themes. */
 :root {
   color-scheme: light;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -149,8 +150,10 @@ a { color: var(--green); }
 .source-picker input { min-height: 0; min-width: 0; width: 20px; height: 20px; margin: 0; flex: 0 0 20px; accent-color: var(--green); }
 .session-info { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
 .source-badge { font-size: 12px; border: 1px solid var(--control); border-radius: 5px; padding: 2px 6px; color: var(--accent); background: var(--accent-soft); font-weight: 700; }
-.subject-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 18px 0 22px; }
-.subject-tab { display: flex; flex-direction: column; gap: 12px; padding: 16px; min-width: 0; min-height: 152px; text-align: left; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); color: var(--ink); line-height: 1.4; box-shadow: 0 2px 6px var(--shadow); }
+/* UI — Subject spacing
+   Gap/padding are pixels. Compact cards keep subjects prominent on phone screens. */
+.subject-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 14px 0 22px; }
+.subject-tab { display: flex; flex-direction: column; gap: 8px; padding: 12px; min-width: 0; min-height: 124px; text-align: left; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); color: var(--ink); line-height: 1.4; box-shadow: 0 2px 6px var(--shadow); }
 .subject-tab strong { font-size: .9375rem; display: block; font-weight: 650; overflow-wrap: anywhere; }
 .subject-tab small { font-size: .75rem; color: var(--muted); display: block; margin: 0; }
 .subject-tab:hover, .subject-tab:focus-visible { border-color: var(--green); background: var(--hover); }
@@ -258,7 +261,7 @@ nav svg, .subject-symbol svg {
 }
 nav svg { width: 21px; height: 21px; }
 .subject-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.subject-symbol { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 11px; background: var(--accent-soft); color: var(--accent); }
+.subject-symbol { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; background: var(--accent-soft); color: var(--accent); }
 .subject-tab:disabled .subject-symbol { background: var(--soft); color: var(--disabled-ink); }
 .availability-note { color: var(--warning-ink); background: var(--warning-bg); padding: 12px 14px; border-radius: 12px; font-size: .875rem; }
 .quiz-toolbar { font-variant-numeric: tabular-nums; }
@@ -278,7 +281,7 @@ button, .btn { -webkit-tap-highlight-color: transparent; }
 .content::-webkit-scrollbar { width: 6px; }
 .content::-webkit-scrollbar-thumb { background: var(--control); border-radius: 8px; }
 @media (max-width: 350px) {
-  .subject-tab { min-height: 144px; }
+  .subject-tab { min-height: 128px; }
   .subject-tabs { gap: 10px; }
   header { gap: 4px; }
   .settings-button { padding-inline: 6px; }
@@ -291,3 +294,13 @@ button, .btn { -webkit-tap-highlight-color: transparent; }
 @media (prefers-reduced-motion: reduce) {
   .btn:active:not(:disabled), .choice:active:not(:disabled), .subject-tab:active:not(:disabled) { transform: none; }
 }
+
+/* UI — Optional review panels
+   Summary padding controls the touch target; body padding separates optional setup from subjects. */
+.practice-options, .monitoring-panel { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.practice-options > summary, .monitoring-panel > summary { padding: 12px 14px; font-size: .875rem; font-weight: 600; }
+.practice-options > summary .session-info { display: block; margin-left: 16px; font-weight: 400; }
+.practice-controls { padding: 0 14px 2px; }
+.practice-controls .source-picker { margin-bottom: 12px; }
+.monitoring-panel > [data-readiness] { padding: 0 12px 12px; }
+.correct-review { border-top: 1px solid var(--line); }

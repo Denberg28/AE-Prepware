@@ -8,7 +8,7 @@ async function contrast(page,selectors){const pairs=await page.evaluate(selector
  fs.mkdirSync('artifacts',{recursive:true});await new Promise(r=>server.listen(8085,'127.0.0.1',r));browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}),args:['--no-sandbox']});
  const page=await browser.newPage({viewport:{width:393,height:760}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.addInitScript(()=>{window.nativeThemes=[];window.AndroidFiles={setTheme:value=>window.nativeThemes.push(value)};});
- await page.goto('http://127.0.0.1:8085');await page.locator('[data-screen=subjects]').waitFor();assert.equal(await page.locator('html').getAttribute('data-theme'),'light');
+ await page.goto('http://127.0.0.1:8085');await page.locator('[data-screen=subjects]').waitFor();await page.locator('[data-panel=practice] > summary').click();assert.equal(await page.locator('html').getAttribute('data-theme'),'light');
  for(const [id,weight]of Object.entries(weights)){const card=page.locator(`[data-subject="${id}"]`);assert.equal(await card.locator('.subject-weight').innerText(),weight+'%');assert.equal(await card.locator('.subject-weight').getAttribute('aria-label'),'PRC subject weight '+weight+'%');}
  await page.locator('[data-source=AI]').uncheck();await contrast(page,['.subject-tab','.subject-weight']);await page.locator('[data-source=AI]').check();
  const before=await page.evaluate(()=>JSON.stringify(state));await contrast(page,['.subject-tab','.subject-weight','nav button','.settings-button']);await page.screenshot({path:'artifacts/10-theme-light.png'});

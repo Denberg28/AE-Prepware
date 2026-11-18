@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased — 18 November 2026
+
+- Simplified review flow: compact subject cards, Continue first, optional practice setup and monitoring, scores/history first in Results, and missed answers first after submission.
+- Kept offline progress, 20/50-question sets, AI/IN quotas, diagnostic answer withholding, explanations and sync compatible.
+
 ## 0.8.3-rc.1 — 2026-11-17 (source update)
 
 - User authorizes retiring the previous signer and starting a fresh permanent identity. Add local key/recovery setup and encrypted Actions-secret activation, integration checks and pending-reset guards. The new production key and signed release remain pending local activation; backup/uninstall/reinstall is required across identities.

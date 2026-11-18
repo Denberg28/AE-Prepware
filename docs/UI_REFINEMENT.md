@@ -35,3 +35,13 @@ Existing publication guards must remain intact; an unsigned development artifact
 
 Rollback: retain 0.8.2-rc.1 and revert this focused source commit before packaging if necessary.
 No state migration was introduced. Never uninstall an installed app without exporting progress and the matching private bank.
+
+## 18 November 2026 — Review-focused simplification
+
+Baseline: `92e9605` on main. Source version remains the unpublished 0.8.3-rc.1; no signed package is produced by this source change.
+
+Subjects now lead with Continue when a session exists. Practice options groups scope, sources and selection behind one native disclosure, collapsed on launch. The chosen question count/source remains visible. Compact subject cards retain names, PRC weights and bank counts. Missing pools direct the user to Practice options, including when both sources are deselected.
+
+Results starts with saved session count, practice accuracy and history. Study checks & monitoring is optional and collapsed on launch. Submitted sessions show expanded mistakes first and place correct answers in a separate disclosure. Explanations remain optional. Diagnostic answers are still withheld until submission; no content, scoring, account, sync or storage format changes.
+
+Acceptance: options stay open when changed; choices persist through re-render/reload; resume and source quotas remain exact. A 14/20 diagnostic shows six expanded mistakes and fourteen optional correct answers; a 20/20 result shows the all-correct state. Existing browser journeys exercise explicit disclosure opening plus themes, focus, small widths and enlarged text. See the current checkpoint for observed verification results. Physical phone validation remains pending.
