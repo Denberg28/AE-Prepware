@@ -14,7 +14,7 @@ The authorized replacement permanent key was generated, privately backed up and 
 
 ## Build and publication status
 
-Version: 0.8.3-rc.1; versionCode: 12; package: ph.diversify.aeprepware. The review-flow source at 1501b5eb11c9b020f631b0434613254141cd840e passed all required source, browser/service, dependency-audit, Android assembly and lint checks in workflow 44298938071. PR #5 is merged. Signing-path checks run again on the activated-source commit.
+Version: 0.8.3-rc.1; versionCode: 12; package: ph.diversify.aeprepware. The review-flow source at 1501b5eb11c9b020f631b0434613254141cd840e passed all required source, browser/service, dependency-audit, Android assembly and lint checks in workflow 44298938071. PR #5 is merged. The activated-source checkout 90017bf7cc8ed485396e609655f047e05485b3d0 passed all gates again in workflow 44332121392 (62 Python tests, 41 Node tests, 11 browser/service workflows, audits and Android assembly/lint). The candidate is signed from that exact reviewed checkout and locally passes packaging verification; CI independently rebuilds/checks it before publication.
 
 The local signing route does not require GitHub login or a repository-secret change. The prepared APK must pass scripts/package_candidate.py --verify, including the pinned certificate and exact rebuilt payload, before the existing workflow publishes it. Published candidates include their APK, SHA-256 checksum, public certificate and verification metadata. Private signing material stays outside git and release assets.
 
