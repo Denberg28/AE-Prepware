@@ -20,11 +20,10 @@ The default activation command below remains available to configure that same ke
 
 Requirements: Python 3.10+, JDK 17+ (`keytool` on PATH), Git and authenticated GitHub CLI with permission to set repository Actions secrets (`gh auth login`). Use a current clean checkout of `Denberg28/AE-Prepware` on main. The Android SDK is unnecessary for key setup; the existing GitHub workflow builds the app.
 
-Run in PowerShell from the checkout root:
+Place the retained recovery ZIP in a private directory, then run in PowerShell from the checkout root:
 
 ```powershell
 git pull --ff-only
-python scripts/fresh_signer.py create "$env:USERPROFILE\AE-Prepware-Fresh-Signer"
 python scripts/fresh_signer.py activate "$env:USERPROFILE\AE-Prepware-Fresh-Signer\AE-Prepware-Fresh-Signing-Recovery.zip"
 git add release.json signing/AE-Prepware-release-certificate.pem
 git commit -m "Activate fresh permanent release signer"
